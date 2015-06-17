@@ -1,0 +1,197 @@
+
+
+#mBodyContainer {
+
+	position:absolute;
+	top:300px;
+	left:0;
+	height:100%;
+	width:100%;
+	z-index:5;
+}
+
+.mToolbar {
+	
+	position:fixed;
+	width:100%;
+	height:300px;
+	background-color:#333;
+	color:white;
+	z-index:10;
+
+}
+
+.mNavUpper {
+	
+	position:relative;
+	height:50%;
+	width:100%;
+}
+
+.mNavLower {
+	
+	position:relative;
+	height:50%;
+	width:100%;
+}
+
+.mTitle {
+	position:relative;
+	@include vertical-align;
+	display:block;
+	width:700px;
+	height:auto;
+	margin:auto;
+
+}
+
+.mNavInner {
+	position:relative;
+	@include golden-ratio;
+	margin:auto;
+}
+
+.mNavLower div {
+	position:relative;
+	margin:0 50px;
+	font-size:50px;
+}
+
+.mSpace {
+	position:relative;
+	background-color:transparent;
+	overflow:hidden;
+	height:800px;
+	width:100%;
+}
+
+.mSep {
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	background-color:white;
+	/*border:1px solid black;*/
+}
+
+#mSep1 {
+	
+	height:2200px;
+}
+
+#mSep2 {
+	
+	height:800px;
+}
+
+#mSep3 {
+	
+	height:2000px;
+}
+
+.mSep2 {
+	position:relative;
+	width:100%;
+	height:300px;
+	background-color:white;
+	/*border:1px solid black;*/
+}
+
+.mIntro {
+	position:relative;
+	@include vertical-align;
+	width:100%;
+	height:30px;
+}
+
+.mIntroInner {
+	position:relative;
+	@include vertical-align;
+	width:100%;
+	text-align:center;
+	font-size:40px;
+
+}
+
+.mBack {
+	position:absolute;
+	width:200%;
+	height:auto;
+	right:-100px;
+	bottom:-300px;
+}
+
+.mIconblock {
+	position:relative;
+	width:70%;
+	height:50%;
+	/*border:1px solid white;*/
+}
+
+.mApptitle {
+	position:absolute;
+	top:0;
+	width:40%;
+	text-align:center;
+	font-weight:bold;
+	font-size:50px;
+	color:white;
+}
+
+.mIcon {
+	position:absolute;
+	width:200px;
+	height:auto;
+	bottom:0;
+	cursor:pointer;
+}
+
+.mBlockInst {
+	
+	position:absolute;
+	bottom:-100px;
+	text-align:center;
+	color:white;
+	font-size:40px;
+}
+
+.mDescription {
+	position:relative;
+	top:50px;
+	width:80%;
+	font-size:40px;
+}
+
+
+#mContactContainer {
+	
+	position:absolute;
+	top:5%;
+	width:80%;
+	height:2000px;
+
+}
+
+.mBioImg {
+	position:relative;
+	@include horizontal-align;
+	margin-bottom:40px;
+	top:0;
+	width:60%;
+	height:auto;
+}
+
+.mBioContainer {
+	
+	position:relative;
+	width:100%;
+}
+
+.mBioInner {
+	
+	position:relative;
+	width:100%;
+	font-size:40px;
+}
+
+
+

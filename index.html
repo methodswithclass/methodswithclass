@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+
+  	<link rel="stylesheet" href="css/museo300.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="css/cp-styles.css">
+    <link rel="stylesheet" href="css/mStyles.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+
+  </head>
+  <body ng-app="methodswithclass">
+
+  	<div class="toolbar">
+
+  	</div>
+
+  	<div id="bodyContainer">
+
+  		<div id="projects" ng-repeat="app in projects">
+  			<project-info info="app"></project-info>
+  		</div>
+
+  		<div id="contacts">
+
+  		</div>
+
+  	</div>
+
+  	
+
+  </body>
+</html>
