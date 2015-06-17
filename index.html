@@ -16,9 +16,11 @@
 
   	</div>
 
-  	<div id="bodyContainer">
+  	<div id="bodyContainer" ng-controller="MainController">
 
-  		<div id="projects" ng-repeat="app in projects">
+
+
+  		<div id="projects" ng-repeat="project in projects">
   			<project-info info="app"></project-info>
   		</div>
 
