@@ -1,7 +1,11 @@
 
 app.directive('project', ['global', function (global) {
 
-	var renderHtml = global.renderHtml;
+	var renderHtml = function () {
+
+		return global.renderHtml;
+
+	}
 
 	return {
 		restrict:'E',
