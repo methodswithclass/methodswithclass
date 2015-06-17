@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$animate', function (global, $animate) {
+app.directive('project', ['global', '$animate', function (global) {
 
 	return {
 		restrict:'E',
@@ -17,12 +17,12 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 				var element = $("#sep" + index);
 
 				if (!open) {
-					$animate.animate(element, {'height':'100px'}, {'height':maxSep});
+					element.animate({height:maxSep}, openSpeed);
 
 					open = true;
 				}
 				else {
-					$animate.animate(element, {'height':maxSep}, {'height':'100px'});
+					element.animate({height:100});
 
 					open = false;
 				}
