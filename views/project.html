@@ -1,11 +1,11 @@
-<div class="elem space" id="space"{{$index}}>
+<div class="elem space" ng-attr-id="{{'space' + $scope.index}}">
 
     <img class="back" id="img{{$index}}" ng-src= "{{info.back}}" />
 
     <div class="iconblock center">
         <div class="apptitle hcenter"> {{info.title}}</div>
         
-        <img class="icon hcenter" ng-click="clickImage(info.maxSep)" id="icon"{{$index}} ng-src= "{{info.icon}}" />
+        <img class="icon hcenter" ng-click="clickImage(info.maxSep)" ng-attr-id="{{'icon' + $scope.index}}" ng-src= "{{info.icon}}" />
 
         <div class="blockInst hcenter">
             click the icon to learn more about the project
@@ -14,7 +14,7 @@
 
 </div>
 
-<div class="elem sep" id="sep"{{$index}}>
+<div class="elem sep" ng-attr-id="{{'sep' + $scope.index}}">
 
     <div class="description hcenter" ng-bind-html="renderHtml(info.description)"></div>
 
