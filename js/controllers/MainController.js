@@ -38,7 +38,7 @@ app.controller('MainController', ['$scope', 'parallax', function ($scope, parall
 
 			var scroll = function () {
 
-				parallax.scroll($scope.projects);
+				parallax.scroll(projects);
 			}
 
 			parallax.scroll(scroll);
