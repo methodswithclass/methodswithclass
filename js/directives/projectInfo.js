@@ -1,11 +1,11 @@
-app.directive("projectInfo", function () {
+app.directive('projectInfo', function () {
 	return {
 
 		restrict:'E',
 		scope:{
 			info:'='
 		},
-		templateUrl:'/views/projects.html'
+		templateUrl:'views/project.html'
 	};
 
 });
