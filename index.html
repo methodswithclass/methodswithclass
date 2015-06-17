@@ -15,23 +15,25 @@
   </head>
   <body ng-app="methodswithclass">
 
-  	<div class="toolbar">
+  	<div class="main" ng-controller="MainController">
 
-  	</div>
+	  	<div class="toolbar">
 
-  	<div id="bodyContainer" ng-controller="MainController">
+	  	</div>
 
+	  	<div id="bodyContainer">
 
+	  		<div id="projects" ng-repeat="project in projects">
+	  			<project-info info="project"></project-info>
+	  		</div>
 
-  		<div id="projects" ng-repeat="project in projects">
-  			<project-info info="project"></project-info>
-  		</div>
+	  		<div id="contacts">
 
-  		<div id="contacts">
+	  		</div>
 
-  		</div>
+	  	</div>
 
-  	</div>
+    </div>
 
   	<script src="js/app.js"></script>
 
