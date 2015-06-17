@@ -7,12 +7,12 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope, element) {
+		link:function ($scope) {
 			$scope.renderHtml = global.renderHtml;
 
 			var open = false;
 
-			var clickImage = function (maxSep) {
+			var clickImage = function (maxSep, element) {
 
 				if (!open) {
 					$animate.animate(element, {height:100}, {height:maxSep});
