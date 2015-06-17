@@ -1,5 +1,7 @@
 app.controller('MainController', ['$scope', function ($scope) {
 
+	$scope.hello = "hello World";
+
 	$scope.projects = [
 
 		{
