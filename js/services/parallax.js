@@ -68,21 +68,17 @@ app.factory('parallax', function () {
 
 		for (i = 1; i <= totalSections; i++) {
 
-			space = document.getElementById("space" + i);
-			image = document.getElementById("img" + i);
+			space = $("#space" + i);
+			image = $("#img" + i);
 		
 			if (whatDevice() == desktop) {
 
-				var windowRect = window.clientBoundingRect();
-				var imageRect = image.clientBoundingRect();
-				var spaceRect = space.clientBoundingRect();
-
-				imgHeight = image.bottom - image.top;
-				imgOffset = image.top;
-				elementHeight = space.bottom - space.top;
-				elementOffset = space.top;
-				scrollHeight = windowRect.bottom - windowRect.top;
-				scrollWidth = windowRect.right - windowRect.left;
+				imgHeight = image.height();
+				imgOffset = image.offset().top;
+				elementHeight = space.height();
+				elementOffset = space.offset().top;
+				scrollHeight = $(window).height();
+				scrollWidth = $(window).width();
 
 				scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
 
@@ -102,27 +98,6 @@ app.factory('parallax', function () {
 
 		}
 
-	}
-
-	var clickImage = function () {
-
-		console.log("clicked " + j)
-
-		if (!isOpen[j]) {
-			$("#sep" + j).animate({height:maxSep}, openSpeed, function () {
-				scroll();
-				$scrollElement.scrollTo("#sep" + j, openSpeed); 
-			});
-
-			isOpen[j] = true;
-		}
-		else {
-			$("#sep" + j).animate({height:defaultSep}, openSpeed, function () {
-				scroll();
-			});
-
-			isOpen[j] = false;
-		}
 	}
 
 
@@ -147,8 +122,7 @@ app.factory('parallax', function () {
 	return {
 		whatDevice:whatDevice,
 		scroll:scroll,
-		bindClickEvent:bindClickEvent,
-
+		bindClickEvent:bindClickEvent
 
 
 	}
