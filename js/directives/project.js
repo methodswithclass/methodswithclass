@@ -25,6 +25,7 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 					open = false;
 				}
 			}
+		}
 	};
 
 }]);
