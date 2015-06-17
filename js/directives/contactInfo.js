@@ -3,9 +3,9 @@ app.directive("contactInfo", function () {
 
 		restrict:'E',
 		scope:{
-			pageInfo:'='
+			contact:'='
 		},
-		templateUrl:'views/projects.html'
+		templateUrl:'/views/contacts.html'
 	};
 
 });
