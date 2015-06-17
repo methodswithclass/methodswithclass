@@ -15,15 +15,17 @@ app.directive('project', ['global', '$animate', function (global) {
 
 			$scope.clickImage = function (maxSep, index) {
 
-				var element = $("#sep" + index);
+				var $element = $("#sep" + index);
+
+				console.log($element);
 
 				if (!open) {
-					element.animate({height:maxSep}, openSpeed);
+					$element.animate({height:maxSep}, openSpeed);
 
 					open = true;
 				}
 				else {
-					element.animate({height:100});
+					$element.animate({height:100}, openSpeed);
 
 					open = false;
 				}
