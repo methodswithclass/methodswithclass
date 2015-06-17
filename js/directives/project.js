@@ -7,7 +7,7 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope, document) {
+		link:function ($scope) {
 			$scope.renderHtml = global.renderHtml;
 
 			var open = false;
@@ -17,12 +17,12 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 				var element = document.getElementById("sep" + index);
 
 				if (!open) {
-					$animate.animate(element, {height:100}, {height:maxSep});
+					$animate.animate(element, {'height':'100px'}, {'height':maxSep});
 
 					open = true;
 				}
 				else {
-					$animate.animate(element, {height:100}, {height:maxSep});
+					$animate.animate(element, {'height':maxSep}, {'height':'100px'});
 
 					open = false;
 				}
