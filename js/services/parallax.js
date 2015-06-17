@@ -1,6 +1,6 @@
 
 
-app.factory('parallax', ['$scope', function ($scope) {
+app.factory('parallax', function () {
 
 
 	var heightFactor = 2.2;
@@ -60,9 +60,9 @@ app.factory('parallax', ['$scope', function ($scope) {
 		return scrollFactor;
 	}
 
-	var scroll = function () {
+	var scroll = function (projects) {
 
-		for (project in $scope.projects) {
+		for (project in projects) {
 
 			space = $("#space" + project.id);
 			image = $("#img" + project.id);
@@ -101,4 +101,4 @@ app.factory('parallax', ['$scope', function ($scope) {
 		scroll:scroll
 	}
 
-}]);
+});
