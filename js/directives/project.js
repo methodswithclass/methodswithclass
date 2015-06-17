@@ -17,11 +17,10 @@ app.directive('project', ['global', function (global) {
 
 				var $element = $("#sep" + id);
 
-				console.log(maxSep);
-				console.log($element.height());
+				var factor = $(window).height()/$(window).width();
 
 				if (!open) {
-					$element.animate({height:maxSep}, openSpeed, function () {
+					$element.animate({height:factor*maxSep}, openSpeed, function () {
 
 						console.log("done");
 					});
