@@ -1,6 +1,10 @@
-app.controller('MainController', ['$scope', function ($scope) {
+app.controller('MainController', ['$scope', '$sce', function ($scope) {
 
 	$scope.hello = "hello World";
+
+    $scope.renderHtml = function (htmlCode) {
+        return $sce.trustAsHtml(htmlCode);
+    };
 
 	$scope.projects = [
 
