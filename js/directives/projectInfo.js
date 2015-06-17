@@ -3,7 +3,7 @@ app.directive('projectInfo', function () {
 
 		restrict:'E',
 		scope:{
-			info:'='
+			projectInfo:'=info'
 		},
 		templateUrl:'views/project.html'
 	};
