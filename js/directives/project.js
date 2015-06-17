@@ -4,8 +4,7 @@ app.directive('project', ['global', '$animate', function (global) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'=',
-			index:'@'
+			info:'='
 		},
 		templateUrl:'views/project.html',
 		link:function ($scope, element, attrs) {
@@ -18,7 +17,7 @@ app.directive('project', ['global', '$animate', function (global) {
 
 				var $element = $("#sep" + attrs.index);
 
-				console.log($element);
+				console.log(maxSep);
 
 				if (!open) {
 					$element.animate({height:maxSep}, openSpeed);
