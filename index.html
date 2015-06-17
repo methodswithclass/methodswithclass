@@ -20,7 +20,7 @@
 	  	<div id="bodyContainer">
 
 	  		<div id="projects">
-	  			
+
 	  			<div class="project" ng-repeat="project in projects"> 
 
 	  				<div class="elem space">
@@ -41,11 +41,7 @@
 
 				<div class="elem sep">
 
-					<div class="description hcenter">
-
-						{{project.description}}
-
-					</div>
+					<div class="description hcenter" ng-bind-html="renderHtml({{project.description}})"></div>
 
 				</div>
 
