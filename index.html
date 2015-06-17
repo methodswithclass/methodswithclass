@@ -17,21 +17,48 @@
 
   	<div class="main" ng-controller="MainController">
 
-	  	<div class="toolbar">
-	  		{{hello}}
-	  	</div>
+	  	<div id="bodyContainer">
 
-	  	<!-- <div id="bodyContainer">
+	  		<div id="projects">
+	  			
+	  			<div class="project" ng-repeat="project in projects"> 
 
-	  		<div id="projects" ng-repeat="project in projects">
-	  			<project-info info="project"></project-info>
+	  				<div class="elem space">
+
+					<img class="back" ng-src= "{{project.back}}" />
+
+					<div class="iconblock center">
+				        <div class="apptitle hcenter"> {{project.title}}</div>
+				        
+				        <img class="icon hcenter" ng-src= "{{project.icon}}" />
+
+				        <div class="blockInst hcenter">
+				        	click the icon to learn more about the project
+				        </div>
+				    </div>
+
+				</div>
+
+				<div class="elem sep">
+
+					<div class="description hcenter">
+
+						{{project.description}}
+
+					</div>
+
+				</div>
+
+	  			</div>
+
+
 	  		</div>
 
 	  		<div id="contacts">
 
 	  		</div>
 
-	  	</div> -->
+	  	</div>
 
     </div>
 
