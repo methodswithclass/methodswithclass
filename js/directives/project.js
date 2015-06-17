@@ -7,7 +7,7 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope) {
+		link:function ($scope, document) {
 			$scope.renderHtml = global.renderHtml;
 
 			var open = false;
