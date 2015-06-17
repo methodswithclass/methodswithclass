@@ -5,7 +5,7 @@ app.directive("projectInfo", function () {
 		scope:{
 			project:'='
 		},
-		templateUrl:'views/projects.html'
+		templateUrl:'/views/projects.html'
 	};
 
 });
