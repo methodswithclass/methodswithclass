@@ -1,10 +1,4 @@
-app.controller('MainController', ['$scope', '$sce', '$http', function ($scope, $sce, $http) {
-
-	$scope.hello = "hello World";
-
-    $scope.renderHtml = function (htmlCode) {
-        return $sce.trustAsHtml(htmlCode);
-    };
+app.controller('MainController', ['$scope', function ($scope) {
 
 	$scope.projects = [
 
@@ -29,8 +23,6 @@ app.controller('MainController', ['$scope', '$sce', '$http', function ($scope, $
 			description:"<div class='paragraph'><div class='tabp'>Gather Up lets you sort your contacts into organized groups that fit your life or the painfully honest groups that we all put our friends in anyway, whichever you prefer.</div><div class='tabp'>You can either enter contacts manually or port them from your device's address book.</div></div><div class='paragraph'>    <div class='tabp'>    The app is custom built so that data management and user interface are well under control.    </div>        <div class='tabp'>    There are a set of classes that handle only the data of the app, including Group, Person, Number, Email, etc. In addition, a delgate class oversees all the major group operations.    </div>        <div class='tabp'>    These are independent of the UI classes which can be switched out for other UIViewControllers to provide a variety of user interfaces.    </div>    </div><div class='paragraph'><div class='tabp'>    We developed a custom built formatting class that formats phone numbers while editing. The formatter allows for mid-number digit additions and deletions.    </div>        <div class='tabp'>    Why is this so important? Well, if the number were formatted with a regular expression only, with no other processing, then if a digit were added to or removed from the middle, the cursor position would be lost upon reformat.     </div>        <div class='tabp'>    However, this implementation takes this into account, so that mid-number editing and reformatting is possible and smooth.    </div></div>"
 
 		}];
-
-
 
 		$scope.contact = {
 

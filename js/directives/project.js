@@ -1,9 +1,7 @@
 
-console.log(app);
-
 app.directive('project', function () {
-	return {
 
+	return {
 		restrict:'E',
 		scope:{
 			info:'='
