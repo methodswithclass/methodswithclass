@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$animate', function (global) {
+app.directive('project', ['global', function (global) {
 
 	return {
 		restrict:'E',
@@ -13,9 +13,9 @@ app.directive('project', ['global', '$animate', function (global) {
 			var openSpeed = 300;
 			var open = false;
 
-			$scope.clickImage = function (maxSep) {
+			$scope.clickImage = function (maxSep, id) {
 
-				var $element = $("#sep" + attrs.index);
+				var $element = $("#sep" + id);
 
 				console.log(maxSep);
 				console.log($element.height());

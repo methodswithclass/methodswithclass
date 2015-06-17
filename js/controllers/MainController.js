@@ -3,6 +3,7 @@ app.controller('MainController', ['$scope', function ($scope) {
 	$scope.projects = [
 
 		{
+			id:'nuplae',
 			title:'nuplae',
 			icon:'/img/box_icon.png',
 			back:'/img/javascript_wallpaper.png',
@@ -11,6 +12,7 @@ app.controller('MainController', ['$scope', function ($scope) {
 
 		},
 		{
+			id:'call',
 			title:'call log',
 			icon:'/img/calllog.png',
 			back:'/img/android_wallpaper.png',
@@ -18,6 +20,7 @@ app.controller('MainController', ['$scope', function ($scope) {
 			maxSep:300
 		},
 		{
+			id:'gather',
 			title:'gather up',
 			icon:'/img/contacts.png',
 			back:'/img/apple_wallpaper.png',
