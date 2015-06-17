@@ -3,9 +3,9 @@ app.controller('MainController', [$scope, function ($scope) {
 	$scope.projects = [
 
 		{
-			title:'nuplae'
-			icon:'/img/box_icon.png'
-			back:'/img/javascript_wallpaper.png'
+			title:'nuplae',
+			icon:'/img/box_icon.png',
+			back:'/img/javascript_wallpaper.png',
 			description:"<div class='paragraph'>
 	
 						    <div class='tabp'>
@@ -55,9 +55,9 @@ app.controller('MainController', [$scope, function ($scope) {
 
 		},
 		{
-			title:'call log'
-			icon:'/img/calllog.png'
-			back:'/img/android_wallpaper.png'
+			title:'call log',
+			icon:'/img/calllog.png',
+			back:'/img/android_wallpaper.png',
 			description:"<div class='paragraph'>
 	
 						    <div class='tabp'>
@@ -72,9 +72,9 @@ app.controller('MainController', [$scope, function ($scope) {
 
 		},
 		{
-			title:'gather up'
-			icon:'/img/contacts.png'
-			back:'/img/apple_wallpaper.png'
+			title:'gather up',
+			icon:'/img/contacts.png',
+			back:'/img/apple_wallpaper.png',
 			description:"<div class='paragraph'>
 
 							<div class='tabp'>
