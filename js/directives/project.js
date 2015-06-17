@@ -12,7 +12,7 @@ app.directive('project', ['global', '$animate', function (global) {
 
 			var openSpeed = 300;
 			var open = false;
-
+			
 			$scope.clickImage = function (maxSep) {
 
 				var $element = $("#sep" + attrs.index);
