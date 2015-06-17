@@ -12,7 +12,7 @@ app.directive('project', ['global', '$animate', function (global, $animate) {
 
 			var open = false;
 
-			var clickImage = function (maxSep, index) {
+			$scope.clickImage = function (maxSep, index) {
 
 				var element = document.getElementById("sep" + index);
 
