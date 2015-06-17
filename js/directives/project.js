@@ -1,9 +1,9 @@
-app.directive('projectInfo', function () {
+app.directive('project', function () {
 	return {
 
 		restrict:'E',
 		scope:{
-			projectInfo:'=info'
+			info:'='
 		},
 		templateUrl:'views/project.html'
 	};
