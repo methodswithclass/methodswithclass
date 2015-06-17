@@ -7,6 +7,6 @@ app.directive('functions', ['$sce', function ($sce) {
     };
 
     return {
-    	renderHTML:renderHTML;
+    	renderHTML:renderHTML
     };
 }]);
