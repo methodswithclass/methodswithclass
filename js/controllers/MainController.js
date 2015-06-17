@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', function ($scope) {
+app.controller('MainController', 'parallax', ['$scope', function ($scope) {
 
 	$scope.projects = [
 

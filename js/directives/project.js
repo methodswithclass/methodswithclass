@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', function (global) {
+app.directive('project', ['global', 'parallax', function (global, parallax) {
 
 	return {
 		restrict:'E',
@@ -7,11 +7,21 @@ app.directive('project', ['global', function (global) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope, element, attrs) {
-			$scope.renderHtml = global.renderHtml;
+		link:function ($scope) {
 
 			var openSpeed = 300;
 			var open = false;
+
+			$scope.setupScroll = function ($element) {
+
+				parallax.scroll();
+
+				$element.scroll(parallax.scroll);
+
+				$(window).resize(parallax.scroll);
+			}
+
+			$scope.renderHtml = global.renderHtml;
 
 			$scope.clickImage = function (maxSep, id) {
 

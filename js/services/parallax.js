@@ -1,6 +1,8 @@
-app.factory('parallax', function () {
 
-	var totalSections = 3;
+
+app.factory('parallax', ['$scope', function ($scope) {
+
+
 	var heightFactor = 2.2;
 	var defaultSep = 100;
 	var minBottom = -215;
@@ -25,10 +27,6 @@ app.factory('parallax', function () {
 
 	var space;
 	var image;
-
-	var i;
-
-	var isOpen = [false, false, false];
 
 	var whatDevice = function () {
 
@@ -64,10 +62,10 @@ app.factory('parallax', function () {
 
 	var scroll = function () {
 
-		for (i = 1; i <= totalSections; i++) {
+		for (project in $scope.projects) {
 
-			space = $("#space" + i);
-			image = $("#img" + i);
+			space = $("#space" + project.id);
+			image = $("#img" + project.id);
 		
 			if (whatDevice() == desktop) {
 
@@ -98,31 +96,9 @@ app.factory('parallax', function () {
 
 	}
 
-
-	var setup = function (outerContainer) {
-
-		$scrollElement = outerContainer;
-
-		offset = $("#space1").offset().top;
-
-		$scrollElement.scroll(scroll);
-
-		scroll();
-
-		for (var j = 1; j <= totalSections; j++) {
-			bindClickEvent(j);
-		}
-
-		$(window).resize(scroll);
-
-	}
-
 	return {
-		whatDevice:whatDevice,
-		scroll:scroll,
-		bindClickEvent:bindClickEvent
 
-
+		scroll:scroll
 	}
 
-});
+}]);
