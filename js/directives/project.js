@@ -21,12 +21,18 @@ app.directive('project', ['global', '$animate', function (global) {
 				console.log($element);
 
 				if (!open) {
-					$element.animate({height:maxSep}, openSpeed);
+					$element.animate({height:maxSep}, openSpeed, function () {
+
+						console.log("done");
+					});
 
 					open = true;
 				}
 				else {
-					$element.animate({height:100}, openSpeed);
+					$element.animate({height:100}, openSpeed, function () {
+
+						console.log("done");
+					});
 
 					open = false;
 				}
