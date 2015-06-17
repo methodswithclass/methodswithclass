@@ -17,7 +17,7 @@ app.directive('project', ['global', '$animate', function (global) {
 
 				var $element = $("#sep" + attrs.index);
 
-				console.log(maxSep);
+				console.log(maxSep + "\n" + $element);
 
 				if (!open) {
 					$element.animate({height:maxSep}, openSpeed);
