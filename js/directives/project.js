@@ -1,3 +1,6 @@
+
+console.log(app);
+
 app.directive('project', function () {
 	return {
 
