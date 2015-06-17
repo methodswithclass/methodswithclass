@@ -1,7 +1,8 @@
 
-app.directive('project', function () {
+app.directive('project', ['global', function (global) {
 
 	return {
+		renderHTML:global.renderHTML,
 		restrict:'E',
 		scope:{
 			info:'='
@@ -9,4 +10,4 @@ app.directive('project', function () {
 		templateUrl:'views/project.html'
 	};
 
-});
+}]);
