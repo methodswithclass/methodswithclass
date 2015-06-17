@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$sce', function ($scope) {
+app.controller('MainController', ['$scope', '$sce', function ($scope, $sce) {
 
 	$scope.hello = "hello World";
 
