@@ -41,7 +41,7 @@ app.controller('MainController', 'parallax', ['$scope', function ($scope, parall
 			$("#projects").scroll(parallax.scroll);
 
 			$(window).resize(parallax.scroll);
-		}
+		});
 
 
 }]);
