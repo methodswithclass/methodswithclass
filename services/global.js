@@ -5,7 +5,7 @@ app.factory('global', ['$sce', function($sce) {
     };
 
     return {
-    	renderHTML:renderHTML
+    	renderHtml:renderHtml
     }; 
 
 }]);

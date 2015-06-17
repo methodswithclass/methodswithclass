@@ -2,7 +2,7 @@
 app.directive('project', ['global', function (global) {
 
 	return {
-		renderHTML:global.renderHTML,
+		renderHtml:global.renderHtml,
 		restrict:'E',
 		scope:{
 			info:'='
