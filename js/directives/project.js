@@ -4,16 +4,17 @@ app.directive('project', ['global', '$animate', function (global) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'='
+			info:'=',
+			index:'@'
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope) {
+		link:function ($scope, element, attrs) {
 			$scope.renderHtml = global.renderHtml;
 
 			var openSpeed = 300;
 			var open = false;
 
-			$scope.clickImage = function (maxSep, index) {
+			$scope.clickImage = function (maxSep) {
 
 				var $element = $("#sep" + index);
 
