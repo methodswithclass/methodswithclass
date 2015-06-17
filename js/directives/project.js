@@ -10,6 +10,7 @@ app.directive('project', ['global', '$animate', function (global) {
 		link:function ($scope) {
 			$scope.renderHtml = global.renderHtml;
 
+			var openSpeed = 300;
 			var open = false;
 
 			$scope.clickImage = function (maxSep, index) {

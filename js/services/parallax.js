@@ -2,8 +2,6 @@ app.factory('parallax', function () {
 
 	var totalSections = 3;
 	var heightFactor = 2.2;
-	var openSpeed = 300;
-	var maxSep = 700;
 	var defaultSep = 100;
 	var minBottom = -215;
 	var standardHeight = 1650;
