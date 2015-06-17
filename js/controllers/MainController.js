@@ -1,7 +1,6 @@
 app.controller('MainController', ['$scope', 'parallax', function ($scope, parallax) {
 
 	$scope.projects = [
-
 		{
 			id:'nuplae',
 			title:'nuplae',
@@ -26,27 +25,27 @@ app.controller('MainController', ['$scope', 'parallax', function ($scope, parall
 			back:'/img/apple_wallpaper.png',
 			description:"<div class='paragraph'><div class='tabp'>Gather Up lets you sort your contacts into organized groups that fit your life or the painfully honest groups that we all put our friends in anyway, whichever you prefer.</div><div class='tabp'>You can either enter contacts manually or port them from your device's address book.</div></div><div class='paragraph'>    <div class='tabp'>    The app is custom built so that data management and user interface are well under control.    </div>        <div class='tabp'>    There are a set of classes that handle only the data of the app, including Group, Person, Number, Email, etc. In addition, a delgate class oversees all the major group operations.    </div>        <div class='tabp'>    These are independent of the UI classes which can be switched out for other UIViewControllers to provide a variety of user interfaces.    </div>    </div><div class='paragraph'><div class='tabp'>    We developed a custom built formatting class that formats phone numbers while editing. The formatter allows for mid-number digit additions and deletions.    </div>        <div class='tabp'>    Why is this so important? Well, if the number were formatted with a regular expression only, with no other processing, then if a digit were added to or removed from the middle, the cursor position would be lost upon reformat.     </div>        <div class='tabp'>    However, this implementation takes this into account, so that mid-number editing and reformatting is possible and smooth.    </div></div>",
 			maxSep:700
-		}];
+	}];
 
-		$scope.contact = {
+	$scope.contact = {
 
-			image:'/img/bio_photo.png',
-			bio:"<div class='paragraph'>                                        <div class='tabp'>                        Methods with Class is my on going project to bring some of the things I create to a wider audience.                    </div>                                        <div class='tabp'>                        I'm a mix of engineering and creativity with a passion for programming. I have skills in Objective-C, JavaScript, and now Ruby on Rails. This site is done in the Rails framework with some JavaScript integration for some features including the parallax scrolling on the Projects page.                    </div>                                        <div class='tabp'>                        I am admittedly not a graphic designer and am not trying to be. I hope to partner with someone with vision or graphic skills who needs a web or mobile developer to bring their ideas to life.                    </div>                                    </div><div class='paragraph'>    <div class='tabp'>    I am located near Washington, DC., <a href='mailto:chris@methodswithclass.com'> send us an email </a> with any questions or ideas.    </div>    </div>"
-		};
+		image:'/img/bio_photo.png',
+		bio:"<div class='paragraph'><div class='tabp'> Methods with Class is my on going project to bring some of the things I create to a wider audience.   </div>       <div class='tabp'>     I'm a mix of engineering and creativity with a passion for programming. I have skills in Objective-C, JavaScript, and now Ruby on Rails. This site is done in the Rails framework with some JavaScript integration for some features including the parallax scrolling on the Projects page.     </div>                                        <div class='tabp'>                        I am admittedly not a graphic designer and am not trying to be. I hope to partner with someone with vision or graphic skills who needs a web or mobile developer to bring their ideas to life.    </div>     </div><div class='paragraph'>    <div class='tabp'>    I am located near Washington, DC., <a href='mailto:chris@methodswithclass.com'> send us an email </a> with any questions or ideas.    </div>    </div>"
+	};
 
-		angular.element(document).ready(function () {
+	angular.element(document).ready(function () {
 
-			var scroll = function () {
+		var scroll = function () {
 
-				parallax.scroll(projects);
-			}
+			parallax.scroll($scope.projects);
+		}
 
-			parallax.scroll(scroll);
+		scroll();
 
-			$("#projects").scroll(scroll);
+		$("#projects").scroll(scroll);
 
-			$(window).resize(scroll);
-		});
+		$(window).resize(scroll);
+	});
 
 
 }]);
