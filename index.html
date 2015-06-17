@@ -25,27 +25,7 @@
 
 	  			<div class="project" ng-repeat="project in projects"> 
 
-	  				<div class="elem space">
-
-					<img class="back" ng-src= "{{project.back}}" />
-
-					<div class="iconblock center">
-				        <div class="apptitle hcenter"> {{project.title}}</div>
-				        
-				        <img class="icon hcenter" ng-src= "{{project.icon}}" />
-
-				        <div class="blockInst hcenter">
-				        	click the icon to learn more about the project
-				        </div>
-				    </div>
-
-				</div>
-
-				<div class="elem sep">
-
-					<div class="description hcenter" ng-bind-html="renderHtml(project.description)"></div>
-
-				</div>
+	  				<project-info info="project"></project-info>
 
 	  			</div>
 
