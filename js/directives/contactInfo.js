@@ -3,7 +3,7 @@ app.directive("contactInfo", function () {
 
 		restrict:'E',
 		scope:{
-			contact:'='
+			info:'='
 		},
 		templateUrl:'/views/contacts.html'
 	};
