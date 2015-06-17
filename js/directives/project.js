@@ -16,7 +16,7 @@ app.directive('project', ['global', '$animate', function (global) {
 
 			$scope.clickImage = function (maxSep) {
 
-				var $element = $("#sep" + index);
+				var $element = $("#sep" + attrs.index);
 
 				console.log($element);
 
