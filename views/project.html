@@ -1,11 +1,11 @@
 <div class="elem space">
 
-    <img class="back" ng-src= "{{project.back}}" />
+    <img class="back" ng-src= "{{info.back}}" />
 
     <div class="iconblock center">
-        <div class="apptitle hcenter"> {{project.title}}</div>
+        <div class="apptitle hcenter"> {{info.title}}</div>
         
-        <img class="icon hcenter" ng-src= "{{project.icon}}" />
+        <img class="icon hcenter" ng-src= "{{info.icon}}" />
 
         <div class="blockInst hcenter">
             click the icon to learn more about the project
@@ -16,6 +16,6 @@
 
 <div class="elem sep">
 
-    <div class="description hcenter" ng-bind-html="renderHtml(project.description)"></div>
+    <div class="description hcenter" ng-bind-html="renderHtml(info.description)"></div>
 
 </div>
