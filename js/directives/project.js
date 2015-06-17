@@ -8,6 +8,7 @@ app.directive('project', ['global', function (global) {
 	}
 
 	return {
+		renderHtml:renderHtml,
 		restrict:'E',
 		scope:{
 			info:'='
