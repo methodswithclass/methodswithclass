@@ -61,6 +61,8 @@ app.directive('parallax', function () {
 
 		scope.parallax = function (projects) {
 
+			console.log("scroll");
+
 			for (i in projects) {
 
 				console.log(projects[i].id);
