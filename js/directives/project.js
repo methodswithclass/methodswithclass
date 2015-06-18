@@ -13,9 +13,7 @@ app.directive('project', ['global', 'parallax', function (global, parallax) {
 			var open = false;
 
 			var scroll = function () {
-				for (i in $scope.info) {
-					parallax.set($scope.info[i]);
-				}
+				parallax.set($scope.info);
 			}
 
 			$scope.renderHtml = global.renderHtml;
