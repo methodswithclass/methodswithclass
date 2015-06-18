@@ -33,6 +33,9 @@ app.factory('global', ['$sce', function($sce) {
     	project:project,
     	contact:contact,
     	whatDevice:whatDevice,
+    	desktop:desktop,
+    	mobile:mobile,
+    	ie:ie,
     	renderHtml:function (htmlCode) {
 	        return $sce.trustAsHtml(htmlCode);
 	    }
