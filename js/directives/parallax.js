@@ -57,7 +57,7 @@ app.directive('parallax', function () {
 		return scrollFactor;
 	}
 
-	var link = function (scope) {
+	var link = function (scope, element, attr) {
 
 		console.log("here");
 
