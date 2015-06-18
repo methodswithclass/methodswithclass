@@ -25,6 +25,7 @@ a.blue {
 	left:0;
 	width:100%;
 	height:100%;
+	overflow:hidden;
 }
 
 #bodyContainer {
@@ -34,7 +35,6 @@ a.blue {
 	left:0;
 	width:200%;
 	height:90%;
-	overflow:hidden;
 }
 
 .page {
