@@ -59,6 +59,8 @@ app.directive('parallax', function () {
 
 	var link = function (scope) {
 
+		console.log("here");
+
 		scope.parallax = function (projects) {
 
 			console.log("scroll");
