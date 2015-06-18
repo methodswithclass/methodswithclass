@@ -59,7 +59,7 @@ a.blue {
 	top:0;
 	left:0;
 	height:10%;
-	width:100%;
+	width:50%;
 	background-color:#333;
 	color:white;
 }
@@ -76,15 +76,10 @@ a.blue {
 	width:100%;
 }
 
-.nav div {
+.btn {
 	position:relative;
 	margin:0 50px;
 	font-size:30px;
-}
-
-.nav div.login {
-	
-	font-size:15px;
 }
 
 .navSpace {
