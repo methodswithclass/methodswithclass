@@ -61,7 +61,9 @@ app.directive('parallax', function () {
 
 		console.log("here");
 
-		scope.parallax = function (project) {
+		scope.parallax = function () {
+
+			var project = scope.scroll-item;
 
 			console.log("scroll");
 
@@ -100,6 +102,9 @@ app.directive('parallax', function () {
 	}
 
 	return {
+		scope:{
+			scroll-item:'='
+		}
 		link:link
 	};
 
