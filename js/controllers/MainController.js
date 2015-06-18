@@ -35,16 +35,18 @@ app.controller('MainController', ['$scope', 'parallax', function ($scope, parall
 
 	angular.element(document).ready(function () {
 
-		var scroll = function () {
+		parallax.scroll($scope.projects)
+
+		$("#projects").scroll(function () {
+			
+			parallax.scroll($scope.projects);
+
+		});
+
+		$(window).resize(function () {
 
 			parallax.scroll($scope.projects);
-		}
-
-		scroll();
-
-		$("#projects").scroll(scroll);
-
-		$(window).resize(scroll);
+		});
 	});
 
 
