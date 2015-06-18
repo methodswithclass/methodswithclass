@@ -57,7 +57,7 @@ a.blue {
 .contact {
 	position:absolute;
 	top:20%;
-	width:60%;
+	width:80%;
 }
 
 .toolbar {
@@ -135,13 +135,22 @@ a.blue {
 	
 	position:absolute;
 	top:0;
-	left:0;
-	width:65%;
+	left:40%;
+	width:45%;
 }
 
 .bioInner {
 	
 	position:absolute;
 	width:100%;
+}
+
+.contactInfo {
+
+	position:absolute;
+	top:0;
+	left:0;
+	width:35%;
+
 }
 
