@@ -17,9 +17,9 @@ run(function ($location) {
 
 	if(whatDevice() = mobile) {
 
-		$location.path = "/mobile";
+		$location.path("/mobile");
 	}
 	else {
-		$location.path = "/desktop";
+		$location.path("/desktop");
 	}
 });
