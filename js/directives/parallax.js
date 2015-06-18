@@ -74,7 +74,7 @@ app.directive('parallax', function () {
 				space = $("#space" + projects[i].id);
 				image = $("#img" + projects[i].id);
 
-				console.log(image.height());
+				//console.log(image.height());
 			
 				if (whatDevice() == desktop) {
 
@@ -103,7 +103,7 @@ app.directive('parallax', function () {
 			}
 		}
 
-		angular.element($("#sep" + projects[2].id)).ready(parallax);
+		angular.element(document).on('ready', parallax);
 
 		angular.element($("#bodyContainer")).on('scroll', parallax);
 
