@@ -18,4 +18,4 @@ app.directive('scroll', ['$scope', 'parallax', function ($scope, parallax) {
 		}
 	};
 
-});
+}]);
