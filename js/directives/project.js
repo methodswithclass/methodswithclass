@@ -42,7 +42,7 @@ app.directive('project', ['global', 'parallax', function (global, parallax) {
 
 						console.log("done");
 						scroll();
-						$scrollElement.scrollTo($element, openSpeed);
+						//$scrollElement.scrollTo($element, openSpeed);
 					});
 
 					open = false;
