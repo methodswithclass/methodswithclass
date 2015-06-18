@@ -1,19 +1,9 @@
 app.directive('scroll', ['parallax', function (parallax) {
 
 	return {
-		link:function (scope, element, attr) {
+		link:function (scope) {
 
-			var scroll = function () {
-
-				parallax.scroll(attr.projects);
-			}
-
-			scroll();
-
-			$("#projects").scroll(scroll);
-
-			$(window).resize(scroll);
-
+			scope.parallax = parallax.scroll;
 		}
 	};
 
