@@ -19,9 +19,9 @@
   	<div class="main" ng-controller="MainController">
 
   		<div class="toolbar">
-          <div class="nav">
+          <div class="nav vcenter">
 
-              <table class="navInner">
+              <table class="navInner vcenter">
 
                   <tr>
 
@@ -39,32 +39,49 @@
       </div>
 
 	  	<parallax class="page" id="projectContainer" scroll-items="projects">
+
+
   	  		<div>
+              <div class="elem sep">
+                  <div class="intro vcenter">
+                      <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                  </div>
+              </div>
+
     	  			<div class="project" ng-repeat="project in projects"> 
     	  			    <project info="project"></project>
     	  			</div>
   	  		</div>
+
+
       </parallax>
+
+
 
   		<div class="page" id="contactContainer">
 
-        <div>
-        </div>
+        <div></div>
   		
       </div>
 
-	  	
-
-
-
     </div>
 
+
+
+    <!-- App -->
+
   	<script src="js/app.js"></script>
+
+    <!-- Services -->
 
   	<script src="js/services/global.js"></script>
   	<script src="js/services/parallax.js"></script>
 
+    <!-- Controllers -->
+
   	<script src="js/controllers/MainController.js"></script>
+
+    <!-- Directives -->
 
   	<script src="js/directives/project.js"></script>
   	<script src="js/directives/contact.js"></script>

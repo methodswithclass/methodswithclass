@@ -57,14 +57,14 @@ a.blue {
 }
 
 .nav {
-	@include vertical-align;
+	position:absolute;
 	left:10%;
 	height:30px;
 	width:80%;
 }
 
 .navInner {
-	@include vertical-align;
+	position:absolute;
 	width:100%;
 }
 
@@ -98,13 +98,13 @@ a.blue {
 }
 
 .intro {
-	@include vertical-align;
+	position:absolute;
 	width:100%;
 	height:30px;
 }
 
 .introInner {
-	@include vertical-align;
+	position:absolute;
 	width:100%;
 	text-align:center;
 
