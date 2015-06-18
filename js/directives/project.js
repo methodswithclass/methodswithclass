@@ -26,8 +26,6 @@ app.directive('project', ['global', function (global) {
 
 						console.log("done");
 
-						//scroll();
-
 						$scrollElement.scrollTo($element, openSpeed);
 					});
 
@@ -37,7 +35,6 @@ app.directive('project', ['global', function (global) {
 					$element.animate({height:100}, openSpeed, function () {
 
 						console.log("done");
-						//scroll();
 						$scrollElement.scrollTo($element, openSpeed);
 					});
 
