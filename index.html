@@ -18,51 +18,48 @@
 
   	<div class="main" ng-controller="MainController">
 
-  		<div class="toolbar">
-          <div class="nav vcenter">
+    		<div class="toolbar">
+            <div class="nav vcenter">
 
-              <table class="navInner vcenter">
+                <table class="navInner vcenter">
 
-                  <tr>
+                    <tr>
 
-                      <td><div class="btn" id="projectBtn"> Project </div></td>
-                      <td><div class="btn" id="contactBtn"> Contact </div></td>
+                        <td><menu id="projectBtn"> Project </menu></td>
+                        <td><menu id="contactBtn"> Contact </menu></td>
 
-                      <td class="navSpace"><div></div></td>
+                        <td class="navSpace"><div></div></td>
 
-                      <td><div class="title"> <img src="/img/title2.png"/> </div></td>
+                        <td><div class="title"> <img src="/img/title2.png"/> </div></td>
 
-                  </tr>
-              </table>
+                    </tr>
+                </table>
 
-          </div>
-      </div>
+            </div>
+        </div>
 
-	  	<parallax class="page" id="projectContainer" scroll-items="projects">
+        <div id="bodyContainer">
+      	  	
+            <parallax class="page" id="projectContainer" scroll-items="projects">
+                    <div class="elem sep">
+                        <div class="intro vcenter">
+                            <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                        </div>
+                    </div>
 
-
-  	  		<div>
-              <div class="elem sep">
-                  <div class="intro vcenter">
-                      <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
-                  </div>
-              </div>
-
-    	  			<div class="project" ng-repeat="project in projects"> 
-    	  			    <project info="project"></project>
-    	  			</div>
-  	  		</div>
-
-
-      </parallax>
+          	  			<div class="project" ng-repeat="project in projects"> 
+          	  			    <project info="project"></project>
+          	  			</div>
+            </parallax>
 
 
 
-  		<div class="page" id="contactContainer">
+        		<div class="page" id="contactContainer">
+              
+        		
+            </div>
 
-        <div></div>
-  		
-      </div>
+       </div>
 
     </div>
 
@@ -86,6 +83,7 @@
   	<script src="js/directives/project.js"></script>
   	<script src="js/directives/contact.js"></script>
   	<script src="js/directives/parallax.js"></script>
+    <script src="js/directives/menu.js"></script>
   	
 
   </body>

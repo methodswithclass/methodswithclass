@@ -27,12 +27,20 @@ a.blue {
 	height:100%;
 }
 
-.page {
+#bodyContainer {
 
 	position:absolute;
 	top:10%;
 	left:0;
+	width:200%;
 	height:90%;
+}
+
+.page {
+
+	position:absolute;
+	top:0;
+	height:100%;
 	width:100%;
 	overflow:scroll;
 }
