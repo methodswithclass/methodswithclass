@@ -80,6 +80,7 @@ a.blue {
 	position:relative;
 	margin:0 50px;
 	font-size:30px;
+	cursor:pointer;
 }
 
 .navSpace {
