@@ -64,7 +64,7 @@ app.factory('parallax', function () {
 
 		for (i in projects) {
 
-			console.log(project[i].id);
+			console.log(projects[i].id);
 
 			space = $("#space" + projects[i].id);
 			image = $("#img" + projects[i].id);
