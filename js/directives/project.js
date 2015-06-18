@@ -7,14 +7,14 @@ app.directive('project', ['global', 'parallax', function (global, parallax) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope, element, attr) {
+		link:function (scope, element, attr) {
 
 			var openSpeed = 300;
 			var open = false;
 
 			var scroll = function () {
-				for (i in info) {
-					parallax.set(info[i]);
+				for (i in scope.info) {
+					parallax.set(scope.info[i]);
 				}
 			}
 
