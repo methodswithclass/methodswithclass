@@ -62,14 +62,12 @@ app.factory('parallax', function () {
 
 	var scroll = function (projects) {
 
+		for (i in projects) {
 
+			console.log(project[i].id);
 
-		for (project in projects) {
-
-			console.log(project.id);
-
-			space = $("#space" + project.id);
-			image = $("#img" + project.id);
+			space = $("#space" + projects[i].id);
+			image = $("#img" + projects[i].id);
 		
 			if (whatDevice() == desktop) {
 
