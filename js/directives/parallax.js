@@ -103,7 +103,7 @@ app.directive('parallax', function () {
 			}
 		}
 
-		parallax();
+		angular.element(document).ready(parallax);
 
 		angular.element($("#bodyContainer")).on('scroll', parallax);
 
