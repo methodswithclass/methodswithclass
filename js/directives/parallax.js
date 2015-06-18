@@ -102,4 +102,4 @@ app.directive('parallax', function () {
 		link:link
 	};
 
-}]);
+});
