@@ -13,8 +13,8 @@ app.directive('project', ['global', 'parallax', function (global, parallax) {
 			var open = false;
 
 			var scroll = function () {
-				for (i in projects) {
-					parallax.set(projects)
+				for (i in info) {
+					parallax.set(info[i]);
 				}
 			}
 
