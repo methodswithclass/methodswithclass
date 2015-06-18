@@ -14,6 +14,8 @@ app.directive('menu', ['global', function (global) {
 
 		var action = function () {
 
+			console.log("clicked");
+
 			if (element.id == "projectBtn") {
 				move(0);
 			}
