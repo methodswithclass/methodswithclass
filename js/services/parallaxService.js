@@ -34,7 +34,7 @@ app.factory("parallaxService", ['global', function (global) {
 		space = $("#space" + project.id);
 		image = $("#img" + project.id);
 	
-		if (global.whatDevice() == global.desktop) {
+		if (whatDevice() == desktop) {
 
 			imgHeight = image.height();
 			imgOffset = image.offset().top;
