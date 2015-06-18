@@ -14,6 +14,21 @@ app.directive('project', ['global', function (global) {
 
 			$scope.renderHtml = global.renderHtml;
 
+			$scope.checkMobile = function (maxSep) {
+
+				var factor = $(window).height()*1500/$(window).width()/1000;
+
+				if (global.whatDevice() == global.mobile) {
+
+					element.style.height = factor*maxSep + "px";
+				}
+				else {
+
+					element.style.height = "100px";
+
+				}
+			}
+
 			$scope.clickImage = function (maxSep, id) {
 
 				var $scrollElement = $(global.project);
