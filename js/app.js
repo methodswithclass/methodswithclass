@@ -1,6 +1,6 @@
 var app = angular.module("methodswithclass", []);
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(function($routeProvider) {
     $routeProvider.
       //Display desktop version
       when('/desktop', {
@@ -13,4 +13,4 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'views/mobile.html'
       }).
       otherwise({redirectTo: '/desktop/homePage'});
-}]);
+});
