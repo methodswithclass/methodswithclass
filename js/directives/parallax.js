@@ -61,9 +61,9 @@ app.directive('parallax', function () {
 
 		//console.log("here");
 
-		var parallax = function () {
+		var projects = scope.scrollItems;
 
-			var projects = scope.scrollItems;
+		var parallax = function () {
 
 			//console.log("scroll");
 
@@ -103,7 +103,7 @@ app.directive('parallax', function () {
 			}
 		}
 
-		angular.element($("#bodyContainer")).ready(parallax);
+		angular.element($("#sep" + projects[2].id)).ready(parallax);
 
 		angular.element($("#bodyContainer")).on('scroll', parallax);
 
