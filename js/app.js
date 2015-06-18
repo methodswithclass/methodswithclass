@@ -1,4 +1,4 @@
-var app = angular.module("methodswithclass", []);
+var app = angular.module("methodswithclass", ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider.
