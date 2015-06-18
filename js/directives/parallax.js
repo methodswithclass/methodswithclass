@@ -59,21 +59,17 @@ app.directive('parallax', function () {
 
 	var link = function (scope, element, attr) {
 
-		console.log("here");
+		//console.log("here");
 
-		// scope.$apply(function() {
-  //       	scope.scroll({item:scope.scrollItem});
-  //       });
-
-		angular.element($("#bodyContainer")).on('scroll', function () {
+		var parallax = function () {
 
 			var projects = scope.scrollItems;
 
-			console.log("scroll");
+			//console.log("scroll");
 
 			for (i in projects) {
 
-				console.log(projects[i].id);
+				//console.log(projects[i].id);
 
 				space = $("#space" + projects[i].id);
 				image = $("#img" + projects[i].id);
@@ -105,7 +101,13 @@ app.directive('parallax', function () {
 					image.css("bottom", value);	
 				}
 			}
-		});
+		}
+
+		parallax();
+
+		angular.element($("#bodyContainer")).on('scroll', parallax);
+
+		$(window).resize(parallax);
 	}
 
 	return {
