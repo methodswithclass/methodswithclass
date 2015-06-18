@@ -30,7 +30,7 @@ app.controller('MainController', ['$scope', function ($scope) {
 
 	$scope.contact ={
 		image:'/img/bio_photo.png',
-		bio:"<div class='paragraph'><div class='tabp'> Methods with Class is my on going project to bring some of the things I create to a wider audience.   </div>       <div class='tabp'>     I'm a mix of engineering and creativity with a passion for programming. I am a very experienced developer in native JavaScript without many frameworks. This site is an Angular application, however.  </div>    <div class='tabp'>     I'm clearly not a graphic designer. I do the minimum on my own projects to get by, but I hope to partner with someone with vision or graphic skills who needs a web developer to bring their ideas to life.    </div>     </div>"
+		bio:"<div class='paragraph'><div class='tabp'> Methods with Class is my on going project to bring some of the things I create to a wider audience.   </div>       <div class='tabp'>     I'm a mix of engineering and creativity with a passion for programming. I am a very experienced developer in native JavaScript without many frameworks. This site is an Angular application, however.  </div>    <div class='tabp'>     I'm clearly not a graphic designer. I do the minimum on my own projects to get by, but I hope to partner with someone with vision or graphic skills who needs a web developer to bring their ideas to life.    </div>     </div>  <div class='paragraph'>  <div class='tabp'>   I am located near Washington, DC., <a class='blue' href='mailto:chris@methodswithclass.com'> send me an email </a> with any questions or ideas.</div> </div>"
 	};
 
 }]);
