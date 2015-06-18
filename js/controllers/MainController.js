@@ -28,11 +28,9 @@ app.controller('MainController', ['$scope', function ($scope) {
 		maxSep:700
 	}];
 
-	$scope.contacts = [
-	{
+	$scope.contact ={
 		image:'/img/bio_photo.png',
 		bio:"<div class='paragraph'><div class='tabp'> Methods with Class is my on going project to bring some of the things I create to a wider audience.   </div>       <div class='tabp'>     I'm a mix of engineering and creativity with a passion for programming. I have skills in Objective-C, JavaScript, and now Ruby on Rails. This site is done in the Rails framework with some JavaScript integration for some features including the parallax scrolling on the Projects page.     </div>                                        <div class='tabp'>                        I am admittedly not a graphic designer and am not trying to be. I hope to partner with someone with vision or graphic skills who needs a web or mobile developer to bring their ideas to life.    </div>     </div><div class='paragraph'>    <div class='tabp'>    I am located near Washington, DC., <a href='mailto:chris@methodswithclass.com'> send us an email </a> with any questions or ideas.    </div>    </div>"
-	}
-	];
+	};
 
 }]);
