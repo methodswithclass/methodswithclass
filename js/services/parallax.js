@@ -62,6 +62,8 @@ app.factory('parallax', function () {
 
 	var scroll = function (projects) {
 
+		console.log(projects.length);
+
 		for (project in projects) {
 
 			space = $("#space" + project.id);
