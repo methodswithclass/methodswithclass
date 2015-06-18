@@ -19,22 +19,22 @@
 
   		<div class="toolbar"></div>
 
-	  	<div id="bodyContainer">
+	  	<parallax id="bodyContainer" onscroll="parallax(projects)">
 
-	  		<parallax id="projects" scroll="parallax(projects)">
+	  		<div id="projects">
 
 	  			<div class="project" ng-repeat="project in projects"> 
 
 	  				<project info="project"></project>
 
 	  			</div>
-	  		</parallax>
+	  		</div>
 
 	  		<div id="contacts">
 
 	  		</div>
 
-	  	</div>
+	  	</parallax>
 
 
 
