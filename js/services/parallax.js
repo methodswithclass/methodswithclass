@@ -60,7 +60,7 @@ app.factory('parallax', function () {
 		return scrollFactor;
 	}
 
-	var scroll = function (projects) {
+	var scroll = function () {
 
 		for (i in projects) {
 
