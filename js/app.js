@@ -11,6 +11,15 @@ app.config(function($routeProvider) {
       when('/mobile', {
         //Template for Mobile based browsers
         templateUrl: 'views/mobile.html'
-      }).
-      otherwise({redirectTo: '/desktop/homePage'});
+      })
+}).
+run(function ($location) {
+
+	if(whatDevice() = mobile) {
+
+		$location.path = "/mobile";
+	}
+	else {
+		$location.path = "/desktop";
+	}
 });
