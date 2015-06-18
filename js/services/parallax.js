@@ -60,47 +60,49 @@ app.factory('parallax', function () {
 		return scrollFactor;
 	}
 
-	return {
+	var scroll = function (projects) {
 
-		scroll:function (projects) {
+		for (i in projects) {
 
-			for (i in projects) {
+			console.log(projects[i].id);
 
-				console.log(projects[i].id);
+			space = $("#space" + projects[i].id);
+			image = $("#img" + projects[i].id);
 
-				space = $("#space" + projects[i].id);
-				image = $("#img" + projects[i].id);
+			console.log(image.height());
+		
+			if (whatDevice() == desktop) {
 
-				console.log(image.height());
-			
-				if (whatDevice() == desktop) {
+				imgHeight = image.height();
+				imgOffset = image.offset().top;
+				elementHeight = space.height();
+				elementOffset = space.offset().top;
+				scrollHeight = $(window).height();
+				scrollWidth = $(window).width();
 
-					imgHeight = image.height();
-					imgOffset = image.offset().top;
-					elementHeight = space.height();
-					elementOffset = space.offset().top;
-					scrollHeight = $(window).height();
-					scrollWidth = $(window).width();
+				scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
 
-					scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
-
-					value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
-					
-					image.css("bottom", value);
-
-				}
-				else {
-
-					console.log("no browser");
-
-					value = -175;
+				value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
 				
-					image.css("bottom", value);	
-				}
+				image.css("bottom", value);
 
+			}
+			else {
+
+				console.log("no browser");
+
+				value = -175;
+			
+				image.css("bottom", value);	
 			}
 
 		}
+
+	}
+
+	return {
+
+		scroll:scroll
 	}
 
 });
