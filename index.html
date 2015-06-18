@@ -18,24 +18,42 @@
 
   	<div class="main" ng-controller="MainController">
 
-  		<div class="toolbar"></div>
+  		<div class="toolbar">
+          <div class="nav">
 
-	  	<parallax id="bodyContainer" scroll-items="projects">
+              <table class="navInner">
 
-	  		<div id="projects">
+                  <tr>
 
-	  			<div class="project" ng-repeat="project in projects"> 
+                      <td><div class="btn" id="projectBtn"> </div></td>
+                      <td><div class="btn" id="contactBtn"> </div></td>
 
-	  				<project info="project"></project>
+                      <td class="navSpace"><div></div></td>
 
-	  			</div>
-	  		</div>
+                      <td><div class="title"> <img src="/img/title2.png"/> </div></td>
 
-	  		<div id="contacts">
+                  </tr>
+              </table>
 
-	  		</div>
+          </div>
+      </div>
 
-	  	</parallax>
+	  	<parallax class="page" id="projectContainer" scroll-items="projects">
+  	  		<div>
+    	  			<div class="project" ng-repeat="project in projects"> 
+    	  			    <project info="project"></project>
+    	  			</div>
+  	  		</div>
+      </parallax>
+
+  		<div class="page" id="contactContainer">
+
+        <div>
+        </div>
+  		
+      </div>
+
+	  	
 
 
 

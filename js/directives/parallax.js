@@ -1,4 +1,4 @@
-app.directive('parallax', ['parallax', function (parallax) {
+app.directive('parallax', ['global', 'parallax', function (global, parallax) {
 
 	var link = function (scope, element, attr) {
 
@@ -16,7 +16,7 @@ app.directive('parallax', ['parallax', function (parallax) {
 			scroll();
 		}, 500);
 
-		angular.element($("#bodyContainer")).on('scroll', scroll);
+		angular.element($(global.project)).on('scroll', scroll);
 
 		$(window).resize(scroll);
 	}

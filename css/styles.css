@@ -28,7 +28,7 @@ a.blue {
 	height:100%;
 }
 
-#bodyContainer {
+.page {
 
 	position:absolute;
 	top:10%;
@@ -38,20 +38,12 @@ a.blue {
 	overflow:scroll;
 }
 
-#projects {
-
-	position:absolute;
-	top:0;
+#projectContainer {
 	left:0;
-	width:100%;
 }
 
-#contacts {
-
-	position:absolute;
-	top:0;
+#contactContainer {
 	left:100%;
-	width:100%;
 }
 
 .toolbar {

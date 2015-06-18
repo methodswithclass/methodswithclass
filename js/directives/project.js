@@ -16,7 +16,7 @@ app.directive('project', ['global', function (global) {
 
 			$scope.clickImage = function (maxSep, id) {
 
-				var $scrollElement = $("#bodyContainer");
+				var $scrollElement = $(global.project);
 				var $element = $("#sep" + id);
 
 				var factor = $(window).height()*1500/$(window).width()/1000;
@@ -25,7 +25,6 @@ app.directive('project', ['global', function (global) {
 					$element.animate({height:factor*maxSep}, openSpeed, function () {
 
 						console.log("done");
-
 						$scrollElement.scrollTo($element, openSpeed);
 					});
 
