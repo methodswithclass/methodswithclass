@@ -61,7 +61,11 @@ app.directive('parallax', function () {
 
 		console.log("here");
 
-		scope.parallax = function () {
+		// scope.$apply(function() {
+  //       	scope.scroll({item:scope.scrollItem});
+  //       });
+
+		angular.element($("#bodyContainer")).on('scroll', function () {
 
 			var projects = scope.scrollItems;
 
@@ -101,7 +105,7 @@ app.directive('parallax', function () {
 					image.css("bottom", value);	
 				}
 			}
-		}
+		});
 	}
 
 	return {
