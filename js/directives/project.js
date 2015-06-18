@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', function (global) {
+app.directive('project', ['global', 'parallax', function (global, parallax) {
 
 	return {
 		restrict:'E',
@@ -7,15 +7,22 @@ app.directive('project', ['global', function (global) {
 			info:'='
 		},
 		templateUrl:'views/project.html',
-		link:function ($scope) {
+		link:function ($scope, element, attr) {
 
 			var openSpeed = 300;
 			var open = false;
+
+			var scroll = function () {
+				for (i in projects) {
+					parallax.set(projects)
+				}
+			}
 
 			$scope.renderHtml = global.renderHtml;
 
 			$scope.clickImage = function (maxSep, id) {
 
+				var $scrollElement = $("#bodyContainer");
 				var $element = $("#sep" + id);
 
 				var factor = $(window).height()*1500/$(window).width()/1000;
@@ -24,6 +31,10 @@ app.directive('project', ['global', function (global) {
 					$element.animate({height:factor*maxSep}, openSpeed, function () {
 
 						console.log("done");
+
+						scroll();
+
+						$scrollElement.scrollTo($element, openSpeed);
 					});
 
 					open = true;
@@ -32,6 +43,8 @@ app.directive('project', ['global', function (global) {
 					$element.animate({height:100}, openSpeed, function () {
 
 						console.log("done");
+						scroll();
+						$scrollElement.scrollTo($element, openSpeed);
 					});
 
 					open = false;
