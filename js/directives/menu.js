@@ -22,8 +22,8 @@ app.directive('menu', ['global', function (global) {
 			}
 		}
 
-		element.on('mouseup', action);
-		element.on('touchend', action);
+		element.bind('mouseup', action);
+		element.bind('touchend', action);
 	}
 
 	return {
