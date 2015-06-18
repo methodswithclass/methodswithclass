@@ -1,12 +1,9 @@
-app.factory("parallax", function () {
+app.factory("parallaxService", ['global', function (global) {
 
-	var heightFactor = 2.2;
-	var defaultSep = 100;
-	var minBottom = -215;
+
 	var standardHeight = 1650;
 	var standardWidth = 900;
 
-	var offset;
 	var scrollFactor;
 	var imgOffset;
 	var imgHeight;
@@ -16,33 +13,8 @@ app.factory("parallax", function () {
 	var scrollWidth;
 	var value;
 
-	var desktop = "desktop";
-	var mobile = "mobile";
-	var ie = "internet explorer";
-
-	var parallax;
-
 	var space;
 	var image;
-
-	var whatDevice = function () {
-
-		if(navigator.userAgent.match(/Android/i) ||
-	            navigator.userAgent.match(/webOS/i) ||
-	            navigator.userAgent.match(/iPhone/i) ||
-	            navigator.userAgent.match(/iPod/i) ||
-	            navigator.userAgent.match(/iPad/i) ||
-	            navigator.userAgent.match(/Blackberry/i) ) {
-
-			return mobile;
-		}
-		else if (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Safari') != -1) {
-
-			return desktop;
-		}
-		else
-			return ie;
-	}
 
 	var getScrollFactor = function (scrollHeight, scrollWidth) {
 
@@ -62,7 +34,7 @@ app.factory("parallax", function () {
 		space = $("#space" + project.id);
 		image = $("#img" + project.id);
 	
-		if (whatDevice() == desktop) {
+		if (global.whatDevice() == global.desktop) {
 
 			imgHeight = image.height();
 			imgOffset = image.offset().top;
@@ -93,4 +65,4 @@ app.factory("parallax", function () {
 		set:set
 	}
 
-});
+}]);

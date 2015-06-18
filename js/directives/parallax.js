@@ -1,4 +1,4 @@
-app.directive('parallax', ['global', 'parallax', function (global, parallax) {
+app.directive('parallax', ['global', 'parallaxService', function (global, parallax) {
 
 	var link = function (scope, element, attr) {
 
