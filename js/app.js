@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
 }).
 run(function ($location) {
 
-	if(whatDevice() = mobile) {
+	if(whatDevice() == mobile) {
 
 		$location.path("/mobile");
 	}
