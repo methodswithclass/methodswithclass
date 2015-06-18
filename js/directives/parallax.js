@@ -104,7 +104,7 @@ app.directive('parallax', function () {
 	return {
 		scope:{
 			scrollItem:'='
-		}
+		},
 		link:link
 	};
 
