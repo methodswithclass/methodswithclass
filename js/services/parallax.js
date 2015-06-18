@@ -61,8 +61,6 @@ app.factory("parallax", function () {
 
 		space = $("#space" + project.id);
 		image = $("#img" + project.id);
-
-		//console.log(image.height());
 	
 		if (whatDevice() == desktop) {
 
