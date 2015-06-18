@@ -3,24 +3,27 @@
 
 
 @mixin vertical-align {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+	position:relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 @mixin golden-ratio {
-  top: 30%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+	position:relative;
+	top: 30%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 @mixin horizontal-align {
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+	position:relative;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
 .deselect {
