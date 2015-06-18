@@ -1,11 +1,11 @@
-app.directive('scroll', ['$scope', 'parallax', function ($scope, parallax) {
+app.directive('scroll', ['MainController', 'parallax', function (main, parallax) {
 
 	return {
 		link:function () {
 
 			var scroll = function () {
 
-				parallax.scroll($scope.projects);
+				parallax.scroll(main.projects);
 
 			}
 
