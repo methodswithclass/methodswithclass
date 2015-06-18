@@ -63,47 +63,50 @@ app.directive('parallax', function () {
 
 		scope.parallax = function () {
 
-			var project = scope.scrollItem;
+			var projects = scope.scrollItems;
 
 			console.log("scroll");
 
-			console.log(project.id);
+			for (i in projects) {
 
-			space = $("#space" + project.id);
-			image = $("#img" + project.id);
+				console.log(projects[i].id);
 
-			console.log(image.height());
-		
-			if (whatDevice() == desktop) {
+				space = $("#space" + projects[i].id);
+				image = $("#img" + projects[i].id);
 
-				imgHeight = image.height();
-				imgOffset = image.offset().top;
-				elementHeight = space.height();
-				elementOffset = space.offset().top;
-				scrollHeight = $(window).height();
-				scrollWidth = $(window).width();
-
-				scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
-
-				value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
-				
-				image.css("bottom", value);
-
-			}
-			else {
-
-				console.log("no browser");
-
-				value = -175;
+				console.log(image.height());
 			
-				image.css("bottom", value);	
+				if (whatDevice() == desktop) {
+
+					imgHeight = image.height();
+					imgOffset = image.offset().top;
+					elementHeight = space.height();
+					elementOffset = space.offset().top;
+					scrollHeight = $(window).height();
+					scrollWidth = $(window).width();
+
+					scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
+
+					value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
+					
+					image.css("bottom", value);
+
+				}
+				else {
+
+					console.log("no browser");
+
+					value = -175;
+				
+					image.css("bottom", value);	
+				}
 			}
 		}
 	}
 
 	return {
 		scope:{
-			scrollItem:'='
+			scrollItems:'='
 		},
 		link:link
 	};
