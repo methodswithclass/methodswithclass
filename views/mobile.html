@@ -1,31 +1,30 @@
 
-  <div class="toolbar">
-      <div class="nav vcenter">
+  <div class="mToolbar">
+    <div class="mNavUpper">
+      <img class="mTitle" src="/img/title2.png"/>
+    </div>
 
-          <table class="navInner vcenter">
+    <div class="mNavLower">
+      <table class="mNavInner">
 
-              <tr>
+        <tr>
 
-                  <td><menu class="btn" id="projectBtn"> Project_Mobile </menu></td>
-                  <td><menu class="btn" id="contactBtn"> Contact </menu></td>
+          <td> <menu class="btn" id="projectBtn"> Project </menu> </td>
+          <td> <menu class="btn" id="contactBtn"> Contact </menu></td>
 
-                  <td class="navSpace"><div></div></td>
+        </tr>
 
-                  <td><div class="title"> <img src="/img/title2.png"/> </div></td>
-
-              </tr>
-          </table>
-
-      </div>
+      </table>
+    </div>
   </div>
 
   <div id="bodyContainer">
         
-      <parallax class="page" id="projectContainer" scroll-items="projects">
-              <div class="elem sep">
-                  <div class="intro vcenter">
-                      <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
-                  </div>
+      <parallax class="page" id="mProjectContainer" scroll-items="projects">
+              <div class="elem mSep2">
+                <div class="mIntro">
+                  <div class="mIntroInner">Here are some projects in various languages and platforms, enjoy </div>
+                </div>
               </div>
 
               <div class="project" ng-repeat="project in projects"> 

@@ -10,6 +10,20 @@
 	z-index:5;
 }
 
+#mProjectContainer {
+
+
+}
+
+#mContactContainer {
+	
+	position:absolute;
+	top:5%;
+	width:80%;
+	height:2000px;
+
+}
+
 .mToolbar {
 	
 	position:fixed;
@@ -159,16 +173,6 @@
 	top:50px;
 	width:80%;
 	font-size:40px;
-}
-
-
-#mContactContainer {
-	
-	position:absolute;
-	top:5%;
-	width:80%;
-	height:2000px;
-
 }
 
 .mBioImg {
