@@ -27,7 +27,6 @@
 
 .mTitle {
 	position:relative;
-	@include vertical-align;
 	display:block;
 	width:700px;
 	height:auto;
@@ -98,7 +97,6 @@
 	width:100%;
 	overflow:hidden;
 	background-color:white;
-	/*border:1px solid black;*/
 }
 
 #mSep1 {
@@ -121,19 +119,16 @@
 	width:100%;
 	height:300px;
 	background-color:white;
-	/*border:1px solid black;*/
 }
 
 .mIntro {
 	position:relative;
-	@include vertical-align;
 	width:100%;
 	height:30px;
 }
 
 .mIntroInner {
 	position:relative;
-	@include vertical-align;
 	width:100%;
 	text-align:center;
 	font-size:40px;
@@ -152,7 +147,6 @@
 	position:relative;
 	width:70%;
 	height:50%;
-	/*border:1px solid white;*/
 }
 
 .mApptitle {
