@@ -23,6 +23,13 @@ app.directive('project', ['global', function (global) {
 
 			$scope.renderHtml = global.renderHtml;
 
+			$scope.addText = function (id) {
+
+				if (id == $scope.projects[0].id) {
+					element.innerHTML = "click to play";
+				}
+			}
+
 			$scope.clickImage = function (maxSep, id) {
 
 				var $scrollElement = $(global.project);
