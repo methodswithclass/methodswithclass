@@ -1,13 +1,21 @@
 
 app.directive('project', ['global', function (global) {
 
+	var view = "";
+
+	if (global.isMobile()) {
+		view = "mProject.html";
+	}
+	else {
+		view = "project.html";
+	}
+
 	return {
 		restrict:'E',
 		scope:{
-			info:'=',
-			view:'='
+			info:'='
 		},
-		templateUrl:'views/' + scope.view,
+		templateUrl:"/views/" + view,
 		link:function ($scope, element, attr) {
 
 			var openSpeed = 300;
