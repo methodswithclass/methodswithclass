@@ -45,6 +45,13 @@
 	font-size:50px;
 }
 
+.mBtn {
+	position:relative;
+	margin:0 50px;
+	font-size:50px;
+	cursor:pointer;
+}
+
 #mBodyContainer {
 
 	position:absolute;
