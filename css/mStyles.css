@@ -75,7 +75,6 @@
 
 	position:relative;
 	width:100%;
-	overflow:hidden;
 }
 
 .mContact {
@@ -170,7 +169,6 @@
 
 .mBioImg {
 	position:relative;
-	@include horizontal-align;
 	margin-bottom:40px;
 	top:0;
 	width:60%;
