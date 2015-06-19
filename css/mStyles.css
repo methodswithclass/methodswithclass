@@ -53,6 +53,7 @@
 	height:80%;
 	width:200%;
 	z-index:5;
+	overflow-x:hidden;
 }
 
 .mPage {
