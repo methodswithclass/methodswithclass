@@ -58,9 +58,8 @@
 	top:20%;
 	left:0;
 	height:80%;
-	width:200%;
+	width:100%;
 	z-index:5;
-	overflow-x:hidden;
 }
 
 .mPage {
@@ -82,7 +81,6 @@
 .mProject {
 
 	position:relative;
-	width:100%;
 }
 
 .mContact {
