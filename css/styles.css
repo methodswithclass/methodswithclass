@@ -25,7 +25,6 @@ a.blue {
 	left:0;
 	width:100%;
 	height:100%;
-	overflow:hidden;
 	min-width:900px;
 }
 
@@ -38,14 +37,7 @@ a.blue {
 	height:90%;
 }
 
-.page {
 
-	position:absolute;
-	top:0;
-	height:100%;
-	width:50%;
-	overflow:scroll;
-}
 
 #projectContainer {
 	left:0;
@@ -53,6 +45,13 @@ a.blue {
 
 #contactContainer {
 	left:50%;
+}
+
+.project {
+
+	position:relative;
+	width:100%;
+	overflow:hidden;
 }
 
 .contact {
