@@ -1,0 +1,21 @@
+<div class="elem mSpace" id="{{'space' + info.id}}">
+
+    <img class="mBack" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
+
+    <div class="iconblock center">
+        <div class="mApptitle hcenter"> {{info.title}}</div>
+        
+        <img class="mIcon hcenter" ng-src= "{{info.icon}}" />
+
+        <div class="mBlockInst hcenter">
+            click the icon to learn more about the project
+        </div>
+    </div>
+
+</div>
+
+<div class="elem mSep" id="{{'sep' + info.id}}" style="height:{{info.mobileSep}};">
+
+    <div class="mDescription hcenter" ng-bind-html="renderHtml(info.description)"></div>
+
+</div>

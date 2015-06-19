@@ -4,9 +4,10 @@ app.directive('project', ['global', function (global) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'='
+			info:'=',
+			view:'='
 		},
-		templateUrl:'views/project.html',
+		templateUrl:'views/' + scope.view,
 		link:function ($scope, element, attr) {
 
 			var openSpeed = 300;
