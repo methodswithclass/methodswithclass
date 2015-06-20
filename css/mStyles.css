@@ -11,6 +11,21 @@
 
 }
 
+.mPagesContainer {
+
+	position:absolute;
+	top:400px;
+	left:0;
+	width:100%;
+	z-index:5;
+}
+
+.mPage {
+
+	position:absolute;
+	width:50%;
+}
+
 .mNavUpper {
 	
 	position:relative;
@@ -50,21 +65,6 @@
 	margin:0 50px;
 	font-size:50px;
 	cursor:pointer;
-}
-
-.mPagesContainer {
-
-	position:absolute;
-	top:400px;
-	left:0;
-	width:100%;
-	z-index:5;
-}
-
-.mPage {
-
-	position:absolute;
-	width:50%;
 }
 
 #mProjectContainer {

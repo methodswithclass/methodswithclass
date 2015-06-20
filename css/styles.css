@@ -40,6 +40,28 @@ a.blue {
 	color:white;
 }
 
+#bodyContainer {
+
+	width:200%;
+}
+
+.pagesContainer {
+
+	position:absolute;
+	top:10%;
+	left:0;
+	height:90%;
+}
+
+.page {
+
+	position:absolute;
+	top:0;
+	height:100%;
+	width:50%;
+	overflow-y:scroll;
+}
+
 .nav {
 	position:absolute;
 	left:10%;
@@ -75,28 +97,6 @@ a.blue {
 	position:relative;
 	width:300px;
 	height:auto;
-}
-
-#bodyContainer {
-
-	width:200%;
-}
-
-.pagesContainer {
-
-	position:absolute;
-	top:0;
-	left:0;
-	height:100%;
-}
-
-.page {
-
-	position:absolute;
-	top:10%;
-	height:90%;
-	width:50%;
-	overflow-y:scroll;
 }
 
 #projectContainer {
