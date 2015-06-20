@@ -10,6 +10,8 @@ app.directive('project', ['global', function (global) {
 		view = "project.html";
 	}
 
+	console.log(view);
+
 	return {
 		restrict:'E',
 		scope:{
