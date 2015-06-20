@@ -9,7 +9,7 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 		console.log($location.url());
 
 		if ($location.url() == "/mobile"){
-			body =  = "#mBodyContainer";
+			body = "#mBodyContainer";
 			return true;
 		}
 
