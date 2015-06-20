@@ -20,6 +20,6 @@ run(function ($location, global) {
 		$location.path("/mobile");
 	}
 	else {
-		$location.path("/desktop");
+		$location.path("/mobile");
 	}
 });
