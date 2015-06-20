@@ -22,6 +22,4 @@ run(function ($location, global) {
 	else {
 		$location.path("/desktop");
 	}
-
-	global.isMobile();
 });

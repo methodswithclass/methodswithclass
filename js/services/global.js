@@ -1,6 +1,6 @@
 app.factory('global', ['$sce', '$location', function($sce, $location) {
 
-	var body;
+	var body = "#bodyContainer";
 	var project = "#projectContainer";
 	var contact = "#contactContainer";
 
@@ -8,12 +8,9 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 
 		console.log($location.url());
 
-		if ($location.url() == "/mobile"){
-			body = "#mBodyContainer";
+		if ($location.url() == "/mobile") {	
 			return true;
 		}
-
-		body = "#bodyContainer";
 
 		return false;
 
