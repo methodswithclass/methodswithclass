@@ -6,7 +6,7 @@ app.directive("blockinst", function () {
 
 			if (attr.id == "blockInstnuplae") {
 
-				element.text("click icon to play");
+				element.find(attr.id).text("click icon to play");
 			}
 
 		}
