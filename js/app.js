@@ -1,5 +1,7 @@
 var app = angular.module("methodswithclass", ['ngRoute']);
 
+var debug = false;
+
 app.config(function($routeProvider) {
     $routeProvider.
       //Display desktop version
@@ -13,13 +15,23 @@ app.config(function($routeProvider) {
         templateUrl: 'views/mobile.html'
       })
 }).
-run(function ($location, global) {
+run(function ($location) {
+
+	var production;
 
 	if(whatDevice() == mobile) {
 
-		$location.path("/mobile");
+		production = "/mobile";
 	}
 	else {
-		$location.path("/mobile");
+
+		if (debug) {
+			production = "/desktop";
+		}
+		else {
+			production = "/mobile";
+		}
 	}
+
+	$location.path(production);
 });
