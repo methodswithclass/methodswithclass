@@ -8,7 +8,7 @@ app.directive("blockinst", function () {
 
 				alert(attr.id);
 
-				$("#" + attr.id).text("click icon to play");
+				document.getElementById(attr.id).innerHTML = "click icon to play";
 			}
 
 		}
