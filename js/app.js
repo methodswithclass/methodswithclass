@@ -26,10 +26,10 @@ run(function ($location) {
 	else {
 
 		if (debug) {
-			production = "/desktop";
+			production = "/mobile";
 		}
 		else {
-			production = "/mobile";
+			production = "/desktop";
 		}
 	}
 
