@@ -27,6 +27,8 @@ app.directive('project', ['global', function (global) {
 
 			$scope.addText = function (id) {
 
+				alert(id);
+
 				if (id == "nuplae") {
 					return "click the icon to play";
 				}
