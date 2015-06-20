@@ -4,12 +4,17 @@ app.directive("blockinst", function () {
 
 		link:function ($scope, element, attr) {
 
-			if (attr.id == "blockInstnuplae") {
+			$scope.addText = function (id) {
 
-				alert(attr.id);
+				if (id == "nuplae") {
+					return "click icon to play";
 
-				document.getElementById(attr.id).innerHTML = "click icon to play";
+				}
+				else return " ";
+
 			}
+
+			
 
 		}
 	}
