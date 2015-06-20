@@ -10,7 +10,7 @@ app.directive('project', ['global', function (global) {
 		view = "project.html";
 	}
 
-	console.log(view);
+	alert(view);
 
 	return {
 		restrict:'E',
