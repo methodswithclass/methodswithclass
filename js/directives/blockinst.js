@@ -8,7 +8,7 @@ app.directive("blockinst", function () {
 
 			if (attr.id == "blockInstnuplae") {
 
-				$(attr.id).text("click icon to play");
+				$("#" + attr.id).text("click icon to play");
 			}
 
 		}
