@@ -28,47 +28,6 @@ a.blue {
 	min-width:900px;
 }
 
-#bodyContainer {
-
-	width:200%;
-}
-
-.pagesContainer {
-
-	position:absolute;
-	top:0;
-	left:0;
-	height:100%;
-}
-
-.page {
-
-	position:absolute;
-	top:10%;
-	height:90%;
-	width:50%;
-	overflow-x:hidden;
-	overflow-y:scroll;
-}
-
-#projectContainer {
-	left:0;
-}
-
-#contactContainer {
-	left:50%;
-}
-
-.project {
-	position:relative;
-}
-
-.contact {
-	position:absolute;
-	top:20%;
-	width:60%;
-}
-
 .toolbar {
 	
 	position:absolute;
@@ -115,6 +74,47 @@ a.blue {
 	position:relative;
 	width:300px;
 	height:auto;
+}
+
+#bodyContainer {
+
+	width:200%;
+}
+
+.pagesContainer {
+
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+}
+
+.page {
+
+	position:absolute;
+	top:10%;
+	height:90%;
+	width:50%;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+#projectContainer {
+	left:0;
+}
+
+#contactContainer {
+	left:50%;
+}
+
+.project {
+	position:relative;
+}
+
+.contact {
+	position:absolute;
+	top:20%;
+	width:60%;
 }
 
 .intro {
