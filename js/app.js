@@ -1,6 +1,6 @@
 var app = angular.module("methodswithclass", ['ngRoute']);
 
-var debug = true;
+var mobiledebug = false;
 
 app.config(function($routeProvider) {
     $routeProvider.
@@ -25,7 +25,7 @@ run(function ($location) {
 	}
 	else {
 
-		if (debug) {
+		if (mobiledebug) {
 			production = "/mobile";
 		}
 		else {
