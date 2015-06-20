@@ -25,13 +25,12 @@ app.directive('project', ['global', function (global) {
 
 			$scope.renderHtml = global.renderHtml;
 
-			$scope.addText = function (project, id) {
+			$scope.addText = function (id) {
 
-				alert(id + " " + project.id);
-
-				if (id == project.id) {
-					$('#blockInst' + id).text("click the icon to play");
+				if (id == $scope.projects[0].id) {
+					return "click the icon to play";
 				}
+				else return " ";
 			}
 
 			$scope.clickImage = function (maxSep, id) {

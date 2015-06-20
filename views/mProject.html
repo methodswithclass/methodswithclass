@@ -7,8 +7,8 @@
         
         <img class="mIcon hcenter" ng-src= "{{info.icon}}" />
 
-        <div class="mBlockInst hcenter" id="{{'blockInst' + info.id}}" onload="addText(info, info.id)">
-
+        <div class="mBlockInst hcenter" id="{{'blockInst' + info.id}}" ng-init="b = addText(info.id)">
+        	{{b}}
         </div>
     </div>
 
