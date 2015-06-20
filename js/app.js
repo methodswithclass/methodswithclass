@@ -13,7 +13,7 @@ app.config(function($routeProvider) {
         templateUrl: 'views/mobile.html'
       })
 }).
-run(function ($location) {
+run(function ($location, 'global') {
 
 	if(whatDevice() == mobile) {
 
@@ -22,4 +22,6 @@ run(function ($location) {
 	else {
 		$location.path("/desktop");
 	}
+
+	global.isMobile();
 });
