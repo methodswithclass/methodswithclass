@@ -4,7 +4,7 @@ app.directive("blockinst", function () {
 
 		link:function ($scope, element, attr) {
 
-			//alert(attr.id);
+			alert(attr.id);
 
 			if (attr.id == "blockInstnuplae") {
 
