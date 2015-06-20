@@ -23,9 +23,9 @@ app.directive('project', ['global', function (global) {
 
 			$scope.renderHtml = global.renderHtml;
 
-			$scope.addText = function (id) {
+			$scope.addText = function (project, id) {
 
-				if (id == $scope.projects[0].id) {
+				if (id == project.id) {
 					$('#blockInst' + id).text("click the icon to play");
 				}
 			}
