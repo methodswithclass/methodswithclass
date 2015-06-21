@@ -1,4 +1,4 @@
-var app = angular.module("methodswithclass", ['ngRoute']);
+var app = angular.module("methodswithclass", ['ngRoute', 'angular-momentum-scroll']);
 
 var mobiledebug = true;
 
