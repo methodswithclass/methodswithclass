@@ -5,23 +5,32 @@ app.directive("scrollable", function () {
 
 		link:function (scope, element, attr) {
 
+			var i = 0;
 			var start;
 			var top;
-			var mouse = [];
-			var i = 0;
+			var mouse0;
+			var mouse;
 			var vel0;
 			var vel;
-			var pos0;
-			var pos;
 			var time0;
 			var time;
 			var interval;
 
-			var mu = 0.01;
+			var mu = 0.1;
 
 			var getMouse = function (e) {
 
 				return {x:e.pageX, y:e.pageY};
+			}
+
+			var getPos = function (touch) {
+
+				return 1.1*(touch.y - start.y);
+			}
+
+			var getVel = function (touch, touch0) {
+
+				return (getPos(touch) - getPos(touch0))/interval;
 			}
 
 			var getTime = function () {
@@ -29,13 +38,9 @@ app.directive("scrollable", function () {
 				return (new Date()).getTime();
 			}
 
-			var scroll = function (to) {
+			var scroll = function (pos) {
 
-				pos = to - start.y + top;
-
-				element.style.top = pos + 'px';
-
-				return to;
+				element.style.top = pos + top + 'px';
 			}
 
 			var momentum = function (vel0) {
@@ -44,39 +49,47 @@ app.directive("scrollable", function () {
 
 					console.log("momentum");
 
-					pos0 = scroll(vel0*interval);
+					scroll(vel0*interval);
 
 					vel0 *= (1-mu);
+
+					if (vel0 < 0.01) {
+
+						clearInterval(timer);
+					}
 
 				}, 50);
 			}
 
 			element.bind('touchstart', function (e) {
 
-				start = getMouse(e);
-				mouse[0] = start;
 				top = element.offset.top();
-				i = 1;
+				start = getMouse(e);
+				mouse0 = start;
+				mouse = mouse0;
 				time0 = getTime();
+				time = time0;
 			});
 
 			element.bind('touchmove', function (e) {
 
-				time = time0;
-				time0 = getTime();
-
+				time = getTime();
 				interval = time - time0;
+				mouse = getMouse(e);
+				vel0 = getVel(mouse, mouse0);
 
-				mouse[i] = getMouse(e);
+				scroll(getPos(mouse));
 
-				vel0 = mouse[i].y - mouse[i-1].y;
-
-				pos0 = scroll(mouse[i++].y);
+				mouse0 = mouse;
+				time0 = time;
 			});
 
 			element.bind('touchend', function (e) {
 
-				mouse[i] = getMouse(e);
+				time = getTime();
+				interval = time - time0;
+				mouse = getMouse(e);
+				vel0 = getVel(mouse, mouse0);
 
 				momentum(vel0);
 				
