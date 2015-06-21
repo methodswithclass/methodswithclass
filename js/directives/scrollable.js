@@ -18,7 +18,7 @@ app.directive("scrollable", function () {
 			var element = elem[0];
 
 
-			var mu = 0.1;
+			var mu = 0.01;
 
 			var getMouse = function (e) {
 
