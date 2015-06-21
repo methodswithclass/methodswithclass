@@ -51,7 +51,7 @@ app.directive("scrollable", function () {
 				}, 50);
 			}
 
-			element.addEventListener('touchstart', function (e) {
+			element.bind('touchstart', function (e) {
 
 				start = getMouse(e);
 				mouse[0] = start;
@@ -60,7 +60,7 @@ app.directive("scrollable", function () {
 				time0 = getTime();
 			});
 
-			element.addEventListener('touchmove', function (e) {
+			element.bind('touchmove', function (e) {
 
 				time = time0;
 				time0 = getTime();
@@ -74,7 +74,7 @@ app.directive("scrollable", function () {
 				pos0 = scroll(mouse[i++].y);
 			});
 
-			element.addEventListener('touchend', function (e) {
+			element.bind('touchend', function (e) {
 
 				mouse[i] = getMouse(e);
 
