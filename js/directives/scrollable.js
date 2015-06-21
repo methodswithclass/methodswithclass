@@ -40,7 +40,7 @@ app.directive("scrollable", function () {
 
 			var scroll = function (pos) {
 
-				element.style.top = pos + top + 'px';
+				element.css({'top': pos + top });
 			}
 
 			var momentum = function (vel0) {
