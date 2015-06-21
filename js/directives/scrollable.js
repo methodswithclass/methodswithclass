@@ -55,12 +55,13 @@ app.directive("scrollable", function () {
 				mouse[0] = start;
 				top = element.offset.top();
 				i = 1;
-				time = getTime();
+				time0 = getTime();
 			});
 
 			element.addEventListener('touchmove', function (e) {
 
-				time = getTime();
+				time = time0;
+				time0 = getTime();
 
 				interval = time - time0;
 
