@@ -66,7 +66,7 @@ app.directive("scrollable", function () {
 				}, 50);
 			}
 
-			element.bind('touchstart', function (e) {
+			element.addEvent('touchstart', function (e) {
 
 				top = element.offset.top();
 				start = getMouse(e);
@@ -76,7 +76,7 @@ app.directive("scrollable", function () {
 				time = time0;
 			});
 
-			element.bind('touchmove', function (e) {
+			element.addEvent('touchmove', function (e) {
 
 				time = getTime();
 				interval = time - time0;
@@ -89,7 +89,7 @@ app.directive("scrollable", function () {
 				time0 = time;
 			});
 
-			element.bind('touchend', function (e) {
+			element.addEvent('touchend', function (e) {
 
 				time = getTime();
 				interval = time - time0;
