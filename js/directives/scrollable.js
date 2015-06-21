@@ -91,6 +91,8 @@ app.directive("scrollable", function () {
 				mouse = getMouse(e);
 				vel0 = getVel(mouse, mouse0);
 
+				alert(vel0);
+
 				momentum(vel0);
 				
 			});
