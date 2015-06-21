@@ -42,11 +42,13 @@ app.directive("scrollable", function () {
 
 				var timer = setInterval(function () {
 
+					console.log("momentum");
+
 					pos0 = scroll(vel0*interval);
 
 					vel0 *= (1-mu);
 
-				}, 10);
+				}, 50);
 			}
 
 			element.addEventListener('touchstart', function (e) {
