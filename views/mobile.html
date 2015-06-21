@@ -20,7 +20,7 @@
 
   <div id="bodyContainer" class="mPagesContainer">
         
-      <scrollable class="mPage" id="mProjectContainer">
+      <div class="mPage" id="mProjectContainer" scrollable>
               <div class="elem mSep2">
                 <div class="mIntro vcenter">
                   <div class="mIntroInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
@@ -30,14 +30,14 @@
               <div class="mProject" ng-repeat="project in projects"> 
                   <project info="project"></project>
               </div>
-      </scrollable>
+      </div>
 
 
 
-      <scrollable class="mPage" id="mContactContainer">
+      <div class="mPage" id="mContactContainer" scrollable>
           <div class="mContact hcenter">
               <contact info="contact"></contact>
           </div>
-      </scrollable>
+      </div>
 
   </div>
