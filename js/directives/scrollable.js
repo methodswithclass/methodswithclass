@@ -14,6 +14,11 @@ app.directive("scrollable", ['global', function (global) {
 
 	var mu = 0.01;
 
+	var log = function (text) {
+
+		$("#mConsole").text(text);
+	}
+
 	var getProjectHeight = function (scope) {
 
 		var projects = scope.main.projects;
@@ -110,6 +115,9 @@ app.directive("scrollable", ['global', function (global) {
 			touch = pos;
 		}
 
+		log(touch + " " top);
+
+
 		el.css({'top': touch + top + 'px'});
 	}
 
@@ -153,9 +161,9 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.on('touchmove', function (e) {
 
-			scroll += " scroll";
+			//scroll += " scroll";
 
-			$("#mConsole").text(scroll);
+			//log(scroll);
 
 			getTime(1);
 			getInterval();
@@ -170,7 +178,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("end");
 
-			$("#mConsole").text("");
+			//log("");
 
 			getTime(1);
 			getInterval();
