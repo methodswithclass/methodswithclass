@@ -29,9 +29,24 @@ app.directive("scrollable", ['global', function (global) {
 		return (getPos(touch) - getPos(touch0))/interval;
 	}
 
-	var getTime = function () {
+	var getTime = function (state) {
 
-		return (new Date()).getTime();
+		if (state == 0) {
+			time0 = (new Date()).getTime();
+		}
+		else (state == 1) {
+			time = (new Date()).getTime();
+		}
+
+		
+	}
+
+	var getInterval = function () {
+
+		if (time && time0) {
+
+			interval = time - time0;
+		}
 	}
 
 	var scroll = function (el, pos) {
@@ -69,17 +84,16 @@ app.directive("scrollable", ['global', function (global) {
 			start = getMouse(e);
 			mouse0 = start;
 			mouse = mouse0;
-			time0 = getTime();
+			getTime(0);
 			time = time0;
 		});
 
 		el.on('touchmove', function (e) {
 
-			time = getTime();
-			interval = time - time0;
+			getTime(1);
+			getInterval();
 			mouse = getMouse(e);
 			vel0 = getVel(mouse, mouse0);
-
 			scroll(element, getPos(mouse));
 
 			mouse0 = mouse;
@@ -88,8 +102,8 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.on('touchend', function (e) {
 
-			time = getTime();
-			interval = time - time0;
+			getTime(1);
+			getInterval();
 			mouse = getMouse(e);
 			vel0 = getVel(mouse, mouse0);
 
