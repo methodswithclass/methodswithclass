@@ -57,46 +57,50 @@ app.directive("scrollable", [function () {
 		}, 50);
 	}
 
+	var link = function (scope, element, attr) {
+
+		alert(typeof(element));
+
+		element.on('touchstart', function (e) {
+
+			top = element.offset.top();
+			start = getMouse(e);
+			mouse0 = start;
+			mouse = mouse0;
+			time0 = getTime();
+			time = time0;
+		});
+
+		element.on('touchmove', function (e) {
+
+			time = getTime();
+			interval = time - time0;
+			mouse = getMouse(e);
+			vel0 = getVel(mouse, mouse0);
+
+			scroll(element, getPos(mouse));
+
+			mouse0 = mouse;
+			time0 = time;
+		});
+
+		element.on('touchend', function (e) {
+
+			time = getTime();
+			interval = time - time0;
+			mouse = getMouse(e);
+			vel0 = getVel(mouse, mouse0);
+
+			alert(vel0);
+
+			momentum(vel0);
+			
+		});
+
+	}
+
 	return {
 		
-		link:function (scope, element, attr) {
-
-			element.on('touchstart', function (e) {
-
-				top = element.offset.top();
-				start = getMouse(e);
-				mouse0 = start;
-				mouse = mouse0;
-				time0 = getTime();
-				time = time0;
-			});
-
-			element.on('touchmove', function (e) {
-
-				time = getTime();
-				interval = time - time0;
-				mouse = getMouse(e);
-				vel0 = getVel(mouse, mouse0);
-
-				scroll(element, getPos(mouse));
-
-				mouse0 = mouse;
-				time0 = time;
-			});
-
-			element.on('touchend', function (e) {
-
-				time = getTime();
-				interval = time - time0;
-				mouse = getMouse(e);
-				vel0 = getVel(mouse, mouse0);
-
-				alert(vel0);
-
-				momentum(vel0);
-				
-			});
-
-		}
+		link:link
 	}
 }]);
