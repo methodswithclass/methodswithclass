@@ -6,8 +6,8 @@ app.directive("scrollable", ['global', function (global) {
 	var top;
 	var mouse0;
 	var mouse;
-	var vel0;
 	var vel;
+	var pos;
 	var time0;
 	var time;
 	var interval;
@@ -46,20 +46,28 @@ app.directive("scrollable", ['global', function (global) {
 
 		top = el.offset.top();
 
-		alert(top);
-
 		start = {x:e.pageX, y:e.pageY};
 
 	}
 
-	var getPos = function (touch) {
+	var getPos = function (state) {
 
-		return 1.1*(touch.y - start.y);
+		var touch;
+
+		if (state == 0) {
+			touch = mouse0;
+		}
+		else {
+
+			touch = mouse;
+		}
+
+		pos = 1.1*(touch.y - start.y);
 	}
 
 	var getVel = function () {
 
-		return (getPos(mouse) - getPos(mouse0))/interval;
+		vel = (getPos(mouse) - getPos(mouse0))/interval;
 	}
 
 	var getTime = function (state) {
@@ -82,27 +90,36 @@ app.directive("scrollable", ['global', function (global) {
 		}
 	}
 
-	var scroll = function (el, pos) {
+	var scroll = function (el, position) {
 
-		el.css({'top': pos + top + 'px'});
+		var touch;
+
+		if (position) {
+			touch = position;
+		}
+		else {
+			touch = pos;
+		}
+
+		el.css({'top': touch + top + 'px'});
 	}
 
-	var momentum = function () {
+	var momentum = function (el) {
 
 		var timer = setInterval(function () {
 
 			console.log("momentum");
 
-			scroll(vel0*interval);
+			scroll(el, vel*interval);
 
-			vel0 *= (1-mu);
+			vel *= (1-mu);
 
-			if (vel0 < 0.01) {
+			if (vel < 0.01) {
 
 				clearInterval(timer);
 			}
 
-		}, 50);
+		}, 10);
 	}
 
 	var link = function (scope, element, attr) {
@@ -117,7 +134,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("start");
 
-			start = startScroll(element, e);
+			start = startScroll(el, e);
 			getTime(0);
 		});
 
@@ -126,8 +143,9 @@ app.directive("scrollable", ['global', function (global) {
 			getTime(1);
 			getInterval();
 			getMouse(e, 1);
+			getPos(1);
 			getVel();
-			scroll();
+			scroll(el);
 		});
 
 		el.on('touchend', function (e) {
@@ -137,8 +155,9 @@ app.directive("scrollable", ['global', function (global) {
 			getTime(1);
 			getInterval();
 			getMouse(e, 1);
+			getPos(1);
 			getVel();
-			momentum();
+			momentum(el);
 			
 		});
 
