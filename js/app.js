@@ -35,3 +35,9 @@ run(function ($location) {
 
 	$location.path(production);
 });
+
+
+
+window.addEventListener("touchmove", function (e) {
+	e.preventDefault();
+});
