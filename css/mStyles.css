@@ -14,8 +14,15 @@
 .mPagesContainer {
 
 	position:absolute;
-	height:100%;
-	padding-top:400px;
+	/* Firefox */
+	height: -moz-calc(100% - 400px);
+	/* WebKit */
+	height: -webkit-calc(100% - 400px);
+	/* Opera */
+	height: -o-calc(100% - 400px);
+	/* Standard */
+	height: calc(100% - 400px);
+	top:400px;
 	left:0;
 	width:100%;
 	z-index:5;
