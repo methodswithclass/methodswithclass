@@ -63,6 +63,8 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.on('touchstart', function (e) {
 
+			alert("start");
+
 			top = element.offset.top();
 			start = getMouse(e);
 			mouse0 = start;
