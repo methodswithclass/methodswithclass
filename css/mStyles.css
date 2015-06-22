@@ -13,7 +13,7 @@
 
 .mPagesContainer {
 
-	position:absolute;
+	position:fixed;
 	top:400px;
 	left:0;
 	width:100%;
