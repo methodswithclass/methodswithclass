@@ -170,6 +170,8 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("end");
 
+			$("#mConsole").text("");
+
 			getTime(1);
 			getInterval();
 			getMouse(e, 1);
