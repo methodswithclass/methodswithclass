@@ -70,6 +70,8 @@ app.directive("scrollable", ['global', function (global) {
 		}
 
 		pos = 1.1*(touch.y - start.y);
+
+		return pos;
 	}
 
 	var getVel = function () {
@@ -115,7 +117,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		var timer = setInterval(function () {
 
-			console.log("momentum");
+			//console.log("momentum");
 
 			scroll(el, vel*interval);
 
@@ -130,6 +132,8 @@ app.directive("scrollable", ['global', function (global) {
 	}
 
 	var link = function (scope, element, attr) {
+
+		var scroll = "";
 
 		var el = $(global.scrollContainer);
 
@@ -148,6 +152,10 @@ app.directive("scrollable", ['global', function (global) {
 		});
 
 		el.on('touchmove', function (e) {
+
+			scroll += " scroll";
+
+			$("#mConsole").text(scroll);
 
 			getTime(1);
 			getInterval();
