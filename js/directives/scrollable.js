@@ -14,9 +14,26 @@ app.directive("scrollable", ['global', function (global) {
 
 	var mu = 0.01;
 
-	var getMouse = function (e) {
+	var getMouse = function (e, state) {
 
-		return {x:e.pageX, y:e.pageY};
+		if (state == 0) {
+
+			mouse0 = {x:e.pageX, y:e.pageY};
+		}
+		else {
+
+			mouse = {x:e.pageX, y:e.pageY};
+		}
+	}
+
+	var startScroll = function (el, e) {
+
+		top = el.offset.top();
+
+		alert(top);
+
+		start = {x:e.pageX, y:e.pageY};
+
 	}
 
 	var getPos = function (touch) {
@@ -24,9 +41,9 @@ app.directive("scrollable", ['global', function (global) {
 		return 1.1*(touch.y - start.y);
 	}
 
-	var getVel = function (touch, touch0) {
+	var getVel = function () {
 
-		return (getPos(touch) - getPos(touch0))/interval;
+		return (getPos(mouse) - getPos(mouse0))/interval;
 	}
 
 	var getTime = function (state) {
@@ -54,7 +71,7 @@ app.directive("scrollable", ['global', function (global) {
 		el.css({'top': pos + top + 'px'});
 	}
 
-	var momentum = function (vel0) {
+	var momentum = function () {
 
 		var timer = setInterval(function () {
 
@@ -80,24 +97,17 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("start");
 
-			top = element.offset.top();
-			start = getMouse(e);
-			mouse0 = start;
-			mouse = mouse0;
+			start = startScroll(element, e);
 			getTime(0);
-			time = time0;
 		});
 
 		el.on('touchmove', function (e) {
 
 			getTime(1);
 			getInterval();
-			mouse = getMouse(e);
-			vel0 = getVel(mouse, mouse0);
-			scroll(element, getPos(mouse));
-
-			mouse0 = mouse;
-			time0 = time;
+			getMouse(e, 1);
+			getVel();
+			scroll();
 		});
 
 		el.on('touchend', function (e) {
@@ -106,12 +116,9 @@ app.directive("scrollable", ['global', function (global) {
 
 			getTime(1);
 			getInterval();
-			mouse = getMouse(e);
-			vel0 = getVel(mouse, mouse0);
-
-
-
-			momentum(vel0);
+			getMouse(e, 1);
+			getVel();
+			momentum();
 			
 		});
 
