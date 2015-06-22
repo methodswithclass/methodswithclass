@@ -65,7 +65,7 @@ app.directive("scrollable", ['global', function (global) {
 		if (state == 0) {
 			time0 = (new Date()).getTime();
 		}
-		else (state == 1) {
+		else if (state == 1) {
 			time = (new Date()).getTime();
 		}
 
@@ -105,7 +105,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	var link = function (scope, element, attr) {
 
-		$("#mPagesContainer").css({"height":$(window).height() - 400 + "px")});
+		$("#mPagesContainer").css({"height":$(window).height() - 400 + "px"});
 
 		$("#mProjectContainer").css({"height":getProjectHeight(scope) + "px"});
 
