@@ -3,7 +3,7 @@ app.directive("scrollable", function () {
 
 	return {
 		restrict:'A',
-		link:function (scope, elem, attr) {
+		link:function (scope, element, attr) {
 
 			var i = 0;
 			var start;
@@ -15,10 +15,10 @@ app.directive("scrollable", function () {
 			var time0;
 			var time;
 			var interval;
-			var element = elem[0];
+			//var element = elem[0];
 
 
-			console.log(typeof(element));
+			//console.log(typeof(element));
 
 
 			var mu = 0.01;
