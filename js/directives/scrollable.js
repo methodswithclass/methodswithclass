@@ -15,6 +15,8 @@ app.directive("scrollable", ['global', function (global) {
 	this.interval;
 	this.timer;
 
+	this.isDown = false;
+
 	this.mu = 0.01;
 
 	this.log = function (text) {
@@ -160,6 +162,8 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.start = self.startScroll(el, e);
 			self.getTime(0);
+
+			self.isDown = true;
 		}
 
 		var move = function (e) {
@@ -168,18 +172,23 @@ app.directive("scrollable", ['global', function (global) {
 
 			//log(scroll);
 
-			self.getTime(1);
-			self.getInterval();
-			self.getMouse(e, 1);
-			self.getPos(1);
-			self.getVel();
-			self.scroll(el);
-			self.swapMouse();
+			if (self.isDown) {
+
+				self.getTime(1);
+				self.getInterval();
+				self.getMouse(e, 1);
+				self.getPos(1);
+				self.getVel();
+				self.scroll(el);
+				self.swapMouse();
+			}
 		}
 
 		var up = function (e) {
 
 			//alert("end");
+
+			self.isDown = false;
 
 			self.log("");
 
