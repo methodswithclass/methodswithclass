@@ -106,6 +106,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	var scroll = function (el, position) {
 
+		log("scroll");
+
 		var touch;
 
 		if (position) {
@@ -114,8 +116,6 @@ app.directive("scrollable", ['global', function (global) {
 		else {
 			touch = pos;
 		}
-
-		log(touch + " " top);
 
 
 		el.css({'top': touch + top + 'px'});
