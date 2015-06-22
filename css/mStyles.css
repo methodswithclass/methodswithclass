@@ -12,17 +12,17 @@
 
 }
 
-.mPagesContainer {
+.mBody {
 
 	position:absolute;
 	/* Firefox */
-	height: -moz-calc(100% - 400px);
+	height: -moz-calc(100% - 410px);
 	/* WebKit */
-	height: -webkit-calc(100% - 400px);
+	height: -webkit-calc(100% - 410px);
 	/* Opera */
-	height: -o-calc(100% - 400px);
+	height: -o-calc(100% - 410px);
 	/* Standard */
-	height: calc(100% - 405px);
+	height: calc(100% - 410px);
 	top:400px;
 	left:0;
 	width:95%;
@@ -37,11 +37,11 @@
 	width:50%;
 }
 
-#mProjectContainer {
+#mProjects {
 	left:0;
 }
 
-#mContactContainer {
+#mContact {
 	left:50%;
 }
 

@@ -3,7 +3,7 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 	var body = "#bodyContainer";
 	var project = "#projectContainer";
 	var contact = "#contactContainer";
-	var scrollContainer = "#mProjectContainer";
+	var scrollContainer = "#mProjects";
 
 	var isMobile = function () {
 

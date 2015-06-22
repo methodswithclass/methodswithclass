@@ -25,7 +25,7 @@ app.directive("scrollable", ['global', function (global) {
 			sep += projects[i].mobileSep;
 		}
 
-		console.log(sep);
+		//console.log(sep);
 
 		return projects.length*800 + sep;
 	}
@@ -137,7 +137,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.css({"height":getProjectHeight(scope) + "px"});
 
-		console.log(el.height());
+		//console.log(el.height());
 
 		el.on('touchstart', function (e) {
 
