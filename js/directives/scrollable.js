@@ -16,7 +16,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	var getProjectHeight = function (scope) {
 
-		var projects = scope.fun.projects
+		var projects = scope.fun.projects;
 
 		var sep = 0;
 
@@ -107,7 +107,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		$("#mPagesContainer").css({"height":$(window).height() - 400 + "px")});
 
-		$("#mProjectContainer").css({"height":getProjectHeight() + "px"});
+		$("#mProjectContainer").css({"height":getProjectHeight(scope) + "px"});
 
 		var el = $(global.scrollContainer);
 
