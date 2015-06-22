@@ -59,7 +59,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.startScroll = function (el, e) {
 
-		self.top = el.offset.top();
+		self.top = el.offset().top;
 
 		self.start = {x:e.pageX, y:e.pageY};
 
