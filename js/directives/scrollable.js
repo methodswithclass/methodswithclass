@@ -16,7 +16,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	var getProjectHeight = function (scope) {
 
-		var projects = scope.fun.projects;
+		var projects = scope.main.projects;
 
 		var sep = 0;
 
