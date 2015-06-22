@@ -14,11 +14,13 @@
 .mPagesContainer {
 
 	position:absolute;
-	top:400%;
+	height:100%;
+	margin-top:400px;
 	left:0;
 	width:100%;
 	z-index:5;
 	overflow:hidden;
+	border:5px solid black;
 }
 
 .mPage {
