@@ -21,6 +21,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.log = function (text) {
 
+		console.log(text);
+
 		$("#mConsole").text(text);
 	}
 
