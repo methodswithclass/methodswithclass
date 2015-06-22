@@ -1,5 +1,5 @@
 
-app.directive("scrollable", function () {
+app.directive("scrollable", [function () {
 
 	var i = 0;
 	var start;
@@ -58,7 +58,7 @@ app.directive("scrollable", function () {
 	}
 
 	return {
-		restrict:'A',
+		
 		link:function (scope, element, attr) {
 
 			element.on('touchstart', function (e) {
@@ -99,4 +99,4 @@ app.directive("scrollable", function () {
 
 		}
 	}
-})
+}]);
