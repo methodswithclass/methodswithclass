@@ -14,6 +14,20 @@ app.directive("scrollable", ['global', function (global) {
 
 	var mu = 0.01;
 
+	var getProjectHeight = function (scope) {
+
+		var projects = scope.fun.projects
+
+		var sep = 0;
+
+		for (i in projects) {
+
+			sep += projects[i].mobileSep;
+		}
+
+		return projects.length*800 + sep;
+	}
+
 	var getMouse = function (e, state) {
 
 		if (state == 0) {
@@ -90,6 +104,10 @@ app.directive("scrollable", ['global', function (global) {
 	}
 
 	var link = function (scope, element, attr) {
+
+		$("#mPagesContainer").css({"height":$(window).height() - 400 + "px")});
+
+		$("#mProjectContainer").css({"height":getProjectHeight() + "px"});
 
 		var el = $(global.scrollContainer);
 
