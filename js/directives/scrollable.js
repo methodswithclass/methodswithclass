@@ -132,7 +132,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.on('touchend', function (e) {
 
-			alert("end");
+			//alert("end");
 
 			getTime(1);
 			getInterval();
