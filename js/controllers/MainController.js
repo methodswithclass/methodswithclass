@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', function ($scope) {
+app.controller('MainController', function () {
 
 	var self = this;
 
@@ -43,4 +43,4 @@ app.controller('MainController', ['$scope', function ($scope) {
 
 	
 
-}]);
+});
