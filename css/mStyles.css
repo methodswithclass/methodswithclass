@@ -4,6 +4,7 @@
 	
 	position:fixed;
 	width:100%;
+	top:0;
 	height:400px;
 	background-color:#333;
 	color:white;
@@ -21,10 +22,10 @@
 	/* Opera */
 	height: -o-calc(100% - 400px);
 	/* Standard */
-	height: calc(100% - 400px);
+	height: calc(100% - 405px);
 	top:400px;
 	left:0;
-	width:100%;
+	width:95%;
 	z-index:5;
 	overflow:hidden;
 	border:5px solid black;
