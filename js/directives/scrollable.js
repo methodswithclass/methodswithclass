@@ -178,7 +178,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("end");
 
-			//log("");
+			log("");
 
 			getTime(1);
 			getInterval();
