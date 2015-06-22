@@ -107,7 +107,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	var link = function (scope, element, attr) {
 
-		$("#mPagesContainer").css({"height":$(window).height() - 400 + "px"});
+		$("#mPagesContainer").css({"height":scope.main.pageHeight() + "px"});
 
 		$("#mProjectContainer").css({"height":getProjectHeight(scope) + "px"});
 

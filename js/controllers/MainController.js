@@ -41,11 +41,6 @@ app.controller('MainController', ['$scope', function ($scope) {
 		return $(window).height() - 400;
 	}
 
-	$scope.projects = self.projects;
-
-	$scope.contact = self.contacts;
-
-	$scope.pageHeight = self.pageHeight;
 	
 
 }]);
