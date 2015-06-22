@@ -133,7 +133,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		var el = $(global.scrollContainer);
 
-		$(global.body).css({"height":scope.main.pageHeight() + "px"});
+		//$(global.body).css({"height":scope.main.pageHeight() + "px"});
 
 		el.css({"height":getProjectHeight(scope) + "px"});
 
