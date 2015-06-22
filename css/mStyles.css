@@ -16,19 +16,18 @@
 
 	position:absolute;
 	/* Firefox */
-	height: -moz-calc(100% - 410px);
+	height: -moz-calc(100% - 420px);
 	/* WebKit */
-	height: -webkit-calc(100% - 410px);
+	height: -webkit-calc(100% - 420px);
 	/* Opera */
-	height: -o-calc(100% - 410px);
+	height: -o-calc(100% - 420px);
 	/* Standard */
-	height: calc(100% - 410px);
-	top:400px;
-	left:0;
-	width:95%;
+	height: calc(100% - 420px);
+	top:420px;
+	left:5%;
+	width:90%;
 	z-index:5;
 	overflow:hidden;
-	border:5px solid black;
 }
 
 .mPage {
