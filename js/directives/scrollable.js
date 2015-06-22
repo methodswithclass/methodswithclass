@@ -25,6 +25,8 @@ app.directive("scrollable", ['global', function (global) {
 			sep += projects[i].mobileSep;
 		}
 
+		console.log(sep);
+
 		return projects.length*800 + sep;
 	}
 
