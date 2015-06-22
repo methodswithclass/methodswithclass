@@ -1,5 +1,5 @@
 
-app.directive("scrollable", [function () {
+app.directive("scrollable", ['global', function (global) {
 
 	var i = 0;
 	var start;
@@ -59,9 +59,9 @@ app.directive("scrollable", [function () {
 
 	var link = function (scope, element, attr) {
 
-		alert(element.height());
+		var el = $(global.scrollContainer);
 
-		element.on('touchstart', function (e) {
+		el.on('touchstart', function (e) {
 
 			top = element.offset.top();
 			start = getMouse(e);
@@ -71,7 +71,7 @@ app.directive("scrollable", [function () {
 			time = time0;
 		});
 
-		element.on('touchmove', function (e) {
+		el.on('touchmove', function (e) {
 
 			time = getTime();
 			interval = time - time0;
@@ -84,14 +84,14 @@ app.directive("scrollable", [function () {
 			time0 = time;
 		});
 
-		element.on('touchend', function (e) {
+		el.on('touchend', function (e) {
 
 			time = getTime();
 			interval = time - time0;
 			mouse = getMouse(e);
 			vel0 = getVel(mouse, mouse0);
 
-			alert(vel0);
+			alert("end");
 
 			momentum(vel0);
 			
