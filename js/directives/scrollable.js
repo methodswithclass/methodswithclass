@@ -135,7 +135,9 @@ app.directive("scrollable", ['global', function (global) {
 
 		$(global.body).css({"height":scope.main.pageHeight() + "px"});
 
-		el.css({"height":getProjectHeight(scope) + "px"});		
+		el.css({"height":getProjectHeight(scope) + "px"});
+
+		console.log(el.height());
 
 		el.on('touchstart', function (e) {
 
