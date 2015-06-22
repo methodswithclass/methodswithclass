@@ -61,6 +61,8 @@ app.directive("scrollable", ['global', function (global) {
 
 		self.top = el.offset().top;
 
+		console.log(e);
+
 		self.start = {x:e.pageX, y:e.pageY};
 
 		self.getMouse(0);
