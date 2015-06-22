@@ -59,7 +59,7 @@ app.directive("scrollable", [function () {
 
 	var link = function (scope, element, attr) {
 
-		alert(typeof(element));
+		alert(element.height());
 
 		element.on('touchstart', function (e) {
 
