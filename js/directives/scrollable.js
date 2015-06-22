@@ -162,7 +162,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("start");
 
-			self.start = self.startScroll(el, e);
+			self.startScroll(el, e);
 			self.getTime(0);
 
 			self.isDown = true;
