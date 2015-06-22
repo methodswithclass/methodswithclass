@@ -151,15 +151,15 @@ app.directive("scrollable", ['global', function (global) {
 
 		//console.log(el.height());
 
-		el.on('touchstart', function (e) {
+		var down = function (e) {
 
 			//alert("start");
 
 			start = startScroll(el, e);
 			getTime(0);
-		});
+		}
 
-		el.on('touchmove', function (e) {
+		var move = function (e) {
 
 			//scroll += " scroll";
 
@@ -172,9 +172,9 @@ app.directive("scrollable", ['global', function (global) {
 			getVel();
 			scroll(el);
 			swapMouse();
-		});
+		}
 
-		el.on('touchend', function (e) {
+		var up = function (e) {
 
 			//alert("end");
 
@@ -187,7 +187,15 @@ app.directive("scrollable", ['global', function (global) {
 			getVel();
 			momentum(el);
 			
-		});
+		}
+
+		el.on('touchstart', down);
+		el.on('touchmove', move);
+		el.on('touchend', up);
+
+		el.on('mousedown', down);
+		el.on('mousemove', move);
+		el.on('mouseup', up);
 
 	}
 
