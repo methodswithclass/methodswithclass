@@ -42,11 +42,18 @@ app.directive("scrollable", ['global', function (global) {
 		}
 	}
 
+	var swapMouse = function () {
+
+		mouse0 = mouse;
+	}
+
 	var startScroll = function (el, e) {
 
 		top = el.offset.top();
 
 		start = {x:e.pageX, y:e.pageY};
+
+		getMouse(0);
 
 	}
 
@@ -124,11 +131,11 @@ app.directive("scrollable", ['global', function (global) {
 
 	var link = function (scope, element, attr) {
 
+		var el = $(global.scrollContainer);
+
 		$(global.body).css({"height":scope.main.pageHeight() + "px"});
 
-		$(global.scrollContainer).css({"height":getProjectHeight(scope) + "px"});
-
-		var el = $(global.scrollContainer);
+		el.css({"height":getProjectHeight(scope) + "px"});		
 
 		el.on('touchstart', function (e) {
 
@@ -146,6 +153,7 @@ app.directive("scrollable", ['global', function (global) {
 			getPos(1);
 			getVel();
 			scroll(el);
+			swapMouse();
 		});
 
 		el.on('touchend', function (e) {
