@@ -168,6 +168,8 @@ app.directive("scrollable", ['global', function (global) {
 
 		var move = function (e) {
 
+			e.preventDefault();
+
 			//scroll += " scroll";
 
 			//log(scroll);
