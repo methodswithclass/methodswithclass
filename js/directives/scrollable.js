@@ -51,7 +51,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	var scroll = function (el, pos) {
 
-		el.css({'top': pos + top });
+		el.css({'top': pos + top + 'px'});
 	}
 
 	var momentum = function (vel0) {
@@ -102,12 +102,14 @@ app.directive("scrollable", ['global', function (global) {
 
 		el.on('touchend', function (e) {
 
+			alert("end");
+
 			getTime(1);
 			getInterval();
 			mouse = getMouse(e);
 			vel0 = getVel(mouse, mouse0);
 
-			alert("end");
+
 
 			momentum(vel0);
 			
