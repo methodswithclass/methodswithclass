@@ -130,7 +130,7 @@ app.directive("scrollable", ['global', function (global) {
 		var bodyTop = $(global.body).offset().top
 		var bodyBottom = bodyTop + $(global.body).height()
 			
-		if (top < bodyTop) {
+		if (top > bodyTop) {
 			self.el.animate({top:0}, 100);
 			return true;
 		}
