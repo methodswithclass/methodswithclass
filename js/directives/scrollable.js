@@ -147,6 +147,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.momentum = function (vel) {
 
+		console.log("vel " + vel);
+
 		scroll(vel);
 
 		return vel*(1-self.mu);
