@@ -180,6 +180,8 @@ app.directive("scrollable", ['global', function (global) {
 
 			if (self.isDown) {
 
+				console.log(self.top);
+
 				self.getTime(1);
 				self.getInterval();
 				self.getMouse(e, 1);
