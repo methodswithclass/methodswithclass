@@ -19,7 +19,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.mu = 0.1;
 
-	this.minVel = 0.001;
+	this.minVel = 0.01;
 
 	this.el = $(global.mProjects);
 
@@ -154,6 +154,8 @@ app.directive("scrollable", ['global', function (global) {
 			scroll(self.vel);
 
 			self.vel *= (1-self.mu);
+
+			console.log("self.vel " + self.vel);
 
 			if (self.bounce() || self.vel < self.minVel){
 				console.log("stop");
