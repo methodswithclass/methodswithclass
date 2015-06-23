@@ -3,7 +3,7 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 	var body = "#bodyContainer";
 	var project = "#projectContainer";
 	var contact = "#contactContainer";
-	var scrollContainer = "#mProjects";
+	var mProjects = "#mProjects";
 
 	var isMobile = function () {
 
@@ -21,7 +21,7 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
     	body:body,
     	project:project,
     	contact:contact,
-    	scrollContainer:scrollContainer,
+    	mProjects:mProjects,
     	isMobile:isMobile,
     	renderHtml:function (htmlCode) {
 	        return $sce.trustAsHtml(htmlCode);

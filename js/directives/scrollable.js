@@ -21,7 +21,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.minVel = 0.01;
 
-	this.el = $(global.scrollContainer);
+	this.el = $(global.mProjects);
 
 	this.log = function (text) {
 
@@ -96,8 +96,6 @@ app.directive("scrollable", ['global', function (global) {
 		else if (state == 1) {
 			self.time = (new Date()).getTime()/1000;
 		}
-
-		
 	}
 
 	this.getInterval = function () {
@@ -118,9 +116,6 @@ app.directive("scrollable", ['global', function (global) {
 		else {
 			touch = self.pos;
 		}
-
-		//console.log("touch " + touch);
-
 
 		self.el.css({'top': touch + self.startTop + "px"});
 	}
@@ -159,19 +154,11 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.link = function (scope, element, attr) {
 
-		var scroll = "";
-
-		//$(global.body).css({"height":scope.main.pageHeight() + "px"});
-
 		self.el.css({"height":self.getProjectHeight(scope) + "px"});
-
-		//console.log(el.height());
 
 		var down = function (e) {
 
-			//alert("start");
-
-			self.startTop = $(global.body).offset().top - self.el.offset().top;
+			self.startTop = self.el.offset().top; - $(global.body).offset().top;
 			self.start = {x:e.pageX, y:e.pageY};
 			self.getMouse(e, 0);
 			self.getPos(0);
@@ -183,10 +170,6 @@ app.directive("scrollable", ['global', function (global) {
 		var move = function (e) {
 
 			e.preventDefault();
-
-			//scroll += " scroll";
-
-			//log(scroll);
 
 			if (self.isDown) {
 
