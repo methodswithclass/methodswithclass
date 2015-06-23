@@ -126,7 +126,7 @@ app.directive("scrollable", ['global', function (global) {
 			touch = self.pos;
 		}
 
-		console.log("touch " + touch);
+		//console.log("touch " + touch);
 
 
 		self.el.css({'top': touch + self.startTop + "px"});
@@ -152,7 +152,7 @@ app.directive("scrollable", ['global', function (global) {
 		return false;
 	}
 
-	this.momentum = function (el) {
+	this.momentum = function () {
 
 		self.timer = setInterval(function () {
 
@@ -167,7 +167,7 @@ app.directive("scrollable", ['global', function (global) {
 				clearInterval(self.timer);
 			}
 
-		}, 10);
+		}, 50);
 	}
 
 	this.link = function (scope, element, attr) {
