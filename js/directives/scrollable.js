@@ -83,7 +83,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.getVel = function () {
 
-		self.vel = (self.getPos(1) - self.getPos(0));
+		self.vel = -(self.getPos(1) - self.getPos(0));
 
 		//console.log(self.getPos(0) + " " + self.getPos(1) + " " + self.interval + " " + self.vel);
 	}
