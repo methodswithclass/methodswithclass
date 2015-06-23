@@ -99,7 +99,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		if (self.time && self.time0) {
 
-			self.interval = time - time0;
+			self.interval = self.time - self.time0;
 		}
 	}
 
