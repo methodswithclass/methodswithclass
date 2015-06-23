@@ -155,7 +155,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.vel *= (1-self.mu);
 
-			if (self.vel < self.minVel || self.bounce()){
+			if (self.bounce() || self.vel < self.minVel){
 				console.log("stop");
 				clearInterval(self.timer);
 			}
