@@ -90,10 +90,10 @@ app.directive("scrollable", ['global', function (global) {
 	this.getTime = function (state) {
 
 		if (state == 0) {
-			self.time0 = (new Date()).getTime();
+			self.time0 = (new Date()).getTime()/1000;
 		}
 		else if (state == 1) {
-			self.time = (new Date()).getTime();
+			self.time = (new Date()).getTime()/1000;
 		}
 
 		
