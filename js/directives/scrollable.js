@@ -148,7 +148,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		scroll(vel);
 
-		return vel*(1-self.mu);
+		return vel;
 
 	}
 
@@ -217,6 +217,7 @@ app.directive("scrollable", ['global', function (global) {
 		self.el.on('mousedown', down);
 		self.el.on('mousemove', move);
 		self.el.on('mouseup', up);
+		self.el.on('mousecancel', up);
 
 	}
 
