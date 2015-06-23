@@ -142,12 +142,32 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.vel *= (1-self.mu);
 
-			if (self.vel < 0.01) {
+			if (self.vel < 0.01 || bounce()) {
 
 				clearInterval(self.timer);
 			}
 
 		}, 10);
+	}
+
+	var bounce = function () {
+
+		var top = self.el.offset().top;
+		var bottom = top + self.el.height();
+
+		var bodyTop = $(global.body).offset().top
+		var bodyBottom = bodyTop + self.el.height()
+			
+		if (top > bodyTop) {
+			self.el.animate({top:0}, 100);
+			return true;
+		}
+		else if (bottom < bodyBottom) {
+			self.el.animate({top:$(global.body).height() - self.el.height()}, 100);
+			return true;
+		}
+
+		return false;
 	}
 
 	this.link = function (scope, element, attr) {
