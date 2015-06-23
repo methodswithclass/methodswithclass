@@ -127,6 +127,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.bounce = function () {
 
+		console.log("bounce");
+
 		var top = self.el.offset().top;
 		var bottom = top + self.el.height();
 
