@@ -23,8 +23,6 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.el = $(global.mProjects);
 
-	this.el.css({"height":self.getProjectHeight(scope) + "px"});
-
 	this.log = function (text) {
 
 		console.log(text);
@@ -129,8 +127,10 @@ app.directive("scrollable", ['global', function (global) {
 		var top = self.el.offset().top;
 		var bottom = top + self.el.height();
 
-		var bodyTop = $(global.body).offset().top
-		var bodyBottom = bodyTop + $(global.body).height()
+		var bodyTop = $(global.body).offset().top;
+		var bodyBottom = bodyTop + $(global.body).height();
+
+		console.log("top:" + top + " botttom: " + bottom + " bodyTop: " + bodyTop + " bodyBottom: " + bodyBottom);
 			
 		if (top > bodyTop) {
 			console.log("below top");
@@ -165,6 +165,8 @@ app.directive("scrollable", ['global', function (global) {
 	}
 
 	this.link = function (scope, element, attr) {
+
+		this.el.css({"height":self.getProjectHeight(scope) + "px"});
 
 		var down = function (e) {
 
