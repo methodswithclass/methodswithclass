@@ -162,7 +162,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.vel *= (1-self.mu);
 
-			if (self.vel < 0.01 || self.bounce()) {
+			if (self.vel < 0.01) {
 
 				clearInterval(self.timer);
 			}
@@ -228,7 +228,8 @@ app.directive("scrollable", ['global', function (global) {
 			self.getMouse(e, 1);
 			self.getPos(1);
 			self.getVel();
-			self.momentum();
+
+			if (!self.bounce()) self.momentum();
 			
 		}
 
