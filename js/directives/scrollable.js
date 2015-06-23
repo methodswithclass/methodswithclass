@@ -237,10 +237,10 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			
 		}
 
-		self.el.on('mousedown', down);
-		self.el.on('mousemove', move);
-		self.el.on('mouseup', up);
-		self.el.on('mousecancel', up);
+		// self.el.on('mousedown', down);
+		// self.el.on('mousemove', move);
+		// self.el.on('mouseup', up);
+		// self.el.on('mousecancel', up);
 
         $swipe.bind(self.el, {
           'start': down,
