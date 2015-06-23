@@ -156,7 +156,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		self.timer = setInterval(function () {
 
-			//console.log("momentum");
+			console.log(self.vel);
 
 			scroll(self.vel*self.interval);
 
@@ -200,16 +200,16 @@ app.directive("scrollable", ['global', function (global) {
 
 			if (self.isDown) {
 
-				console.log(self.startTop);
+				//console.log(self.startTop);
 
 				self.getTime(1);
 				self.getInterval();
 				self.getMouse(e, 1);
-				console.log("mouse " + self.mouse.y);
+				//console.log("mouse " + self.mouse.y);
 				self.getPos(1);
-				console.log("pos " + self.pos);
+				//console.log("pos " + self.pos);
 				self.getVel();
-				console.log("vel " + self.vel);
+				//console.log("vel " + self.vel);
 				self.scroll();
 				self.swapMouse();
 			}
@@ -221,7 +221,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.isDown = false;
 
-			self.log("");
+			//self.log("");
 
 			self.getTime(1);
 			self.getInterval();
