@@ -155,7 +155,7 @@ app.directive("scrollable", ['global', function (global) {
 				clearInterval(self.timer);
 			}
 
-		}, 50);
+		}, 100);
 	}
 
 	this.link = function (scope, element, attr) {
