@@ -129,7 +129,7 @@ app.directive("scrollable", ['global', function (global) {
 		console.log("touch " + touch);
 
 
-		self.el.css({'top': touch + self.top + "px"});
+		self.el.css({'top': touch + self.startTop + "px"});
 	}
 
 	this.momentum = function (el) {
