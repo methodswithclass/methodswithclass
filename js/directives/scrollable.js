@@ -23,6 +23,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.el = $(global.mProjects);
 
+	this.el.css({"height":self.getProjectHeight(scope) + "px"});
+
 	this.log = function (text) {
 
 		console.log(text);
@@ -131,10 +133,12 @@ app.directive("scrollable", ['global', function (global) {
 		var bodyBottom = bodyTop + $(global.body).height()
 			
 		if (top > bodyTop) {
+			console.log("below top");
 			self.el.animate({top:0}, 100);
 			return true;
 		}
 		else if (bottom < bodyBottom) {
+			console.log("above bottom");
 			self.el.animate({top:$(global.body).height() - self.el.height()}, 100);
 			return true;
 		}
@@ -161,8 +165,6 @@ app.directive("scrollable", ['global', function (global) {
 	}
 
 	this.link = function (scope, element, attr) {
-
-		self.el.css({"height":self.getProjectHeight(scope) + "px"});
 
 		var down = function (e) {
 
