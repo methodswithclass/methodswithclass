@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', function (global) {
+app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	var self = this;
 
@@ -15,6 +15,8 @@ app.directive("scrollable", ['global', function (global) {
 	this.interval;
 	this.timer;
 
+	this.mobile = true;
+
 	this.isDown = false;
 
 	this.mu = 0.1;
@@ -28,6 +30,16 @@ app.directive("scrollable", ['global', function (global) {
 		console.log(text);
 
 		$("#mConsole").text(text);
+	}
+
+	this.check = function (e) {
+
+		if (e.y) {
+
+			return true;
+		}
+		
+		return false;
 	}
 
 	this.getProjectHeight = function (scope) {
@@ -48,13 +60,20 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.getMouse = function (e, state) {
 
-		if (state == 0) {
 
-			self.mouse0 = {x:e.pageX, y:e.pageY};
+		if (stat == -1) {
+			if (self.mobile) self.start = {x:e.pageX, y:e.pageY};
+			else self.start = {x:e.x, y:e.y};
 		}
-		else {
+		else if (state == 0) {
 
-			self.mouse = {x:e.pageX, y:e.pageY};
+			if (self.mobile) self.mouse0 = {x:e.pageX, y:e.pageY};
+			else self.mouse0 = {x:e.x, y:e.y};
+		}
+		else if (state == 1){
+
+			if (self.mobile) self.mouse = {x:e.pageX, y:e.pageY};
+			else self.mouse = {x:e.x, y:e.y};
 		}
 	}
 
@@ -178,12 +197,14 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.link = function (scope, element, attr) {
 
-		this.el.css({"height":self.getProjectHeight(scope) + "px"});
+		self.el.css({"height":self.getProjectHeight(scope) + "px"});
 
 		var down = function (e) {
 
+			self.mobile = self.check(e);
+
 			self.startTop = self.el.offset().top - $(global.body).offset().top;
-			self.start = {x:e.pageX, y:e.pageY};
+			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
 			self.getTime(0);
@@ -222,19 +243,22 @@ app.directive("scrollable", ['global', function (global) {
 			
 		}
 
-		self.el.on('touchstart', down);
-		self.el.on('touchmove', move);
-		self.el.on('touchend', up);
-
 		self.el.on('mousedown', down);
 		self.el.on('mousemove', move);
 		self.el.on('mouseup', up);
 		self.el.on('mousecancel', up);
 
+        $swipe.bind(self.el, {
+          'start': down,
+          'move': move,
+          'end': up,
+          'cancel': up
+        });
+
 	}
 
 	return {
-		
+		restrict:'EA',
 		link:self.link
 	}
 }]);
