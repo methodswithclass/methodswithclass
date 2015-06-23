@@ -10,9 +10,9 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	this.mouse;
 	this.vel;
 	this.pos;
-	this.time0;
-	this.time;
-	this.interval;
+	this.time0 = 0;
+	this.time = 0;
+	this.interval = 1;
 	this.timer;
 
 	this.mobile = true;
@@ -60,6 +60,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	this.getMouse = function (e, state) {
 
+		self.mobile = self.check(e);
 
 		if (state == -1) {
 			if (self.mobile) self.start = {x:e.x, y:e.y};
@@ -201,13 +202,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var down = function (e) {
 
-			self.mobile = self.check(e);
-
 			self.startTop = self.el.offset().top - $(global.body).offset().top;
 			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
-			self.getTime(0);
+			//self.getTime(0);
 
 			self.isDown = true;
 		}
@@ -218,16 +217,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			if (self.isDown) {
 
-				//console.log(self.startTop);
-
-				self.getTime(1);
-				self.getInterval();
+				//self.getTime(1);
+				//self.getInterval();
 				self.getMouse(e, 1);
-				//console.log("mouse " + self.mouse.y);
 				self.getPos(1);
-				//console.log("pos " + self.pos);
 				self.getVel();
-				//console.log("vel " + self.vel);
 				self.scroll();
 				self.swapValues();
 			}
@@ -236,10 +230,8 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		var up = function (e) {
 
 			console.log("end");
-
 			self.isDown = false;
-
-			self.momentum();
+			//self.momentum();
 			
 		}
 
