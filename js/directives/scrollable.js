@@ -183,7 +183,7 @@ app.directive("scrollable", ['global', function (global) {
 				self.getTime(1);
 				self.getInterval();
 				self.getMouse(e, 1);
-				console.log("mouse " + self.mouse);
+				console.log("mouse " + self.mouse.y);
 				self.getPos(1);
 				console.log("pos " + self.pos);
 				self.getVel();
