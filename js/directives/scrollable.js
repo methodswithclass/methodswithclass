@@ -140,22 +140,12 @@ app.directive("scrollable", ['global', function (global) {
 		return false;
 	}
 
-	this.momentum = function () {
+	this.momentum = function (vel) {
 
-		self.timer = setInterval(function () {
+		scroll(vel*self.interval);
 
-			console.log(self.vel);
+		return vel*(1-self.mu);
 
-			scroll(self.vel*self.interval);
-
-			self.vel *= (1-self.mu);
-
-			if (self.vel < 0.1) {
-
-				clearInterval(self.timer);
-			}
-
-		}, 1000);
 	}
 
 	this.link = function (scope, element, attr) {
@@ -222,7 +212,16 @@ app.directive("scrollable", ['global', function (global) {
 
 			console.log(self.vel);
 
-			if (!self.bounce()) self.momentum();
+			if (!self.bounce()) {
+				self.timer = setInterval(function () {
+					self.vel = self.momentum(self.vel);
+
+					if (self.vel < 0.1){
+						clearInterval(self.timer);
+					}
+
+				}, 1000);
+			}
 			
 		}
 
