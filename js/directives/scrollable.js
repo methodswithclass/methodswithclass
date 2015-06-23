@@ -122,15 +122,13 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.bounce = function () {
 
-		console.log("bounce");
-
 		var top = self.el.offset().top;
 		var bottom = top + self.el.height();
 
 		var bodyTop = $(global.body).offset().top;
 		var bodyBottom = bodyTop + $(global.body).height();
 
-		console.log("top:" + top + " botttom: " + bottom + " bodyTop: " + bodyTop + " bodyBottom: " + bodyBottom);
+		console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 			
 		if (top > bodyTop) {
 			console.log("below top");
