@@ -17,7 +17,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.isDown = false;
 
-	this.mu = 0.01;
+	this.mu = 0.1;
 
 	this.el = $(global.scrollContainer);
 
