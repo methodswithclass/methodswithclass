@@ -210,10 +210,13 @@ app.directive("scrollable", ['global', function (global) {
 			self.isDown = false;
 
 			if (!self.bounce()) {
+				console.log("not bounce");
 				self.timer = setInterval(function () {
+					console.log("interval");
 					self.vel = self.momentum(self.vel);
 
 					if (self.vel < self.minVel){
+						console.log("stop");
 						clearInterval(self.timer);
 					}
 
