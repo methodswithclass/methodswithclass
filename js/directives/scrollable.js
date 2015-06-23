@@ -61,19 +61,19 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	this.getMouse = function (e, state) {
 
 
-		if (stat == -1) {
-			if (self.mobile) self.start = {x:e.pageX, y:e.pageY};
-			else self.start = {x:e.x, y:e.y};
+		if (state == -1) {
+			if (self.mobile) self.start = {x:e.x, y:e.y};
+			else self.start = {x:e.pageX, y:e.pageY};
 		}
 		else if (state == 0) {
 
-			if (self.mobile) self.mouse0 = {x:e.pageX, y:e.pageY};
-			else self.mouse0 = {x:e.x, y:e.y};
+			if (self.mobile) self.mouse0 = {x:e.x, y:e.y};
+			else self.mouse0 = {x:e.pageX, y:e.pageY};
 		}
 		else if (state == 1){
 
-			if (self.mobile) self.mouse = {x:e.pageX, y:e.pageY};
-			else self.mouse = {x:e.x, y:e.y};
+			if (self.mobile) self.mouse = {x:e.x, y:e.y};
+			else self.mouse = {x:e.pageX, y:e.pageY};
 		}
 	}
 
