@@ -208,7 +208,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		var up = function (e) {
 
-			//alert("end");
+			console.log("end");
 
 			self.isDown = false;
 
@@ -219,6 +219,8 @@ app.directive("scrollable", ['global', function (global) {
 			self.getMouse(e, 1);
 			self.getPos(1);
 			self.getVel();
+
+			console.log(self.vel);
 
 			if (!self.bounce()) self.momentum();
 			
