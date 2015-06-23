@@ -62,6 +62,8 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		self.mobile = self.check(e);
 
+		console.log(self.mobile);
+
 		if (state == -1) {
 			if (self.mobile) self.start = {x:e.x, y:e.y};
 			else self.start = {x:e.pageX, y:e.pageY};
