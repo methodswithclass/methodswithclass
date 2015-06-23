@@ -158,7 +158,7 @@ app.directive("scrollable", ['global', function (global) {
 
 		var down = function (e) {
 
-			self.startTop = self.el.offset().top; - $(global.body).offset().top;
+			self.startTop = self.el.offset().top - $(global.body).offset().top;
 			self.start = {x:e.pageX, y:e.pageY};
 			self.getMouse(e, 0);
 			self.getPos(0);
