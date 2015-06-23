@@ -132,25 +132,7 @@ app.directive("scrollable", ['global', function (global) {
 		self.el.css({'top': touch + self.startTop + "px"});
 	}
 
-	this.momentum = function (el) {
-
-		self.timer = setInterval(function () {
-
-			//console.log("momentum");
-
-			scroll(self.vel*self.interval);
-
-			self.vel *= (1-self.mu);
-
-			if (self.vel < 0.01 || bounce()) {
-
-				clearInterval(self.timer);
-			}
-
-		}, 10);
-	}
-
-	var bounce = function () {
+	this.bounce = function () {
 
 		var top = self.el.offset().top;
 		var bottom = top + self.el.height();
@@ -168,6 +150,24 @@ app.directive("scrollable", ['global', function (global) {
 		}
 
 		return false;
+	}
+
+	this.momentum = function (el) {
+
+		self.timer = setInterval(function () {
+
+			//console.log("momentum");
+
+			scroll(self.vel*self.interval);
+
+			self.vel *= (1-self.mu);
+
+			if (self.vel < 0.01 || self.bounce()) {
+
+				clearInterval(self.timer);
+			}
+
+		}, 10);
 	}
 
 	this.link = function (scope, element, attr) {
