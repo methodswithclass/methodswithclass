@@ -61,18 +61,6 @@ app.directive("scrollable", ['global', function (global) {
 		self.mouse0 = self.mouse;
 	}
 
-	this.startScroll = function (e) {
-
-		self.startTop = $(global.body).offset().top - self.el.offset().top;
-
-		//console.log(e);
-
-		self.start = {x:e.pageX, y:e.pageY};
-
-		self.getMouse(0);
-
-	}
-
 	this.getPos = function (state) {
 
 		var touch;
@@ -184,7 +172,10 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("start");
 
-			self.startScroll(e);
+			self.startTop = $(global.body).offset().top - self.el.offset().top;
+			self.start = {x:e.pageX, y:e.pageY};
+			self.getMouse(e, 0);
+			self.getPos(0);
 			self.getTime(0);
 
 			self.isDown = true;
