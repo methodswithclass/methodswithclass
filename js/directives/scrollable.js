@@ -5,7 +5,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.i = 0;
 	this.start;
-	this.top;
+	this.startTop;
 	this.mouse0;
 	this.mouse;
 	this.vel;
@@ -63,7 +63,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.startScroll = function (e) {
 
-		self.top = $(global.body).offset().top - self.el.offset().top;
+		self.startTop = $(global.body).offset().top - self.el.offset().top;
 
 		//console.log(e);
 
@@ -180,7 +180,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			if (self.isDown) {
 
-				console.log(self.top);
+				console.log(self.startTop);
 
 				self.getTime(1);
 				self.getInterval();
