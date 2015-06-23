@@ -83,9 +83,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.getVel = function () {
 
-
-
-		self.vel = (self.getPos(1) - self.getPos(0))/self.interval;
+		self.vel = (self.getPos(1) - self.getPos(0));
 
 		console.log(self.getPos(0) + " " + self.getPos(1) + " " + self.interval + " " + self.vel);
 	}
@@ -149,7 +147,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.momentum = function (vel) {
 
-		scroll(vel*self.interval);
+		scroll(vel);
 
 		return vel*(1-self.mu);
 
