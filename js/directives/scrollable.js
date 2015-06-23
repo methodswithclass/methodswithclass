@@ -19,7 +19,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.mu = 0.1;
 
-	this.minVel = 0.01;
+	this.minVel = 0.001;
 
 	this.el = $(global.mProjects);
 
@@ -142,13 +142,21 @@ app.directive("scrollable", ['global', function (global) {
 		return false;
 	}
 
-	this.momentum = function (vel) {
+	this.momentum = function () {
 
-		console.log("vel " + vel);
+		self.timer = setInterval(function () {
+			//console.log("interval");
 
-		scroll(vel);
+			scroll(self.vel);
 
-		return vel;
+			self.vel *= (1-self.mu);
+
+			if (self.vel < self.minVel || self.bounce()){
+				console.log("stop");
+				clearInterval(self.timer);
+			}
+
+		}, 50);
 
 	}
 
@@ -194,19 +202,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.isDown = false;
 
-			if (!self.bounce()) {
-				console.log("not bounce");
-				self.timer = setInterval(function () {
-					console.log("interval");
-					self.vel = self.momentum(self.vel);
-
-					if (self.vel < self.minVel){
-						console.log("stop");
-						clearInterval(self.timer);
-					}
-
-				}, 1000);
-			}
+			self.momentun();
 			
 		}
 
