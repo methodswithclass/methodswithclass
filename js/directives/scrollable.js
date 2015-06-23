@@ -19,6 +19,8 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.mu = 0.1;
 
+	this.minVel = 0.01;
+
 	this.el = $(global.scrollContainer);
 
 	this.log = function (text) {
@@ -211,7 +213,7 @@ app.directive("scrollable", ['global', function (global) {
 				self.timer = setInterval(function () {
 					self.vel = self.momentum(self.vel);
 
-					if (self.vel < 0.1){
+					if (self.vel < self.minVel){
 						clearInterval(self.timer);
 					}
 
