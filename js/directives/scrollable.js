@@ -56,9 +56,10 @@ app.directive("scrollable", ['global', function (global) {
 		}
 	}
 
-	this.swapMouse = function () {
+	this.swapValues = function () {
 
 		self.mouse0 = self.mouse;
+		self.time0 = self.time;
 	}
 
 	this.getPos = function (state) {
@@ -196,7 +197,7 @@ app.directive("scrollable", ['global', function (global) {
 				self.getVel();
 				//console.log("vel " + self.vel);
 				self.scroll();
-				self.swapMouse();
+				self.swapValues();
 			}
 		}
 
@@ -205,16 +206,6 @@ app.directive("scrollable", ['global', function (global) {
 			console.log("end");
 
 			self.isDown = false;
-
-			//self.log("");
-
-			self.getTime(1);
-			self.getInterval();
-			self.getMouse(e, 1);
-			self.getPos(1);
-			self.getVel();
-
-			console.log(self.vel);
 
 			if (!self.bounce()) {
 				self.timer = setInterval(function () {
