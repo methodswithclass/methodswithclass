@@ -83,7 +83,7 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.getVel = function () {
 
-		self.vel = (self.getPos(0) - self.getPos(1));
+		self.vel = (self.getPos(1) - self.getPos(0));
 
 		//console.log(self.getPos(0) + " " + self.getPos(1) + " " + self.interval + " " + self.vel);
 	}
@@ -106,6 +106,11 @@ app.directive("scrollable", ['global', function (global) {
 		}
 	}
 
+	this.setTop = function (top) {
+
+		self.el.css({'top': top + "px"});
+	}
+
 	this.scroll = function (position) {
 
 		var touch;
@@ -117,7 +122,12 @@ app.directive("scrollable", ['global', function (global) {
 			touch = self.pos;
 		}
 
-		self.el.css({'top': touch + self.startTop + "px"});
+		self.setTop(touch + self.startTop);
+	}
+
+	this.changePos = function (increment) {
+
+		self.pos += increment;
 	}
 
 	this.bounce = function () {
@@ -149,11 +159,13 @@ app.directive("scrollable", ['global', function (global) {
 		self.timer = setInterval(function () {
 			//console.log("interval");
 
-			scroll(self.vel);
+			self.changePos(self.vel);
+
+			self.setTop(self.pos);
 
 			self.vel *= (1-self.mu);
 
-			console.log("self.vel " + self.vel);
+			console.log("self.pos " + self.pos);
 
 			if (self.bounce() || self.vel < self.minVel){
 				console.log("stop");
