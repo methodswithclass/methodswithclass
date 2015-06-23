@@ -202,7 +202,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.isDown = false;
 
-			self.momentun();
+			self.momentum();
 			
 		}
 
