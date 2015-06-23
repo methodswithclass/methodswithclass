@@ -23,8 +23,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	this.minVel = 0.01;
 
-	this.el = $(global.mProjects);
-
 	this.log = function (text) {
 
 		console.log(text);
@@ -80,11 +78,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		}
 	}
 
-	this.swapValues = function () {
-
-		self.mouse0 = self.mouse;
-		self.time0 = self.time;
-	}
+	
 
 	this.getPos = function (state) {
 
@@ -101,6 +95,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		self.pos = 1.1*(touch.y - self.start.y);
 
 		return self.pos;
+	}
+
+	this.changePos = function (increment) {
+
+		self.pos += increment;
 	}
 
 	this.getVel = function () {
@@ -128,12 +127,18 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		}
 	}
 
-	this.setTop = function (top) {
+	this.swapValues = function () {
 
-		self.el.css({'top': top + "px"});
+		self.mouse0 = self.mouse;
+		self.time0 = self.time;
 	}
 
-	this.scroll = function (position) {
+	this.setTop = function (el, top) {
+
+		el.css({'top': top + "px"});
+	}
+
+	this.scroll = function (el, position) {
 
 		var touch;
 
@@ -144,18 +149,15 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			touch = self.pos;
 		}
 
-		self.setTop(touch + self.startTop);
+		self.setTop(el, touch + self.startTop);
 	}
 
-	this.changePos = function (increment) {
+	
 
-		self.pos += increment;
-	}
+	this.bounce = function (el) {
 
-	this.bounce = function () {
-
-		var top = self.el.offset().top;
-		var bottom = top + self.el.height();
+		var top = el.offset().top;
+		var bottom = top + el.height();
 
 		var bodyTop = $(global.body).offset().top;
 		var bodyBottom = bodyTop + $(global.body).height();
@@ -164,32 +166,32 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			
 		if (top > bodyTop) {
 			console.log("below top");
-			self.el.animate({top:0}, 100);
+			el.animate({top:0}, 100);
 			return true;
 		}
 		else if (bottom < bodyBottom) {
 			console.log("above bottom");
-			self.el.animate({top:$(global.body).height() - self.el.height()}, 100);
+			el.animate({top:$(global.body).height() - el.height()}, 100);
 			return true;
 		}
 
 		return false;
 	}
 
-	this.momentum = function () {
+	this.momentum = function (el) {
 
 		self.timer = setInterval(function () {
 			//console.log("interval");
 
 			self.changePos(self.vel);
 
-			self.setTop(self.pos);
+			self.setTop(el, self.pos);
 
 			self.vel *= (1-self.mu);
 
 			console.log("self.pos " + self.pos);
 
-			if (self.bounce() || self.vel < self.minVel){
+			if (self.bounce(el) || self.vel < self.minVel){
 				console.log("stop");
 				clearInterval(self.timer);
 			}
@@ -200,11 +202,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	this.link = function (scope, element, attr) {
 
-		self.el.css({"height":self.getProjectHeight(scope) + "px"});
+		element.css({"height":self.getProjectHeight(scope) + "px"});
 
 		var down = function (e) {
 
-			self.startTop = self.el.offset().top - $(global.body).offset().top;
+			self.startTop = element.offset().top - $(global.body).offset().top;
 			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
@@ -224,7 +226,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 				self.getMouse(e, 1);
 				self.getPos(1);
 				self.getVel();
-				self.scroll();
+				self.scroll(element);
 				self.swapValues();
 			}
 		}
@@ -233,7 +235,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			console.log("end");
 			self.isDown = false;
-			//self.momentum();
+			//self.momentum(element);
 			
 		}
 
