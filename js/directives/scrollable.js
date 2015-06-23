@@ -61,9 +61,9 @@ app.directive("scrollable", ['global', function (global) {
 		self.mouse0 = self.mouse;
 	}
 
-	this.startScroll = function (el, e) {
+	this.startScroll = function (e) {
 
-		self.top = $(global.body).offset().top - el.offset().top;
+		self.top = $(global.body).offset().top - self.el.offset().top;
 
 		//console.log(e);
 
@@ -117,8 +117,6 @@ app.directive("scrollable", ['global', function (global) {
 
 	this.scroll = function (position) {
 
-		log("scroll");
-
 		var touch;
 
 		if (position) {
@@ -128,8 +126,10 @@ app.directive("scrollable", ['global', function (global) {
 			touch = self.pos;
 		}
 
+		console.log("touch " + touch);
 
-		self.el.css({'top': touch + self.top});
+
+		self.el.css({'top': touch + self.top + "px"});
 	}
 
 	this.momentum = function (el) {
@@ -164,7 +164,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			//alert("start");
 
-			self.startScroll(el, e);
+			self.startScroll(e);
 			self.getTime(0);
 
 			self.isDown = true;
@@ -183,8 +183,11 @@ app.directive("scrollable", ['global', function (global) {
 				self.getTime(1);
 				self.getInterval();
 				self.getMouse(e, 1);
+				console.log("mouse " + self.mouse);
 				self.getPos(1);
+				console.log("pos " + self.pos);
 				self.getVel();
+				console.log("vel " + self.vel);
 				self.scroll();
 				self.swapMouse();
 			}
