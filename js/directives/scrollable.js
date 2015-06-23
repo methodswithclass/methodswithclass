@@ -162,7 +162,7 @@ app.directive("scrollable", ['global', function (global) {
 
 			self.vel *= (1-self.mu);
 
-			if (self.vel < 0.01) {
+			if (self.vel < 0.1) {
 
 				clearInterval(self.timer);
 			}
