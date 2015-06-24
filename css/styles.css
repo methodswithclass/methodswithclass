@@ -30,7 +30,7 @@ a.blue {
 
 .main.desktop {
 
-	overflow:hidden;
+	overflow-x:hidden;
 }
 
 .toolbar.desktop {
@@ -50,6 +50,7 @@ a.blue {
 	top:10%;
 	left:0;
 	height:90%;
+	overflow-y:scroll;
 }
 
 #body {
@@ -62,7 +63,7 @@ a.blue {
 	position:absolute;
 	top:0;
 	width:50%;
-	overflow-y:scroll;
+	
 }
 
 #projectsOuter {

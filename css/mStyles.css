@@ -23,7 +23,7 @@
 
 .main.mobile {
 
-
+	overflow-x:hidden;
 }
 
 .body.mobile {
@@ -41,14 +41,13 @@
 	left:0;
 	width:100%;
 	z-index:5;
-	overflow:hidden;
+	overflow-y:scroll;
 }
 
 .page.mobile {
 
 	position:absolute;
 	width:50%;
-	overflow-y:scroll;
 }
 
 #projects.mobile {
