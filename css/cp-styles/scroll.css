@@ -1,0 +1,27 @@
+.cutoff {
+	overflow:hidden;	
+}
+
+.cutoffX {
+
+	overflow-x:hidden;
+}
+
+.cutoffY {
+
+	overflow-y:hidden;
+}
+
+.scroll {
+	overflow:scroll;	
+}
+
+.scrollX {
+
+	overflow-x:scroll;
+}
+
+.scrollY {
+
+	overflow-y:scroll;
+}

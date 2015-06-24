@@ -1,0 +1,96 @@
+
+/* ***************  GENERAL ***************  */
+
+.pointer {
+
+	cursor: pointer;
+}
+
+
+
+/* ***************  FONTS ***************  */
+
+
+.font-bold{
+
+	font-weight:bold;
+}
+
+.font-15 {
+
+	font-size:15px;
+}
+
+.font-25 {
+
+	font-size:25px;
+}
+
+/* ***************  FORMATS ***************  */
+
+
+.rounded20 {
+	
+	border-radius:20px;	
+}
+
+.rounded10 {
+	
+	border-radius:10px;	
+}
+
+.bordered {
+	border:1px solid black;	
+}
+
+.shadow {
+	box-shadow: 0 0 10px 0 #424242;	
+}
+
+.inside {
+	box-shadow: 0 0 10px 0 #424242 inset;		
+}
+
+.raised {
+	box-shadow: 5px 5px 10px 0 #424242;	
+	z-index:100;
+}
+
+
+
+/* ***************  COLORS ***************  */
+
+
+
+.white {
+
+	color:white;
+}
+
+.black {
+
+	color:black;
+}
+
+.gray {
+
+	color:#333;
+}
+
+.white-back {
+	background-color:white;	
+}
+
+.black-back {
+	background-color:black;	
+}
+
+.gray-back {
+
+	background-color:#333;
+}
+
+.transparent-back {
+
+	background-color:transparent;
+}

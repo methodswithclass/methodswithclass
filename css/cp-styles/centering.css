@@ -1,0 +1,55 @@
+
+.text-center {
+    
+    text-align:center;  
+}
+
+.table {
+    
+    display:table;
+}
+
+.table-cell {
+    
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.golden {
+
+	top: 30%;
+	
+	-ms-transform: translate(0, -30%);
+    -webkit-transform: translate(0, -30%);
+    transform: translate(0, -30%);
+}
+
+.hcenter {
+    left: 50%;
+    margin-right: -50%;
+	
+	-ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+	
+   
+}
+
+.vcenter {
+	top: 50%;
+	
+	-ms-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+		
+}
+
+.center {
+	top:50%;
+    left: 50%;
+    margin-right: -50%;
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
