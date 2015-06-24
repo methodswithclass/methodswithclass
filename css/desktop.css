@@ -134,6 +134,97 @@ a.blue {
 
 }
 
+.elem {
+	padding:inherit;
+	margin:inherit;
+	z-index:20;
+}
+
+.space.desktop {
+	position:relative;
+	background-color:transparent;
+	overflow:hidden;
+	height:600px;
+	width:100%;
+}
+
+.sep.desktop {
+	position:relative;
+	width:100%;
+	height:100px;
+	overflow:hidden;
+	background-color:white;
+	/*border:1px solid black;*/
+}
+
+
+
+.back.desktop {
+	position:absolute;
+	width:100%;
+	min-width:1600px;
+	height:auto;
+	right:0;
+}
+
+.onLeft {
+	position:absolute;
+	width:70%;
+	height:100%;
+	/*border:1px solid white;*/
+	z-index:10;	
+}
+
+.iconblock.desktop {
+	position:relative;
+	width:70%;
+	height:50%;
+	/*border:1px solid white;*/
+}
+
+.apptitle.desktop {
+	position:absolute;
+	top:20px;
+	width:40%;
+	text-align:center;
+	font-weight:bold;
+	font-size:25px;
+	color:white;
+}
+
+.icon.desktop {
+	position:absolute;
+	width:100px;
+	height:auto;
+	bottom:60px;
+	cursor:pointer;
+}
+
+.blockInst.desktop {
+	
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	color:white;
+	font-size:15px;
+}
+
+.description.desktop {
+	position:relative;
+	width:40%;
+}
+
+.paragraph {
+	margin:10px;
+	border-bottom:1px solid black;	
+}
+
+.tabp {
+	position:relative;
+	margin:20px 0;
+	left:0;	
+}
+
 .bioImg.desktop {
 	
 	position:absolute;
