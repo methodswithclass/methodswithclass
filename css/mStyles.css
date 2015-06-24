@@ -48,6 +48,7 @@
 
 	position:absolute;
 	width:50%;
+	overflow-y:scroll;
 }
 
 #projects.mobile {
