@@ -18,6 +18,24 @@ a.blue {
 	color:blue;
 }
 
+.toolbar {
+
+	position:absolute;
+	top:0;
+	left:0;
+	height:10%;
+	width:100%;
+}
+
+.body {
+
+	position:absolute;
+	top:10%;
+	height:90%;
+	width:200%;
+
+}
+
 .projectInner {
 	position:relative;
 }
