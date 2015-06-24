@@ -1,8 +1,8 @@
 app.factory('global', ['$sce', '$location', function($sce, $location) {
 
 	var body = "#body";
-	var project = "#projects";
-	var contact = "#contact";
+	var project = "#projectsOuter";
+	var contact = "#contactOuter";
 	var mProjects = "#mProjects";
 
 	var isMobile = function () {

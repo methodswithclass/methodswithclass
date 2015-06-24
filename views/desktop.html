@@ -23,14 +23,14 @@
 
       <!-- <div class="page"> -->
         
-          <parallax class="page" id="projects" scroll-items="projects">
+          <parallax class="page" id="projectsOuter" scroll-items="projects">
                   <div class="elem sep">
                       <div class="intro vcenter">
                           <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
                       </div>
                   </div>
 
-                  <div class="project" ng-repeat="project in main.projects"> 
+                  <div class="projectInner" ng-repeat="project in main.projects"> 
                       <project info="project"></project>
                   </div>
           </parallax>
@@ -38,8 +38,8 @@
       <!-- </div> -->
 
 
-      <div class="page" id="contact">
-          <div class="contact hcenter">
+      <div class="page" id="contactOuter">
+          <div class="contactInner hcenter">
               <contact info="main.contact"></contact>
           </div>
       </div>

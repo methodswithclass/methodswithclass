@@ -40,11 +40,6 @@ a.blue {
 	color:white;
 }
 
-#body {
-
-	width:200%;
-}
-
 .body {
 
 	position:absolute;
@@ -53,11 +48,15 @@ a.blue {
 	height:90%;
 }
 
+#body {
+
+	width:200%;
+}
+
 .page {
 
 	position:absolute;
 	top:0;
-	height:100%;
 	width:50%;
 	overflow-y:scroll;
 }
@@ -99,19 +98,19 @@ a.blue {
 	height:auto;
 }
 
-#projects {
+#projectsOuter {
 	left:0;
 }
 
-#contact {
+#contactOuter {
 	left:50%;
 }
 
-.project {
+.projectInner {
 	position:relative;
 }
 
-.contact {
+.contactInner {
 	position:absolute;
 	top:20%;
 	width:60%;
