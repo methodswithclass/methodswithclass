@@ -25,21 +25,21 @@
 
           <!-- <div class="page"> -->
             
-              <parallax class="absolute top0 left50 width50" id="projectsContainer" scroll-items="main.projects">
+              <parallax class="absolute top0 left50 width50" scroll-items="main.projects">
                       <div class="relative width height-100 white-back cutoff noedge z-20"
                           <div class="absolute width height-30 vcenter">
                               <div class="absolute width text-centner vcenter">Here are some projects in various languages and platforms, enjoy </div>
                           </div>
                       </div>
 
-                      <div class="relative desktop" ng-repeat="project in main.projects"> 
+                      <div class="relative desktop" id="projectsOuter" ng-repeat="project in main.projects"> 
                           <project info="project"></project>
                       </div>
               </parallax>
 
           <!-- </div> -->
 
-          <div class="absolute top0 left50 width50" id="contactsContainer">
+          <div class="absolute top0 left50 width50" id="contactsOuter">
               <div class="absolute top20 width60 desktop hcenter">
                   <contact info="main.contact"></contact>
               </div>
