@@ -30,16 +30,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		$("#mConsole").text(text);
 	}
 
-	this.check = function (e) {
-
-		if (e.y) {
-
-			return true;
-		}
-		
-		return false;
-	}
-
 	this.getProjectHeight = function (scope) {
 
 		var projects = scope.main.projects;
@@ -58,23 +48,14 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	this.getMouse = function (e, state) {
 
-		self.mobile = self.check(e);
-
-		console.log(self.mobile);
-
 		if (state == -1) {
-			if (self.mobile) self.start = {x:e.x, y:e.y};
-			else self.start = {x:e.pageX, y:e.pageY};
+			self.start = {x:e.x, y:e.y};
 		}
 		else if (state == 0) {
-
-			if (self.mobile) self.mouse0 = {x:e.x, y:e.y};
-			else self.mouse0 = {x:e.pageX, y:e.pageY};
+			self.mouse0 = {x:e.x, y:e.y};
 		}
 		else if (state == 1){
-
-			if (self.mobile) self.mouse = {x:e.x, y:e.y};
-			else self.mouse = {x:e.pageX, y:e.pageY};
+			self.mouse = {x:e.x, y:e.y};
 		}
 	}
 
@@ -238,11 +219,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			//self.momentum(element);
 			
 		}
-
-		// self.el.on('mousedown', down);
-		// self.el.on('mousemove', move);
-		// self.el.on('mouseup', up);
-		// self.el.on('mousecancel', up);
 
         $swipe.bind(element, {
           'start': down,
