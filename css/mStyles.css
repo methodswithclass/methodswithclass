@@ -1,6 +1,6 @@
 
 
-#mConsole {
+#console.mobile {
 
 	position:relative;
 	height:200px;
@@ -8,7 +8,7 @@
 	font-size:30px;
 }
 
-.mToolbar {
+.toolbar.mobile {
 	
 	position:fixed;
 	width:100%;
@@ -20,7 +20,13 @@
 
 }
 
-.mBody {
+
+.main.mobile {
+
+
+}
+
+.body.mobile {
 
 	position:absolute;
 	/* Firefox */
@@ -38,46 +44,46 @@
 	overflow:hidden;
 }
 
-.mPage {
+.page.mobile {
 
 	position:absolute;
 	width:50%;
 }
 
-#mProjects {
+#projects.mobile {
 	left:0;
 }
 
-#mContact {
+#contact.mobile {
 	left:50%;
 }
 
-.mProject {
+.project.mobile {
 
 	position:relative;
 }
 
-.mContact {
+.contact.mobile {
 	position:absolute;
 	top:20%;
 	width:80%;
 }
 
-.mNavUpper {
+.navUpper.mobile {
 	
 	position:relative;
 	height:50%;
 	width:100%;
 }
 
-.mNavLower {
+.navLower.mobile {
 	
 	position:relative;
 	height:50%;
 	width:100%;
 }
 
-.mTitle {
+.title.mobile {
 	position:relative;
 	display:block;
 	width:700px;
@@ -86,25 +92,25 @@
 
 }
 
-.mNavInner {
+.navInner.mobile {
 	position:relative;
 	margin:auto;
 }
 
-.mNavLower div {
+.navLower.mobile div {
 	position:relative;
 	margin:0 50px;
 	font-size:50px;
 }
 
-.mBtn {
+.btn.mobile {
 	position:relative;
 	margin:0 50px;
 	font-size:50px;
 	cursor:pointer;
 }
 
-.mSpace {
+.space.mobile {
 	position:relative;
 	background-color:transparent;
 	overflow:hidden;
@@ -112,27 +118,27 @@
 	width:100%;
 }
 
-.mSep {
+.sep.mobile {
 	position:relative;
 	width:100%;
 	overflow:hidden;
 	background-color:white;
 }
 
-.mSep2 {
+.sep2.mobile {
 	position:relative;
 	width:100%;
 	height:300px;
 	background-color:white;
 }
 
-.mIntro {
+.intro.mobile {
 	position:relative;
 	width:100%;
 	height:30px;
 }
 
-.mIntroInner {
+.introInner.mobile {
 	position:relative;
 	width:100%;
 	text-align:center;
@@ -140,7 +146,7 @@
 
 }
 
-.mBack {
+.back.mobile {
 	position:absolute;
 	width:200%;
 	height:auto;
@@ -148,13 +154,13 @@
 	bottom:-300px;
 }
 
-.mIconblock {
+.iconblock.mobile {
 	position:relative;
 	width:70%;
 	height:50%;
 }
 
-.mApptitle {
+.apptitle.mobile {
 	position:absolute;
 	top:0;
 	width:40%;
@@ -164,7 +170,7 @@
 	color:white;
 }
 
-.mIcon {
+.icon.mobile {
 	position:absolute;
 	width:200px;
 	height:auto;
@@ -172,7 +178,7 @@
 	cursor:pointer;
 }
 
-.mBlockInst {
+.blockInst.mobile {
 	
 	position:absolute;
 	bottom:-100px;
@@ -181,14 +187,14 @@
 	font-size:40px;
 }
 
-.mDescription {
+.description.mobile {
 	position:relative;
 	top:50px;
 	width:80%;
 	font-size:40px;
 }
 
-.mBioImg {
+.bioImg.mobile {
 	position:relative;
 	margin-bottom:40px;
 	top:0;
@@ -196,13 +202,13 @@
 	height:auto;
 }
 
-.mBioContainer {
+.bioContainer.mobile {
 	
 	position:relative;
 	width:100%;
 }
 
-.mBioInner {
+.bioInner.mobile {
 	
 	position:relative;
 	width:100%;

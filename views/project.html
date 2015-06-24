@@ -1,21 +1,21 @@
-<div class="elem space" id="{{'space' + info.id}}">
+<div class="elem space desktop" id="{{'space' + info.id}}">
 
-    <img class="back" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
+    <img class="back desktop" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
 
-    <div class="iconblock center">
-        <div class="apptitle hcenter"> {{info.title}}</div>
+    <div class="iconblock desktop center">
+        <div class="apptitle desktop hcenter"> {{info.title}}</div>
         
-        <img class="icon hcenter" ng-click="clickImage(info.maxSep, info.id)" ng-src= "{{info.icon}}" />
+        <img class="icon desktop hcenter" ng-click="clickImage(info.maxSep, info.id)" ng-src= "{{info.icon}}" />
 
-        <div class="blockInst hcenter">
+        <div class="blockInst desktop hcenter">
             click the icon to learn more about the project
         </div>
     </div>
 
 </div>
 
-<div class="elem sep" id="{{'sep' + info.id}}">
+<div class="elem sep desktop" id="{{'sep' + info.id}}">
 
-    <div class="description hcenter" ng-bind-html="renderHtml(info.description)"></div>
+    <div class="description desktop hcenter" ng-bind-html="renderHtml(info.description)"></div>
 
 </div>

@@ -1,19 +1,19 @@
-<div class="elem mSpace" id="{{'space' + info.id}}">
+<div class="elem space mobile" id="{{'space' + info.id}}">
 
-    <img class="mBack" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
+    <img class="back mobile" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
 
-    <div class="iconblock center">
-        <div class="mApptitle hcenter"> {{info.title}}</div>
+    <div class="iconblock mobile center">
+        <div class="apptitle mobile hcenter"> {{info.title}}</div>
         
-        <img class="mIcon hcenter" ng-src= "{{info.icon}}" />
+        <img class="icon mobile hcenter" ng-src= "{{info.icon}}" />
 
-        <div class="mBlockInst hcenter">{{addText(info.id)}}</div>
+        <div class="blockInst mobile hcenter">{{addText(info.id)}}</div>
     </div>
 
 </div>
 
-<div class="elem mSep" id="{{'sep' + info.id}}" ng-style="{ height:info.mobileSep + 'px' }">
+<div class="elem sep mobile" id="{{'sep' + info.id}}" ng-style="{ height:info.mobileSep + 'px' }">
 
-    <div class="mDescription hcenter" ng-bind-html="renderHtml(info.description)"></div>
+    <div class="description mobile hcenter" ng-bind-html="renderHtml(info.description)"></div>
 
 </div>

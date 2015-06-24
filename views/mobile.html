@@ -1,45 +1,49 @@
 
-  <div class="mToolbar">
-    <div class="mNavUpper">
-      <img class="mTitle vcenter" src="/img/title2.png"/>
+<div class="mobile">
+
+    <div class="toolbar mobile">
+      <div class="navUpper mobile">
+        <img class="title mobile vcenter" src="/img/title2.png"/>
+      </div>
+
+      <div class="navLower mobile">
+        <table class="navInner mobile golden">
+
+          <tr>
+
+            <td> <menu class="btn mobile" id="projectBtn"> Project </menu> </td>
+            <td> <menu class="btn mobile" id="contactBtn"> Contact </menu></td>
+
+          </tr>
+
+        </table>
+      </div>
     </div>
 
-    <div class="mNavLower">
-      <table class="mNavInner golden">
-
-        <tr>
-
-          <td> <menu class="mBtn" id="projectBtn"> Project </menu> </td>
-          <td> <menu class="mBtn" id="contactBtn"> Contact </menu></td>
-
-        </tr>
-
-      </table>
-    </div>
-  </div>
-
-  <div class="mBody" id="bodyContainer">
-        
-      <div class="mPage" id="mProjects" scrollable>
-              <div class="elem mSep2">
-                <div class="mIntro vcenter">
-                  <div class="mIntroInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
+    <div class="body mobile" id="bodyContainer">
+          
+        <div class="page mobile" id="projects" scrollable>
+                <div class="elem sep2 mobile">
+                  <div class="intro mobile vcenter">
+                    <div class="introInner mobile vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                  </div>
                 </div>
-              </div>
 
-              <!-- <div id="mConsole"></div> -->
+                <!-- <div id="mConsole"></div> -->
 
-              <div class="mProject" ng-repeat="project in main.projects"> 
-                  <project info="project"></project>
-              </div>
-      </div>
-
+                <div class="project mobile" ng-repeat="project in main.projects"> 
+                    <project info="project"></project>
+                </div>
+        </div>
 
 
-      <div class="mPage" id="mContact">
-          <div class="mContact hcenter">
-              <contact info="main.contact"></contact>
-          </div>
-      </div>
 
-  </div>
+        <div class="page mobile" id="contact">
+            <div class="contact mobile hcenter">
+                <contact info="main.contact"></contact>
+            </div>
+        </div>
+
+    </div>
+
+</div>

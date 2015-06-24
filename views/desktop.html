@@ -1,47 +1,51 @@
 
-  <div class="toolbar">
-      <div class="nav vcenter">
+<div class="desktop">
 
-          <table class="navInner vcenter">
+      <div class="toolbar desktop">
+          <div class="nav desktop vcenter">
 
-              <tr>
+              <table class="navInner desktop vcenter">
 
-                  <td><menu class="btn" id="projectBtn"> Project </menu></td>
-                  <td><menu class="btn" id="contactBtn"> Contact </menu></td>
+                  <tr>
 
-                  <td class="navSpace"><div></div></td>
+                      <td><menu class="btn desktop" id="projectBtn"> Project </menu></td>
+                      <td><menu class="btn desktop" id="contactBtn"> Contact </menu></td>
 
-                  <td><div class="title"> <img src="/img/title2.png"/> </div></td>
+                      <td class="navSpace desktop"><div></div></td>
 
-              </tr>
-          </table>
+                      <td><div class="title desktop"> <img src="/img/title2.png"/> </div></td>
 
-      </div>
-  </div>
+                  </tr>
+              </table>
 
-  <div class="body" id="body">
-
-      <!-- <div class="page"> -->
-        
-          <parallax class="page" id="projectsOuter" scroll-items="projects">
-                  <div class="elem sep">
-                      <div class="intro vcenter">
-                          <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
-                      </div>
-                  </div>
-
-                  <div class="projectInner" ng-repeat="project in main.projects"> 
-                      <project info="project"></project>
-                  </div>
-          </parallax>
-
-      <!-- </div> -->
-
-
-      <div class="page" id="contactOuter">
-          <div class="contactInner hcenter">
-              <contact info="main.contact"></contact>
           </div>
       </div>
 
-  </div>
+      <div class="body desktop" id="body">
+
+          <!-- <div class="page"> -->
+            
+              <parallax class="page desktop" id="projectsOuter" scroll-items="projects">
+                      <div class="elem sep desktop">
+                          <div class="intro desktop vcenter">
+                              <div class="introInner desktop vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                          </div>
+                      </div>
+
+                      <div class="projectInner desktop" ng-repeat="project in main.projects"> 
+                          <project info="project"></project>
+                      </div>
+              </parallax>
+
+          <!-- </div> -->
+
+
+          <div class="page desktop" id="contactOuter">
+              <div class="contactInner desktop hcenter">
+                  <contact info="main.contact"></contact>
+              </div>
+          </div>
+
+      </div>
+
+</div>
