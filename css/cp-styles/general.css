@@ -3,10 +3,10 @@
 
 @import url("positioning/positioning.css");
 @import url("positioning/layer.css");
-@import url("positioning/heights-%.css");
-@import url("positioning/heights-px.css");
-@import url("positioning/widths-%.css");
-@import url("positioning/widths-px.css");
+@import url("positioning/heights_percent.css");
+@import url("positioning/heights_px.css");
+@import url("positioning/widths_percent.css");
+@import url("positioning/widths_px.css");
 @import url("centering.css");
 @import url("scroll.css");
 @import url("ui.css");
