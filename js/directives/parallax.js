@@ -4,7 +4,7 @@ app.directive('parallax', ['global', 'parallaxService', function (global, parall
 
 		//console.log("here");
 
-		var projects = scope.scrollItems;
+		var projects = scrollItems;
 
 		var scroll = function () {
 			for (i in projects) {
