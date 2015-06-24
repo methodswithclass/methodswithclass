@@ -76,9 +76,19 @@
 	top:0;
 }
 
+.top10 {
+
+	top:10%;
+}
+
 .top20 {
 
 	top:20%;
+}
+
+.top-20 {
+
+	top:20px;
 }
 
 .bottom0 {
@@ -91,15 +101,9 @@
 	bottom:60px;
 }
 
-.top10 {
 
-	top:10%;
-}
 
-.top-20 {
 
-	top:20px;
-}
 
 
 
