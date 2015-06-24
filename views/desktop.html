@@ -19,23 +19,26 @@
       </div>
   </div>
 
-  <div class="pagesContainer" id="bodyContainer">
+  <div class="body" id="body">
+
+      <div class="page">
         
-      <parallax class="page" id="projectContainer" scroll-items="projects">
-              <div class="elem sep">
-                  <div class="intro vcenter">
-                      <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
+          <parallax id="projects" scroll-items="projects">
+                  <div class="elem sep">
+                      <div class="intro vcenter">
+                          <div class="introInner vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                      </div>
                   </div>
-              </div>
 
-              <div class="project" ng-repeat="project in main.projects"> 
-                  <project info="project"></project>
-              </div>
-      </parallax>
+                  <div class="project" ng-repeat="project in main.projects"> 
+                      <project info="project"></project>
+                  </div>
+          </parallax>
+
+      </div>
 
 
-
-      <div class="page" id="contactContainer">
+      <div class="page" id="contact">
           <div class="contact hcenter">
               <contact info="main.contact"></contact>
           </div>

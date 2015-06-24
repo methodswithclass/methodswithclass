@@ -40,12 +40,12 @@ a.blue {
 	color:white;
 }
 
-#bodyContainer {
+#body {
 
 	width:200%;
 }
 
-.pagesContainer {
+.body {
 
 	position:absolute;
 	top:10%;
@@ -99,11 +99,11 @@ a.blue {
 	height:auto;
 }
 
-#projectContainer {
+#projects {
 	left:0;
 }
 
-#contactContainer {
+#contact {
 	left:50%;
 }
 
