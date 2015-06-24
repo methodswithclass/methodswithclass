@@ -22,11 +22,7 @@ a.blue {
 	position:relative;
 }
 
-.contactInner.desktop {
-	position:absolute;
-	top:20%;
-	width:60%;
-}
+
 
 .paragraph {
 	margin:10px;
