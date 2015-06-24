@@ -5,8 +5,8 @@
 @import "positioning/layer.css";
 @import "positioning/heights-%.css";
 @import "positioning/heights-px.css";
-@import "positioning/width-%.css";
-@import "positioning/width-px.css";
+@import "positioning/widths-%.css";
+@import "positioning/widths-px.css";
 @import "centering.css";
 @import "scroll.css";
 @import "ui.css";
