@@ -27,6 +27,39 @@ a.blue {
 	width:100%;
 }
 
+.nav {
+
+	position:absolute;
+	width:90%;
+	height:30%;
+}
+
+.nav-inner {
+
+	position:absolute;
+	width:100%;
+}
+
+.menu-item {
+
+	position:ralative;
+	margin:0 50px;
+}
+
+.btn {
+
+	font-size:50px;
+	cursor:pointer;
+}
+
+.title {
+
+	position:relative;
+	width:300px;
+	height:auto;
+
+}
+
 .body {
 
 	position:absolute;
