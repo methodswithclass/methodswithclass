@@ -1,15 +1,15 @@
 @charset "UTF-8";
 /* CSS Document */
 
-@import "positioning/positioning.css";
-@import "positioning/layer.css";
-@import "positioning/heights-%.css";
-@import "positioning/heights-px.css";
-@import "positioning/width-%.css";
-@import "positioning/width-px.css";
-@import "centering.css";
-@import "scroll.css";
-@import "ui.css";
+@import "/positioning/positioning.css";
+@import "/positioning/layer.css";
+@import "/positioning/heights-%.css";
+@import "/positioning/heights-px.css";
+@import "/positioning/width-%.css";
+@import "/positioning/width-px.css";
+@import "/centering.css";
+@import "/scroll.css";
+@import "/ui.css";
 
 .deselect {
     -webkit-touch-callout: none;
