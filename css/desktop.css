@@ -28,7 +28,7 @@ a.blue {
 	min-width:900px;
 }
 
-.main.desktop {
+.main div.desktop {
 
 	overflow-x:hidden;
 }
