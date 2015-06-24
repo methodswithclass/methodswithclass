@@ -34,4 +34,11 @@ run(function ($location) {
 	}
 
 	$location.path(production);
+}).run(function() {
+
+	$(document).ready(function() {
+
+		var toolbar = document.getElementById("toolbar");
+      console.log(toolbar);
+	})
 });
