@@ -21,7 +21,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 		$document.bind('scroll', scroll);
 
-		$window.resize(scroll);
+		$window.bind('resize', scroll);
 	}
 
 	return {
