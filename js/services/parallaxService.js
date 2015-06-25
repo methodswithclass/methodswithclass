@@ -13,7 +13,7 @@ app.factory("parallaxService", ['global', function (global) {
 	var scrollWidth;
 	var value;
 
-	var body = $(global.projects);
+	var body = $(global.project);
 	var space;
 	var image;
 
