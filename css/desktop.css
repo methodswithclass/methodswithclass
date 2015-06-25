@@ -18,7 +18,7 @@ a.blue {
 	color:blue;
 }
 
-table.nav {
+table#nav {
 
     border-collapse: separate;
     border-spacing:0 50px;
