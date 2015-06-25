@@ -2,6 +2,12 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 	var link = function (scope, element, attr) {
 
+		var classes = $(element).attr("class").split(" ");
+
+		for (i in classes) {
+			console.log(classes[i]);
+		}
+
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
@@ -19,7 +25,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 		//angular.element($(global.project)).on('scroll', scroll);
 
-		angular.element(element[0]).bind('scroll', scroll);
+		$(element).bind('scroll', scroll);
 
 		angular.element($window).bind('resize', scroll);
 	}
