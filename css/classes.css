@@ -58,6 +58,11 @@ a.blue {
 /* ***************  POSITIONING ***************  */
 
 
+.fixed {
+
+	position:fixed;
+}
+
 .absolute {
 	position:absolute;	
 }
