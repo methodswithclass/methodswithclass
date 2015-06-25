@@ -1,4 +1,4 @@
-app.factory("parallaxService", ['global', '$document', function (global, $document) {
+app.factory("parallaxService", ['global', function (global) {
 
 
 	var standardHeight = 1650;
@@ -52,7 +52,7 @@ app.factory("parallaxService", ['global', '$document', function (global, $docume
 
 			value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
 			
-			//console.log(value);
+			console.log(value);
 
 			image.css({"bottom":value});
 
