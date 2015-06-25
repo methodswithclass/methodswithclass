@@ -2,10 +2,6 @@ app.directive('parallax', ['parallaxService', '$document' function (parallax, $d
 
 	var link = function (scope, element, attr) {
 
-		console.log(global.project);
-
-		var el = element[0];
-
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
