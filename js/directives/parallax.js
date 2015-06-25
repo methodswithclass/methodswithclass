@@ -5,7 +5,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 		var classes = $(element).attr("class").split(" ");
 
 		for (i in classes) {
-			console.log(classes[i]);
+			console.log("class " + classes[i]);
 		}
 
 		var projects = scope.scrollItems;
