@@ -18,6 +18,12 @@ a.blue {
 	color:blue;
 }
 
+table.nav {
+
+    border-collapse: separate;
+    border-spacing:0 50px;
+}
+
 .paragraph {
 	margin:10px;
 	border-bottom:1px solid black;	
