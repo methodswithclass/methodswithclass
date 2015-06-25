@@ -119,6 +119,11 @@ a.blue {
 	margin:50px 0;
 }
 
+.margin-h-minus-50 {
+
+	margin:0 -50px;
+}
+
 .padding-h-50 {
 
 	padding:0 50px;
