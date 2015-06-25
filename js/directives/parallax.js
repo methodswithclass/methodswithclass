@@ -7,6 +7,9 @@ app.directive('parallax', ['global', 'parallaxService', function (global, parall
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
+
+			console.log("scroll");
+
 			for (i in projects) {
 				parallax.set(projects[i]);
 			}
