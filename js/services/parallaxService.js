@@ -30,11 +30,11 @@ app.factory("parallaxService", ['global', function (global) {
 	}
 
 	var set = function (project) {
-		
-		console.log(project.id);
 
 		space = $("#space" + project.id);
 		image = $("#img" + project.id);
+
+		console.log(space.height());
 	
 		if (whatDevice() == desktop) {
 
