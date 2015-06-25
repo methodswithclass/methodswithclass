@@ -49,6 +49,8 @@ app.factory("parallaxService", ['global', function (global) {
 
 			value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
 			
+			console.log(value);
+
 			image.css("bottom", value);
 
 		}
