@@ -229,6 +229,16 @@ a.blue {
 	border:1px solid white;	
 }
 
+.border-red {
+
+	border:1px solid red;	
+}
+
+.border-blue {
+
+	border:1px solid blue;	
+}
+
 .shadow {
 	box-shadow: 0 0 10px 0 #424242;	
 }
