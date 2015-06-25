@@ -8,7 +8,7 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 		// 	console.log("class " + classes[i]);
 		// }
 
-		var el = $(element.find(scope.id));
+		var el = $(attr.id);
 
 		var projects = scope.scrollItems;
 
