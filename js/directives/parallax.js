@@ -4,6 +4,8 @@ app.directive('parallax', ['global', 'parallaxService', function (global, parall
 
 		console.log(global.project);
 
+		var el = element[0];
+
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
@@ -21,7 +23,7 @@ app.directive('parallax', ['global', 'parallaxService', function (global, parall
 
 		//angular.element($(global.project)).on('scroll', scroll);
 
-		$(global.project).on('scroll', scroll);
+		el.on('scroll', scroll);
 
 		$(window).resize(scroll);
 	}
