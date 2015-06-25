@@ -2,7 +2,7 @@ app.directive('parallax', ['global', 'parallaxService', function (global, parall
 
 	var link = function (scope, element, attr) {
 
-		//console.log("here");
+		console.log(global.project);
 
 		var projects = scope.scrollItems;
 
