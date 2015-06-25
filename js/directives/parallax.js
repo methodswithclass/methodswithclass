@@ -2,13 +2,13 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	var link = function (scope, element, attr) {
 
-		var classes = $(element.find(global.project)).attr("class").split(" ");
+		// var classes = $(element.find(global.project)).attr("class").split(" ");
 
-		for (i in classes) {
-			console.log("class " + classes[i]);
-		}
+		// for (i in classes) {
+		// 	console.log("class " + classes[i]);
+		// }
 
-		var el = $(element.find(global.project));
+		var el = $(element.find(scope.id));
 
 		var projects = scope.scrollItems;
 
@@ -34,7 +34,8 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	return {
 		scope:{
-			scrollItems:'='
+			scrollItems:'=',
+			id:'='
 		},
 		link:link
 	};
