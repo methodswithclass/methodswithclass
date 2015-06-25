@@ -1,7 +1,7 @@
 app.factory('global', ['$sce', '$location', function($sce, $location) {
 
 	var body = "#body";
-	var project = "#body";
+	var project = "#projectsOuter";
 	var contact = "#contactOuter";
 	var mProjects = "#mProjects";
 
