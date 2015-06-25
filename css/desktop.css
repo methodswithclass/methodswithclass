@@ -18,10 +18,8 @@ a.blue {
 	color:blue;
 }
 
-table {
-
-    border-collapse: separate;
-    border-spacing:50px 0;
+td {
+    padding:0 50px;
 }
 
 .paragraph {
