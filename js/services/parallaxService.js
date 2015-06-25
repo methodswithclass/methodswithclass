@@ -34,7 +34,7 @@ app.factory("parallaxService", ['global', function (global) {
 		space = $("#space" + project.id);
 		image = $("#img" + project.id);
 
-		console.log(space.height());
+		//console.log(space.height());
 	
 		if (whatDevice() == desktop) {
 
@@ -45,13 +45,16 @@ app.factory("parallaxService", ['global', function (global) {
 			scrollHeight = $(window).height();
 			scrollWidth = $(window).width();
 
+
+			if (project.id == "nuplae")	console.log("elementOffset " + elementOffset + " imgOffset " + imgOffset);
+
 			scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
 
 			value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
 			
-			console.log(value);
+			//console.log(value);
 
-			image.css("bottom", value);
+			image.css({"bottom":value});
 
 		}
 		else {
@@ -60,7 +63,7 @@ app.factory("parallaxService", ['global', function (global) {
 
 			value = -175;
 		
-			image.css("bottom", value);	
+			image.css({"bottom":value});	
 		}
 	}
 
