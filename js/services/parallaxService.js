@@ -13,6 +13,7 @@ app.factory("parallaxService", ['global', function (global) {
 	var scrollWidth;
 	var value;
 
+	var body = $(global.projects);
 	var space;
 	var image;
 
@@ -41,7 +42,7 @@ app.factory("parallaxService", ['global', function (global) {
 			imgHeight = image.height();
 			imgOffset = image.offset().top;
 			elementHeight = space.height();
-			elementOffset = space.offset().top;
+			elementOffset = body.offset().top + space.offset().top;
 			scrollHeight = $(window).height();
 			scrollWidth = $(window).width();
 
