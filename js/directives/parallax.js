@@ -1,4 +1,4 @@
-app.directive('parallax', ['parallaxService', '$document', '$window', function (parallax, $document, $window) {
+app.directive('parallax', ['parallaxService', 'global', '$window', function (parallax, global, $window) {
 
 	var link = function (scope, element, attr) {
 
@@ -7,6 +7,8 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 		for (i in classes) {
 			console.log("class " + classes[i]);
 		}
+
+		var el = $(element.find(global.project));
 
 		var projects = scope.scrollItems;
 
@@ -25,7 +27,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 		//angular.element($(global.project)).on('scroll', scroll);
 
-		$(element).bind('scroll', scroll);
+		el.bind('scroll', scroll);
 
 		angular.element($window).bind('resize', scroll);
 	}
