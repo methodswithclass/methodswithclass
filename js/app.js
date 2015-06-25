@@ -1,4 +1,4 @@
-var app = angular.module("methodswithclass", ['ngRoute', 'ngTouch', 'scroll']);
+var app = angular.module("methodswithclass", ['ngRoute', 'ngTouch']);
 
 var mobiledebug = false;
 
