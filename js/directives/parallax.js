@@ -19,7 +19,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 		//angular.element($(global.project)).on('scroll', scroll);
 
-		$document.bind('scroll', scroll);
+		angular.element(element[0]).bind('scroll', scroll);
 
 		angular.element($window).bind('resize', scroll);
 	}
