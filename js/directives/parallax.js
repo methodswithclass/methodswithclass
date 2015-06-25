@@ -1,4 +1,4 @@
-app.directive('parallax', ['parallaxService', '$document' function (parallax, $document) {
+app.directive('parallax', ['parallaxService', '$document', '$window' function (parallax, $document, $window) {
 
 	var link = function (scope, element, attr) {
 
@@ -21,7 +21,7 @@ app.directive('parallax', ['parallaxService', '$document' function (parallax, $d
 
 		$document.bind('scroll', scroll);
 
-		$(window).resize(scroll);
+		$window.resize(scroll);
 	}
 
 	return {
