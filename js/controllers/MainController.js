@@ -39,12 +39,6 @@ app.controller('MainController', function () {
 	self.pageHeight = function () {
 
 		return $(window).height() - 400;
-	}
-
-	 angular.element(document).ready(function () {
-       var toolbar = document.getElementById("toolbar");
-      console.log(toolbar);
-    });
-	
+	}	
 
 });
