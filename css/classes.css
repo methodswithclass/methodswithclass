@@ -104,14 +104,14 @@ a.blue {
 	height:80%;		
 }
 
-.margin-top0 {
+.margin-h-50 {
 
-	margin-top:0;
+	margin:0 50px;
 }
 
-.margin-left-50 {
+.margin-v-50 {
 
-	margin-left:50px;
+	margin:50px 0;
 }
 
 .right0 {
