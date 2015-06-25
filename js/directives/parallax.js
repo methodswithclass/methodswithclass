@@ -2,7 +2,7 @@ app.directive('parallax', ['parallaxService', '$document', '$window', function (
 
 	var link = function (scope, element, attr) {
 
-		var classes = $(element[0]).attr("class").split(" ");
+		var classes = $(element.find("#projectsOuter")).attr("class").split(" ");
 
 		for (i in classes) {
 			console.log("class " + classes[i]);
