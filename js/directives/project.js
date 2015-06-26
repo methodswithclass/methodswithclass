@@ -42,7 +42,7 @@ app.directive('project', ['global', function (global) {
 				if (!open) {
 					$element.animate({height:factor*maxSep}, openSpeed, function () {
 
-						console.log("done");
+						console.log("opened");
 						$scrollElement.scrollTo($element, openSpeed);
 					});
 
@@ -51,7 +51,7 @@ app.directive('project', ['global', function (global) {
 				else {
 					$element.animate({height:100}, openSpeed, function () {
 
-						console.log("done");
+						console.log("closed");
 						$scrollElement.scrollTo($space, openSpeed);
 					});
 
