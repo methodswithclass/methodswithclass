@@ -31,4 +31,4 @@ app.directive('menu', function () {
 		link:link
 	}
 
-}]);
+});

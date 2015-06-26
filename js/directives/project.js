@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', function (global) {
+app.directive('project', function () {
 
 	return {
 		restrict:'E',
@@ -61,4 +61,4 @@ app.directive('project', ['global', function (global) {
 		}
 	};
 
-}]);
+});
