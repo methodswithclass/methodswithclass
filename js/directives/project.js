@@ -1,25 +1,21 @@
 
 app.directive('project', ['global', function (global) {
 
-	var view = "";
-
-	if (global.isMobile()) {
-		view = "mProject.html";
-	}
-	else {
-		view = "project.html";
-	}
-
-	//alert(view);
-
 	return {
 		restrict:'E',
 		scope:{
-			info:'='
+			info:'=',
+			parentId:'='
 		},
-		templateUrl:"/views/" + view,
+		template: '<div ng-include="getContentUrl()"></div>'
 		link:function ($scope, element, attr) {
 
+			$scope.getContentUrl = function() {
+                return 'views/' + attr.view;
+           }
+
+
+			var $scrollElement = $("#" + $scope.parentId);
 			var openSpeed = 300;
 			var open = false;
 
@@ -37,7 +33,7 @@ app.directive('project', ['global', function (global) {
 
 			$scope.clickImage = function (maxSep, id) {
 
-				var $scrollElement = $(global.project);
+				
 				var $element = $("#sep" + id);
 				var $space = $("#space" + id);
 

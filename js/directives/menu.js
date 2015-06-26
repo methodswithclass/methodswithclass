@@ -1,16 +1,14 @@
 
-app.directive('menu', ['global', function (global) {
+app.directive('menu', function () {
 
 	var speed = 300;
-
-	var move = function (left) {
-
-		$(global.body).animate({left:left}, speed);
-	}
-
-
 			
 	var link = function (scope, element, attr) {
+
+		var move = function (left) {
+
+			$(scope.body).animate({left:left}, speed);
+		}
 
 		var action = function () {
 
@@ -27,7 +25,9 @@ app.directive('menu', ['global', function (global) {
 	}
 
 	return {
-
+		scope:{
+			body:'='
+		}
 		link:link
 	}
 
