@@ -34,7 +34,8 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	return {
 		scope:{
-			scrollItems:'='
+			scrollItems:'=',
+			id:'@'
 		},
 		link:link
 	};
