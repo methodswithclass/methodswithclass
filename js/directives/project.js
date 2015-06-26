@@ -39,6 +39,7 @@ app.directive('project', ['global', function (global) {
 
 				var $scrollElement = $(global.project);
 				var $element = $("#sep" + id);
+				var $space = $("#space" + id);
 
 				var factor = $(window).height()*1500/$(window).width()/1000;
 
@@ -55,7 +56,7 @@ app.directive('project', ['global', function (global) {
 					$element.animate({height:100}, openSpeed, function () {
 
 						console.log("done");
-						$scrollElement.scrollTo($element, openSpeed);
+						$scrollElement.scrollTo($space, openSpeed);
 					});
 
 					open = false;
