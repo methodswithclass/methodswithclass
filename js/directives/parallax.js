@@ -2,8 +2,6 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	var link = function (scope, element, attr) {
 
-		
-
 		var el = $(attr.id);
 
 		var classes = el.attr("class").split(" ");
@@ -36,8 +34,7 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	return {
 		scope:{
-			scrollItems:'=',
-			id:'='
+			scrollItems:'='
 		},
 		link:link
 	};
