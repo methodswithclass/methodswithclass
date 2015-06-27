@@ -2,6 +2,8 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 
 	var link = function (scope, element, attr) {
 
+		console.log("parallax " + attr.id);
+
 		var el = $(attr.id);
 
 		// var classes = el.attr("class").split(" ");
