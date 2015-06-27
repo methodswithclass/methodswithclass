@@ -183,7 +183,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	var link = function (scope, element, attr) {
 
-		var el = $(attr.id);
+		var el = $("#" + scope.id);
 
 		el.css({"height":self.getProjectHeight(scope) + "px"});
 
@@ -232,6 +232,9 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	}
 
 	return {
+		scope:{
+			id:'@'
+		},
 		link:link
 	}
 }]);
