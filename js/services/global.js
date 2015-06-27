@@ -1,10 +1,5 @@
 app.factory('global', ['$sce', '$location', function($sce, $location) {
 
-	var body = "#body";
-	var project = "#projectsOuter";
-	var contact = "#contactOuter";
-	var mProjects = "#mProjects";
-
 	var isMobile = function () {
 
 		console.log($location.url());
@@ -18,10 +13,6 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 	}
 
     return {
-    	body:body,
-    	project:project,
-    	contact:contact,
-    	mProjects:mProjects,
     	isMobile:isMobile,
     	renderHtml:function (htmlCode) {
 	        return $sce.trustAsHtml(htmlCode);

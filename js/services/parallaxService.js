@@ -1,4 +1,4 @@
-app.factory("parallaxService", ['global', function (global) {
+app.factory("parallaxService", function () {
 
 
 	var standardHeight = 1650;
@@ -46,13 +46,13 @@ app.factory("parallaxService", ['global', function (global) {
 			scrollWidth = $(window).width();
 
 
-			if (project.id == "nuplae")	console.log("elementOffset " + elementOffset + " imgOffset " + imgOffset);
+			//if (project.id == "nuplae")	console.log("elementOffset " + elementOffset + " imgOffset " + imgOffset);
 
 			scrollFactor = getScrollFactor(scrollHeight, scrollWidth);
 
 			value = scrollFactor*(elementOffset + elementHeight)/scrollHeight*700 - 600;
 			
-			console.log(value);
+			//console.log(value);
 
 			image.css({"bottom":value});
 
@@ -72,4 +72,4 @@ app.factory("parallaxService", ['global', function (global) {
 		set:set
 	}
 
-}]);
+});

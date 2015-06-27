@@ -28,7 +28,6 @@
 
 .body.mobile {
 
-	position:absolute;
 	/* Firefox */
 	height: -moz-calc(100% - 400px);
 	/* WebKit */
@@ -42,25 +41,6 @@
 	width:100%;
 	z-index:5;
 	overflow-y:scroll;
-}
-
-.page.mobile {
-
-	position:absolute;
-	width:50%;
-}
-
-#projects.mobile {
-	left:0;
-}
-
-#contact.mobile {
-	left:50%;
-}
-
-.project.mobile {
-
-	position:relative;
 }
 
 .contact.mobile {
@@ -129,12 +109,6 @@
 	background-color:white;
 }
 
-.intro.mobile {
-	position:relative;
-	width:100%;
-	height:30px;
-}
-
 .introInner.mobile {
 	position:relative;
 	width:100%;
@@ -188,27 +162,6 @@
 	position:relative;
 	top:50px;
 	width:80%;
-	font-size:40px;
-}
-
-.bioImg.mobile {
-	position:relative;
-	margin-bottom:40px;
-	top:0;
-	width:60%;
-	height:auto;
-}
-
-.bioContainer.mobile {
-	
-	position:relative;
-	width:100%;
-}
-
-.bioInner.mobile {
-	
-	position:relative;
-	width:100%;
 	font-size:40px;
 }
 

@@ -129,6 +129,11 @@ a.blue {
 	margin:0 -50px;
 }
 
+.margin-bottom-40 {
+
+	margin-bottom:40px;
+}
+
 .padding-h-50 {
 
 	padding:0 50px;
@@ -215,6 +220,11 @@ a.blue {
 .font-30 {
 
 	font-size:30px;
+}
+
+.font-40 {
+
+	font-size:40px;
 }
 
 .font-50 {

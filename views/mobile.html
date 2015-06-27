@@ -20,21 +20,21 @@
       </div>
     </div>
 
-    <div class="body mobile" id="body">
+    <div class="absolute body top-400 left0 width200 z-5" id="body">
           
-        <div class="page mobile" id="projects" scrollable>
-                <div class="elem sep2 mobile">
-                  <div class="intro mobile vcenter">
-                    <div class="introInner mobile vcenter">Here are some projects in various languages and platforms, enjoy </div>
+        <scrollable class="absolute width50 height corner scrollY noedge z-20" ng-attr-id="#projects">
+                <div class="absolute width height-100 white-back noedge z-20">
+                  <div class="absolute width height-30 vcenter">
+                    <div class="absolute width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
                   </div>
                 </div>
 
                 <!-- <div id="mConsole"></div> -->
 
                 <div class="project mobile" ng-repeat="project in main.projects"> 
-                    <project ng-attr-view="mProject.html" parent-id="projectsOuter" info="project"></project>
+                    <project ng-attr-view="mProject.html" ng-attr-id="#projectsOuter" info="project"></project>
                 </div>
-        </div>
+        </scrollable>
 
 
 

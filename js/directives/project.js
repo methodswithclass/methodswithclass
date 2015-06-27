@@ -9,7 +9,7 @@ app.directive('project', ['global', function (global) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			$scope.getContentUrl = function() {
+		   $scope.getContentUrl = function() {
                 return 'views/' + attr.view;
            }
 
