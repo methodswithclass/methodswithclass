@@ -9,14 +9,17 @@ app.directive('project', ['global', function (global) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-		   $scope.getContentUrl = function() {
-                return 'views/' + attr.view;
-           }
+		    $scope.getContentUrl = function() {
+            	return 'views/' + attr.view;
+            }
 
+            console.log(attr.parent);
 
 			var $scrollElement = $(attr.parent);
 			var openSpeed = 300;
 			var open = false;
+			var $element;
+			var $space;
 
 			$scope.renderHtml = global.renderHtml;
 
@@ -33,8 +36,8 @@ app.directive('project', ['global', function (global) {
 			$scope.clickImage = function (maxSep, id) {
 
 				
-				var $element = $("#sep" + id);
-				var $space = $("#space" + id);
+				$element = $("#sep" + id);
+				$space = $("#space" + id);
 
 				var factor = $(window).height()*1500/$(window).width()/1000;
 
