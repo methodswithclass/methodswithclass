@@ -69,7 +69,11 @@ app.controller('MainController', ['global', function (global) {
 			sep += self.sep(self.projects[i]);
 		}
 
-		return self.projects.length*800 + sep;
+		var result = self.projects.length*800 + sep;
+
+		console.log(result);
+
+		return result;
 	}
 
 }]);
