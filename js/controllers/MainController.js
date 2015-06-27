@@ -55,8 +55,8 @@ app.controller('MainController', ['global', function (global) {
 			sep = project.maxSep;
 		}
 
-		var width = $(window).width()/windowWidth;
-		var height = $(window).height()/windowHeight;
+		var width = $(window).width()*windowWidth;
+		var height = $(window).height()*windowHeight;
 
 		var factor = height/width;
 
