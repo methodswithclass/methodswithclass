@@ -183,7 +183,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var el = $("#" + scope.id);
 
-		el.css({"height":self.getProjectHeight(scope) + "px"});
+		el.css({"height":self.getProjectHeight(scope.projects) + "px"});
 
 		var down = function (e) {
 
