@@ -38,6 +38,8 @@ app.controller('MainController', ['global', function (global) {
 
 	self.sep = function (project) {
 
+		console.log("sep " + project.id);
+
 		var windowWidth;
 		var windowHeight;
 		var sep;
