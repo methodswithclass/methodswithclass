@@ -4,8 +4,7 @@ app.directive('project', ['global', function (global) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'=',
-			parentId:'='
+			info:'='
 		},
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
@@ -15,7 +14,7 @@ app.directive('project', ['global', function (global) {
            }
 
 
-			var $scrollElement = $("#" + $scope.parentId);
+			var $scrollElement = $("#" + attr.parent);
 			var openSpeed = 300;
 			var open = false;
 
