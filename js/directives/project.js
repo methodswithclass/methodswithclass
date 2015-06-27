@@ -14,7 +14,7 @@ app.directive('project', ['global', function (global) {
            }
 
 
-			var $scrollElement = $("#" + attr.parent);
+			var $scrollElement = $(attr.parent);
 			var openSpeed = 300;
 			var open = false;
 

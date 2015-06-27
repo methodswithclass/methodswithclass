@@ -7,7 +7,7 @@ app.directive('menu', function () {
 
 		var move = function (left) {
 
-			$(scope.body).animate({left:left}, speed);
+			$(attr.body).animate({left:left}, speed);
 		}
 
 		var action = function () {
