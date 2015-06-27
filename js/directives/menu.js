@@ -27,7 +27,7 @@ app.directive('menu', function () {
 	return {
 		scope:{
 			id:'@'
-		}
+		},
 		link:link
 	}
 
