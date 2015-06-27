@@ -23,23 +23,23 @@
     <div class="absolute bodyMobile top-400 left0 width200 z-5" id="body">
           
         <scrollable class="absolute width50 height corner scrollY noedge z-20" ng-attr-body="#body" ng-attr-id="#projects">
-                <div class="absolute width height-100 white-back noedge z-20">
-                  <div class="absolute width height-30 vcenter">
-                    <div class="absolute width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                <div class="relative width height-300 white-back noedge z-20">
+                  <div class="relative width height-30 vcenter">
+                    <div class="relative width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
                   </div>
                 </div>
 
                 <!-- <div id="mConsole"></div> -->
 
-                <div class="project mobile" ng-repeat="project in main.projects"> 
+                <div class="relative width noedge z-20" ng-repeat="project in main.projects"> 
                     <project ng-attr-view="mProject.html" ng-attr-id="#projects" info="project"></project>
                 </div>
         </scrollable>
 
 
 
-        <div class="page mobile" id="contact">
-            <div class="contact mobile hcenter">
+        <div class="absolute width50 height left50 top0 noedge z-20" id="contact">
+            <div class="absolute top20 width80 height hcenter">
                 <contact info="main.contact"></contact>
             </div>
         </div>

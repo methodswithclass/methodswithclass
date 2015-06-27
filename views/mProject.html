@@ -1,19 +1,25 @@
-<div class="elem relative width transparent-back cutoff height600" id="{{'space' + info.id}}">
+<div class="relative width transparent-back cutoff height800 noedge z-20" id="{{'space' + info.id}}">
 
-    <img class="back mobile" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
+    <img class="absolute width200 height-auto right-minus-100 bottom-minus-300" id="{{'img' + info.id}}" ng-src= "{{info.back}}" />
 
-    <div class="iconblock mobile center">
-        <div class="apptitle mobile hcenter"> {{info.title}}</div>
+    <div class="relative width70 height50 center">
+        <div class="absolute top0 width40 text-center font-bold font-50 white hcenter"> {{info.title}}</div>
         
-        <img class="icon mobile hcenter" ng-src= "{{info.icon}}" />
+        <img class="absolute width-200 height-auto bottom0 pointer hcenter" ng-src= "{{info.icon}}" />
 
-        <div class="blockInst mobile hcenter">{{addText(info.id)}}</div>
+        <div class="absolute bottom-minus-100 text-center white font-40 hcenter">{{addText(info.id)}}</div>
     </div>
 
 </div>
 
-<div class="elem sep mobile" id="{{'sep' + info.id}}" ng-style="{ height:info.mobileSep + 'px' }">
+<div class="relative width cutoff white noedge z-20" id="{{'sep' + info.id}}" ng-style="{ height:info.mobileSep + 'px' }">
 
-    <div class="description mobile hcenter" ng-bind-html="renderHtml(info.description)"></div>
+    <div class="relative top-50 width80 font-40 hcenter" ng-bind-html="renderHtml(info.description)"></div>
 
 </div>
+
+
+
+
+
+

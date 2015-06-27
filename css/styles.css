@@ -29,3 +29,14 @@ a.blue {
 	left:0;	
 }
 
+.bodyMobile {
+	/* Firefox */
+	height: -moz-calc(100% - 400px);
+	/* WebKit */
+	height: -webkit-calc(100% - 400px);
+	/* Opera */
+	height: -o-calc(100% - 400px);
+	/* Standard */
+	height: calc(100% - 400px);
+}
+
