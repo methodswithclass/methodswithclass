@@ -21,6 +21,51 @@ app.directive('project', ['global', function (global) {
 
 			$scope.renderHtml = global.renderHtml;
 
+			$scope.sep = function (project) {
+
+				console.log("sep " + project.id);
+
+				var windowWidth;
+				var windowHeight;
+				var sep;
+
+				if (global.isMobile()) {
+
+					windowWidth = 980;
+					windowHeight = 1545;
+					sep = project.mobileSep;
+				}
+				else {
+
+					windowWidth = 1000;
+					windowHeight = 1500;
+					sep = project.maxSep;
+				}
+
+				var width = $(window).width()*windowWidth;
+				var height = $(window).height()*windowHeight;
+
+				var factor = height/width;
+
+				return factor*sep;
+			}
+
+			$scope.projectsHeight = function (projects) {
+
+				var sep = 0;
+
+				for (i in projects) {
+
+					sep += $scope.sep(projects[i]);
+				}
+
+				var result = projects.length*800 + sep;
+
+				console.log(result);
+
+				return result;
+			}
+
 			$scope.addText = function (id) {
 
 				if (id == "nuplae") {
@@ -38,7 +83,7 @@ app.directive('project', ['global', function (global) {
 				$space = $("#space" + id);
 
 				if (!open) {
-					$element.animate({height:$scope.main.sep(info)}, openSpeed, function () {
+					$element.animate({height:$scope.sep(info)}, openSpeed, function () {
 
 						console.log("opened");
 						$scrollElement.scrollTo($element, openSpeed);
