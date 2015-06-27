@@ -1,22 +1,20 @@
-app.directive('parallax', ['parallaxService', 'global', '$window', function (parallax, global, $window) {
+app.directive('parallax', ['parallaxService', '$window', function (parallax, $window) {
 
 	var link = function (scope, element, attr) {
 
-		console.log(scope.id);
+		var el = $(attr.id);
 
-		var el = $("#" + scope.id);
+		// var classes = el.attr("class").split(" ");
 
-		var classes = el.attr("class").split(" ");
-
-		for (i in classes) {
-			console.log("class " + classes[i]);
-		}
+		// for (i in classes) {
+		// 	console.log("class " + classes[i]);
+		// }
 
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
 
-			console.log("scroll");
+			//console.log("scroll");
 
 			for (i in projects) {
 				parallax.set(projects[i]);
@@ -36,8 +34,7 @@ app.directive('parallax', ['parallaxService', 'global', '$window', function (par
 
 	return {
 		scope:{
-			scrollItems:'=',
-			id:'@'
+			scrollItems:'='
 		},
 		link:link
 	};

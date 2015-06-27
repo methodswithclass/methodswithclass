@@ -12,10 +12,10 @@ app.directive('menu', function () {
 
 		var action = function () {
 
-			if (attr.id == "projectBtn") {
+			if (attr.id == "#projectBtn") {
 				move(0);
 			}
-			else if (attr.id == "contactBtn") {
+			else if (attr.id == "#contactBtn") {
 				move("-100%");
 			}
 		}
