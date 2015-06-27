@@ -202,12 +202,12 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			
 		}
 
-        $swipe.bind(self.el, {
-          'start': self.down,
-          'move': self.move,
-          'end': self.up,
-          'cancel': self.up
-        });
+        // $swipe.bind(self.el, {
+        //   'start': self.down,
+        //   'move': self.move,
+        //   'end': self.up,
+        //   'cancel': self.up
+        // });
 
 	}
 
