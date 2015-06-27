@@ -45,7 +45,7 @@ app.controller('MainController', ['global', function (global) {
 		if (global.isMobile()) {
 
 			windowWidth = 320;
-			windowHeight = 400;
+			windowHeight = 500;
 			sep = project.mobileSep;
 		}
 		else {
