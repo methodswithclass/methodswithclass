@@ -36,7 +36,7 @@ app.controller('MainController', ['$scope', 'global', function ($scope, global) 
 		bio:"<div class='paragraph'><div class='tabp'> Methods with Class, located outside Washington, DC, is my on going project to bring some of the things I create to a wider audience.   </div>  <div class='tabp'>  I have 5 years experience doing a smattering of mobile and web development. Over that time I have narrowed down on JavaScript. Early in my career, I spent a considerable amount of time doing native development without any serious framework dependencies. I deliberatlely did not rely on those tools but rather hand-coded solutions to the problems I faced while building apps. </div><div class='tabp'> These days I use Angular as an application framework and am open to using matured libraries if the community is there to support it. The time I spent in the native world learning how to develop my own filtering, navigation, parallax, and UI interaction modules has been invaluable. </div>  </div>  <div class='paragraph'>  <div class='tabp'> Send an email to <a class='blue' href='mailto:chris@methodswithclass.com'> chris@methodswithclass.com </a> with any questions or ideas.</div> </div>"
 	};
 
-	$scope.sep = function (project) {
+	self.sep = function (project) {
 
 		console.log("sep " + project.id);
 
