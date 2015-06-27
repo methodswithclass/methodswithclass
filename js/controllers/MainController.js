@@ -44,8 +44,8 @@ app.controller('MainController', ['global', function (global) {
 
 		if (global.isMobile()) {
 
-			windowWidth = 320;
-			windowHeight = 500;
+			windowWidth = 980;
+			windowHeight = 1545;
 			sep = project.mobileSep;
 		}
 		else {
@@ -55,7 +55,10 @@ app.controller('MainController', ['global', function (global) {
 			sep = project.maxSep;
 		}
 
-		var factor = $(window).height()/windowHeight/$(window).width()*windowWidth;
+		var width = $(window).width()/windowWidth;
+		var height = $(window).height()/windowHeight;
+
+		var factor = height/width;
 
 		return factor*sep;
 	}
