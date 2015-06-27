@@ -181,7 +181,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	}
 
-	var link = function (scope, element, attr) {
+	this.link = function (scope, element, attr) {
 
 		var el = $("#" + scope.id);
 
@@ -189,7 +189,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var down = function (e) {
 
-			self.startTop = el.offset().top - $(attr.body).offset().top;
+			self.startTop = el.offset().top - $("#" + attr.body).offset().top;
 			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
@@ -235,6 +235,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		scope:{
 			id:'@'
 		},
-		link:link
+		link:self.link
 	}
 }]);

@@ -17,7 +17,7 @@ app.controller('MainController', function () {
 		title:'call log',
 		icon:'/img/calllog.png',
 		back:'/img/android_wallpaper.png',
-		description:"<div class='paragraph'>    <div class='tabp'>    When a call is completed, the Call Log app automatically checks whether it was made to a number of interest. If it was, it immediately offers an opportunity to log the call summary. If the caller is unable to log the call at that time, it can be saved for later.    </div>        <div class='tabp'>    A history of pending and logged calls is saved in the app.    </div>    </div>",
+		description:"<div class='paragraph'>  <div class='tabp'> When a call is completed, the Call Log app automatically checks whether it was made to a number of interest. If it was, it immediately offers an opportunity to log the call summary. If the caller is unable to log the call at that time, it can be saved for later. </div>  <div class='tabp'> A history of pending and logged calls is saved in the app. </div>  </div>",
 		maxSep:300,
 		mobileSep:800
 	},

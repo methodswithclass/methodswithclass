@@ -7,15 +7,15 @@ app.directive('menu', function () {
 
 		var move = function (left) {
 
-			$(attr.body).animate({left:left}, speed);
+			$("#" + attr.body).animate({left:left}, speed);
 		}
 
 		var action = function () {
 
-			if (attr.id == "#projectBtn") {
+			if (scope.id == "projectBtn") {
 				move(0);
 			}
-			else if (attr.id == "#contactBtn") {
+			else if (scope.id == "contactBtn") {
 				move("-100%");
 			}
 		}
@@ -25,6 +25,9 @@ app.directive('menu', function () {
 	}
 
 	return {
+		scope:{
+			id:'@'
+		}
 		link:link
 	}
 

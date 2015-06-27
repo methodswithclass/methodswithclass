@@ -2,7 +2,7 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 
 	var link = function (scope, element, attr) {
 
-		console.log("parallax " + scope.id);
+		//console.log("parallax " + scope.id);
 
 		var el = $("#" + scope.id);
 

@@ -9,9 +9,9 @@
 
                   <tr class="relative width">
 
-                      <td><menu class="relative width height font-50 pointer" ng-attr-body="#body" ng-attr-id="#projectBtn"> Project </menu></td>
+                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="projectBtn"> Project </menu></td>
                       <td class="width10"></td>
-                      <td><menu class="relative width height font-50 pointer" ng-attr-body="#body" ng-attr-id="#contactBtn"> Contact </menu></td>
+                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="contactBtn"> Contact </menu></td>
                       <td class="width80"></td>
                       <td><div class="relative width height"> <img class="relative margin-h-minus-50 right0 width-300 height-auto vcenter" src="/img/title2.png"/> </div></td>
 
@@ -36,7 +36,7 @@
                       </div>
 
                       <div class="relative" ng-repeat="project in main.projects"> 
-                          <project ng-attr-view="project.html" ng-attr-parent="#projectsOuter" info="project"></project>
+                          <project ng-attr-view="project.html" ng-attr-parent="projectsOuter" info="project"></project>
                       </div>
 
               </div>
