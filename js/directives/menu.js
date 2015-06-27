@@ -25,9 +25,6 @@ app.directive('menu', function () {
 	}
 
 	return {
-		scope:{
-			body:'='
-		},
 		link:link
 	}
 
