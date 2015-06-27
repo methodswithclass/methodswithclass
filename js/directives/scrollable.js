@@ -15,13 +15,13 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	this.interval = 1;
 	this.timer;
 
-	this.mobile = true;
-
 	this.isDown = false;
 
 	this.mu = 0.1;
 
 	this.minVel = 0.01;
+
+	this.el;
 
 	this.log = function (text) {
 
@@ -165,11 +165,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	this.link = function (scope, element, attr) {
 
-		var el = $("#" + scope.id);
+		self.el = $("#" + scope.id);
 
-		var down = function (e) {
+		self.down = function (e) {
 
-			self.startTop = el.offset().top - $("#" + attr.body).offset().top;
+			self.startTop = self.el.offset().top - $("#" + attr.body).offset().top;
 			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
@@ -178,7 +178,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			self.isDown = true;
 		}
 
-		var move = function (e) {
+		self.move = function (e) {
 
 			e.preventDefault();
 
@@ -189,24 +189,24 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 				self.getMouse(e, 1);
 				self.getPos(1);
 				self.getVel();
-				self.scroll(el);
+				self.scroll(self.el);
 				self.swapValues();
 			}
 		}
 
-		var up = function (e) {
+		self.up = function (e) {
 
 			console.log("end");
 			self.isDown = false;
-			self.momentum(el);
+			self.momentum(self.el);
 			
 		}
 
-        $swipe.bind(el, {
-          'start': down,
-          'move': move,
-          'end': up,
-          'cancel': up
+        $swipe.bind(self.el, {
+          'start': self.down,
+          'move': self.move,
+          'end': self.up,
+          'cancel': self.up
         });
 
 	}
