@@ -41,4 +41,16 @@ app.controller('MainController', function () {
 		return $(window).height() - 400;
 	}	
 
+	self.projectHeight = function () {
+
+		var sep = 0;
+
+		for (i in self.projects) {
+
+			sep += self.projects[i].mobileSep;
+		}
+
+		return self.projects.length*800 + sep;
+	}
+
 });

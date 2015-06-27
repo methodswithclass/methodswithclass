@@ -30,20 +30,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		$("#mConsole").text(text);
 	}
 
-	this.getProjectHeight = function (projects) {
-
-		var sep = 0;
-
-		for (i in projects) {
-
-			sep += projects[i].mobileSep;
-		}
-
-		//console.log(sep);
-
-		return projects.length*800 + sep;
-	}
-
 	this.getMouse = function (e, state) {
 
 		if (state == -1) {
@@ -56,8 +42,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			self.mouse = {x:e.x, y:e.y};
 		}
 	}
-
-	
 
 	this.getPos = function (state) {
 
@@ -183,8 +167,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var el = $("#" + scope.id);
 
-		el.css({"height":self.getProjectHeight(scope.projects) + "px"});
-
 		var down = function (e) {
 
 			self.startTop = el.offset().top - $("#" + attr.body).offset().top;
@@ -231,7 +213,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	return {
 		scope:{
-			projects:'=',
 			id:'@'
 		},
 		link:self.link

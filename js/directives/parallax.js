@@ -2,21 +2,11 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 
 	var link = function (scope, element, attr) {
 
-		//console.log("parallax " + scope.id);
-
 		var el = $("#" + scope.id);
-
-		// var classes = el.attr("class").split(" ");
-
-		// for (i in classes) {
-		// 	console.log("class " + classes[i]);
-		// }
 
 		var projects = scope.scrollItems;
 
 		var scroll = function () {
-
-			//console.log("scroll");
 
 			for (i in projects) {
 				parallax.set(projects[i]);
@@ -26,8 +16,6 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 		setTimeout(function() {
 			scroll();
 		}, 500);
-
-		//angular.element($(global.project)).on('scroll', scroll);
 
 		el.bind('scroll', scroll);
 
