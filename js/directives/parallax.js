@@ -4,7 +4,7 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 
 		console.log("parallax " + scope.id);
 
-		var el = $(scope.id);
+		var el = $("#" + scope.id);
 
 		// var classes = el.attr("class").split(" ");
 

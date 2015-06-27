@@ -13,8 +13,6 @@ app.directive('project', ['global', function (global) {
             	return 'views/' + attr.view;
             }
 
-            console.log(attr.parent);
-
 			var $scrollElement = $(attr.parent);
 			var openSpeed = 300;
 			var open = false;
