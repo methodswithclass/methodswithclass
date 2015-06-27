@@ -35,5 +35,5 @@ run(function ($location) {
 
 	$location.path(production);
 
-	alert("height " + $(window).height() + " width " + $(window).width());
+	console.log("height " + $(window).height() + " width " + $(window).width());
 });
