@@ -1,21 +1,16 @@
 app.directive('contact', ['global', function (global) {
-	
-	var view = "";
-
-	if (global.isMobile()) {
-		view = "mContact.html";
-	}
-	else {
-		view = "contact.html";
-	}
 
 	return {
 		restrict:'E',
 		scope:{
 			info:'='
 		},
-		templateUrl:'views/' + view,
+		template: '<div ng-include="getContentUrl()"></div>',
 		link:function (scope, element, attr) {
+
+			scope.getContentUrl = function() {
+                return 'views/' + attr.view;
+            }
 
 			scope.renderHtml = global.renderHtml;
 
