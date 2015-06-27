@@ -163,9 +163,9 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	}
 
-	this.link = function (scope, element, attr) {
+	this.link = function ($scope, element, attr) {
 
-		self.el = $("#" + scope.id);
+		self.el = $("#" + $scope.id);
 
 		self.down = function (e) {
 

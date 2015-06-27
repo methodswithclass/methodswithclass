@@ -3,7 +3,7 @@ app.directive('menu', function () {
 
 	var speed = 300;
 			
-	var link = function (scope, element, attr) {
+	var link = function ($scope, element, attr) {
 
 		var move = function (left) {
 
@@ -12,10 +12,10 @@ app.directive('menu', function () {
 
 		var action = function () {
 
-			if (scope.id == "projectBtn") {
+			if ($scope.id == "projectBtn") {
 				move(0);
 			}
-			else if (scope.id == "contactBtn") {
+			else if ($scope.id == "contactBtn") {
 				move("-100%");
 			}
 		}

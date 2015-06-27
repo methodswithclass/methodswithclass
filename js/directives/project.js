@@ -33,16 +33,14 @@ app.directive('project', ['global', function (global) {
 
 			}
 
-			$scope.clickImage = function (maxSep, id) {
+			$scope.clickImage = function (info) {
 
 				
 				$element = $("#sep" + id);
 				$space = $("#space" + id);
 
-				var factor = $(window).height()*1500/$(window).width()/1000;
-
 				if (!open) {
-					$element.animate({height:factor*maxSep}, openSpeed, function () {
+					$element.animate({height:$scope.main.sep(info)}, openSpeed, function () {
 
 						console.log("opened");
 						$scrollElement.scrollTo($element, openSpeed);

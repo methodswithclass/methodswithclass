@@ -1,10 +1,10 @@
 app.directive('parallax', ['parallaxService', '$window', function (parallax, $window) {
 
-	var link = function (scope, element, attr) {
+	var link = function ($scope, element, attr) {
 
-		var el = $("#" + scope.id);
+		var el = $("#" + $scope.id);
 
-		var projects = scope.scrollItems;
+		var projects = $scope.scrollItems;
 
 		var scroll = function () {
 
