@@ -21,30 +21,34 @@
           </div>
       </div>
 
-      <div class="absolute top10 height90 width200 z-20" id="body">
+      <div class="absolute width top10 left0 height90 cutoff">
 
-          <!-- <div class="page"> -->
-            
-          <parallax class="absolute width50 height corner scrollY noedge z-20" ng-attr-id="#projectsOuter" scroll-items="main.projects">
+          <div class="absolute corner height width200 z-20" id="body">
 
-                  <div class="relative width height-100 white-back noedge z-20">
-                      <div class="absolute width height-30 vcenter">
-                          <div class="absolute width text-center vcenter">Here are some projects in various languages and platforms, enjoy </div>
+              <!-- <div class="page"> -->
+                
+              <parallax class="absolute width50 height corner scrollY noedge z-20" ng-attr-id="#projectsOuter" scroll-items="main.projects">
+
+                      <div class="relative width height-100 white-back noedge z-20">
+                          <div class="absolute width height-30 vcenter">
+                              <div class="absolute width text-center vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                          </div>
                       </div>
+
+                      <div class="relative" ng-repeat="project in main.projects"> 
+                          <project ng-attr-view="project.html" ng-attr-parent="#projectsOuter" info="project"></project>
+                      </div>
+
+              </parallax>
+
+              <!-- </div> -->
+
+              <div class="absolute width50 height top0 left50 noedge z-20" id="contactsOuter">
+                  <div class="absolute top20 width60 hcenter">
+                      <contact ng-attr-view="contact.html" info="main.contact"></contact>
                   </div>
-
-                  <div class="relative" ng-repeat="project in main.projects"> 
-                      <project ng-attr-view="project.html" ng-attr-parent="#projectsOuter" info="project"></project>
-                  </div>
-
-          </parallax>
-
-          <!-- </div> -->
-
-          <div class="absolute width50 height top0 left50 noedge z-20" id="contactsOuter">
-              <div class="absolute top20 width60 hcenter">
-                  <contact ng-attr-view="contact.html" info="main.contact"></contact>
               </div>
+
           </div>
 
-      </div>
+      </dvi>
