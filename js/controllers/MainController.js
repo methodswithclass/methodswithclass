@@ -60,18 +60,13 @@ app.controller('MainController', ['global', function (global) {
 		return factor*sep;
 	}
 
-	self.pageHeight = function () {
-
-		return $(window).height() - 400;
-	}	
-
 	self.projectHeight = function () {
 
 		var sep = 0;
 
 		for (i in self.projects) {
 
-			sep += self.projects[i].mobileSep;
+			sep += self.sep(self.projects[i]);
 		}
 
 		return self.projects.length*800 + sep;
