@@ -30,9 +30,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		$("#mConsole").text(text);
 	}
 
-	this.getProjectHeight = function (scope) {
-
-		var projects = scope.main.projects;
+	this.getProjectHeight = function (projects) {
 
 		var sep = 0;
 
@@ -233,6 +231,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	return {
 		scope:{
+			projects:'=',
 			id:'@'
 		},
 		link:self.link
