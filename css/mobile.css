@@ -1,13 +1,5 @@
 
 
-#console.mobile {
-
-	position:relative;
-	height:200px;
-	width:100%;
-	font-size:30px;
-}
-
 .toolbar.mobile {
 	
 	position:fixed;
@@ -26,8 +18,7 @@
 	overflow-x:hidden;
 }
 
-.body.mobile {
-
+.bodyMobile {
 	/* Firefox */
 	height: -moz-calc(100% - 400px);
 	/* WebKit */
@@ -36,11 +27,6 @@
 	height: -o-calc(100% - 400px);
 	/* Standard */
 	height: calc(100% - 400px);
-	top:400px;
-	left:0;
-	width:100%;
-	z-index:5;
-	overflow-y:scroll;
 }
 
 .contact.mobile {

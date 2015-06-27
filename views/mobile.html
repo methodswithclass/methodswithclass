@@ -1,26 +1,26 @@
 
-<div class="mobile">
 
-    <div class="toolbar mobile">
-      <div class="navUpper mobile">
-        <img class="title mobile vcenter" src="/img/title2.png"/>
-      </div>
+    <div class="fixed width top0 height-400 gray-back white z-10">
+        <div class="relative height50 width">
+              <img class="relative width-700 height-auto center" src="/img/title2.png"/>
+        </div>
 
-      <div class="navLower mobile">
-        <table class="navInner mobile golden">
+        <div class="relative height50 width">
+              <table class="relative golden">
 
-          <tr>
+                    <tr>
 
-            <td> <menu class="btn mobile" id="projectBtn"> Project </menu> </td>
-            <td> <menu class="btn mobile" id="contactBtn"> Contact </menu></td>
+                        <td><menu class="relative width height font-50 pointer" ng-attr-body="#body" ng-attr-id="#projectBtn"> Project </menu></td>
+                        <td class="width10"></td>
+                        <td><menu class="relative width height font-50 pointer" ng-attr-body="#body" ng-attr-id="#contactBtn"> Contact </menu></td>
 
-          </tr>
+                    </tr>
 
-        </table>
-      </div>
+              </table>
+        </div>
     </div>
 
-    <div class="absolute body top-400 left0 width200 z-5" id="body">
+    <div class="absolute bodyMobile top-400 left0 width200 z-5" id="body">
           
         <scrollable class="absolute width50 height corner scrollY noedge z-20" ng-attr-body="#body" ng-attr-id="#projects">
                 <div class="absolute width height-100 white-back noedge z-20">
@@ -45,5 +45,3 @@
         </div>
 
     </div>
-
-</div>

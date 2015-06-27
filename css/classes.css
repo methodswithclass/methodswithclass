@@ -652,6 +652,11 @@ a.blue {
 	width:300px;
 }
 
+.width-700 {
+
+	width:700px;
+}
+
 .min-width-900 {
 
 	min-width:900px;
