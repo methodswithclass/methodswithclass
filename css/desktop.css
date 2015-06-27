@@ -29,27 +29,3 @@ a.blue {
 	left:0;	
 }
 
-.bioImg {
-	
-	position:absolute;
-	margin:20px 0;
-	left:70%;
-	top:0;
-	width:30%;
-	height:auto;
-}
-
-.bioContainer {
-	
-	position:absolute;
-	top:0;
-	left:0;
-	width:65%;
-}
-
-.bioInner {
-	
-	position:absolute;
-	width:100%;
-}
-
