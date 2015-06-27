@@ -29,7 +29,7 @@ a.blue {
 	left:0;	
 }
 
-.bioImg.desktop {
+.bioImg {
 	
 	position:absolute;
 	margin:20px 0;
@@ -39,7 +39,7 @@ a.blue {
 	height:auto;
 }
 
-.bioContainer.desktop {
+.bioContainer {
 	
 	position:absolute;
 	top:0;
@@ -47,7 +47,7 @@ a.blue {
 	width:65%;
 }
 
-.bioInner.desktop {
+.bioInner {
 	
 	position:absolute;
 	width:100%;
