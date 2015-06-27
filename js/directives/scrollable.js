@@ -181,13 +181,15 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	}
 
-	this.link = function (scope, element, attr) {
+	var link = function (scope, element, attr) {
 
-		element.css({"height":self.getProjectHeight(scope) + "px"});
+		var el = $(attr.id);
+
+		el.css({"height":self.getProjectHeight(scope) + "px"});
 
 		var down = function (e) {
 
-			self.startTop = element.offset().top - $(global.body).offset().top;
+			self.startTop = el.offset().top - $(attr.body).offset().top;
 			self.getMouse(e, -1);
 			self.getMouse(e, 0);
 			self.getPos(0);
@@ -207,7 +209,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 				self.getMouse(e, 1);
 				self.getPos(1);
 				self.getVel();
-				self.scroll(element);
+				self.scroll(el);
 				self.swapValues();
 			}
 		}
@@ -216,11 +218,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			console.log("end");
 			self.isDown = false;
-			//self.momentum(element);
+			self.momentum(el);
 			
 		}
 
-        $swipe.bind(element, {
+        $swipe.bind(el, {
           'start': down,
           'move': move,
           'end': up,
@@ -230,7 +232,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	}
 
 	return {
-		restrict:'EA',
-		link:self.link
+		link:link
 	}
 }]);
