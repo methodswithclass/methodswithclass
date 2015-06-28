@@ -182,7 +182,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		press.on('press', function (e) {
 
 			if (e.center.x < body.width()/2) {
-				element = el[ids[0][0];
+				element = el[ids[0]][0];
 			}
 			else {
 				element = el[ids[1]][0];
