@@ -134,6 +134,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		
 		body = $("#" + attr.id);
 
+		console.log(body[0]);
+
 		var momentum = function () {
 
 			timer = setInterval(function () {
