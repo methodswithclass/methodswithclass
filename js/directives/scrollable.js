@@ -49,33 +49,19 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 	}
 
-	var getStart = function () {
-
-		startTop = el.offset().top - body.offset().top;
-	}
-
 	var getPos = function () {
 
-		self.pos = 1.1*mouse.y;
-
-		return self.pos;
+		self.pos = 1.1*mouse.y + el.offset().top - body.offset().top;
 	}
 
 	var changePos = function (increment) {
 
 		self.pos += increment;
-
-		return self.pos;
 	}
 
-	var setTop = function (top) {
+	var scroll = function () {
 
-		el.css({'top': top + "px"});
-	}
-
-	var scroll = function (position) {
-
-		setTop(position + startTop);
+		el.css({'top': self.pos + "px"});
 	}
 
 	var endMomentum = function () {
@@ -111,7 +97,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		return false;
 	}
 
-	var momentum = function (i) {
+	var momentum = function () {
 
 		console.log("vel " + vel);
 		//getDecellerate();
@@ -123,7 +109,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			vel *= (1-mu);
 
-			scroll(self.pos);
+			scroll();
 
 			if (endMomentum()){
 				console.log("stop");
@@ -155,7 +141,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			if (self.isDown) {
 				getMouse(e);
 				getVel(e);
-				scroll(getPos());
+				getPos();
+				scroll();
 			}
 		}
 
@@ -163,7 +150,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			momentum(0);
+			momentum();
 		}
 
 		var mc = new Hammer(el[0]);
