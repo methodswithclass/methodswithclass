@@ -135,8 +135,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 				getMouse(e);
 				getVel(e);
 				getOffset();
-				getTop();
 				setTop(offset + start);
+				getTop();
 			}
 		}
 
