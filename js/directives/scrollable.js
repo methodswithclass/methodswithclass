@@ -12,7 +12,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var mu = 0.1;
 
-	var minVel = 0.01;
+	var minVel = 10;
 
 	var el;
 	var body;
@@ -30,7 +30,12 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getVel = function(e) {
 
-		vel = e.velocityY;
+		vel = 100*e.velocityY;
+	}
+
+	var getStart = function () {
+
+		startTop = el.offset().top - body.offset().top;
 	}
 
 	var getPos = function () {
@@ -86,6 +91,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var momentum = function (e) {
 
 		console.log("vel " + vel);
+		getStart();
 
 		timer = setInterval(function () {
 			//console.log("interval");
@@ -113,7 +119,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		var down = function (e) {
 
 			console.log("down");
-			startTop = el.offset().top - body.offset().top;
+			getStart();
 			getMouse(e);
 			getPos();
 			self.isDown = true;
