@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', '$swipe', '$window', function (global, $swipe, $window) {
+app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var self = this;
 
@@ -32,31 +32,12 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 	}
 
 	var getMouse = function (e, state) {
-
-		if (state == -1) {
-			start = {x:e.x, y:e.y};
-		}
-		else if (state == 0) {
-			mouse0 = {x:e.x, y:e.y};
-		}
-		else if (state == 1){
-			mouse = {x:e.x, y:e.y};
-		}
+		mouse = {x:e.deltaX, y:e.deltaY};
 	}
 
-	var getPos = function (state) {
+	var getPos = function () {
 
-		var touch;
-
-		if (state == 0) {
-			touch = mouse0;
-		}
-		else {
-
-			touch = mouse;
-		}
-
-		pos = 1.1*(touch.y - start.y);
+		pos = 1.1*mouse.y;
 
 		return pos;
 	}
@@ -64,31 +45,6 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 	var changePos = function (increment) {
 
 		pos += increment;
-	}
-
-	var getVel = function () {
-
-		vel = (getPos(1) - getPos(0));
-
-		//console.log(getPos(0) + " " + getPos(1) + " " + interval + " " + vel);
-	}
-
-	var getTime = function (state) {
-
-		if (state == 0) {
-			time0 = (new Date()).getTime()/1000;
-		}
-		else if (state == 1) {
-			time = (new Date()).getTime()/1000;
-		}
-	}
-
-	var getInterval = function () {
-
-		if (time && time0) {
-
-			interval = time - time0;
-		}
 	}
 
 	var swapValues = function () {
@@ -142,7 +98,9 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 		return false;
 	}
 
-	var momentum = function () {
+	var momentum = function (e) {
+
+		var vel = e.velocityY;
 
 		timer = setInterval(function () {
 			//console.log("interval");
@@ -173,13 +131,6 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 
 			console.log("down");
 			startTop = el.offset().top - body.offset().top;
-			getMouse(e, -1);
-			getMouse(e, 0);
-			getPos(0);
-			//getTime(0);
-
-			console.log("start " + start.y + " mouse0 " + mouse0.y + " pos " + pos);
-
 			isDown = true;
 		}
 
@@ -188,14 +139,9 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 			console.log(isDown);
 
 			if (isDown) {
-
-				//getTime(1);
-				//getInterval();
-				getMouse(e, 1);
-				getPos(1);
-				getVel();
+				getMouse(e);
+				getPos();
 				scroll();
-				swapValues();
 			}
 		}
 
@@ -203,15 +149,16 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 
 			console.log("end");
 			isDown = false;
-			//momentum();
-			
+			momentum();
 		}
 
-        $swipe.bind(el, {
-          'start': down,
-          'move': move,
-          'end': up
-        });
+		var mc = new Hammer(el[0]);
+
+		mc.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+
+        mc.on('press', down);
+        mc.on('pandown panup', move);
+        mc.on('panend', up);
 
         $scope.projectHeight = function (projects) {
 
