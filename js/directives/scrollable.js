@@ -10,7 +10,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	this.pos;
 	this.isDown = false;
 
-	var mu = 0.1;
+	var mu = 0.3;
 
 	var minVel = 10;
 
