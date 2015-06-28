@@ -22,6 +22,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	var minVel = 0.01;
 
 	var el;
+	var body;
 
 	var log = function (text) {
 
@@ -122,8 +123,8 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		var top = el.offset().top;
 		var bottom = top + el.height();
 
-		var bodyTop = $(global.body).offset().top;
-		var bodyBottom = bodyTop + $(global.body).height();
+		var bodyTop = body.offset().top;
+		var bodyBottom = bodyTop + body.height();
 
 		console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 			
@@ -134,7 +135,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		}
 		else if (bottom < bodyBottom) {
 			console.log("above bottom");
-			el.animate({top:$(global.body).height() - el.height()}, 100);
+			el.animate({top:body.height() - el.height()}, 100);
 			return true;
 		}
 
@@ -166,10 +167,11 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	var link = function ($scope, element, attr) {
 
 		el = $("#" + $scope.id);
+		body = $("#" + attr.body);
 
 		var down = function (e) {
 
-			startTop = el.offset().top - $("#" + attr.body).offset().top;
+			startTop = el.offset().top - body.offset().top;
 			getMouse(e, -1);
 			getMouse(e, 0);
 			getPos(0);
