@@ -173,6 +173,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var down = function (e) {
 
+			console.log("down");
 			startTop = el.offset().top - body.offset().top;
 			getMouse(e, -1);
 			getMouse(e, 0);
@@ -202,7 +203,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			console.log("end");
 			isDown = false;
-			momentum();
+			//momentum();
 			
 		}
 
