@@ -24,18 +24,9 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			var sep = function (project) {
 
-				console.log("sep " + project.id);
-
-				var windowWidth;
-				var windowHeight;
+				var windowWidth = 1600;
 				var sep = project.maxSep;
-
-				if (global.isMobile()) windowWidth = 980;
-				else windowWidth = 1600;
-
-				var width = $(window).width()/windowWidth;
-
-				var factor = 1/width;
+				var factor = windowWidth/$(window).width();
 
 				return factor*sep;
 			}
