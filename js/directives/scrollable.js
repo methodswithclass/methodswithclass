@@ -241,9 +241,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 
 
-		initPans();
+		//initPans();
 
-		//initPress();
+		initPress();
 
         $scope.projectHeight = function (projects) {
 
