@@ -187,7 +187,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			momentum();
+			//momentum();
 		}
 
 		var checkPage = function (e) {
@@ -226,7 +226,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			for (i in ids) {
 				
-				console.log(scroll[ids[i]]);
+				//console.log(scroll[ids[i]]);
 
 				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 		        scroll[ids[i]].on('panstart', down);
@@ -245,10 +245,10 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				console.log("press " + e.center.x);
 
-				setPans();
-
 				checkPage(e);
 
+				setPans();
+				
 			});
 
 		}
