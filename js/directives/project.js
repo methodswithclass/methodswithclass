@@ -55,7 +55,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			var setSep = function (info) {
 
-				$("#sep" + info.id).css({height:sep(info)});
+				$("#sep" + info.id).css({height:sep(info) + "px"});
 			}
 
 
@@ -109,8 +109,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			$scope.clickImage = function (info) {
 
 				
-				$element = $("#sep" + id);
-				$space = $("#space" + id);
+				$element = $("#sep" + info.id);
+				$space = $("#space" + info.id);
 
 				if (!open) {
 					$element.animate({height:setSep(info)}, openSpeed, function () {
