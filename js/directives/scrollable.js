@@ -149,7 +149,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			momentum();
+			momentum(e);
 		}
 
 		var mc = new Hammer(el[0]);
