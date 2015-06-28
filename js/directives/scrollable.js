@@ -178,7 +178,7 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 			getPos(0);
 			//getTime(0);
 
-			console.log("start " + start.y + " mouse0 " + mouse0.y + " pos" + pos);
+			console.log("start " + start.y + " mouse0 " + mouse0.y + " pos " + pos);
 
 			isDown = true;
 		}
