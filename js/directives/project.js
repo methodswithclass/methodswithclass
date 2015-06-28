@@ -20,7 +20,7 @@ app.directive('project', ['global', function (global) {
 			var $space;
 
 			$scope.renderHtml = global.renderHtml;
-			
+
 			var sep = function (project) {
 
 				console.log("sep " + project.id);
@@ -54,7 +54,7 @@ app.directive('project', ['global', function (global) {
 			$scope.attachResize = function(projects) {
 				$(window).on('resize', function () {
 					for (i in projects) {
-						$("#sep" + projects[i].id).css({height:sep(projects[i]));
+						$("#sep" + projects[i].id).css({height:sep(projects[i])});
 					}
 				});
 			}
