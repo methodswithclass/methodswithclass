@@ -192,13 +192,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var checkPage = function (e) {
 
-			console.log(e.center.x + " " + body.width()/2);
-
-			if (e.center.x < body.width()/2) {
-				togglePage(0,1);
+			if (body.offset().left < 0) {
+				togglePage(1,0);
 			}
 			else {
-				togglePage(1,0);
+				togglePage(0,1);
 			}
 		}
 
