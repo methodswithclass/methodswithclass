@@ -28,9 +28,6 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			}
 
 
-
-
-
 			var bindResize = function (info) {
 
 				setSep(info);
