@@ -241,8 +241,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			});
 
 		}
-
-
+		
 		initPans();
 
 		initPress();
@@ -269,7 +268,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	}
 
 	return {
-		scope:{},
+		scope:{
+			body:'@',
+		},
 		link:link
 	}
 }]);
