@@ -109,7 +109,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 				clearInterval(timer);
 			}
 
-		}, 10);
+		}, 50);
 
 	}
 
