@@ -132,7 +132,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		console.log($scope.id);
 		
-		body = $("#" + $scope.id);
+		body = $("#" + attr.id);
 
 		var momentum = function () {
 
@@ -267,9 +267,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	}
 
 	return {
-		scope:{
-			id:'@'
-		},
+		scope:{},
 		link:link
 	}
 }]);
