@@ -12,7 +12,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	this.pos;
 	this.isDown = false;
 
-	var mu = 0.3;
+	var mu = 0.1;
 
 	var minVel = 10;
 
@@ -77,7 +77,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		setTop(position + startTop);
 	}
-	
+
 	var bounce = function () {
 
 		var top = el.offset().top;
