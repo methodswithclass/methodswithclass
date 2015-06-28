@@ -70,9 +70,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		top += increment;
 	}
 
-	var setTop = function (top) {
+	var setTop = function (_top) {
 
-		el.css({'top': top + "px"});
+		el.css({'top': _top + "px"});
 	}
 
 	var endMomentum = function () {
