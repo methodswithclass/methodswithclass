@@ -90,7 +90,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		el.css({'top': newTop + "px"});
 	}
 
-	var link = function ($scope, this-element, attr) {
+	var link = function ($scope, thing, attr) {
 
 		ids = attr.ids.split(" ");
 
