@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
+app.directive("scrollable", ['global', '$swipe', '$window', function (global, $swipe, $window) {
 
 	var self = this;
 
@@ -171,7 +171,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		el = $("#" + $scope.id);
 		body = $("#" + attr.body);
 
-		$(window).bind('touchmove', function (e) {
+		angular.element($window).bind('touchmove', function (e) {
 			console.log("move");
 			e.preventDefault();
 		})
