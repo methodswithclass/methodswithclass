@@ -3,7 +3,10 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 	return {
 		restrict:'E',
-		scope:true,
+		scope:{
+			info:'=',
+			projects:'='
+		},
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 

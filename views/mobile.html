@@ -31,8 +31,8 @@
                       </div>
                     </div>
 
-                    <div class="relative width noedge z-20" ng-repeat="info in main.projects"> 
-                        <project ng-attr-view="mProject.html" ng-attr-parent="projects"></project>
+                    <div class="relative width noedge z-20" ng-repeat="project in main.projects" ng-init="projects = main.projects"> 
+                        <project ng-attr-view="mProject.html" ng-attr-parent="projects" info="project" projects="{{projects}}"></project>
                     </div>
             </scrollable>
 
