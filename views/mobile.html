@@ -26,9 +26,9 @@
 
     <div class="absolute top-400 left0 width bodyMobile cutoff z-10">
 
-        <div class="absolute corner height width200 z-10" id="body">
+        <scrollable class="absolute corner height width200 z-10" ng-attr-ids="projects contact" id="body">
               
-            <scrollable class="absolute width50 corner noedge z-20" ng-attr-body="body" ng-style="{height:projectHeight(main.projects) + 'px'}" id="projects">
+            <div class="absolute width50 corner scrollY noedge z-20" ng-style="{height:projectHeight(main.projects)}" id="projects">
                     <div class="relative width height-300 white-back noedge z-10">
                       <div class="relative width height-30 vcenter">
                         <div class="relative width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
@@ -40,12 +40,12 @@
                     </div>
             </scrollable>
 
-            <scrollable class="absolute width50 left50 top0 noedge z-10" ng-attr-body="body" ng-style="{height:2500 + 'px'}" id="contact">
+            <div class="absolute width50 left50 top0 scrollY noedge z-10" ng-style="{height:contactHeight()}" id="contacts">
                 <div class="absolute top-100 width80 height hcenter">
                     <contact ng-attr-view="mContact.html" info="main.contact"></contact>
                 </div>
             </scrollable>
 
-        </div>
+        </scrollable>
 
     </div>

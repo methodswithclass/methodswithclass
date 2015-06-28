@@ -18,7 +18,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var minVel = 10;
 
-	var el;
+	var ids = [];
+	var el = {};
+	var element;
 	var body;
 
 	var log = function (text) {
@@ -112,8 +114,13 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var link = function ($scope, element, attr) {
 
-		el = $("#" + $scope.id);
-		body = $("#" + attr.body);
+		ids = attr.ids.split(" ");
+
+		for (i in ids) {
+			el[ids[i]] = $("#" + ids[i]);
+		}
+		
+		body = $("#" + $scope.body);
 
 		var down = function (e) {
 
@@ -168,13 +175,28 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		}
 
-		var mc = new Hammer(el[0]);
+		var press = new Hammer(body[0]);
 
-		mc.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+		press.get('press');
 
-        mc.on('panstart', down);
-        mc.on('pandown panup', move);
-        mc.on('panend', up);
+		press.on('press', function (e) {
+
+			if (e.center.x < body.width()/2) {
+				element = el[0][0];
+			}
+			else {
+				element = el[1][0];
+			}
+
+		});
+
+		var scroll = new Hammer(element);
+
+		scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+
+        scroll.on('panstart', down);
+        scroll.on('pandown panup', move);
+        scroll.on('panend', up);
 
         $scope.projectHeight = function (projects) {
 
@@ -187,16 +209,19 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			var result = projects.length*800 + sep;
 
-			alert(result);
+			return result + "px";
+		}
 
-			return result;
+		$scope.contactHeight = function () {
+
+			return 2500 + "px";
 		}
 
 	}
 
 	return {
 		scope:{
-			id:'@'
+			body:'@'
 		},
 		link:link
 	}
