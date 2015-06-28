@@ -20,8 +20,6 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var $space;
 			var resizeHandlers = [];
 
-			console.log(projects.length);
-
 			$scope.renderHtml = global.renderHtml;
 
 			var sep = function (project) {
