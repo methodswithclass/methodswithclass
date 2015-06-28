@@ -30,9 +30,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getVel = function(e) {
 
-		vel = 1000*e.velocityY;
+		vel = -1000*e.velocityY;
 
-		console.log(vel);
+		//console.log(vel);
 	}
 
 	var getStart = function () {
