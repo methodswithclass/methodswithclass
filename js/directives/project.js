@@ -18,7 +18,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var $space;
 			var boundToWindow;
 
-			var projects = $scope.main.projects;
+			var projects = $scope.projects;
 
 			$scope.renderHtml = global.renderHtml;
 
