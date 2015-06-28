@@ -18,6 +18,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var minVel = 10;
 
+	var scroll = {};
 	var ids = [];
 	var el;
 	var element = {};
@@ -173,30 +174,60 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		}
 
-		var press = new Hammer(body[0]);
-
-		press.get('press').set({time:10, threshold:5});
-
-		press.on('press', function (e) {
-
-			console.log("press " + e.center.x);
+		var checkPage = function (e) {
 
 			if (e.center.x < body.width()/2) {
 				el = element[ids[0]];
+				togglePage(0,1);
 			}
 			else {
 				el = element[ids[1]];
+				togglePage(1,0);
 			}
+		}
 
-			var scroll = new Hammer(el[0]);
+		var togglePage = function (page, other) {
 
-			scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+			scroll[ids[page]].set({enable:true});
+			scroll[ids[other]].set({enable:false});
 
-	        scroll.on('panstart', down);
-	        scroll.on('pandown panup', move);
-	        scroll.on('panend', up);
+		}
 
-		});
+		var initPress = function () {
+
+			var press = new Hammer(body[0]);
+
+			press.get('press').set({time:10, threshold:5});
+
+			press.on('press', function (e) {
+
+				console.log("press " + e.center.x);
+
+				checkPage();
+
+			});
+
+		}
+
+		var initPans = function () {
+
+			for (i in ids) {
+
+				scroll[ids[i]] = new Hammer(element[ids[i]][0]);
+
+				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+		        scroll[ids[i]].on('panstart', down);
+		        scroll[ids[i]].on('pandown panup', move);
+		        scroll[ids[i]].on('panend', up);
+
+		    }
+		}
+
+		
+		initPress();
+		
+		initPans();
+
 
         $scope.projectHeight = function (projects) {
 
