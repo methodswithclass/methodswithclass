@@ -129,6 +129,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			console.log(ids[i]);
 			element[ids[i]] = $("#" + ids[i]);
 		}
+
+		console.log(attr.id);
 		
 		body = $("#" + attr.id);
 
