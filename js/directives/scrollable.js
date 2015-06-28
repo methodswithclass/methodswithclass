@@ -219,20 +219,12 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				scroll[ids[i]] = new Hammer(elem[0]);
 
-		    }
-		}
-
-		var setPans = function () {
-
-			for (i in ids) {
-				
-				//console.log(scroll[ids[i]]);
-
 				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 		        scroll[ids[i]].on('panstart', down);
 		        scroll[ids[i]].on('pandown panup', move);
 		        scroll[ids[i]].on('panend', up);
-			}
+
+		    }
 		}
 
 		var initPress = function () {
@@ -247,8 +239,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				checkPage(e);
 
-				setPans();
-				
 			});
 
 		}
