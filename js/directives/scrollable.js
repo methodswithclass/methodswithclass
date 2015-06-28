@@ -185,7 +185,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		press.on('press', function (e) {
 
-			console.log("press " + e.center.x);
+			alert("press " + e.center.x);
 
 			if (e.center.x < body.width()/2) {
 				element = el[ids[0]];
