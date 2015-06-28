@@ -51,8 +51,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				return factor*sep;
 			}
 
-			var setSep = function (project) {
-				$("#sep" + project.id).css({height:sep(project)});
+			$scope.setSep = function (project) {
+				$("#sep" + project.id).css({height:sep(project)});	
 			}
 
 
@@ -60,7 +60,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				angular.element($window).bind('resize', function () {
 					for (i in projects) {
-						setSep(projects[i]);
+						$scope.setSep(projects[i]);
 					}
 				});
 			}
