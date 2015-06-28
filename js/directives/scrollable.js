@@ -155,12 +155,12 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			console.log("pos " + pos);
 
-			if (bounce(el) || vel < minVel){
+			if (bounce() || vel < minVel){
 				console.log("stop");
 				clearInterval(timer);
 			}
 
-		}, 50);
+		}, 10);
 
 	}
 
