@@ -128,7 +128,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		var down = function (e) {
 
 			console.log("down");
-			getStart();
 			getMouse(e);
 			getPos();
 			self.isDown = true;
