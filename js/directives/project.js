@@ -3,10 +3,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 	return {
 		restrict:'E',
-		scope:{
-			info:'=',
-			attachResize:'&'
-		},
+		scope:true,
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
@@ -51,17 +48,20 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				return factor*sep;
 			}
 
-			$scope.setSep = function (project) {
-				$("#sep" + project.id).css({height:sep(project)});	
+			var setSep = function (projects) {
+				
+				for (i in projects) {
+					$("#sep" + projects[i].id).css({height:sep(projects[i])});	
+				}
 			}
 
 
 			$scope.attachResize = function(projects) {
 
+				setSep(projects);
+
 				angular.element($window).bind('resize', function () {
-					for (i in projects) {
-						$scope.setSep(projects[i]);
-					}
+					setSep(projects);
 				});
 			}
 
