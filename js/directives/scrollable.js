@@ -19,6 +19,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var minVel = 10;
 
 	var scroll = {};
+	var press;
 	var ids = [];
 	var el;
 	var element = {};
@@ -131,6 +132,19 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		
 		body = $("#" + $scope.id);
 
+		var momentum = function () {
+
+			timer = setInterval(function () {
+
+				moveTop(vel);
+				vel *= (1-mu);
+				setTop(top);
+				endMomentum();
+
+			}, 10);
+
+		}
+
 		var down = function (e) {
 
 			console.log("down");
@@ -161,19 +175,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			momentum();
 		}
 
-		var momentum = function () {
-
-			timer = setInterval(function () {
-
-				moveTop(vel);
-				vel *= (1-mu);
-				setTop(top);
-				endMomentum();
-
-			}, 10);
-
-		}
-
 		var checkPage = function (e) {
 
 			if (e.center.x < body.width()/2) {
@@ -195,7 +196,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var initPress = function () {
 
-			var press = new Hammer(body[0]);
+			press = new Hammer(body[0]);
 
 			press.get('press').set({time:10, threshold:5});
 
@@ -215,7 +216,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				var elem = element[ids[i]];
 
-				console.log(elem);
+				console.log(ids[i]);
 
 				scroll[ids[i]] = new Hammer(elem[0]);
 
