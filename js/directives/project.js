@@ -18,6 +18,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var $space;
 			var boundToWindow;
 
+			var projects = main.projects;
+
 			$scope.renderHtml = global.renderHtml;
 
 			var sep = function (project) {
@@ -49,24 +51,24 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				return factor*sep;
 			}
 
-			var setSep = function (projects) {
+			var setSep = function (apps) {
 
-				if (typeof projects !== Array) {
-					projects = [projects];
+				if (typeof apps != Array) {
+					apps = [apps];
 				}
 
-				for (i in projects) {
-					$("#sep" + projects[i].id).css({height:sep(projects[i])});
+				for (i in apps) {
+					$("#sep" + apps[i].id).css({height:sep(apps[i])});
 				}
 			}
 
 
-			var bindResize = function (projects) {
+			var bindResize = function (apps) {
 
-				setSep(projects);
+				setSep(apps);
 
 				boundToWindow =  function () {
-					setSep(projects);
+					setSep(apps);
 				}
 
 				angular.element($window).bind('resize', boundToWindow);
@@ -78,7 +80,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			}
 
 
-			$scope.attachResize = function(projects) {
+			$scope.attachResize = function() {
 				bindResize(projects);
 			}
 
