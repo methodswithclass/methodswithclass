@@ -3,9 +3,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var self = this;
 
+
 	var startTop;
 	var mouse = {};
 	var vel;
+	var velArray = [];
 
 	this.pos;
 	this.isDown = false;
@@ -33,6 +35,18 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		vel = -1000*e.velocityY;
 
 		//console.log(vel);
+	}
+
+	var getDecellerate = function () {
+
+		velArray = [];
+
+		while (vel > minVel) {
+
+			velArray[velArray.length] = vel;
+
+			vel *= (1-mu);
+		}
 	}
 
 	var getStart = function () {
@@ -63,9 +77,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		setTop(position + startTop);
 	}
-
 	
-
 	var bounce = function () {
 
 		var top = el.offset().top;
@@ -90,26 +102,24 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		return false;
 	}
 
-	var momentum = function (e) {
+	var momentum = function (i) {
 
 		console.log("vel " + vel);
-		getStart();
+		getDecellerate();
 
 		timer = setInterval(function () {
 			//console.log("interval");
 
-			setTop(changePos(vel));
+			changePos(velArray[i++]);
 
-			vel *= (1-mu);
+			scroll(self.pos);
 
-			console.log("pos " + self.pos);
-
-			if (bounce() || vel < minVel){
+			if (bounce() || i == velArray.length - 1){
 				console.log("stop");
 				clearInterval(timer);
 			}
 
-		}, 50);
+		}, 10);
 
 	}
 
@@ -142,7 +152,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			momentum();
+			momentum(0);
 		}
 
 		var mc = new Hammer(el[0]);
