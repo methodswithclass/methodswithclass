@@ -81,45 +81,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		el.css({'top': newTop + "px"});
 	}
 
-	var endMomentum = function () {
-
-		var result = false;
-
-		if (bounce() || vel < minVel) {
-			result = true;
-		}
-
-		if (result) {
-			console.log("stop");
-			clearInterval(timer);
-			timer = null;
-		}
-	}
-
-	var bounce = function () {
-
-		var top = el.offset().top;
-		var bottom = top + el.height();
-
-		var bodyTop = body.offset().top;
-		var bodyBottom = bodyTop + body.height();
-
-		console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
-			
-		if (top > bodyTop) {
-			console.log("below top");
-			el.animate({top:0}, 100);
-			return true;
-		}
-		else if (bottom < bodyBottom) {
-			console.log("above bottom");
-			el.animate({top:body.height() - el.height()}, 100);
-			return true;
-		}
-
-		return false;
-	}
-
 	var link = function ($scope, element, attr) {
 
 		ids = attr.ids.split(" ");
@@ -135,6 +96,45 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		body = $("#" + attr.id);
 
 		console.log(body[0]);
+
+		var bounce = function () {
+
+			var top = el.offset().top;
+			var bottom = top + el.height();
+
+			var bodyTop = body.offset().top;
+			var bodyBottom = bodyTop + body.height();
+
+			console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
+				
+			if (top > bodyTop) {
+				console.log("below top");
+				el.animate({top:0}, 100);
+				return true;
+			}
+			else if (bottom < bodyBottom) {
+				console.log("above bottom");
+				el.animate({top:body.height() - el.height()}, 100);
+				return true;
+			}
+
+			return false;
+		}
+
+		var endMomentum = function () {
+
+			var result = false;
+
+			if (bounce() || vel < minVel) {
+				result = true;
+			}
+
+			if (result) {
+				console.log("stop");
+				clearInterval(timer);
+				timer = null;
+			}
+		}
 
 		var momentum = function () {
 
