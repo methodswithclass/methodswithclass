@@ -7,10 +7,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var startTop;
 	var mouse = {};
 	var vel;
+	var offset;
+	var top;
 	var velArray = [];
 
-	this.pos;
-	this.isDown = false;
+	var isDown = false;
 
 	var mu = 0.1;
 
@@ -49,19 +50,21 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 	}
 
-	var getPos = function () {
+	var getOffsets = function () {
 
-		self.pos = 1.1*mouse.y + el.offset().top - body.offset().top;
+		offset = 1.1*mouse.y
+
+		top = offset + el.offset().top - body.offset().top;
 	}
 
-	var changePos = function (increment) {
+	var moveTop = function (increment) {
 
-		self.pos += increment;
+		top += increment;
 	}
 
-	var scroll = function () {
+	var setTop = function (top) {
 
-		el.css({'top': self.pos + "px"});
+		el.css({'top': top + "px"});
 	}
 
 	var endMomentum = function () {
@@ -105,11 +108,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		timer = setInterval(function () {
 			//console.log("interval");
 
-			changePos(vel);
+			moveTop(vel);
 
 			vel *= (1-mu);
 
-			scroll();
+			setTop(top);
 
 			if (endMomentum()){
 				console.log("stop");
@@ -129,7 +132,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("down");
 			getMouse(e);
-			getPos();
+			getOffsets();
 			self.isDown = true;
 		}
 
@@ -140,8 +143,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			if (self.isDown) {
 				getMouse(e);
 				getVel(e);
-				getPos();
-				scroll();
+				getOffsets();
+				setTop(offset);
 			}
 		}
 
