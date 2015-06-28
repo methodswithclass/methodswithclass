@@ -19,8 +19,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var minVel = 10;
 
 	var ids = [];
-	var el = {};
-	var element;
+	var el;
+	var element = {};
 	var body;
 
 	var log = function (text) {
@@ -119,12 +119,10 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		for (i in ids) {
 
 			console.log(ids[i]);
-			el[ids[i]] = $("#" + ids[i]);
+			element[ids[i]] = $("#" + ids[i]);
 		}
 		
 		body = $("#" + $scope.id);
-
-		console.log(body);
 
 		var down = function (e) {
 
@@ -188,13 +186,13 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			console.log("press " + e.center.x);
 
 			if (e.center.x < body.width()/2) {
-				element = el[ids[0]];
+				el = element[ids[0]];
 			}
 			else {
-				element = el[ids[1]];
+				el = element[ids[1]];
 			}
 
-			var scroll = new Hammer(element[0]);
+			var scroll = new Hammer(el[0]);
 
 			scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 
