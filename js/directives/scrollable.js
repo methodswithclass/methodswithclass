@@ -269,8 +269,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	return {
 		scope:{
-			body:'@',
-			controller:"="
+			body:'@'
 		},
 		link:link
 	}
