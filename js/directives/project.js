@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$window' function (global, $window) {
+app.directive('project', ['global', '$window', function (global, $window) {
 
 	return {
 		restrict:'E',
