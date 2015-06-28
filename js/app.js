@@ -1,6 +1,6 @@
 var app = angular.module("methodswithclass", ['ngRoute', 'ngTouch']);
 
-var mobiledebug = true;
+var mobiledebug = false;
 
 app.config(function($routeProvider) {
     $routeProvider.
