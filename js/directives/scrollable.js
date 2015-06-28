@@ -78,6 +78,15 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		setTop(position + startTop);
 	}
 
+	var endMomentum = function () {
+
+		if (bounce() || vel < minVel) {
+			return true;
+		}
+
+		return false;
+	}
+
 	var bounce = function () {
 
 		var top = el.offset().top;
@@ -105,16 +114,18 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var momentum = function (i) {
 
 		console.log("vel " + vel);
-		getDecellerate();
+		//getDecellerate();
 
 		timer = setInterval(function () {
 			//console.log("interval");
 
-			changePos(velArray[i++]);
+			changePos(vel);
+
+			vel *= (1-mu);
 
 			scroll(self.pos);
 
-			if (bounce() || i == velArray.length - 1){
+			if (endMomentum()){
 				console.log("stop");
 				clearInterval(timer);
 			}
