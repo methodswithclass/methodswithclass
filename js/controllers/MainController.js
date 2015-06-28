@@ -17,7 +17,7 @@ app.controller('MainController', ['$scope', 'global', function ($scope, global) 
 		icon:'/img/calllog.png',
 		back:'/img/android_wallpaper.png',
 		description:"<div class='paragraph'>  <div class='tabp'> When a call is completed, the Call Log app automatically checks whether it was made to a number of interest. If it was, it immediately offers an opportunity to log the call summary. If the caller is unable to log the call at that time, it can be saved for later. </div>  <div class='tabp'> A history of pending and logged calls is saved in the app. </div>  </div>",
-		maxSep:300
+		maxSep:100
 	},
 	{
 		id:'gather',
@@ -25,7 +25,7 @@ app.controller('MainController', ['$scope', 'global', function ($scope, global) 
 		icon:'/img/contacts.png',
 		back:'/img/apple_wallpaper.png',
 		description:"<div class='paragraph'><div class='tabp'>Gather Up lets you sort your contacts into organized groups that fit your life or the painfully honest groups that we all put our friends in anyway, whichever you prefer.</div><div class='tabp'>You can either enter contacts manually or port them from your device's address book.</div></div><div class='paragraph'>    <div class='tabp'>    The app is custom built so that data management and user interface are well under control.    </div>  <div class='tabp'>    There are a set of classes that handle only the data of the app, including Group, Person, Number, Email, etc. In addition, a delgate class oversees all the major group operations. </div>  <div class='tabp'>    These are independent of the UI classes which can be switched out for other UIViewControllers to provide a variety of user interfaces. </div>    </div><div class='paragraph'><div class='tabp'>    We developed a custom built formatting class that formats phone numbers while editing. The formatter allows for mid-number digit additions and deletions.    </div>  <div class='tabp'>    Why is this so important? Well, if the number were formatted with a regular expression only, with no other processing, then if a digit were added to or removed from the middle, the cursor position would be lost upon reformat.  </div>   <div class='tabp'>    However, this implementation takes this into account, so that mid-number editing and reformatting is possible and smooth. </div></div>",
-		maxSep:800
+		maxSep:500
 	}];
 
 	self.contact = {
