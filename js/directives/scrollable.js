@@ -209,22 +209,22 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
           'cancel': up
         });
 
-	}
+        $scope.projectHeight = function (projects) {
 
-	$scope.projectHeight = function (projects) {
+			var sep = 0;
 
-		var sep = 0;
+			for (i in projects) {
 
-		for (i in projects) {
+				sep += global.sep(projects[i]);
+			}
 
-			sep += global.sep(projects[i]);
+			var result = projects.length*800 + sep;
+
+			console.log(result);
+
+			return result;
 		}
 
-		var result = projects.length*800 + sep;
-
-		console.log(result);
-
-		return result;
 	}
 
 	return {
