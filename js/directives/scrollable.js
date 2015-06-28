@@ -117,6 +117,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		ids = attr.ids.split(" ");
 
 		for (i in ids) {
+
+			console.log(ids[i]);
 			el[ids[i]] = $("#" + ids[i]);
 		}
 		
@@ -182,15 +184,15 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		press.on('press', function (e) {
 
 			if (e.center.x < body.width()/2) {
-				element = el[ids[0]][0];
+				element = el[ids[0]];
 			}
 			else {
-				element = el[ids[1]][0];
+				element = el[ids[1]];
 			}
 
 		});
 
-		var scroll = new Hammer(element);
+		var scroll = new Hammer(element[0]);
 
 		scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 
