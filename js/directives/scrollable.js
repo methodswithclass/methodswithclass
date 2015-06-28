@@ -3,19 +3,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var self = this;
 
-	var i = 0;
-	var start = {};
 	var startTop;
-	var mouse0 = {};
 	var mouse = {};
-	var vel;
-	var pos;
-	var time0 = 0;
-	var time = 0;
-	var interval = 1;
-	var timer;
-
-	var isDown = false;
+	
+	this.pos;
+	this.isDown = false;
 
 	var mu = 0.1;
 
@@ -37,20 +29,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getPos = function () {
 
-		pos = 1.1*mouse.y;
+		self.pos = 1.1*mouse.y;
 
-		return pos;
+		return self.pos;
 	}
 
 	var changePos = function (increment) {
 
-		pos += increment;
-	}
-
-	var swapValues = function () {
-
-		mouse0 = mouse;
-		time0 = time;
+		self.pos += increment;
 	}
 
 	var setTop = function (top) {
@@ -107,11 +93,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			changePos(vel);
 
-			setTop(pos);
+			setTop(self.pos);
 
 			vel *= (1-mu);
 
-			console.log("pos " + pos);
+			console.log("pos " + self.pos);
 
 			if (bounce() || vel < minVel){
 				console.log("stop");
@@ -133,14 +119,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			startTop = el.offset().top - body.offset().top;
 			getMouse(e);
 			getPos();
-			isDown = true;
+			self.isDown = true;
 		}
 
 		var move = function (e) {
 
-			console.log(isDown);
+			console.log(self.isDown);
 
-			if (isDown) {
+			if (self.isDown) {
 				getMouse(e);
 				getPos();
 				scroll();
