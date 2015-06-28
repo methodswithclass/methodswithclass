@@ -68,21 +68,21 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				bindResize(info);
 			}
 
-			// $scope.projectsHeight = function (projects) {
+			$scope.projectsHeight = function (projects) {
 
-			// 	var sep = 0;
+				var sep = 0;
 
-			// 	for (i in projects) {
+				for (i in projects) {
 
-			// 		sep += $scope.sep(projects[i]);
-			// 	}
+					sep += sep(projects[i]);
+				}
 
-			// 	var result = projects.length*800 + sep;
+				var result = projects.length*800 + sep;
 
-			// 	console.log(result);
+				console.log(result);
 
-			// 	return result;
-			// }
+				return result;
+			}
 
 			$scope.addText = function (id) {
 
