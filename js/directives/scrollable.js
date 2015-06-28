@@ -81,11 +81,17 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var endMomentum = function () {
 
+		var result = false;
+
 		if (bounce() || vel < minVel) {
-			return true;
+			result = true;
 		}
 
-		return false;
+		if (result) {
+			console.log("stop");
+			clearInterval(timer);
+			timer = null;
+		}
 	}
 
 	var bounce = function () {
@@ -156,22 +162,12 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var momentum = function () {
 
-			console.log("vel " + vel);
-			//getDecellerate();
-
 			timer = setInterval(function () {
-				//console.log("interval");
 
 				moveTop(vel);
-
 				vel *= (1-mu);
-
 				setTop(top);
-
-				if (endMomentum()){
-					console.log("stop");
-					clearInterval(timer);
-				}
+				endMomentum();
 
 			}, 10);
 
