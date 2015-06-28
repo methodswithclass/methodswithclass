@@ -171,7 +171,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		el = $("#" + $scope.id);
 		body = $("#" + attr.body);
 
-		$(window).on('touchmove', function (e) {
+		$(window).bind('touchmove', function (e) {
 			console.log("move");
 			e.preventDefault();
 		})
