@@ -171,11 +171,6 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 		el = $("#" + $scope.id);
 		body = $("#" + attr.body);
 
-		angular.element($window).bind('touchmove', function (e) {
-			console.log("move");
-			e.preventDefault();
-		})
-
 		var down = function (e) {
 
 			console.log("down");
