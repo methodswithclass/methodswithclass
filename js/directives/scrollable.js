@@ -51,11 +51,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 	}
 
-	var getStart = function () {
+	var getAbsoluteTop = function () {
 
-		start = el.offset().top - body.offset().top;
-
-		return start;
+		return el.offset().top - body.offset().top;
 	}
 
 	var getOffset = function () {
@@ -66,7 +64,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getTop = function () {
 
-		top = offset + getStart();
+		top = getAbsoluteTop();
 	}
 
 	var moveTop = function (increment) {
@@ -121,7 +119,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("down");
 			getMouse(e);
-			getStart();
+			start = getAbsoluteTop();
 			getOffset();
 			getTop();
 			isDown = true;
