@@ -122,7 +122,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			el[ids[i]] = $("#" + ids[i]);
 		}
 		
-		body = $("#" + $scope.body);
+		body = $("#" + $scope.id);
 
 		console.log(body);
 
@@ -225,7 +225,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	return {
 		scope:{
-			body:'@'
+			id:'@'
 		},
 		link:link
 	}
