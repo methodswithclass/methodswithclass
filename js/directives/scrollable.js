@@ -51,7 +51,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 	}
 
-	var start = function () {
+	var getStart = function () {
 
 		start = el.offset().top - body.offset().top;
 
@@ -62,7 +62,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		offset = 1.1*mouse.y;
 
-		top = offset + start();
+		top = offset + getStart();
 	}
 
 	var moveTop = function (increment) {
