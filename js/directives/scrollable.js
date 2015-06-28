@@ -5,7 +5,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var startTop;
 	var mouse = {};
-	
+	var vel;
+
 	this.pos;
 	this.isDown = false;
 
@@ -25,6 +26,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getMouse = function (e, state) {
 		mouse = {x:e.deltaX, y:e.deltaY};
+	}
+
+	var getVel = function(e) {
+
+		vel = e.velocityY;
 	}
 
 	var getPos = function () {
@@ -79,8 +85,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var momentum = function (e) {
 
-		var vel = e.velocityY;
-
 		console.log("vel " + vel);
 
 		timer = setInterval(function () {
@@ -121,6 +125,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			if (self.isDown) {
 				getMouse(e);
+				getVel();
 				scroll(getPos());
 			}
 		}
@@ -129,7 +134,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			momentum(e);
+			momentum();
 		}
 
 		var mc = new Hammer(el[0]);
