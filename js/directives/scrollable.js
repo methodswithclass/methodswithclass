@@ -4,10 +4,10 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	var self = this;
 
 	var i = 0;
-	var start;
+	var start = {};
 	var startTop;
-	var mouse0;
-	var mouse;
+	var mouse0 = {};
+	var mouse = {};
 	var vel;
 	var pos;
 	var time0 = 0;
@@ -47,6 +47,8 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 	var getPos = function (state) {
 
 		var touch;
+
+		console.log("mouse " + mouse.y + " mouse0 " + mouse0.y);
 
 		if (state == 0) {
 			touch = mouse0;
