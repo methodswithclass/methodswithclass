@@ -185,6 +185,8 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 
 		var move = function (e) {
 
+			console.log(isDown);
+
 			if (isDown) {
 
 				//getTime(1);
