@@ -27,7 +27,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getel = function () {
 
-		return element[id[i]];
+		return element[ids[i]];
 	}
 
 	var log = function (text) {
