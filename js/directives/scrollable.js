@@ -9,6 +9,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var vel;
 	var offset;
 	var top;
+	var start;
 	var velArray = [];
 
 	var isDown = false;
@@ -52,9 +53,16 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getOffsets = function () {
 
-		offset = 1.1*mouse.y
+		offset = 1.1*mouse.y;
 
-		top = offset + el.offset().top - body.offset().top;
+		top = offset + start();
+	}
+
+	var start = function () {
+
+		start = el.offset().top - body.offset().top;
+
+		return start;
 	}
 
 	var moveTop = function (increment) {
@@ -100,29 +108,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		return false;
 	}
 
-	var momentum = function () {
-
-		console.log("vel " + vel);
-		//getDecellerate();
-
-		timer = setInterval(function () {
-			//console.log("interval");
-
-			moveTop(vel);
-
-			vel *= (1-mu);
-
-			setTop(top);
-
-			if (endMomentum()){
-				console.log("stop");
-				clearInterval(timer);
-			}
-
-		}, 10);
-
-	}
-
 	var link = function ($scope, element, attr) {
 
 		el = $("#" + $scope.id);
@@ -144,7 +129,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 				getMouse(e);
 				getVel(e);
 				getOffsets();
-				setTop(offset);
+				setTop(offset + start);
 			}
 		}
 
@@ -153,6 +138,29 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			console.log("end");
 			isDown = false;
 			momentum();
+		}
+
+		var momentum = function () {
+
+			console.log("vel " + vel);
+			//getDecellerate();
+
+			timer = setInterval(function () {
+				//console.log("interval");
+
+				moveTop(vel);
+
+				vel *= (1-mu);
+
+				setTop(top);
+
+				if (endMomentum()){
+					console.log("stop");
+					clearInterval(timer);
+				}
+
+			}, 10);
+
 		}
 
 		var mc = new Hammer(el[0]);
