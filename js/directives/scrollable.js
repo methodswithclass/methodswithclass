@@ -96,12 +96,12 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		time0 = time;
 	}
 
-	var setTop = function (el, top) {
+	var setTop = function (top) {
 
 		el.css({'top': top + "px"});
 	}
 
-	var scroll = function (el, position) {
+	var scroll = function (position) {
 
 		var touch;
 
@@ -112,12 +112,12 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			touch = pos;
 		}
 
-		setTop(el, touch + startTop);
+		setTop(touch + startTop);
 	}
 
 	
 
-	var bounce = function (el) {
+	var bounce = function () {
 
 		var top = el.offset().top;
 		var bottom = top + el.height();
@@ -141,14 +141,14 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		return false;
 	}
 
-	var momentum = function (el) {
+	var momentum = function () {
 
 		timer = setInterval(function () {
 			//console.log("interval");
 
 			changePos(vel);
 
-			setTop(el, pos);
+			setTop(pos);
 
 			vel *= (1-mu);
 
