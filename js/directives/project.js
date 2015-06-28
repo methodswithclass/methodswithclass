@@ -27,7 +27,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				var percent;
 
-				if (global.isMobal()) {
+				if (global.isMobile()) {
 					percent = 0.4;
 				}
 				else {
