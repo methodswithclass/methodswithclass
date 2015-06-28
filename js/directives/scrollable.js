@@ -211,7 +211,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	}
 
-	$scope.projectsHeight = function (projects) {
+	$scope.projectHeight = function (projects) {
 
 		var sep = 0;
 
