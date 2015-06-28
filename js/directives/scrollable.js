@@ -171,9 +171,12 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		el = $("#" + $scope.id);
 		body = $("#" + attr.body);
 
-		var down = function (e) {
-
+		$(window).on('touchmove', function (e) {
+			console.log("move");
 			e.preventDefault();
+		})
+
+		var down = function (e) {
 
 			console.log("down");
 			startTop = el.offset().top - body.offset().top;
@@ -186,8 +189,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		}
 
 		var move = function (e) {
-
-			e.preventDefault();
 
 			if (isDown) {
 
