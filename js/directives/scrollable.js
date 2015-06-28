@@ -124,6 +124,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		
 		body = $("#" + $scope.body);
 
+		console.log(body);
+
 		var down = function (e) {
 
 			console.log("down");
@@ -197,7 +199,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	        scroll.on('panstart', down);
 	        scroll.on('pandown panup', move);
 	        scroll.on('panend', up);
-	        
+
 		});
 
         $scope.projectHeight = function (projects) {
