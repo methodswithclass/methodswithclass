@@ -21,9 +21,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var scroll = {};
 	var press;
 	var ids = [];
-	var el;
 	var element = {};
+	var i = 0;
 	var body;
+
+	var getel = function () {
+
+		return element[id[i]];
+	}
 
 	var log = function (text) {
 
@@ -57,6 +62,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var getAbsoluteTop = function () {
 
+		var el = getel();
+
 		return el.offset().top - body.offset().top;
 	}
 
@@ -78,6 +85,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var setTop = function (newTop) {
 
+		var el = getel();
+
 		el.css({'top': newTop + "px"});
 	}
 
@@ -98,6 +107,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		console.log(body[0]);
 
 		var bounce = function () {
+
+			var el = getel();
 
 			var top = el.offset().top;
 			var bottom = top + el.height();
@@ -182,16 +193,16 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		var checkPage = function (e) {
 
 			if (e.center.x < body.width()/2) {
-				el = element[ids[0]];
 				togglePage(0,1);
 			}
 			else {
-				el = element[ids[1]];
 				togglePage(1,0);
 			}
 		}
 
 		var togglePage = function (page, other) {
+
+			i = page;
 
 			scroll[ids[page]].set({enable:true});
 			scroll[ids[other]].set({enable:false});
