@@ -262,7 +262,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		$scope.contactHeight = function () {
 
-			return 2500 + "px";
+			return "2500px";
 		}
 
 	}
