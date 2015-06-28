@@ -211,6 +211,22 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	}
 
+	$scope.projectsHeight = function (projects) {
+
+		var sep = 0;
+
+		for (i in projects) {
+
+			sep += global.sep(projects[i]);
+		}
+
+		var result = projects.length*800 + sep;
+
+		console.log(result);
+
+		return result;
+	}
+
 	return {
 		scope:{
 			id:'@'

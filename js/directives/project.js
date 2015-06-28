@@ -22,28 +22,9 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			$scope.renderHtml = global.renderHtml;
 
-			var sep = function (project) {
-
-
-				var percent;
-
-				if (global.isMobile()) {
-					percent = 0.4;
-				}
-				else {
-					percent = 0.8;
-				}
-
-				var windowWidth = 1600;
-				var sep = project.maxSep;
-				var factor = windowWidth/$(window).width()/percent;
-
-				return factor*sep;
-			}
-
 			var setSep = function (info) {
 
-				$("#sep" + info.id).css({height:sep(info) + "px"});
+				$("#sep" + info.id).css({height:global.sep(info) + "px"});
 			}
 
 
@@ -66,22 +47,6 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			$scope.attachResize = function(info) {
 				bindResize(info);
-			}
-
-			$scope.projectsHeight = function (projects) {
-
-				var sep = 0;
-
-				for (i in projects) {
-
-					sep += sep(projects[i]);
-				}
-
-				var result = projects.length*800 + sep;
-
-				console.log(result);
-
-				return result;
 			}
 
 			$scope.addText = function (id) {
