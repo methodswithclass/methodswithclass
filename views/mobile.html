@@ -20,23 +20,23 @@
         </div>
     </div>
 
-    <div class="absolute top-400 left0 width bodyMobile cutoff z-20">
+    <div class="absolute top-400 left0 width bodyMobile cutoff z-10">
 
-        <div class="absolute corner height width200 z-20" id="body">
+        <div class="absolute corner height width200 z-10" id="body">
               
-            <scrollable class="absolute width50 height corner noedge z-20" ng-attr-body="body" ng-style="{height:projectHeight(main.projects) + 'px'}" id="projects">
-                    <div class="relative width height-300 white-back noedge z-20">
+            <scrollable class="absolute width50 height corner noedge z-10" ng-attr-body="body" ng-style="{height:projectHeight(main.projects) + 'px'}" id="projects">
+                    <div class="relative width height-300 white-back noedge z-10">
                       <div class="relative width height-30 vcenter">
                         <div class="relative width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
                       </div>
                     </div>
 
-                    <div class="relative width noedge z-20" ng-repeat="project in main.projects">
+                    <div class="relative width noedge z-10" ng-repeat="project in main.projects">
                         <project ng-attr-view="mProject.html" ng-attr-parent="projects" info="project"></project>
                     </div>
             </scrollable>
 
-            <div class="absolute width50 height left50 top0 scrollY noedge z-20" id="contact">
+            <div class="absolute width50 height left50 top0 scrollY noedge z-10" id="contact">
                 <div class="absolute top20 width80 height hcenter">
                     <contact ng-attr-view="mContact.html" info="main.contact"></contact>
                 </div>
