@@ -48,8 +48,6 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 
 		var touch;
 
-		console.log("mouse " + mouse.y + " mouse0 " + mouse0.y);
-
 		if (state == 0) {
 			touch = mouse0;
 		}
@@ -179,6 +177,8 @@ app.directive("scrollable", ['global', '$swipe', '$window', function (global, $s
 			getMouse(e, 0);
 			getPos(0);
 			//getTime(0);
+
+			console.log("start " + start.y + " mouse0 " + mouse0.y + " pos" + pos);
 
 			isDown = true;
 		}
