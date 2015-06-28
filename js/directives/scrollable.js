@@ -202,7 +202,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				var elem = element[ids[i]];
 
-				console.log(elem);
+				console.log(elem[0]);
 
 				//scroll[ids[i]] = new Hammer(elem[0]);
 
