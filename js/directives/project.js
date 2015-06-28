@@ -28,18 +28,10 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				var windowWidth;
 				var windowHeight;
-				var sep;
+				var sep = project.maxSep;
 
-				if (global.isMobile()) {
-
-					windowWidth = 980;
-					sep = project.mobileSep;
-				}
-				else {
-
-					windowWidth = 1000;
-					sep = project.maxSep;
-				}
+				if (global.isMobile()) windowWidth = 980;
+				else windowWidth = 1600;
 
 				var width = $(window).width()/windowWidth;
 
