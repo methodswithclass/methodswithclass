@@ -4,7 +4,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'='
+			info:'=',
+			attachResize:'&'
 		},
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
