@@ -81,9 +81,11 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var vel = e.velocityY;
 
+		console.log("vel " + vel);
+
 		timer = setInterval(function () {
 			//console.log("interval");
-			
+
 			setTop(changePos(vel));
 
 			vel *= (1-mu);
