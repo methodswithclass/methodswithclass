@@ -220,7 +220,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 			var result = projects.length*800 + sep;
 
-			console.log(result);
+			alert(result);
 
 			return result;
 		}
