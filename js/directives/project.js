@@ -4,8 +4,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 	return {
 		restrict:'E',
 		scope:{
-			info:'=',
-			projects:'='
+			info:'='
 		},
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
@@ -19,9 +18,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var open = false;
 			var $element;
 			var $space;
-			var boundToWindow;
-
-			var projects = $scope.projects;
+			var resizeHandlers = [];
 
 			console.log(projects.length);
 
@@ -56,37 +53,31 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				return factor*sep;
 			}
 
-			var setSep = function (apps) {
+			var setSep = function (info) {
 
-				if (typeof apps != Array) {
-					apps = [apps];
-				}
-
-				for (i in apps) {
-					$("#sep" + apps[i].id).css({height:sep(apps[i])});
-				}
+				$("#sep" + info.id).css({height:sep(info)});
 			}
 
 
-			var bindResize = function (apps) {
+			var bindResize = function (info) {
 
-				setSep(apps);
+				setSep(info);
 
-				boundToWindow =  function () {
-					setSep(apps);
+				resizeHandlers[info.id] =  function () {
+					setSep(info);
 				}
 
-				angular.element($window).bind('resize', boundToWindow);
+				angular.element($window).bind('resize', resizeHandlers[info.id]);
 			}
 
-			var unbind = function () {
+			var unbind = function (info) {
 
-				angular.element($window).unbind('resize', boundToWindow);
+				angular.element($window).unbind('resize', resizeHandlers[info.id]);
 			}
 
 
-			$scope.attachResize = function() {
-				bindResize(projects);
+			$scope.attachResize = function(info) {
+				bindResize(info);
 			}
 
 			$scope.projectsHeight = function (projects) {
@@ -132,7 +123,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				}
 				else {
 					$element.animate({height:100}, openSpeed, function () {
-						unbind();
+						unbind(info);
 						console.log("closed");
 						$scrollElement.scrollTo($space, openSpeed);
 					});
