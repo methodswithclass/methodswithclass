@@ -125,7 +125,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			if (self.isDown) {
 				getMouse(e);
-				getVel();
+				getVel(e);
 				scroll(getPos());
 			}
 		}
