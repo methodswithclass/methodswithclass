@@ -133,14 +133,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			console.log("down");
 			getMouse(e);
 			getOffsets();
-			self.isDown = true;
+			isDown = true;
 		}
 
 		var move = function (e) {
 
-			console.log(self.isDown);
+			console.log(isDown);
 
-			if (self.isDown) {
+			if (isDown) {
 				getMouse(e);
 				getVel(e);
 				getOffsets();
