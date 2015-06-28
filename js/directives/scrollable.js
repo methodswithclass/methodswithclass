@@ -131,6 +131,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("down");
 			startTop = el.offset().top - body.offset().top;
+			getMouse(e);
+			getPos();
 			isDown = true;
 		}
 
