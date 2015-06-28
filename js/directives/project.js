@@ -24,9 +24,19 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			var sep = function (project) {
 
+
+				var percent;
+
+				if (global.isMobal()) {
+					percent = 0.4;
+				}
+				else {
+					percent = 0.8;
+				}
+
 				var windowWidth = 1600;
 				var sep = project.maxSep;
-				var factor = windowWidth/$(window).width();
+				var factor = windowWidth/$(window).width()/percent;
 
 				return factor*sep;
 			}
