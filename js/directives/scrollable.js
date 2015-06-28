@@ -37,6 +37,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var changePos = function (increment) {
 
 		self.pos += increment;
+
+		return self.pos;
 	}
 
 	var setTop = function (top) {
@@ -46,16 +48,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var scroll = function (position) {
 
-		var touch;
-
-		if (position) {
-			touch = position;
-		}
-		else {
-			touch = pos;
-		}
-
-		setTop(touch + startTop);
+		setTop(position + startTop);
 	}
 
 	
@@ -90,10 +83,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		timer = setInterval(function () {
 			//console.log("interval");
-
-			changePos(vel);
-
-			setTop(self.pos);
+			
+			setTop(changePos(vel));
 
 			vel *= (1-mu);
 
@@ -128,8 +119,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			if (self.isDown) {
 				getMouse(e);
-				getPos();
-				scroll();
+				scroll(getPos());
 			}
 		}
 
