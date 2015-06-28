@@ -210,8 +210,7 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
         $swipe.bind(el, {
           'start': down,
           'move': move,
-          'end': up,
-          'cancel': up
+          'end': up
         });
 
         $scope.projectHeight = function (projects) {
