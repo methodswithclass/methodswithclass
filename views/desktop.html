@@ -34,7 +34,7 @@
                       </div>
 
                       <div class="relative" ng-repeat="project in main.projects" ng-init="projects = main.projects"> 
-                          <project ng-attr-view="project.html" ng-attr-parent="projectsOuter" info="project" projects="projects"></project>
+                          <project ng-attr-view="project.html" ng-attr-parent="projectsOuter" info="project" projects="{{projects}}"></project>
                       </div>
 
               </div>
