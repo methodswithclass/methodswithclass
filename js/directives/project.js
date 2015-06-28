@@ -16,6 +16,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var open = false;
 			var $element;
 			var $space;
+			var boundToWindow;
 
 			$scope.renderHtml = global.renderHtml;
 
@@ -49,20 +50,36 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			}
 
 			var setSep = function (projects) {
-				
+
+				if (typeof projects !== Array) {
+					projects = [projects];
+				}
+
 				for (i in projects) {
-					$("#sep" + projects[i].id).css({height:sep(projects[i])});	
+					$("#sep" + projects[i].id).css({height:sep(projects[i])});
 				}
 			}
 
 
-			$scope.attachResize = function(projects) {
+			var bindResize = function (projects) {
 
 				setSep(projects);
 
-				angular.element($window).bind('resize', function () {
+				boundToWindow =  function () {
 					setSep(projects);
-				});
+				}
+
+				angular.element($window).bind('resize', boundToWindow);
+			}
+
+			var unbind = function () {
+
+				angular.element($window).unbind('resize', boundToWindow);
+			}
+
+
+			$scope.attachResize = function(projects) {
+				bindResize(projects);
 			}
 
 			$scope.projectsHeight = function (projects) {
@@ -98,8 +115,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				$space = $("#space" + id);
 
 				if (!open) {
-					$element.animate({height:$scope.sep(info)}, openSpeed, function () {
-
+					$element.animate({height:setSep(info)}, openSpeed, function () {
+						bindResize(info);
 						console.log("opened");
 						$scrollElement.scrollTo($element, openSpeed);
 					});
@@ -108,7 +125,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				}
 				else {
 					$element.animate({height:100}, openSpeed, function () {
-
+						unbind();
 						console.log("closed");
 						$scrollElement.scrollTo($space, openSpeed);
 					});
