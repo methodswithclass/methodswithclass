@@ -90,7 +90,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		el.css({'top': newTop + "px"});
 	}
 
-	var link = function ($scope, element, attr) {
+	var link = function ($scope, this-element, attr) {
 
 		ids = attr.ids.split(" ");
 
@@ -201,6 +201,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 
 		var togglePage = function (page, other) {
+
+			console.log("toggle " + page + " " + other);
 
 			i = page;
 
