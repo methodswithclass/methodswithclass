@@ -232,9 +232,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				console.log("press " + e.center.x);
 
-				setPans();
+				//setPans();
 
-				checkPage();
+				//checkPage(e);
 
 			});
 
