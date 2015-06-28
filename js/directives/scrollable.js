@@ -190,15 +190,15 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 				element = el[ids[1]];
 			}
 
+			var scroll = new Hammer(element[0]);
+
+			scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+
+	        scroll.on('panstart', down);
+	        scroll.on('pandown panup', move);
+	        scroll.on('panend', up);
+	        
 		});
-
-		var scroll = new Hammer(element[0]);
-
-		scroll.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
-
-        scroll.on('panstart', down);
-        scroll.on('pandown panup', move);
-        scroll.on('panend', up);
 
         $scope.projectHeight = function (projects) {
 
