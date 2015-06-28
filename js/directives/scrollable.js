@@ -210,6 +210,8 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		var setPans = function () {
 
 			for (i in ids) {
+				
+				console.log(scroll[ids[i]]);
 
 				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 		        scroll[ids[i]].on('panstart', down);
@@ -236,7 +238,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		}
 
-		
+
 		initPans();
 
 		initPress();
