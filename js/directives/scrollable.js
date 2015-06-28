@@ -144,7 +144,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		mc.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 
-        mc.on('press', down);
+        mc.on('panstart', down);
         mc.on('pandown panup', move);
         mc.on('panend', up);
 
