@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', function (global) {
+app.directive('project', ['global', '$window' function (global, $window) {
 
 	return {
 		restrict:'E',
@@ -52,7 +52,7 @@ app.directive('project', ['global', function (global) {
 
 
 			$scope.attachResize = function(projects) {
-				$(window).on('resize', function () {
+				angular.element($window).bind('resize', function () {
 					for (i in projects) {
 						$("#sep" + projects[i].id).css({height:sep(projects[i])});
 					}
