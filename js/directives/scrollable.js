@@ -204,7 +204,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				console.log(ids[i]);
 
-				scroll[ids[i]] = new Hammer(elem[0]);
+				//scroll[ids[i]] = new Hammer(elem[0]);
 
 		    }
 		}
@@ -232,16 +232,16 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				console.log("press " + e.center.x);
 
-				//setPans();
+				setPans();
 
-				//checkPage(e);
+				checkPage(e);
 
 			});
 
 		}
 
 
-		//initPans();
+		initPans();
 
 		initPress();
 
