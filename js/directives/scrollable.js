@@ -173,6 +173,8 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 		var down = function (e) {
 
+			e.preventDefault();
+
 			console.log("down");
 			startTop = el.offset().top - body.offset().top;
 			getMouse(e, -1);
