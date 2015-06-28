@@ -51,18 +51,18 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		}
 	}
 
-	var getOffsets = function () {
-
-		offset = 1.1*mouse.y;
-
-		top = offset + start();
-	}
-
 	var start = function () {
 
 		start = el.offset().top - body.offset().top;
 
 		return start;
+	}
+
+	var getOffsets = function () {
+
+		offset = 1.1*mouse.y;
+
+		top = offset + start();
 	}
 
 	var moveTop = function (increment) {
