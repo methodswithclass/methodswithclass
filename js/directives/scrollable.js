@@ -213,7 +213,9 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			for (i in ids) {
 
-				scroll[ids[i]] = new Hammer(element[ids[i]][0]);
+				var elem = element[ids[i]];
+
+				scroll[ids[i]] = new Hammer(elem[0]);
 
 				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
 		        scroll[ids[i]].on('panstart', down);
@@ -222,12 +224,10 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		    }
 		}
-
-		
-		initPress();
 		
 		initPans();
 
+		initPress();
 
         $scope.projectHeight = function (projects) {
 
