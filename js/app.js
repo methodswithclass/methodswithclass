@@ -1,6 +1,6 @@
 var app = angular.module("methodswithclass", ['ngRoute']);
 
-var mobiledebug = true;
+var mobiledebug = false;
 
 app.config(function($routeProvider) {
     $routeProvider.
@@ -34,6 +34,4 @@ run(function ($location) {
 	}
 
 	$location.path(production);
-
-	console.log("height " + $(window).height() + " width " + $(window).width());
 });
