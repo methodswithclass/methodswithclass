@@ -3,105 +3,105 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 
 	var self = this;
 
-	this.i = 0;
-	this.start;
-	this.startTop;
-	this.mouse0;
-	this.mouse;
-	this.vel;
-	this.pos;
-	this.time0 = 0;
-	this.time = 0;
-	this.interval = 1;
-	this.timer;
+	var i = 0;
+	var start;
+	var startTop;
+	var mouse0;
+	var mouse;
+	var vel;
+	var pos;
+	var time0 = 0;
+	var time = 0;
+	var interval = 1;
+	var timer;
 
-	this.isDown = false;
+	var isDown = false;
 
-	this.mu = 0.1;
+	var mu = 0.1;
 
-	this.minVel = 0.01;
+	var minVel = 0.01;
 
-	this.el;
+	var el;
 
-	this.log = function (text) {
+	var log = function (text) {
 
 		console.log(text);
 
 		$("#mConsole").text(text);
 	}
 
-	this.getMouse = function (e, state) {
+	var getMouse = function (e, state) {
 
 		if (state == -1) {
-			self.start = {x:e.x, y:e.y};
+			start = {x:e.x, y:e.y};
 		}
 		else if (state == 0) {
-			self.mouse0 = {x:e.x, y:e.y};
+			mouse0 = {x:e.x, y:e.y};
 		}
 		else if (state == 1){
-			self.mouse = {x:e.x, y:e.y};
+			mouse = {x:e.x, y:e.y};
 		}
 	}
 
-	this.getPos = function (state) {
+	var getPos = function (state) {
 
 		var touch;
 
 		if (state == 0) {
-			touch = self.mouse0;
+			touch = mouse0;
 		}
 		else {
 
-			touch = self.mouse;
+			touch = mouse;
 		}
 
-		self.pos = 1.1*(touch.y - self.start.y);
+		pos = 1.1*(touch.y - start.y);
 
-		return self.pos;
+		return pos;
 	}
 
-	this.changePos = function (increment) {
+	var changePos = function (increment) {
 
-		self.pos += increment;
+		pos += increment;
 	}
 
-	this.getVel = function () {
+	var getVel = function () {
 
-		self.vel = (self.getPos(1) - self.getPos(0));
+		vel = (getPos(1) - getPos(0));
 
-		//console.log(self.getPos(0) + " " + self.getPos(1) + " " + self.interval + " " + self.vel);
+		//console.log(getPos(0) + " " + getPos(1) + " " + interval + " " + vel);
 	}
 
-	this.getTime = function (state) {
+	var getTime = function (state) {
 
 		if (state == 0) {
-			self.time0 = (new Date()).getTime()/1000;
+			time0 = (new Date()).getTime()/1000;
 		}
 		else if (state == 1) {
-			self.time = (new Date()).getTime()/1000;
+			time = (new Date()).getTime()/1000;
 		}
 	}
 
-	this.getInterval = function () {
+	var getInterval = function () {
 
-		if (self.time && self.time0) {
+		if (time && time0) {
 
-			self.interval = self.time - self.time0;
+			interval = time - time0;
 		}
 	}
 
-	this.swapValues = function () {
+	var swapValues = function () {
 
-		self.mouse0 = self.mouse;
-		self.time0 = self.time;
+		mouse0 = mouse;
+		time0 = time;
 	}
 
-	this.setTop = function (el, top) {
+	var setTop = function (el, top) {
 
 		el.css({'top': top + "px"});
 	}
 
-	this.scroll = function (el, position) {
+	var scroll = function (el, position) {
 
 		var touch;
 
@@ -109,15 +109,15 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 			touch = position;
 		}
 		else {
-			touch = self.pos;
+			touch = pos;
 		}
 
-		self.setTop(el, touch + self.startTop);
+		setTop(el, touch + startTop);
 	}
 
 	
 
-	this.bounce = function (el) {
+	var bounce = function (el) {
 
 		var top = el.offset().top;
 		var bottom = top + el.height();
@@ -141,73 +141,73 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		return false;
 	}
 
-	this.momentum = function (el) {
+	var momentum = function (el) {
 
-		self.timer = setInterval(function () {
+		timer = setInterval(function () {
 			//console.log("interval");
 
-			self.changePos(self.vel);
+			changePos(vel);
 
-			self.setTop(el, self.pos);
+			setTop(el, pos);
 
-			self.vel *= (1-self.mu);
+			vel *= (1-mu);
 
-			console.log("self.pos " + self.pos);
+			console.log("pos " + pos);
 
-			if (self.bounce(el) || self.vel < self.minVel){
+			if (bounce(el) || vel < minVel){
 				console.log("stop");
-				clearInterval(self.timer);
+				clearInterval(timer);
 			}
 
 		}, 50);
 
 	}
 
-	this.link = function ($scope, element, attr) {
+	var link = function ($scope, element, attr) {
 
-		self.el = $("#" + $scope.id);
+		el = $("#" + $scope.id);
 
-		self.down = function (e) {
+		var down = function (e) {
 
-			self.startTop = self.el.offset().top - $("#" + attr.body).offset().top;
-			self.getMouse(e, -1);
-			self.getMouse(e, 0);
-			self.getPos(0);
-			//self.getTime(0);
+			startTop = el.offset().top - $("#" + attr.body).offset().top;
+			getMouse(e, -1);
+			getMouse(e, 0);
+			getPos(0);
+			//getTime(0);
 
-			self.isDown = true;
+			isDown = true;
 		}
 
-		self.move = function (e) {
+		var move = function (e) {
 
 			e.preventDefault();
 
-			if (self.isDown) {
+			if (isDown) {
 
-				//self.getTime(1);
-				//self.getInterval();
-				self.getMouse(e, 1);
-				self.getPos(1);
-				self.getVel();
-				self.scroll(self.el);
-				self.swapValues();
+				//getTime(1);
+				//getInterval();
+				getMouse(e, 1);
+				getPos(1);
+				getVel();
+				scroll();
+				swapValues();
 			}
 		}
 
-		self.up = function (e) {
+		var up = function (e) {
 
 			console.log("end");
-			self.isDown = false;
-			self.momentum(self.el);
+			isDown = false;
+			momentum();
 			
 		}
 
-        // $swipe.bind(self.el, {
-        //   'start': self.down,
-        //   'move': self.move,
-        //   'end': self.up,
-        //   'cancel': self.up
-        // });
+        $swipe.bind(el, {
+          'start': down,
+          'move': move,
+          'end': up,
+          'cancel': up
+        });
 
 	}
 
@@ -215,6 +215,6 @@ app.directive("scrollable", ['global', '$swipe', function (global, $swipe) {
 		scope:{
 			id:'@'
 		},
-		link:self.link
+		link:link
 	}
 }]);
