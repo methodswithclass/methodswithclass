@@ -1,4 +1,4 @@
-app.directive("projects", ['gloabl', function (global) {
+app.directive("projects", ['global', function (global) {
 
 	return {
 
