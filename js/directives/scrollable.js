@@ -108,21 +108,21 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		
 		body = $("#" + $scope.body);
 
-		console.log(body[0]);
+		//console.log(body[0]);
 
 		var bounce = function () {
 
 			var el = getel();
 
-			var top = el.offset().top;
-			var bottom = top + el.height();
+			var elTop = el.offset().top;
+			var bottom = elTop + el.height();
 
 			var bodyTop = body.offset().top;
 			var bodyBottom = bodyTop + body.height();
 
 			//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 				
-			if (top > bodyTop) {
+			if (elTop > bodyTop) {
 				console.log("below top");
 				el.animate({top:0}, 100);
 				return true;
