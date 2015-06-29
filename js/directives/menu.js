@@ -33,4 +33,4 @@ app.directive('menu', ['notifications', function (notifications) {
 		link:link
 	}
 
-});
+}]);

@@ -1,6 +1,8 @@
-app.controller('MainController', ['$scope', 'global', function ($scope, global) {
+app.controller('MainController', ['$scope', 'global', 'notifications', function ($scope, global, notifications) {
 
 	var self = this;
+
+	notifications.change("projectsBtn");
 
 	self.projects = [
 	{
