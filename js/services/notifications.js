@@ -1,12 +1,14 @@
 app.factory("notifications", function () {
 
-	var callback = {};
+	var self = this;
 
-	var registerChange = function (name, _callback) {
+	this.callback = {};
+
+	var registerChange = function (name, callback) {
 
 		console.log("registered " + name);
 
-		callback[name] = _callback;
+		self.callback[name] = callback;
 
 	}
 
@@ -14,7 +16,7 @@ app.factory("notifications", function () {
 
 		console.log("changed " + name);
 
-		if (callback.length > 0) callback[name]();
+		if (self.callback.length > 0) self.callback[name]();
 	}
 
 	return {
