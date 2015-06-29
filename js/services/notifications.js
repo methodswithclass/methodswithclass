@@ -3,6 +3,7 @@ app.factory("notifications", function () {
 	var self = this;
 
 	this.callback = {};
+	this.localScopes = {};
 	this.localVariables = {};
 
 	var register = function (name, callback) {
@@ -17,7 +18,10 @@ app.factory("notifications", function () {
 
 			for (var i = 0; i < callback.length; i++) {
 
-				if (i < callback.length - 1) {
+				if (i == 0) {
+					self.localScopes[name] = callback[i];
+				}
+				else if (i < callback.length - 1) {
 					local[i] = callback[i];
 				}
 				else {
@@ -34,6 +38,7 @@ app.factory("notifications", function () {
 			console.log("callback is function");
 
 			self.callback[name] = callback;
+			self.localScopes[name] = "none";
 			self.localVariables[name] = "none";
 		}
 
@@ -47,14 +52,14 @@ app.factory("notifications", function () {
 
 			if (self.callback.hasOwnProperty(name)) {
 
-				if (self.localVariables[name] == "none") {
+				if (self.localScopes[name] == "none") {
 					self.callback[name]();
 				}
 				else {
 
 					console.log("local variables " + self.localVariables[name].length);
 
-					self.callback[name].apply(this, self.localVariables[name]);
+					self.callback[name].apply(self.localScopes[name], self.localVariables[name]);
 				}
 			}
 		}
