@@ -220,7 +220,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		initPans();
 
-		notifications.register("menu", [self, function () {
+		notifications.register("menu", [self, function (self) {
 
 				for (i in self.enabled) {
 					self.enabled[i] = !self.enabled[i];
