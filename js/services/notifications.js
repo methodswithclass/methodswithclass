@@ -17,8 +17,7 @@ app.factory("notifications", function () {
 		console.log("changed " + name + " " self.callback.length);
 
 		for(prop in self.callback) {
-
-			if (prop == name) self.callback[prop]();
+			if (self.callback.hasOwnPropery(name)) self.callback[name]();
 		}
 	}
 
