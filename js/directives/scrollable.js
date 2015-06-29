@@ -208,19 +208,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			}
 		}
 
-		var toggle = function () {
-
-			//console.log("toggle " + page + " " + other);
-
-			i = notifications.getPage();
-
-			other = i == 0 ? 1 : 0;
-
-			scroll[ids[i]].set({enable:true});
-			scroll[ids[other]].set({enable:false});
-
-		}
-
 		var initPans = function () {
 
 			for (i in ids) {
@@ -255,9 +242,29 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		}
 
+		var doesEnable = true;
+		var enableCount = 0;
+
+
+		var enable = function () {
+
+			var result = enableCount % 4 == 0 ? doesEnable : !doesEnable;
+
+			enableCount++;
+
+			return result;
+		}
+
 		initPans();
 
 		initPress();
+
+		notifications.registerChange("menu", function () {
+
+			scroll[ids[0]].set({enable:enable()});
+			scroll[ids[1]].set({enable:enable()});
+
+		});
 
 	}
 

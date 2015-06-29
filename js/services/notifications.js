@@ -1,30 +1,21 @@
 app.factory("notifications", function () {
 
-	var pages = ["projectBtn", "contactBtn"];
+	var callback = {};
 
-	var index;	
+	var registerChange = function (name, _callback) {
 
-	var change = function (id) {
+		callback[name] = _callback;
 
-		console.log(id);
-
-		for (i in pages) {
-
-			if (id == pages[i]) {
-				index = i;
-			}
-		}
 	}
 
-	var getPage = function () {
+	var change = function (name) {
 
-		return index;
+		callback[name]();
 	}
 
 	return {
-
-		change:change,
-		getPage:getPage
+		registerChange:registerChange,
+		change:change
 	}
 
 });
