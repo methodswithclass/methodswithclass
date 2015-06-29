@@ -10,7 +10,7 @@ app.factory("notifications", function () {
 
 	var change = function (name) {
 
-		callback[name]();
+		if (callback.length > 0) callback[name]();
 	}
 
 	return {
