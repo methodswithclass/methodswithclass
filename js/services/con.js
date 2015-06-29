@@ -32,7 +32,9 @@ app.factory("con", function() {
 
 		thisCon = $("#console");
 		
-		if (thisCon[0] && thisCon.is(":visible")) {
+		if (thisCon.is(":visible")) {
+
+			console.log("is visible");
 		
 			history[history.length] = text;
 			
@@ -41,6 +43,9 @@ app.factory("con", function() {
 			
 			print();
 		
+		}
+		else {
+			console.log("is not visible");
 		}
 		
 	}
@@ -52,7 +57,7 @@ app.factory("con", function() {
 	(function(){
 	    var oldLog = console.log;
 	    console.log = function (message) {
-	       	log(message);
+	       	//log(message);
 	        oldLog.apply(console, arguments);
 	    };
 	})();
