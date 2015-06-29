@@ -78,6 +78,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 	var reset = function () {
 
+		console.log("reset");
+
 		clearInterval(timer);
 		timer = null;
 
@@ -119,14 +121,14 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 				
 			if (elTop > bodyTop) {
-				console.log("below top");
+				con.log("below top");
 				el.animate({top:0}, 100, function () {
 					getTop();
 				});
 				return true;
 			}
 			else if (bottom < bodyBottom) {
-				console.log("above bottom");
+				con.log("above bottom");
 				el.animate({top:body.height() - el.height()}, 100, function () {
 					getTop();
 				});
@@ -167,7 +169,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		var move = function (e) {
 
-			//console.log(self.isDown);
+			console.log("move");
 
 			if (self.isDown) {
 				getMouse(e);

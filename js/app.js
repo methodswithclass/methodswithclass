@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
         templateUrl: 'views/mobile.html'
       })
 }).
-run(function ($location) {
+run(function ($location, con) {
 
 	var production;
 
@@ -34,4 +34,13 @@ run(function ($location) {
 	}
 
 	$location.path(production);
+
+
+	(function(){
+	    var oldLog = console.log;
+	    console.log = function (message) {
+	       	con.log(message);
+	        oldLog.apply(console, arguments);
+	    };
+	})();
 });
