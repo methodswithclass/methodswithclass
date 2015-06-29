@@ -235,7 +235,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			press.on('press', function (e) {
 
-				console.log("press " + e.center.x);
+				alert("press " + e.center.x);
 
 				checkPage(e);
 
