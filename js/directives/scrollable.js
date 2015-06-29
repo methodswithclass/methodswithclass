@@ -19,7 +19,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 	var mu = 0.4;
 
-	var minVel = 0.1;
+	var minVel = 0.01;
 
 	this.scroll = {};
 	var ids = [];
