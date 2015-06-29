@@ -14,11 +14,11 @@ app.directive('menu', ['notifications', function (notifications) {
 
 			if ($scope.id == "projectBtn") {
 				move(0);
-				notifications.change($scope.id);
+				notifications.change("menu");
 			}
 			else if ($scope.id == "contactBtn") {
 				move("-100%");
-				notifications.change($scope.id);
+				notifications.change("menu");
 			}
 		}
 
