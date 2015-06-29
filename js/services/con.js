@@ -15,7 +15,7 @@ app.factory("con", function() {
 	}
 		
 	var print = function () {
-		
+
 		var string = "";
 		
 		thisCon.html(string);
@@ -31,8 +31,6 @@ app.factory("con", function() {
 	var log = function (text) {
 
 		thisCon = $("#console");
-
-		console.log(text);
 		
 		if (thisCon[0] && thisCon.is(":visible")) {
 		
