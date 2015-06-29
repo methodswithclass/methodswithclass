@@ -208,7 +208,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			}
 		}
 
-		var togglePage = function () {
+		var toggle = function () {
 
 			//console.log("toggle " + page + " " + other);
 
