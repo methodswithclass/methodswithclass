@@ -86,7 +86,8 @@ app.factory("notifications", function () {
 
 					console.log("local variables " + self.localVariables[name].length);
 
-					self.callback[name].apply(self.localScopes[name], self.localVariables[name]);
+					if (self.localVariables[name].length > 0) self.callback[name].apply(self.localScopes[name], self.localVariables[name]);
+					else self.callback[name].apply(self.localScopes[name]);
 				}
 			}
 		}
