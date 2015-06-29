@@ -106,6 +106,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		var bounce = function () {
 
+			console.log("bounce");
+
 			var el = getel();
 
 			var elTop = el.offset().top;
@@ -126,7 +128,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			else if (bottom < bodyBottom) {
 				console.log("above bottom");
 				el.animate({top:body.height() - el.height()}, 100, function () {
-
 					getTop();
 				});
 				return true;
