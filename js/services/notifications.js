@@ -54,7 +54,7 @@ app.factory("notifications", function () {
 
 					console.log("local variables " + self.localVariables[name].length);
 
-					self.callback[name].apply(self.localVariables[name]);
+					self.callback[name].apply(this, self.localVariables[name]);
 				}
 			}
 		}
