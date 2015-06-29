@@ -197,7 +197,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			isDown = false;
 			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
-		
+
 		var initPans = function () {
 
 			for (i in ids) {
@@ -222,11 +222,13 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		var enable = function () {
 
-			var result = enableCount % 4 == 0 ? doesEnable : !doesEnable;
+			if (enableCount == 0) doesEnable = doesEnable;
+			else if (enableCount == 1) doesEnable = !doesEnable;
+			else doesEnable = enableCount % 4 == 0 ? doesEnable : !doesEnable;
 
 			enableCount++;
 
-			return result;
+			return doesEnable;
 		}
 
 		initPans();
@@ -237,6 +239,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			scroll[ids[1]].set({enable:enable()});
 
 		});
+
+		notifications.change("menu");
 
 	}
 
