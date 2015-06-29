@@ -185,7 +185,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			console.log("end");
 			isDown = false;
-			//momentum();
+			momentum();
 		}
 
 		var checkPage = function (e) {
