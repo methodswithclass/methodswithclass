@@ -13,7 +13,7 @@ app.directive('menu', ['notifications', function (notifications) {
 
 			if (body.offset().left != left) {
 				body.animate({left:left}, speed, function () {
-					notifications.change("menu");
+					notifications.call("menu");
 				});
 			}
 		}
