@@ -9,7 +9,7 @@ app.factory("notifications", function () {
 
 		console.log("registered " + name);
 
-		if (typeof callback == Array) {
+		if (Array.isArray(callback)) {
 
 			console.log("callback is array");
 
