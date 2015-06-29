@@ -24,7 +24,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 	var minVel = 0.1;
 
-	var scroll = {};
+	this.scroll = {};
 	var press;
 	var ids = [];
 	var element = {};
@@ -208,12 +208,12 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 				//console.log(elem[0]);
 
-				scroll[ids[i]] = new Hammer(elem[0]);
+				self.scroll[ids[i]] = new Hammer(elem[0]);
 
-				scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
-		        scroll[ids[i]].on('panstart', down);
-		        scroll[ids[i]].on('pandown panup', move);
-		        scroll[ids[i]].on('panend', up);
+				self.scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+		        self.scroll[ids[i]].on('panstart', down);
+		        self.scroll[ids[i]].on('pandown panup', move);
+		        self.scroll[ids[i]].on('panend', up);
 
 		    }
 		}
@@ -227,7 +227,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 				if (self.enableCount == 0) self.doesEnable = self.doesEnable;
 				else if (self.enableCount == 1) self.doesEnable = !self.doesEnable;
-				else self.doesEnable = self.enableCount % 4 == 0 ? self.doesEnable : !self.doesEnable;
+				else self.doesEnable = self.enableCount % 4 != 0 ? self.doesEnable : !self.doesEnable;
 
 				console.log("enable " + self.enableCount + " " + self.doesEnable);
 
@@ -237,8 +237,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			}
 
 
-			scroll[ids[0]].set({enable:enable()});
-			scroll[ids[1]].set({enable:enable()});
+			self.scroll[ids[0]].set({enable:enable()});
+			self.scroll[ids[1]].set({enable:enable()});
 
 		});
 
