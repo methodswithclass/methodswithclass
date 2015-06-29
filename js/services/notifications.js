@@ -1,5 +1,7 @@
 app.factory("notifications", function () {
 
+	var self = this;
+
 	this.callback = {};
 	this.localVariables = {};
 
@@ -36,11 +38,11 @@ app.factory("notifications", function () {
 	var call = function (name) {
 
 		console.log("changed " + name);
-		
+
 		for(prop in self.callback) {
-			
+
 			if (self.callback.hasOwnProperty(name)) {
-				
+
 				if (self.localVariables[name] == "none") {
 					self.callback[name]();
 				}
