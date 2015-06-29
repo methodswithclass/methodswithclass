@@ -220,20 +220,20 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		initPans();
 
-		notifications.registerChange("menu", function () {
+		notifications.register("menu", [self, function (self) {
 
-			for (i in self.enabled) {
-				self.enabled[i] = !self.enabled[i];
-				console.log(i + " " + self.enabled[i]);
-				console.log(self.scroll[ids[i]]);
-			}
+				for (i in self.enabled) {
+					self.enabled[i] = !self.enabled[i];
+					console.log(i + " " + self.enabled[i]);
+					console.log(self.scroll[ids[i]]);
+				}
 
-			self.scroll[ids[0]].set({enable:self.enabled[0]});
-			self.scroll[ids[1]].set({enable:self.enabled[1]});
+				self.scroll[ids[0]].set({enable:self.enabled[0]});
+				self.scroll[ids[1]].set({enable:self.enabled[1]});
 
-		});
+		}]);
 
-		notifications.change("menu");
+		notifications.call("menu");
 
 	}
 
