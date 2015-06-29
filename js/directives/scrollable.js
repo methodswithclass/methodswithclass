@@ -14,7 +14,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	this.isDown = false;
 
-	var mu = 0.1;
+	var mu = 0.3;
 
 	var minVel = 10;
 
@@ -28,13 +28,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var getel = function () {
 
 		return element[ids[i]];
-	}
-
-	var log = function (text) {
-
-		console.log(text);
-
-		$("#mConsole").text(text);
 	}
 
 	var getMouse = function (e, state) {
@@ -114,7 +107,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			var bodyTop = body.offset().top;
 			var bodyBottom = bodyTop + body.height();
 
-			console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
+			//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 				
 			if (top > bodyTop) {
 				console.log("below top");
@@ -139,7 +132,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			}
 
 			if (result) {
-				console.log("stop");
+				//console.log("stop");
 				clearInterval(timer);
 				timer = null;
 			}
@@ -160,7 +153,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var down = function (e) {
 
-			console.log("down");
+			//console.log("down");
 			getMouse(e);
 			start = getAbsoluteTop();
 			getOffset();
@@ -170,7 +163,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var move = function (e) {
 
-			console.log(self.isDown);
+			//console.log(self.isDown);
 
 			if (self.isDown) {
 				getMouse(e);
@@ -183,7 +176,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var up = function (e) {
 
-			console.log("end");
+			//console.log("end");
 			isDown = false;
 			momentum();
 		}
@@ -200,7 +193,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var togglePage = function (page, other) {
 
-			console.log("toggle " + page + " " + other);
+			//console.log("toggle " + page + " " + other);
 
 			i = page;
 
@@ -215,7 +208,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 				var elem = element[ids[i]];
 
-				console.log(elem[0]);
+				//console.log(elem[0]);
 
 				scroll[ids[i]] = new Hammer(elem[0]);
 
@@ -235,7 +228,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			press.on('press', function (e) {
 
-				console.log("press " + e.center.x);
+				//console.log("press " + e.center.x);
 
 				checkPage(e);
 
