@@ -56,15 +56,9 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		offset = 1.1*mouse.y;
 	}
 
-
 	var getTop = function () {
 
 		top[ids[i]] = getAbsoluteTop();
-	}
-
-	var moveTop = function (increment) {
-
-		top[ids[i]] += increment;
 	}
 
 	var setTop = function (newTop) {
@@ -124,12 +118,17 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 				
 			if (elTop > bodyTop) {
 				console.log("below top");
-				el.animate({top:0}, 100);
+				el.animate({top:0}, 100, function () {
+					getTop();
+				});
 				return true;
 			}
 			else if (bottom < bodyBottom) {
 				console.log("above bottom");
-				el.animate({top:body.height() - el.height()}, 100);
+				el.animate({top:body.height() - el.height()}, 100, function () {
+
+					getTop();
+				});
 				return true;
 			}
 
