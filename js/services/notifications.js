@@ -1,6 +1,6 @@
 app.factory("notifications", function () {
 
-	var pages = ["projectsBtn", "contactBtn"];
+	var pages = ["projectBtn", "contactBtn"];
 
 	var index;	
 
