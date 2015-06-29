@@ -231,7 +231,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			press = new Hammer(body[0]);
 
-			press.get('press').set({time:10, threshold:5});
+			press.get('press').set({time:1, threshold:5});
 
 			press.on('press', function (e) {
 
