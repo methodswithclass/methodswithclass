@@ -255,11 +255,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		}
 
-		$rootScope.on("navChange", function () {
-
-
-		});
-
 		initPans();
 
 		initPress();
