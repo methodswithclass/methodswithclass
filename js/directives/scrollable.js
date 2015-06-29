@@ -160,7 +160,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var down = function (e) {
 
-			console.log("down");
+			alert("down");
 			getMouse(e);
 			start = getAbsoluteTop();
 			getOffset();
@@ -235,7 +235,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			press.on('press', function (e) {
 
-				alert("press " + e.center.x);
+				console.log("press " + e.center.x);
 
 				checkPage(e);
 
