@@ -5,11 +5,17 @@ app.directive('menu', ['notifications', function (notifications) {
 			
 	var link = function ($scope, element, attr) {
 
+		var body = $("#" + attr.body);
+
+		var contactLeft = -$(window).width();
+
 		var move = function (left) {
 
-			notifications.change("menu");
-
-			$("#" + attr.body).animate({left:left}, speed);
+			if (body.offset().left != left) {
+				body.animate({left:left}, speed, function () {
+					notifications.change("menu");
+				});
+			}
 		}
 
 		var action = function () {
@@ -18,7 +24,7 @@ app.directive('menu', ['notifications', function (notifications) {
 				move(0);
 			}
 			else if ($scope.id == "contactBtn") {
-				move("-100%");
+				move(contactLeft);
 			}
 		}
 

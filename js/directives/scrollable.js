@@ -221,7 +221,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		notifications.registerChange("menu", function () {
 
-			for (i in self.enabaled) {
+			for (i in self.enabled) {
 				self.enabled[i] = !self.enabled[i];
 				console.log(i + " " + self.enabled[i]);
 			}
