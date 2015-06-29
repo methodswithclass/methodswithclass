@@ -30,7 +30,7 @@
 
             <scrollable ng-attr-ids="projects contacts" body="body">
                   
-                <div class="absolute width50 corner noedge z-20" ng-style="{height:projectHeight(main.projects)}" id="projects">
+                <div class="absolute width50 corner noedge z-20" ng-style="projectHeight(main.projects)" id="projects">
                         <div class="relative width height-300 white-back noedge z-10">
                           <div class="relative width height-30 vcenter">
                             <div class="relative width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
@@ -42,7 +42,7 @@
                         </div>
                 </div>
 
-                <div class="absolute width50 left50 top0 noedge z-20" ng-style="{height:contactHeight()}" id="contacts">
+                <div class="absolute width50 left50 top0 noedge z-20" ng-style="contactHeight()" id="contacts">
                     <div class="absolute top-100 width80 hcenter">
                         <contact ng-attr-view="mContact.html" info="main.contact"></contact>
                     </div>
