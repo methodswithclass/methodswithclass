@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', '$window', 'notifications', function (global, $window, notifications) {
+app.directive("scrollable", ['global', '$window', 'notifications', 'con', function (global, $window, notifications, con) {
 
 	var self = this;
 
@@ -193,7 +193,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 				var elem = element[ids[i]];
 
-				//console.log(elem[0]);
+				con.log(elem[0]);
 
 				self.scroll[ids[i]] = new Hammer(elem[0]);
 
@@ -215,12 +215,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 				if (self.enabled[j]) {
 					i = j;
 				}
-
-				//console.log(i + " " + self.enabled[i]);
-				//console.log(self.scroll[ids[i]]);
 			}
-
-			//console.log("ids " + ids[0] + ids[1]);
 
 			self.scroll[ids[0]].set({enable:self.enabled[0]});
 			self.scroll[ids[1]].set({enable:self.enabled[1]});
