@@ -17,7 +17,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	this.isDown = false;
 	this.enabled = [false, true];
 
-	var mu = 0.1;
+	var mu = 0.4;
 
 	var minVel = 0.1;
 
