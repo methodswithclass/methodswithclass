@@ -6,31 +6,58 @@ app.factory("notifications", function () {
 	this.localScopes = {};
 	this.localVariables = {};
 
+	function isFunction(functionToCheck) {
+		 var getType = {};
+		 return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+	}
+
 	var register = function (name, callback) {
 
 		console.log("registered " + name);
+
+		var local = [];
+
+		var getScope = function (i) {
+
+			self.localScopes[name] = callback[i];
+		}
+
+		var getLocal = function (i) {
+
+			local[i] = callback[i];
+		}
+
+		var assignVariables = function() {
+
+			self.localVariables[name] = local;
+		}
+
+		var getFunction = function (i) {
+
+			self.callback[name] = callback[i];
+		}
 
 		if (Array.isArray(callback)) {
 
 			console.log("callback is array");
 
-			var local = [];
-
 			for (var i = 0; i < callback.length; i++) {
 
 				if (i == 0) {
-					self.localScopes[name] = callback[i];
-				}
-				else if (i < callback.length - 1) {
-					local[i] = callback[i];
+					getScope(i);
 				}
 				else {
-					self.callback[name] = callback[i];
+					if (isFunction(callback[i])) {
+						getFunction(i);
+						break;
+					}
+					else {
+						getLocal(i);
+					}
 				}
-
-				self.localVariables[name] = local;
-
 			}
+
+			assignVariables();
 
 		}
 		else {
