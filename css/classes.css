@@ -42,7 +42,9 @@ a.blue {
 	width:100%;
 	border:1px solid black;
 	overflow:hidden;
-	background-color:white;
+	background-color:#333;
+	opacity:0.5;
+	color:white;
 	z-index:200;
 }
 
