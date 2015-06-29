@@ -27,7 +27,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var press;
 	var ids = [];
 	var element = {};
-	var i = 0;
+	var i = 1;
 	var body;
 
 	this.count = 0;
@@ -202,23 +202,23 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
 
-		var toggle = function (e) {
+		// var toggle = function () {
 
-			if (body.offset().left != 0) {
-				console.log("toggle contacts");
-				$("#projects").removeClass("z-10");
-				$("#projects").addClass("z-5");
-				$("#contacts").removeClass("z-5");
-				$("#contacts").addClass("z-10");
-			}
-			else {
-				console.log("toggle projects");
-				$("#projects").removeClass("z-5");
-				$("#projects").addClass("z-10");
-				$("#contacts").removeClass("z-10");
-				$("#contacts").addClass("z-5");
-			}
-		}
+		// 	if (body.offset().left != 0) {
+		// 		console.log("toggle contacts");
+		// 		$("#projects").removeClass("z-10");
+		// 		$("#projects").addClass("z-5");
+		// 		$("#contacts").removeClass("z-5");
+		// 		$("#contacts").addClass("z-10");
+		// 	}
+		// 	else {
+		// 		console.log("toggle projects");
+		// 		$("#projects").removeClass("z-5");
+		// 		$("#projects").addClass("z-10");
+		// 		$("#contacts").removeClass("z-10");
+		// 		$("#contacts").addClass("z-5");
+		// 	}
+		// }
 
 		var initPans = function () {
 
@@ -245,37 +245,42 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			press.get('press').set({time:1, threshold:10});
 			press.on("press", function (e) {
 
-				toggle(e);
+				toggle();
 			});
 		}
 
 		initPans();
 
-		initPress();
+		//initPress();
 
-		notifications.register("test", function () {
+		// notifications.register("test", function () {
 
-			self.count++;
+		// 	self.count++;
 
-			console.log("inside " + self.count);
-		});
+		// 	console.log("inside " + self.count);
+		// });
 
-		notifications.call("test");
-		notifications.call("test");
-		notifications.call("test");
-		notifications.call("test");
+		// notifications.call("test");
+		// notifications.call("test");
+		// notifications.call("test");
+		// notifications.call("test");
 
-		console.log("outside " + self.count);
+		// console.log("outside " + self.count);
 
 		notifications.register("menu", function () {
 
-			for (var i in self.enabled) {
-				self.enabled[i] = !self.enabled[i];
-				console.log(i + " " + self.enabled[i]);
-				console.log(self.scroll[ids[i]]);
+			for (var j in self.enabled) {
+				self.enabled[j] = !self.enabled[j];
+
+				if (self.enabled[j]) {
+					i = j;
+				}
+
+				//console.log(i + " " + self.enabled[i]);
+				//console.log(self.scroll[ids[i]]);
 			}
 
-			console.log("ids " + ids[0] + ids[1]);
+			//console.log("ids " + ids[0] + ids[1]);
 
 			self.scroll[ids[0]].set({enable:self.enabled[0]});
 			self.scroll[ids[1]].set({enable:self.enabled[1]});
