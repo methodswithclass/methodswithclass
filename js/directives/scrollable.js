@@ -148,6 +148,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 				//console.log("stop");
 				clearInterval(timer);
 				timer = null;
+				start = getAbsoluteTop();
 			}
 		}
 
