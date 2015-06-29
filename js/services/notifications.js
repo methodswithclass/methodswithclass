@@ -5,6 +5,9 @@ app.factory("notifications", function () {
 	var index;	
 
 	var change = function (id) {
+
+		console.log(id);
+
 		for (i in pages) {
 
 			if (id == pages[i]) {
