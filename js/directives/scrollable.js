@@ -25,7 +25,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 	this.scroll = {};
 	var press;
-	this.ids = [];
+	var ids = [];
 	var element = {};
 	var i = 0;
 	var body;
@@ -202,6 +202,18 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
 
+		var toggle = function (e) {
+
+			if (e.center.x < body.width()/2) {
+				$("#projects").addClass("z-20");
+				$("#contacts").removeClass("z-20");
+			}
+			else {
+				$("#projects").removeClass("z-20");
+				$("#contacts").addClass("z-20");
+			}
+		}
+
 		var initPans = function () {
 
 			for (i in ids) {
@@ -220,7 +232,20 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		    }
 		}
 
+		var initPress = function () {
+
+			var press = new Hammer(body[0]);
+
+			press.get('press').set({time:1, threshold:10});
+			press.on("press", function (e) {
+
+				toggle(e);
+			});
+		}
+
 		initPans();
+
+		initPress();
 
 		notifications.register("test", function () {
 
