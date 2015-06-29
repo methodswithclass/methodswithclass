@@ -51,6 +51,9 @@ app.factory("notifications", function () {
 					self.callback[name]();
 				}
 				else {
+
+					console.log("local variables " + self.localVariables[name].length);
+
 					self.callback[name].apply(self.localVariables[name]);
 				}
 			}
