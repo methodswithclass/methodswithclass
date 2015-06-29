@@ -11,6 +11,8 @@ app.factory("notifications", function () {
 
 		if (typeof callback == Array) {
 
+			console.log("callback is array");
+
 			var local = [];
 
 			for (i in callback) {
@@ -28,6 +30,8 @@ app.factory("notifications", function () {
 
 		}
 		else {
+
+			console.log("callback is function");
 
 			self.callback[name] = callback;
 			self.localVariables[name] = "none";
