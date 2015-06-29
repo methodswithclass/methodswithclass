@@ -16,7 +16,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var mu = 0.3;
 
-	var minVel = 10;
+	var minVel = 0.1;
 
 	var scroll = {};
 	var press;
