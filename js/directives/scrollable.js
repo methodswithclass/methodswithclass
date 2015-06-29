@@ -247,31 +247,6 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		initPress();
 
-        $scope.projectHeight = function (projects) {
-
-			var sep = 0;
-
-			for (i in projects) {
-
-				sep += global.sep(projects[i]);
-			}
-
-			var result = projects.length*800 + sep;
-
-			console.log(result);
-
-			return {"height":result + "px"};
-		}
-
-		$scope.contactHeight = function () {
-
-			var result = "2500px";
-
-			console.log(result);
-
-			return {"height":result};
-		}
-
 	}
 
 	return {
