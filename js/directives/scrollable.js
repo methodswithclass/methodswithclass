@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', '$window', function (global, $window) {
+app.directive("scrollable", ['global', '$window', 'notifications', function (global, $window, notifications) {
 
 	var self = this;
 
@@ -208,13 +208,15 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			}
 		}
 
-		var togglePage = function (page, other) {
+		var togglePage = function () {
 
 			//console.log("toggle " + page + " " + other);
 
-			i = page;
+			i = notificatinos.getPage();
 
-			scroll[ids[page]].set({enable:true});
+			other = i == 0 ? 1 : 0;
+
+			scroll[ids[i]].set({enable:true});
 			scroll[ids[other]].set({enable:false});
 
 		}
@@ -241,17 +243,22 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			press = new Hammer(body[0]);
 
-			press.get('press').set({time:1, threshold:5});
+			press.get('press').set({time:1, threshold:500});
 
 			press.on('press', function (e) {
 
 				//console.log("press " + e.center.x);
 
-				checkPage(e);
+				toggle();
 
 			});
 
 		}
+
+		$rootScope.on("navChange", function () {
+
+
+		});
 
 		initPans();
 

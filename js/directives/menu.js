@@ -1,5 +1,5 @@
 
-app.directive('menu', function () {
+app.directive('menu', ['notifications', function (notifications) {
 
 	var speed = 300;
 			
@@ -14,9 +14,11 @@ app.directive('menu', function () {
 
 			if ($scope.id == "projectBtn") {
 				move(0);
+				notifications.change($scope.id);
 			}
 			else if ($scope.id == "contactBtn") {
 				move("-100%");
+				notifications.change($scope.id);
 			}
 		}
 
