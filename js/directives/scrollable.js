@@ -229,9 +229,9 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 				else if (self.enableCount == 1) self.doesEnable = !self.doesEnable;
 				else self.doesEnable = self.enableCount % 4 == 0 ? self.doesEnable : !self.doesEnable;
 
-				self.enableCount++;
-
 				console.log("enable " + self.enableCount + " " + self.doesEnable);
+
+				self.enableCount++;
 
 				return self.doesEnable;
 			}
