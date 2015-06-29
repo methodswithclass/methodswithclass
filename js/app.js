@@ -1,6 +1,6 @@
 var app = angular.module("methodswithclass", ['ngRoute']);
 
-var mobiledebug = false;
+var mobiledebug = true;
 
 app.config(function($routeProvider) {
     $routeProvider.
