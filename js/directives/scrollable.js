@@ -17,7 +17,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	this.isDown = false;
 	this.enabled = [false, true];
 
-	var mu = 0.3;
+	var mu = 0.1;
 
 	var minVel = 0.1;
 
@@ -136,30 +136,19 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			return false;
 		}
 
-		var endMomentum = function () {
-
-			var result = false;
-
-			if (bounce() || vel0 < minVel) {
-				result = true;
-			}
-
-			if (result) {
-				reset();
-			}
-		}
-
-		var momentum = function (accel, interval) {
+		var momentum = function (velDelta, interval) {
 
 			vel0 = vel[1];
 
 			timer = setInterval(function () {
 
-				integrate(accel,interval);
+				integrate(velDelta/interval,interval);
 
 				vel0 *= (1-mu);
 
-				endMomentum();
+				if (bounce() || vel0 < minVel) {
+					reset();
+				}
 
 			}, 10);
 
