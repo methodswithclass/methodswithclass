@@ -160,7 +160,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var down = function (e) {
 
-			alert("down");
+			console.log("down");
 			getMouse(e);
 			start = getAbsoluteTop();
 			getOffset();
@@ -170,7 +170,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var move = function (e) {
 
-			console.log(isDown);
+			alert(isDown);
 
 			if (isDown) {
 				getMouse(e);
