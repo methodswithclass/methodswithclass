@@ -8,7 +8,7 @@ app.factory("notifications", function () {
 
 		console.log("registered " + name);
 
-		self.callback[name] = callback;
+		self.callback.name = callback;
 
 	}
 
@@ -16,7 +16,7 @@ app.factory("notifications", function () {
 
 		console.log("changed " + name);
 
-		if (self.callback.length > 0) self.callback[name]();
+		if (self.callback.length > 0) self.callback.name();
 	}
 
 	return {
