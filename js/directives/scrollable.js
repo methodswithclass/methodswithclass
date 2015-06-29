@@ -228,6 +228,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			enableCount++;
 
+			console.log("enable " + doesEnable);
+
 			return doesEnable;
 		}
 
