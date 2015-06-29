@@ -18,14 +18,14 @@ app.factory("con", function() {
 
 		var string = "";
 		
-		thisCon.html(string);
+		thisCon[0].innerHTML = string;
 		
 		for (i in history) {
 
 			string += history[i] + "<br>";	
 		}
 
-		thisCon.html(string);
+		thisCon[0].innerHTML = string;
 	}
 
 	var log = function (text) {
