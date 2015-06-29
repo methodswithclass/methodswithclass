@@ -42,6 +42,7 @@ a.blue {
 	width:100%;
 	border:1px solid black;
 	overflow:hidden;
+	background-color:white;
 	z-index:200;
 }
 
