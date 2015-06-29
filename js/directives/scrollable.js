@@ -212,7 +212,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			//console.log("toggle " + page + " " + other);
 
-			i = notificatinos.getPage();
+			i = notifications.getPage();
 
 			other = i == 0 ? 1 : 0;
 
