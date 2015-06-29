@@ -17,8 +17,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var state = 0;
 
 	this.isDown = false;
-	this.doesEnable = true;
-	this.enableCount = 0;
+	this.enabled = [false, true];
 
 	var mu = 0.3;
 
@@ -222,23 +221,13 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		notifications.registerChange("menu", function () {
 
-
-			var enable = function () {
-
-				if (self.enableCount == 0) self.doesEnable = true;
-				else if (self.enableCount == 1) self.doesEnable = false;
-				else self.doesEnable = self.enableCount % 2 == 0 ? self.doesEnable : !self.doesEnable;
-
-				console.log("enable " + self.enableCount + " " + self.doesEnable);
-
-				self.enableCount++;
-
-				return self.doesEnable;
+			for (i in self.enabaled) {
+				self.enabled[i] = !self.enabled[i];
+				console.log(i + " " + self.enabled[i]);
 			}
 
-
-			self.scroll[ids[0]].set({enable:enable()});
-			self.scroll[ids[1]].set({enable:enable()});
+			self.scroll[ids[0]].set({enable:self.enabled[0]});
+			self.scroll[ids[1]].set({enable:self.enabled[1]});
 
 		});
 
