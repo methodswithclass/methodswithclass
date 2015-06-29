@@ -6,11 +6,15 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 	var startTop;
 	var mouse = {};
-	var vel;
+	var vel = [];
+	var vel0;
+	var time = [];
 	var offset;
 	var top;
 	var start;
 	var velArray = [];
+
+	var state = 0;
 
 	this.isDown = false;
 
@@ -34,11 +38,12 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		mouse = {x:e.deltaX, y:e.deltaY};
 	}
 
-	var getVel = function(e) {
+	var getVel = function(e, state) {
 
-		vel = -100*e.velocityY;
+		vel[state] = -100*e.velocityY;
+		time[state] = e.deltaTime;
 
-		//console.log(vel);
+		state = state == 0 ? 1 : 0;
 	}
 
 	var getDecellerate = function () {
@@ -81,6 +86,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 		var el = getel();
 
 		el.css({'top': newTop + "px"});
+	}
+
+	var integrate = function (accel, interval) {
+
+		var vel1 = vel0 + accel*interval
+		top = top + vel1*interval;
+
+		setTop(top);
 	}
 
 	var link = function ($scope, thing, attr) {
@@ -138,13 +151,16 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			}
 		}
 
-		var momentum = function () {
+		var momentum = function (accel, interval) {
+
+			vel0 = vel[1];
 
 			timer = setInterval(function () {
 
-				moveTop(vel);
-				vel *= (1-mu);
-				setTop(top);
+				integrate(accel,interval);
+
+				vel0 *= (1-mu);
+
 				endMomentum();
 
 			}, 10);
@@ -167,7 +183,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			if (self.isDown) {
 				getMouse(e);
-				getVel(e);
+				getVel(e, state);
 				getOffset();
 				setTop(offset + start);
 				getTop();
@@ -178,7 +194,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			//console.log("end");
 			isDown = false;
-			momentum();
+			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
 
 		var checkPage = function (e) {
