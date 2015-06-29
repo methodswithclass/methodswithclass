@@ -171,6 +171,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		var down = function (e) {
 
+			console.log(self.scroll[ids[i]]);
 			//console.log("down");
 			getMouse(e);
 			start = getAbsoluteTop();
