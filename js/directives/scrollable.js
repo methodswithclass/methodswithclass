@@ -197,17 +197,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			isDown = false;
 			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
-
-		var checkPage = function (e) {
-
-			if (body.offset().left < 0) {
-				togglePage(1,0);
-			}
-			else {
-				togglePage(0,1);
-			}
-		}
-
+		
 		var initPans = function () {
 
 			for (i in ids) {
@@ -226,22 +216,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		    }
 		}
 
-		var initPress = function () {
-
-			press = new Hammer(body[0]);
-
-			press.get('press').set({time:1, threshold:100});
-
-			press.on('press', function (e) {
-
-				//console.log("press " + e.center.x);
-
-				toggle();
-
-			});
-
-		}
-
 		var doesEnable = true;
 		var enableCount = 0;
 
@@ -256,8 +230,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		}
 
 		initPans();
-
-		initPress();
 
 		notifications.registerChange("menu", function () {
 
