@@ -2,8 +2,6 @@ app.controller('MainController', ['$scope', 'global', 'notifications', function 
 
 	var self = this;
 
-	notifications.change("projectBtn");
-
 	self.projects = [
 	{
 		id:'nuplae',
