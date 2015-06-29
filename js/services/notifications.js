@@ -8,15 +8,18 @@ app.factory("notifications", function () {
 
 		console.log("registered " + name);
 
-		self.callback.name = callback;
+		self.callback[name] = callback;
 
 	}
 
 	var change = function (name) {
 
-		console.log("changed " + name);
+		console.log("changed " + name + " " self.callback.length);
 
-		if (self.callback.length > 0) self.callback.name();
+		for(prop in self.callback) {
+
+			if (prop == name) self.callback[prop]();
+		}
 	}
 
 	return {
