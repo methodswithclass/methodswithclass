@@ -30,6 +30,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var i = 0;
 	var body;
 
+	this.count = 0;
+
 	var getel = function () {
 
 		return element[ids[i]];
@@ -220,20 +222,34 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 		initPans();
 
-		notifications.register("menu", [self, function () {
+		notifications.register("test", function () {
 
-				for (var i in this.enabled) {
-					this.enabled[i] = !this.enabled[i];
-					console.log(i + " " + this.enabled[i]);
-					console.log(this.scroll[ids[i]]);
-				}
+			self.count++;
 
-				this.scroll[ids[0]].set({enable:this.enabled[0]});
-				this.scroll[ids[1]].set({enable:this.enabled[1]});
+			console.log("inside " + self.count);
+		});
 
-		}]);
+		notifications.call("test");
+		notifications.call("test");
+		notifications.call("test");
+		notifications.call("test");
 
-		notifications.call("menu");
+		console.log("outside " + self.count);
+
+		// notifications.register("menu", [self, function () {
+
+		// 		for (var i in this.enabled) {
+		// 			this.enabled[i] = !this.enabled[i];
+		// 			console.log(i + " " + this.enabled[i]);
+		// 			console.log(this.scroll[ids[i]]);
+		// 		}
+
+		// 		this.scroll[ids[0]].set({enable:this.enabled[0]});
+		// 		this.scroll[ids[1]].set({enable:this.enabled[1]});
+
+		// }]);
+
+		// notifications.call("menu");
 
 	}
 
