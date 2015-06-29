@@ -12,7 +12,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 	var start;
 	var velArray = [];
 
-	var isDown = false;
+	this.isDown = false;
 
 	var mu = 0.1;
 
@@ -165,14 +165,14 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 			start = getAbsoluteTop();
 			getOffset();
 			getTop();
-			isDown = true;
+			self.isDown = true;
 		}
 
 		var move = function (e) {
 
-			alert(isDown);
+			alert(self.isDown);
 
-			if (isDown) {
+			if (self.isDown) {
 				getMouse(e);
 				getVel(e);
 				getOffset();
