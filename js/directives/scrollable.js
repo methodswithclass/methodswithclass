@@ -243,7 +243,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			press = new Hammer(body[0]);
 
-			press.get('press').set({time:1, threshold:500});
+			press.get('press').set({time:1, threshold:100});
 
 			press.on('press', function (e) {
 
