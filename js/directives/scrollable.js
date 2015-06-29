@@ -82,7 +82,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		setTop(top[ids[i]]);
 	}
 
-	var reset = funciton () {
+	var reset = function () {
 
 		clearInterval(timer);
 		timer = null;
