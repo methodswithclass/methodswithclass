@@ -170,7 +170,7 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 		var move = function (e) {
 
-			alert(self.isDown);
+			console.log(self.isDown);
 
 			if (self.isDown) {
 				getMouse(e);
