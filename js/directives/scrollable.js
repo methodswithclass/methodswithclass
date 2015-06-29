@@ -258,12 +258,18 @@ app.directive("scrollable", ['global', '$window', function (global, $window) {
 
 			var result = projects.length*800 + sep;
 
+			console.log(result);
+
 			return result + "px";
 		}
 
 		$scope.contactHeight = function () {
 
-			return "2500px";
+			var result = "2500px";
+
+			console.log(result);
+
+			return result;
 		}
 
 	}
