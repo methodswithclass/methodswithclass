@@ -51,7 +51,7 @@ app.factory("notifications", function () {
 					self.callback[name]();
 				}
 				else {
-					self.callback[name].apply(this, self.localVariables[name]);
+					self.callback[name].apply(self.localVariables[name]);
 				}
 			}
 		}
