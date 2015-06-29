@@ -15,7 +15,7 @@ app.factory("notifications", function () {
 
 			var local = [];
 
-			for (i in callback) {
+			for (var i = 0; i < callback.length; i++) {
 
 				if (i < callback.length - 1) {
 					local[i] = callback[i];
