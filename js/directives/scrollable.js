@@ -219,23 +219,24 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		var doesEnable = true;
 		var enableCount = 0;
 
-
-		var enable = function () {
-
-			if (enableCount == 0) doesEnable = doesEnable;
-			else if (enableCount == 1) doesEnable = !doesEnable;
-			else doesEnable = enableCount % 4 == 0 ? doesEnable : !doesEnable;
-
-			enableCount++;
-
-			console.log("enable " + doesEnable);
-
-			return doesEnable;
-		}
-
 		initPans();
 
 		notifications.registerChange("menu", function () {
+
+
+			var enable = function () {
+
+				if (enableCount == 0) doesEnable = doesEnable;
+				else if (enableCount == 1) doesEnable = !doesEnable;
+				else doesEnable = enableCount % 4 == 0 ? doesEnable : !doesEnable;
+
+				enableCount++;
+
+				console.log("enable " + enableCount + " " + doesEnable);
+
+				return doesEnable;
+			}
+
 
 			scroll[ids[0]].set({enable:enable()});
 			scroll[ids[1]].set({enable:enable()});
