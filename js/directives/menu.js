@@ -7,6 +7,8 @@ app.directive('menu', ['notifications', function (notifications) {
 
 		var move = function (left) {
 
+			notifications.change("menu");
+
 			$("#" + attr.body).animate({left:left}, speed);
 		}
 
@@ -14,11 +16,9 @@ app.directive('menu', ['notifications', function (notifications) {
 
 			if ($scope.id == "projectBtn") {
 				move(0);
-				notifications.change("menu");
 			}
 			else if ($scope.id == "contactBtn") {
 				move("-100%");
-				notifications.change("menu");
 			}
 		}
 
