@@ -4,15 +4,13 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var self = this;
 
 
-	var startTop;
 	var mouse = {};
 	var vel = [];
 	var vel0;
 	var time = [];
 	var offset;
-	var top;
+	var top = {};
 	var start;
-	var velArray = [];
 
 	var state = 0;
 
@@ -24,13 +22,10 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var minVel = 0.1;
 
 	this.scroll = {};
-	var press;
 	var ids = [];
 	var element = {};
 	var i = 1;
 	var body;
-
-	this.count = 0;
 
 	var getel = function () {
 
@@ -49,18 +44,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		state = state == 0 ? 1 : 0;
 	}
 
-	var getDecellerate = function () {
-
-		velArray = [];
-
-		while (vel > minVel) {
-
-			velArray[velArray.length] = vel;
-
-			vel *= (1-mu);
-		}
-	}
-
 	var getAbsoluteTop = function () {
 
 		var el = getel();
@@ -76,12 +59,12 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 	var getTop = function () {
 
-		top = getAbsoluteTop();
+		top[ids[i]] = getAbsoluteTop();
 	}
 
 	var moveTop = function (increment) {
 
-		top += increment;
+		top[ids[i]] += increment;
 	}
 
 	var setTop = function (newTop) {
@@ -94,9 +77,23 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 	var integrate = function (accel, interval) {
 
 		var vel1 = vel0 + accel*interval
-		top = top + vel1*interval;
+		top[ids[i]] = top[ids[i]] + vel1*interval;
 
-		setTop(top);
+		setTop(top[ids[i]]);
+	}
+
+	var reset = funciton () {
+
+		clearInterval(timer);
+		timer = null;
+
+		start = getAbsoluteTop();
+		getTop();
+		vel[0] = 0;
+		vel[1] = 0;
+		time[0] = 0;
+		time[1] = 0;
+		vel0 = 0;
 	}
 
 	var link = function ($scope, thing, attr) {
@@ -143,15 +140,12 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			var result = false;
 
-			if (bounce() || vel < minVel) {
+			if (bounce() || vel0 < minVel) {
 				result = true;
 			}
 
 			if (result) {
-				//console.log("stop");
-				clearInterval(timer);
-				timer = null;
-				start = getAbsoluteTop();
+				reset();
 			}
 		}
 
@@ -202,24 +196,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 			momentum(vel[1] - vel[0], time[1] - time[0]);
 		}
 
-		// var toggle = function () {
-
-		// 	if (body.offset().left != 0) {
-		// 		console.log("toggle contacts");
-		// 		$("#projects").removeClass("z-10");
-		// 		$("#projects").addClass("z-5");
-		// 		$("#contacts").removeClass("z-5");
-		// 		$("#contacts").addClass("z-10");
-		// 	}
-		// 	else {
-		// 		console.log("toggle projects");
-		// 		$("#projects").removeClass("z-5");
-		// 		$("#projects").addClass("z-10");
-		// 		$("#contacts").removeClass("z-10");
-		// 		$("#contacts").addClass("z-5");
-		// 	}
-		// }
-
 		var initPans = function () {
 
 			for (i in ids) {
@@ -238,34 +214,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 		    }
 		}
 
-		var initPress = function () {
-
-			var press = new Hammer(body[0]);
-
-			press.get('press').set({time:1, threshold:10});
-			press.on("press", function (e) {
-
-				toggle();
-			});
-		}
-
 		initPans();
-
-		//initPress();
-
-		// notifications.register("test", function () {
-
-		// 	self.count++;
-
-		// 	console.log("inside " + self.count);
-		// });
-
-		// notifications.call("test");
-		// notifications.call("test");
-		// notifications.call("test");
-		// notifications.call("test");
-
-		// console.log("outside " + self.count);
 
 		notifications.register("menu", function () {
 
