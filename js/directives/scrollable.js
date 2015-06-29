@@ -206,17 +206,17 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			if (body.offset().left != 0) {
 				console.log("toggle contacts");
-				$("#projects").removeClass("z-20");
-				$("#projects").addClass("z-10");
-				$("#contacts").removeClass("z-10");
-				$("#contacts").addClass("z-20");
+				$("#projects").removeClass("z-10");
+				$("#projects").addClass("z-5");
+				$("#contacts").removeClass("z-5");
+				$("#contacts").addClass("z-10");
 			}
 			else {
 				console.log("toggle projects");
-				$("#projects").removeClass("z-10");
-				$("#projects").addClass("z-20");
-				$("#contacts").removeClass("z-20");
-				$("#contacts").addClass("z-10");
+				$("#projects").removeClass("z-5");
+				$("#projects").addClass("z-10");
+				$("#contacts").removeClass("z-10");
+				$("#contacts").addClass("z-5");
 			}
 		}
 
