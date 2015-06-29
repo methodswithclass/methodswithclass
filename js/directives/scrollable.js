@@ -223,7 +223,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', function (glo
 
 			for (i in self.enabled) {
 				self.enabled[i] = !self.enabled[i];
-				console.log(i + " " + self.enabled[i] + " " + self.scroll[ids[i]]);
+				console.log(i + " " + self.enabled[i]);
+				console.log(self.scroll[ids[i]]);
 			}
 
 			self.scroll[ids[0]].set({enable:self.enabled[0]});
