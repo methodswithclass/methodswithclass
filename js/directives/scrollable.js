@@ -202,8 +202,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			var elem = element[ids[i]];
 
-			//console.log(elem[0]);
-
 			self.scroll[ids[i]] = new Hammer(elem[0]);
 
 			self.scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});

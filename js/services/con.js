@@ -61,15 +61,13 @@ app.factory("con", function() {
 		log("Error: " + msg + ", in " + url + " at " + linenumber);
 	}
 
-	var attachToConsole = function () {
+	(function () {
 	    var oldLog = console.log;
 	    console.log = function (message) {
 	       	log(message);
 	        oldLog.apply(console, arguments);
 	    };
-	}
-
-	attachToConsole();
+	})();
 
 	return {
 		register:register,
