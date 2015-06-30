@@ -11,7 +11,7 @@ app.factory("con", function() {
 		console.log("register");
 
 		conCont = thisConsole;
-		thisCon = conCont.find("#console");
+		thisCon = conCont.previous();
 	}
 		
 	var refresh = function () {
@@ -41,7 +41,7 @@ app.factory("con", function() {
 		
 		if (conCont.is(":visible")) {
 
-			console.log("is visible");
+			//console.log("is visible");
 		
 			history[history.length] = text;
 			
@@ -50,9 +50,6 @@ app.factory("con", function() {
 			
 			print();
 		
-		}
-		else {
-			console.log("is not visible");
 		}
 		
 	}
@@ -64,7 +61,7 @@ app.factory("con", function() {
 	var attachToConsole = function () {
 	    var oldLog = console.log;
 	    console.log = function (message) {
-	       	//log(message);
+	       	log(message);
 	        oldLog.apply(console, arguments);
 	    };
 	}

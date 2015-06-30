@@ -35,23 +35,28 @@ a.blue {
 	margin:0;
 }
 
-#consoleContainer {
+.console {
+
 	position:absolute;
 	bottom:0;
 	height:30%;
 	width:100%;
 	border:1px solid black;
 	overflow:hidden;
-	background-color:#333;
-	opacity:0.5;
-	color:white;
 	z-index:200;
+
 }
 
-#console {
-	position:absolute;
+#consoleContainer {
+	
+	background-color:#333;
+	opacity:0.5;
+}
+
+#consoleInner {
+
+	color:white;
 	font-size:15px;
-	bottom:0;
 }
 
 .pointer {
