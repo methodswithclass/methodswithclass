@@ -11,6 +11,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 	var offset;
 	var top = {};
 	var start;
+	this.timer;
 
 	var state = 0;
 
@@ -103,8 +104,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		console.log("reset");
 
-		clearInterval(timer);
-		timer = null;
+		clearInterval(self.timer);
+		self.timer = null;
 
 		start = getAbsoluteTop();
 		getTop();
@@ -147,7 +148,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		vel0 = vel[1];
 
-		timer = setInterval(function () {
+		self.timer = setInterval(function () {
 
 			integrate(velDelta/interval,interval);
 
