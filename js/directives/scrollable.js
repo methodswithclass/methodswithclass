@@ -72,11 +72,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		var el = getel();
 
-		var elTop = el.offset().top - bodyTop;
+		var elTop = el.offset().top;
 		var elBottom = elTop + el.height();
 
 		return {
-			top:elTop,
+			absTop:elTop,
+			top:elTop - bodyTop,
 			bottom:elBottom
 		}
 	}
@@ -130,9 +131,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		var el = getel();
 
+		var rect = getAbsoluteRect();
+
 		var bottomBounce = body.height() - el.height()
 			
-		if (top[ids[i]] > bodyTop) {
+		if (rect.absTop > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
 				setTop(0);
@@ -238,7 +241,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		bodyTop = body.offset().top;
 
-		alert(bodyTop);
+		//alert(bodyTop);
 		bodyBottom = bodyTop + body.height();
 
 
