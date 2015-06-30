@@ -49,7 +49,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		var velocity;
 
-		if (Object.prototype.toString.call(vel) == '[object Object]' && vel.hasOwnPropery("velocityY")) {
+		if (Object.prototype.toString.call(vel) == '[object Object]' && vel.hasOwnProperty("velocityY")) {
 			velocity = Math.abs(100*vel.velocityY);
 			console.log("velocity");
 		}
