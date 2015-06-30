@@ -195,6 +195,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//console.log("move");
 
 		if (self.isDown) {
+			self.running = true;
 			getMouse(e);
 			getVel(e, state);
 			getOffset();
@@ -207,7 +208,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("end");
 		isDown = false;
-		self.running = true;
 		momentum(e, vel[1] - vel[0], time[1] - time[0]);
 	}
 
