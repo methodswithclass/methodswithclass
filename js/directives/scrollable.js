@@ -119,7 +119,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		time[1] = 0;
 		vel0 = 0;
 		start = getAbsoluteRect().top;
-		getTop();
 	}
 
 	var bounce = function () {
