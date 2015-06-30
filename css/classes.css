@@ -57,6 +57,7 @@ a.blue {
 	color:white;
 	font-size:15px;
 	z-index:200;
+	vertical-align:bottom;
 }
 
 .pointer {
