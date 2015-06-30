@@ -21,7 +21,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var mu = -0.001;
 
-	var minVel = 1e-4;
+	var minVel = 1e-6;
 
 	this.scroll = {};
 	var ids = [];
@@ -44,7 +44,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getVel = function(e, state) {
 
-		vel[state] = -10*e.velocityY;
+		vel[state] = -100*e.velocityY;
 		time[state] = e.deltaTime;
 
 		state = state == 0 ? 1 : 0;
@@ -175,7 +175,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 					bounce();
 				}
 			}
-		}, 300);
+		}, 500);
 
 	}
 
