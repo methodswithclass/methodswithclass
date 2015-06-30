@@ -61,7 +61,7 @@ app.factory("con", function() {
 	var attachToConsole = function () {
 	    var oldLog = console.log;
 	    console.log = function (message) {
-	       	//log(message);
+	       	log(message);
 	        oldLog.apply(console, arguments);
 	    };
 	}
