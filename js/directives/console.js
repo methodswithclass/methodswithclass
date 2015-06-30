@@ -11,6 +11,8 @@ app.directive("console", function () {
 			element.hide();
 		}
 
+		element[0].style.overflow = "hidden";
+
 	}
 
 	return {
