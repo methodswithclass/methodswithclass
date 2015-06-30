@@ -1,19 +1,17 @@
 app.directive("console", ['con', function (con) {
 
 	var link = function ($scope, element, attr) {
-	
-		var conCont = $("#consoleContainer");
 
 		var vis = attr.vis;
 
 		if (vis == "show") {
-			conCont.show();
+			element[0].show();
 		}
 		else {
-			conCont.hide();
+			element[0].hide();
 		}
 
-		con.register($("#console"));
+		con.register(element[0]);
 
 	}
 

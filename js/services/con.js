@@ -3,11 +3,13 @@ app.factory("con", function() {
 	var total = 15;
 	var history = [];
 
+	var conCont;
 	var thisCon;
 
 	var register = function (thisConsole) {
 
-		thisCon = thisConsole;
+		conCont = thisConsole;
+		thisCon = conCont.find("#console");
 	}
 		
 	var refresh = function () {
@@ -35,7 +37,7 @@ app.factory("con", function() {
 
 	var log = function (text) {
 		
-		if (thisCon.is(":visible")) {
+		if (conCont.is(":visible")) {
 
 			console.log("is visible");
 		
