@@ -54,7 +54,7 @@ a.blue {
 }
 
 #consoleInner {
-
+	opacity:1.0;
 	color:white;
 	font-size:15px;
 }
