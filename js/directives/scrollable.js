@@ -206,16 +206,16 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var initPans = function () {
 
-		for (i in ids) {
+		for (var j in ids) {
 
-			var elem = element[ids[i]];
+			var elem = element[ids[j]];
 
-			self.scroll[ids[i]] = new Hammer(elem[0]);
+			self.scroll[ids[j]] = new Hammer(elem[0]);
 
-			self.scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
-	        self.scroll[ids[i]].on('panstart', down);
-	        self.scroll[ids[i]].on('pandown panup', move);
-	        self.scroll[ids[i]].on('panend', up);
+			self.scroll[ids[j]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+	        self.scroll[ids[j]].on('panstart', down);
+	        self.scroll[ids[j]].on('pandown panup', move);
+	        self.scroll[ids[j]].on('panend', up);
 
 	    }
 	}
