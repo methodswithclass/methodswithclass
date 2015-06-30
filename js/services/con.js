@@ -40,9 +40,9 @@ app.factory("con", function() {
 	var log = function (text) {
 		
 		if (element && element.is(":visible")) {
-
-			//console.log("is visible");
 		
+			console.log("is visible");
+
 			history[history.length] = text;
 			
 			if (history.length == total)
@@ -61,7 +61,7 @@ app.factory("con", function() {
 	var attachToConsole = function () {
 	    var oldLog = console.log;
 	    console.log = function (message) {
-	       	log(message);
+	       	//log(message);
 	        oldLog.apply(console, arguments);
 	    };
 	}
