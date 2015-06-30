@@ -115,8 +115,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		$interval.cancel(self.timer);
 
-		start = getAbsoluteRect().top;
-		getTop();
 		vel[0] = 0;
 		vel[1] = 0;
 		time[0] = 0;
@@ -126,18 +124,24 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		bounce();
 	}
 
+	var resetStartTop = function () {
+
+		start = getAbsoluteRect().top;
+		getTop();
+	}
+
 	var bounce = function () {
 
 		var el = getel();
 			
 		if (top[ids[i]] > bodyTop) {
 			el.animate({top:0}, 100, function () {
-				reset();
+				resetStartTop();
 			});
 		}
 		else if (bottom[ids[i]] < bodyBottom) {
 			el.animate({top:body.height() - el.height()}, 100, function () {
-				reset();
+				resetStartTop();
 			});
 		}
 	}
