@@ -175,7 +175,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 					bounce();
 				}
 			}
-		}, 500);
+		}, 1000);
 
 	}
 
