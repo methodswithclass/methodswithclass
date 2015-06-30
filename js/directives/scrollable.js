@@ -104,6 +104,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		el.css({'top': newTop + "px"});
 	}
 
+	
+
 	var integrate = function (accel, interval) {
 
 		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(accel)*interval
