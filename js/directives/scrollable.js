@@ -92,6 +92,105 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 		vel0 = 0;
 	}
 
+	var bounce = function () {
+
+		console.log("bounce");
+
+		var el = getel();
+
+		var elTop = el.offset().top;
+		var bottom = elTop + el.height();
+
+		var bodyTop = body.offset().top;
+		var bodyBottom = bodyTop + body.height();
+
+		//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
+			
+		if (elTop > bodyTop) {
+			con.log("below top");
+			el.animate({top:0}, 100, function () {
+				getTop();
+			});
+			return true;
+		}
+		else if (bottom < bodyBottom) {
+			con.log("above bottom");
+			el.animate({top:body.height() - el.height()}, 100, function () {
+				getTop();
+			});
+			return true;
+		}
+
+		return false;
+	}
+
+	var momentum = function (velDelta, interval) {
+
+		vel0 = vel[1];
+
+		timer = setInterval(function () {
+
+			integrate(velDelta/interval,interval);
+
+			vel0 *= (1-mu);
+
+			if (bounce() || vel0 < minVel) {
+				reset();
+			}
+
+		}, 10);
+
+	}
+
+	var down = function (e) {
+
+		//console.log(self.scroll[ids[i]]);
+		console.log("down");
+		getMouse(e);
+		start = getAbsoluteTop();
+		getOffset();
+		getTop();
+		self.isDown = true;
+	}
+
+	var move = function (e) {
+
+		console.log("move");
+
+		if (self.isDown) {
+			getMouse(e);
+			getVel(e, state);
+			getOffset();
+			setTop(offset + start);
+			getTop();
+		}
+	}
+
+	var up = function (e) {
+
+		console.log("end");
+		isDown = false;
+		momentum(vel[1] - vel[0], time[1] - time[0]);
+	}
+
+	var initPans = function () {
+
+		for (i in ids) {
+
+			var elem = element[ids[i]];
+
+			con.log(elem[0]);
+
+			self.scroll[ids[i]] = new Hammer(elem[0]);
+
+			self.scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
+	        self.scroll[ids[i]].on('panstart', down);
+	        self.scroll[ids[i]].on('pandown panup', move);
+	        self.scroll[ids[i]].on('panend', up);
+
+	    }
+	}
+
 	var link = function ($scope, thing, attr) {
 
 		ids = attr.ids.split(" ");
@@ -106,105 +205,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		//console.log(body[0]);
 
-		var bounce = function () {
-
-			console.log("bounce");
-
-			var el = getel();
-
-			var elTop = el.offset().top;
-			var bottom = elTop + el.height();
-
-			var bodyTop = body.offset().top;
-			var bodyBottom = bodyTop + body.height();
-
-			//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
-				
-			if (elTop > bodyTop) {
-				con.log("below top");
-				el.animate({top:0}, 100, function () {
-					getTop();
-				});
-				return true;
-			}
-			else if (bottom < bodyBottom) {
-				con.log("above bottom");
-				el.animate({top:body.height() - el.height()}, 100, function () {
-					getTop();
-				});
-				return true;
-			}
-
-			return false;
-		}
-
-		var momentum = function (velDelta, interval) {
-
-			vel0 = vel[1];
-
-			timer = setInterval(function () {
-
-				integrate(velDelta/interval,interval);
-
-				vel0 *= (1-mu);
-
-				if (bounce() || vel0 < minVel) {
-					reset();
-				}
-
-			}, 10);
-
-		}
-
-		var down = function (e) {
-
-			console.log(self.scroll[ids[i]]);
-			//console.log("down");
-			getMouse(e);
-			start = getAbsoluteTop();
-			getOffset();
-			getTop();
-			self.isDown = true;
-		}
-
-		var move = function (e) {
-
-			console.log("move");
-
-			if (self.isDown) {
-				getMouse(e);
-				getVel(e, state);
-				getOffset();
-				setTop(offset + start);
-				getTop();
-			}
-		}
-
-		var up = function (e) {
-
-			//console.log("end");
-			isDown = false;
-			momentum(vel[1] - vel[0], time[1] - time[0]);
-		}
-
-		var initPans = function () {
-
-			for (i in ids) {
-
-				var elem = element[ids[i]];
-
-				con.log(elem[0]);
-
-				self.scroll[ids[i]] = new Hammer(elem[0]);
-
-				self.scroll[ids[i]].get('pan').set({ direction: Hammer.DIRECTION_VERTICAL});
-		        self.scroll[ids[i]].on('panstart', down);
-		        self.scroll[ids[i]].on('pandown panup', move);
-		        self.scroll[ids[i]].on('panend', up);
-
-		    }
-		}
-
 		initPans();
 
 		notifications.register("menu", function () {
@@ -216,6 +216,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 					i = j;
 				}
 			}
+
+			console.log("enabled " + i);
 
 			self.scroll[ids[0]].set({enable:self.enabled[0]});
 			self.scroll[ids[1]].set({enable:self.enabled[1]});
