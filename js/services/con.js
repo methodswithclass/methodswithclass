@@ -61,7 +61,7 @@ app.factory("con", function() {
 		log("Error: " + msg + ", in " + url + " at " + linenumber);
 	}
 
-	var attchToConsole = function () {
+	var attachToConsole = function () {
 	    var oldLog = window.console.log;
 	    window.console.log = function (message) {
 	       	log(message);
