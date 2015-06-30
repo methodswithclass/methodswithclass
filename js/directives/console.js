@@ -5,13 +5,13 @@ app.directive("console", ['con', function (con) {
 		var vis = attr.vis;
 
 		if (vis == "show") {
-			element[0].show();
+			element.show();
 		}
 		else {
-			element[0].hide();
+			element.hide();
 		}
 
-		con.register(element[0]);
+		con.register(element);
 
 	}
 
