@@ -8,6 +8,8 @@ app.factory("con", function() {
 
 	var register = function (thisConsole) {
 
+		console.log("register");
+
 		conCont = thisConsole;
 		thisCon = conCont.find("#console");
 	}
@@ -37,7 +39,7 @@ app.factory("con", function() {
 
 	var log = function (text) {
 		
-		if (conCont.is(":visible")) {
+		if (conCont.is(":visisble")) {
 
 			console.log("is visible");
 		
