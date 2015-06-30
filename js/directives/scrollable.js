@@ -11,7 +11,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var offset;
 	var top = {};
 	var bottom = {};
-	var start;
 	this.timer;
 
 	var state = 0;
@@ -70,7 +69,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		var el = getel();
 
-		var elTop = el.offset().top - body.offset().top;
+		var elTop = el.offset().top - bodyTop;
 		var elBottom = elTop + el.height();
 
 		return {
@@ -118,7 +117,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		time[0] = 0;
 		time[1] = 0;
 		vel0 = 0;
-		start = getAbsoluteRect().top;
 	}
 
 	var bounce = function () {
@@ -174,7 +172,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//console.log(self.scroll[ids[i]]);
 		console.log("down");
 		getMouse(e);
-		start = getAbsoluteRect().top;
 		getOffset();
 		getTop();
 		self.isDown = true;
@@ -188,7 +185,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 			getMouse(e);
 			getVel(e, state);
 			getOffset();
-			setTop(offset + start);
+			setTop(offset);
 			getTop();
 		}
 	}
