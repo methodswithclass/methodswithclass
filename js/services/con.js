@@ -1,6 +1,6 @@
 app.factory("con", function() {
 
-	var total = 1000;
+	var total = 20;
 	var history = [];
 
 	var count = 0;
@@ -14,6 +14,8 @@ app.factory("con", function() {
 
 		conCont = thisConsole;
 		thisCon = conCont.prev();
+
+		thisCon
 	}
 		
 	var refresh = function () {
