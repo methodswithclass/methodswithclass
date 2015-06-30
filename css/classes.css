@@ -43,20 +43,20 @@ a.blue {
 	width:100%;
 	border:1px solid black;
 	overflow:hidden;
-	z-index:200;
-
 }
 
 #consoleContainer {
 	
 	background-color:black;
 	opacity:0.9;
+	z-index:190;
 }
 
 #consoleInner {
 	opacity:1.0;
 	color:white;
 	font-size:15px;
+	z-index:200;
 }
 
 .pointer {
