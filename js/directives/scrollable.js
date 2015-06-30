@@ -166,6 +166,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 				else if (isUnderVel(vel0)) {
 					console.log("under vel0");
 					bounce();
+				}
 			}
 		}, 10);
 
