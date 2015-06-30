@@ -41,7 +41,7 @@ app.factory("con", function() {
 		
 		if (thisCon && thisCon.is(":visible")) {
 		
-			console.log("is visible");
+			//console.log("is visible");
 
 			history[history.length] = text;
 			
@@ -52,7 +52,7 @@ app.factory("con", function() {
 		
 		}
 		else {
-			console.log("is not visible");
+			//console.log("is not visible");
 		}
 		
 	}
@@ -64,7 +64,7 @@ app.factory("con", function() {
 	var attachToConsole = function () {
 	    var oldLog = console.log;
 	    console.log = function (message) {
-	       	//log(message);
+	       	log(message);
 	        oldLog.apply(console, arguments);
 	    };
 	}
