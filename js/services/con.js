@@ -3,15 +3,15 @@ app.factory("con", function() {
 	var total = 15;
 	var history = [];
 
-	var element;
+	var conCont;
 	var thisCon;
 
 	var register = function (thisConsole) {
 
 		console.log("register");
 
-		element = thisConsole.parent();
-		thisCon = element.find("#consoleInner");
+		conCont = thisConsole;
+		thisCon = conCont.prev();
 	}
 		
 	var refresh = function () {
@@ -39,7 +39,7 @@ app.factory("con", function() {
 
 	var log = function (text) {
 		
-		if (element && element.is(":visible")) {
+		if (thisCont && thisCont.is(":visible")) {
 		
 			console.log("is visible");
 
@@ -50,6 +50,9 @@ app.factory("con", function() {
 			
 			print();
 		
+		}
+		else {
+			console.log("is not visible");
 		}
 		
 	}
