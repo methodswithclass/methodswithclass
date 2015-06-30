@@ -17,4 +17,4 @@ app.directive("console", function () {
 		template:"<div id='consoleContainer'><div id='console'></div></div>",
 		link:link
 	}
-}]);
+});
