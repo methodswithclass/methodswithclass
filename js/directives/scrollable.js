@@ -170,7 +170,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//console.log(self.scroll[ids[i]]);
 		console.log("down");
 		getMouse(e);
-		start = getAbsoluteTop();
+		start = getAbsoluteRect().top;
 		getOffset();
 		getTop();
 		self.isDown = true;
