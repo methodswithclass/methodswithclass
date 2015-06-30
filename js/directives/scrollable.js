@@ -19,9 +19,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	this.isDown = false;
 	this.enabled = [false, true];
 
-	var mu = -0.0001;
+	var mu = -0.001;
 
-	var minVel = 1e-8;
+	var minVel = 0.001;
 
 	this.scroll = {};
 	var ids = [];
