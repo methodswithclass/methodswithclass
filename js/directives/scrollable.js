@@ -113,38 +113,35 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("reset");
 
-		$interval.cancel(self.timer);
-
 		vel[0] = 0;
 		vel[1] = 0;
 		time[0] = 0;
 		time[1] = 0;
 		vel0 = 0;
-
-		bounce();
-	}
-
-	var resetStartTop = function () {
-
 		start = getAbsoluteRect().top;
 		getTop();
 	}
 
 	var bounce = function () {
 
+		$interval.cancel(self.timer);
+
 		var el = getel();
 			
 		if (top[ids[i]] > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
-				resetStartTop();
+				reset();
 			});
 		}
 		else if (bottom[ids[i]] < bodyBottom) {
-			console.log("above top");
+			console.log("above bottom");
 			el.animate({top:body.height() - el.height()}, 100, function () {
-				resetStartTop();
+				reset();
 			});
+		}
+		else{
+			reset();
 		}
 	}
 
@@ -160,11 +157,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			if (isUnderVel(e)) {
 				console.log("under velocity");
-				reset();
+				bounce();
 			}
 			else if (isUnderVel(vel0)) {
 				console.log("under vel0");
-				reset();
+				bounce();
 			}
 
 		}, 10);
