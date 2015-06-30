@@ -1,7 +1,9 @@
 app.factory("con", function() {
 
-	var total = 15;
+	var total = 30;
 	var history = [];
+
+	var count = 0;
 
 	var conCont;
 	var thisCon;
@@ -40,10 +42,8 @@ app.factory("con", function() {
 	var log = function (text) {
 		
 		if (thisCon && thisCon.is(":visible")) {
-		
-			//console.log("is visible");
 
-			history[history.length] = text;
+			history[history.length] = count++ + "  " + text;
 			
 			if (history.length == total)
 				refresh();
