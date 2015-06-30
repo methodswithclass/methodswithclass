@@ -39,7 +39,7 @@ app.factory("con", function() {
 
 	var log = function (text) {
 		
-		if (conCont.is(":visible")) {
+		if (conCont && conCont.is(":visible")) {
 
 			//console.log("is visible");
 		
