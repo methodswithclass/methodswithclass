@@ -68,6 +68,7 @@ app.factory("con", function() {
 	attachToConsole();
 
 	return {
+		register:register,
 		log:log
 	}
 
