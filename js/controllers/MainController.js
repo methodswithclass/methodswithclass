@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$document', 'global', 'notifications', 'con' function ($scope, $document, global, notifications, con) {
+app.controller('MainController', ['$scope', '$document', 'global', 'notifications', 'con', function ($scope, $document, global, notifications, con) {
 
 	var self = this;
 
