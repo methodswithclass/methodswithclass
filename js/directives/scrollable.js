@@ -11,6 +11,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var offset;
 	var top = {};
 	var bottom = {};
+	var start = {};
 	this.timer;
 
 	var state = 0;
@@ -29,6 +30,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var body;
 	var bodyTop;
 	var bodyBottom;
+
+	this.running = false;
 
 	var getel = function () {
 
@@ -117,29 +120,29 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		time[0] = 0;
 		time[1] = 0;
 		vel0 = 0;
+		start[ids[i]] = getAbsoluteRect().top;
+		getTop();
 	}
 
 	var bounce = function () {
 
-		$interval.cancel(self.timer);
+		self.running = false;
 
 		var el = getel();
 			
 		if (top[ids[i]] > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
-				getTop();
 				reset();
 			});
 		}
 		else if (bottom[ids[i]] < bodyBottom) {
 			console.log("above bottom");
 			el.animate({top:body.height() - el.height()}, 100, function () {
-				getTop();
 				reset();
 			});
 		}
-		else{
+		else {
 			reset();
 		}
 	}
@@ -150,42 +153,44 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		self.timer = $interval(function () {
 
-			integrate(velDelta/interval,interval);
+			if (self.running) {
 
-			vel0 *= (1-mu);
+				integrate(velDelta/interval,interval);
 
-			if (isUnderVel(e)) {
-				console.log("under velocity");
-				bounce();
+				vel0 *= (1-mu);
+
+				if (isUnderVel(e)) {
+					console.log("under velocity");
+					bounce();
+				}
+				else if (isUnderVel(vel0)) {
+					console.log("under vel0");
+					bounce();
 			}
-			else if (isUnderVel(vel0)) {
-				console.log("under vel0");
-				bounce();
-			}
-
 		}, 10);
 
 	}
 
 	var down = function (e) {
 
-		//console.log(self.scroll[ids[i]]);
 		console.log("down");
+
+		self.running = false;
+		reset();
 		getMouse(e);
 		getOffset();
-		getTop();
 		self.isDown = true;
 	}
 
 	var move = function (e) {
 
-		console.log("move");
+		//console.log("move");
 
 		if (self.isDown) {
 			getMouse(e);
 			getVel(e, state);
 			getOffset();
-			setTop(offset);
+			setTop(offset + start[ids[i]]);
 			getTop();
 		}
 	}
@@ -194,6 +199,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("end");
 		isDown = false;
+		self.running = true;
 		momentum(e, vel[1] - vel[0], time[1] - time[0]);
 	}
 
