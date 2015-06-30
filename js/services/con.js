@@ -11,7 +11,7 @@ app.factory("con", function() {
 		console.log("register");
 
 		conCont = thisConsole;
-		thisCon = conCont.previous();
+		thisCon = conCont.prev();
 	}
 		
 	var refresh = function () {
