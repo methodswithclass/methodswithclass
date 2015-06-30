@@ -83,7 +83,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getOffset = function () {
 
-		offset = 1.1*mouse.y;
+		offset = mouse.y;
 	}
 
 	var getTop = function () {
