@@ -44,7 +44,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getVel = function(e, state) {
 
-		vel[state] = -5*e.velocityY;
+		vel[state] = -0.8*e.velocityY;
 		time[state] = e.deltaTime;
 
 		state = state == 0 ? 1 : 0;
@@ -105,7 +105,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var integrate = function (accel, interval) {
 
-		var vel1 = vel0 + accel*interval
+		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(accel)*interval
 		top[ids[i]] = top[ids[i]] + vel1*interval;
 
 		setTop(top[ids[i]]);
