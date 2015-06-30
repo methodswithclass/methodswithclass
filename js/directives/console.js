@@ -1,4 +1,4 @@
-app.directive("console", function () {
+app.directive("console", ['con', function (con) {
 
 	var link = function ($scope, element, attr) {
 	
@@ -13,10 +13,12 @@ app.directive("console", function () {
 			conCont.hide();
 		}
 
+		con.register($("#console"));
+
 	}
 
 	return {
 		template:"<div id='consoleContainer'><div id='console'></div></div>",
 		link:link
 	}
-});
+}]);

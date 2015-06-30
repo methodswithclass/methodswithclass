@@ -4,6 +4,11 @@ app.factory("con", function() {
 	var history = [];
 
 	var thisCon;
+
+	var register = function (thisConsole) {
+
+		thisCon = thisConsole;
+	}
 		
 	var refresh = function () {
 			
@@ -29,8 +34,6 @@ app.factory("con", function() {
 	}
 
 	var log = function (text) {
-
-		thisCon = $("#console");
 		
 		if (thisCon.is(":visible")) {
 
