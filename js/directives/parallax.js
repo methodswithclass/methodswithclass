@@ -22,10 +22,6 @@ app.directive('parallax', ['parallaxService', '$window', function (parallax, $wi
 		angular.element($window).bind('resize', scroll);
 	}
 
-
-
-
-
 	return {
 		scope:{
 			scrollItems:'=',

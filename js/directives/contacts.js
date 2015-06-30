@@ -8,7 +8,7 @@ app.directive("contacts", ['global', function (global) {
 
 				var result = "2500px";
 
-				console.log(result);
+				//console.log(result);
 
 				return {"height":result};
 			}

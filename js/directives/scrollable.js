@@ -126,14 +126,14 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		var bodyBottom = bodyTop + body.height();
 			
 		if (elTop > bodyTop) {
-			con.log("below top");
+			console.log("below top");
 			el.animate({top:0}, 100, function () {
 				getTop();
 			});
 			return true;
 		}
 		else if (bottom < bodyBottom) {
-			con.log("above bottom");
+			console.log("above bottom");
 			el.animate({top:body.height() - el.height()}, 100, function () {
 				getTop();
 			});

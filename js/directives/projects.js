@@ -15,7 +15,7 @@ app.directive("projects", ['global', function (global) {
 
 				var result = projects.length*800 + sep;
 
-				console.log(result);
+				//console.log(result);
 
 				return {"height":result + "px"};
 			}
