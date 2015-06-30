@@ -19,9 +19,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	this.isDown = false;
 	this.enabled = [false, true];
 
-	var mu = 0.4;
+	var mu = -0.1;
 
-	var minVel = 0.001;
+	var minVel = 1e-4;
 
 	this.scroll = {};
 	var ids = [];
@@ -157,14 +157,14 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 				integrate(velDelta/interval,interval);
 
-				vel0 *= (1-mu);
+				vel0 *= mu;
 
-				if (isUnderVel(e)) {
-					console.log("under velocity");
+				if (isUnderVel(vel0)) {
+					console.log("under vel0");
 					bounce();
 				}
-				else if (isUnderVel(vel0)) {
-					console.log("under vel0");
+				else if (isUnderVel(e)) {
+					console.log("under velocity");
 					bounce();
 				}
 			}
