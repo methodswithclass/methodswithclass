@@ -44,6 +44,27 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 		state = state == 0 ? 1 : 0;
 	}
 
+	var isUnderVel = function (vel) {
+
+		var velocity;
+
+		if (vel.hasOwnPropery("velocityY")) {
+			velocity = 100*vel.velocityY;
+			console.log("velocity");
+		}
+		else {
+			console.log("vel0");
+			velocity = vel;
+		}
+
+		if (velocity < minVel) {
+			console.log("is under min");
+			return true;
+		}
+		
+		return false;
+	}
+
 	var getAbsoluteTop = function () {
 
 		var el = getel();
@@ -57,6 +78,8 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 	}
 
 	var getTop = function () {
+
+		console.log("get top");
 
 		top[ids[i]] = getAbsoluteTop();
 	}
@@ -94,8 +117,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 	var bounce = function () {
 
-		console.log("bounce");
-
 		var el = getel();
 
 		var elTop = el.offset().top;
@@ -124,7 +145,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 		return false;
 	}
 
-	var momentum = function (velDelta, interval) {
+	var momentum = function (e, velDelta, interval) {
 
 		vel0 = vel[1];
 
@@ -134,7 +155,10 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 			vel0 *= (1-mu);
 
-			if (bounce() || vel0 < minVel) {
+			if (bounce()) {
+				reset();
+			}
+			else if (isUnderVel(e) || isUnderVel(vel0)) {
 				reset();
 			}
 
@@ -170,7 +194,7 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		console.log("end");
 		isDown = false;
-		momentum(vel[1] - vel[0], time[1] - time[0]);
+		momentum(e, vel[1] - vel[0], time[1] - time[0]);
 	}
 
 	var initPans = function () {
