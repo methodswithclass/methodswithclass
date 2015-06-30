@@ -44,7 +44,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getVel = function(e, state) {
 
-		vel[state] = -100*e.velocityY;
+		vel[state] = -10*e.velocityY;
 		time[state] = e.deltaTime;
 
 		state = state == 0 ? 1 : 0;
