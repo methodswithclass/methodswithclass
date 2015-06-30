@@ -49,7 +49,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		var velocity;
 
-		if (typeof vel == Object && vel.hasOwnPropery("velocityY")) {
+		if (typeof vel === 'object' && vel.hasOwnPropery("velocityY")) {
 			velocity = Math.abs(100*vel.velocityY);
 			console.log("velocity");
 		}
@@ -201,7 +201,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			var elem = element[ids[i]];
 
-			con.log(elem[0]);
+			//console.log(elem[0]);
 
 			self.scroll[ids[i]] = new Hammer(elem[0]);
 
