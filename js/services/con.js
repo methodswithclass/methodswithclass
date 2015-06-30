@@ -43,7 +43,7 @@ app.factory("con", function() {
 		
 		if (thisCon && thisCon.is(":visible")) {
 
-			history[history.length] = count++ + "  " + text;
+			history[history.length] = count++ + "&nbsp; &nbsp;" + text;
 			
 			if (history.length == total)
 				refresh();
