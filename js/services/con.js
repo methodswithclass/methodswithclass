@@ -1,6 +1,6 @@
 app.factory("con", function() {
 
-	var total = 20;
+	var total = 18;
 	var history = [];
 
 	var count = 0;
