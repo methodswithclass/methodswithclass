@@ -237,6 +237,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		body = $("#" + $scope.body);
 
 		bodyTop = body.offset().top;
+
+		alert(bodyTop);
 		bodyBottom = bodyTop + body.height();
 
 
