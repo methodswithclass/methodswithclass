@@ -10,6 +10,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var time = [];
 	var offset;
 	var top = {};
+	var bottom = {};
 	var start;
 	this.timer;
 
@@ -27,6 +28,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var element = {};
 	var i = 1;
 	var body;
+	var bodyTop;
+	var bodyBottom;
 
 	var getel = function () {
 
@@ -63,11 +66,17 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		return false;
 	}
 
-	var getAbsoluteTop = function () {
+	var getAbsoluteRect = function () {
 
 		var el = getel();
 
-		return el.offset().top - body.offset().top;
+		var elTop = el.offset().top - body.offset().top;
+		var elBottom = elTop + el.height();
+
+		return {
+			top:elTop,
+			bottom:elBottom
+		}
 	}
 
 	var getOffset = function () {
@@ -79,7 +88,10 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("get top");
 
-		top[ids[i]] = getAbsoluteTop();
+		var rect = getAbsoluteRect();
+
+		top[ids[i]] = rect.top;
+		bottom[ids[i]] = rect.bottom; 
 	}
 
 	var setTop = function (newTop) {
@@ -103,39 +115,31 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		$interval.cancel(self.timer);
 
-		start = getAbsoluteTop();
+		start = getAbsoluteRect().top;
 		getTop();
 		vel[0] = 0;
 		vel[1] = 0;
 		time[0] = 0;
 		time[1] = 0;
 		vel0 = 0;
+
+		bounce();
 	}
 
 	var bounce = function () {
 
 		var el = getel();
-
-		var elTop = el.offset().top;
-		var bottom = elTop + el.height();
-
-		var bodyTop = body.offset().top;
-		var bodyBottom = bodyTop + body.height();
 			
-		if (elTop > bodyTop) {
+		if (top[ids[i]] > bodyTop) {
 			el.animate({top:0}, 100, function () {
-				getTop();
+				reset();
 			});
-			return true;
 		}
-		else if (bottom < bodyBottom) {
+		else if (bottom[ids[i]] < bodyBottom) {
 			el.animate({top:body.height() - el.height()}, 100, function () {
-				getTop();
+				reset();
 			});
-			return true;
 		}
-
-		return false;
 	}
 
 	var momentum = function (e, velDelta, interval) {
@@ -148,11 +152,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			vel0 *= (1-mu);
 
-			if (bounce()) {
-				console.log("bounce");
-				reset();
-			}
-			else if (isUnderVel(e)) {
+			if (isUnderVel(e)) {
 				console.log("under velocity");
 				reset();
 			}
@@ -223,6 +223,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		}
 		
 		body = $("#" + $scope.body);
+
+		bodyTop = body.offset().top;
+		bodyBottom = bodyTop + body.height();
+
+
 
 		//console.log(body[0]);
 
