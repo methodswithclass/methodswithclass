@@ -48,13 +48,13 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		var velocity;
 
-		if (vel.hasOwnPropery("velocityY")) {
-			velocity = 100*vel.velocityY;
+		if (typeof vel == Object && vel.hasOwnPropery("velocityY")) {
+			velocity = Math.abs(100*vel.velocityY);
 			console.log("velocity");
 		}
 		else {
 			console.log("vel0");
-			velocity = vel;
+			velocity = Math.abs(vel);
 		}
 
 		if (velocity < minVel) {
@@ -124,8 +124,6 @@ app.directive("scrollable", ['global', '$window', 'notifications', 'con', functi
 
 		var bodyTop = body.offset().top;
 		var bodyBottom = bodyTop + body.height();
-
-		//console.log("top:" + top + " bodyTop: " + bodyTop + " bottom: " + bottom + " bodyBottom: " + bodyBottom);
 			
 		if (elTop > bodyTop) {
 			con.log("below top");
