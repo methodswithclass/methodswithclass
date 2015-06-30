@@ -51,15 +51,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		if (Object.prototype.toString.call(vel) == '[object Object]' && vel.hasOwnProperty("velocityY")) {
 			velocity = Math.abs(100*vel.velocityY);
-			console.log("velocity");
 		}
 		else {
-			console.log("vel0");
 			velocity = Math.abs(vel);
 		}
 
 		if (velocity < minVel) {
-			console.log("is under min");
 			return true;
 		}
 		
@@ -126,14 +123,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		var bodyBottom = bodyTop + body.height();
 			
 		if (elTop > bodyTop) {
-			console.log("below top");
 			el.animate({top:0}, 100, function () {
 				getTop();
 			});
 			return true;
 		}
 		else if (bottom < bodyBottom) {
-			console.log("above bottom");
 			el.animate({top:body.height() - el.height()}, 100, function () {
 				getTop();
 			});
@@ -154,9 +149,15 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 			vel0 *= (1-mu);
 
 			if (bounce()) {
+				console.log("bounce");
 				reset();
 			}
-			else if (isUnderVel(e) || isUnderVel(vel0)) {
+			else if (isUnderVel(e)) {
+				console.log("under velocity");
+				reset();
+			}
+			else if (isUnderVel(vel0)) {
+				console.log("under vel0");
 				reset();
 			}
 
