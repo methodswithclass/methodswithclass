@@ -395,6 +395,11 @@ a.blue {
 	overflow-y:scroll;
 }
 
+.touch {
+
+	-webkit-overflow-scrolling: touch;
+}
+
 
 
 /* ***************  CENTERING ***************  */
