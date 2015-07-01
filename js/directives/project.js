@@ -9,16 +9,24 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			var press = new Hammer("#blocknuplae");
+			var $block = element.find("#blocknuplae");
 
-			press.get('press').set({time:1, threshold:10});
+			console.log($block[0]);
 
-			press.on('pressup', function () {
-					window.open(
-						 'http://nuplae.methodswithclass.com',
-						  '_blank' // <- This is what makes it open in a new window.
-					);
-			});
+			if ($block[0]) {
+
+				var press = new Hammer($block[0]);
+
+				press.get('press').set({time:1, threshold:10});
+
+				press.on('pressup', function (e) {
+						window.open(
+							 'http://nuplae.methodswithclass.com',
+							  '_blank' // <- This is what makes it open in a new window.
+						);
+				});
+
+			}
 
 		    $scope.getContentUrl = function() {
             	return 'views/' + attr.view;
