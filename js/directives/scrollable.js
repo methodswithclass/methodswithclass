@@ -177,6 +177,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var integrate = function () {
 
+		console.log("vel0 " + vel0 + " " + self.interval);
+
 		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(self.accel)*self.interval
 		top[ids[i]] = top[ids[i]] + vel1*self.interval;
 
@@ -210,7 +212,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		if (self.isDown) {	
 
-			console.log("move");
+			//console.log("move");
 
 			stop();
 			getVel(e, state);
