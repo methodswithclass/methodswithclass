@@ -193,7 +193,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 				bounce();
 
 			}
-		}, 1000);
+		}, 10);
 	}
 
 	var down = function (e) {
