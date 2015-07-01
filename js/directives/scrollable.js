@@ -50,6 +50,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		self.vel[state] = -1000*e.velocityY;
 		self.time[state] = e.deltaTime;
 
+		vel0 = self.vel[1];
+
 		state = state == 0 ? 1 : 0;
 	}
 
@@ -126,40 +128,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		self.running = false;
 	}
 
-	var friction = function () {
-
-		vel0 *= mu;
-
-		if (isUnderVel(vel0)) {
-			console.log("under vel0");
-			bounce();
-		}
-		else if (isUnderVel(e)) {
-			console.log("under velocity");
-			bounce();
-		}
-	}
-
-	var motion = function () {
-
-		self.timer = $interval(function () {
-
-			if (self.running) {
-
-				integrate(self.accel, self.interval);
-
-			}
-		}, 1000);
-	}
-
-	var integrate = function () {
-
-		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(accel)*interval
-		top[ids[i]] = top[ids[i]] + vel1*interval;
-
-		setTop(top[ids[i]]);
-	}
-
 	var reset = function () {
 
 		console.log("reset");
@@ -171,6 +139,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		vel0 = 0;
 		start[ids[i]] = getAbsoluteRect().top;
 		getTop();
+	}
+
+	var friction = function () {
+
+		vel0 *= mu;
 	}
 
 	var bounce = function () {
@@ -202,11 +175,34 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		}
 	}
 
+	var integrate = function () {
+
+		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(self.accel)*self.interval
+		top[ids[i]] = top[ids[i]] + vel1*self.interval;
+
+		setTop(top[ids[i]]);
+	}
+
+	var motion = function () {
+
+		self.timer = $interval(function () {
+
+			if (self.running) {
+
+				integrate();
+
+				friction();
+
+				bounce();
+
+			}
+		}, 1000);
+	}
+
 	var down = function (e) {
 
 		console.log("down");
-
-		self.running = false;
+		stop();
 		self.isDown = true;
 	}
 
@@ -215,15 +211,18 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//console.log("move");
 
 		if (self.isDown) {
-			self.running = true;
+			stop();
 			getVel(e, state);
-			getTop();
+			getAccel();
+			self.accel = 0;
+			integrate();
 		}
 	}
 
 	var up = function (e) {
 
 		console.log("end");
+		start();
 		isDown = false;
 		self.accel = getAccel();
 	}
