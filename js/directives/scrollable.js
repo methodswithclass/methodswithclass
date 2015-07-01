@@ -233,7 +233,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 			self.accel = 0;
 			self.vel[self.vel.length] = getVel(e);
 
-			setTop(getMouse(e).y + start);
+			setTop(getMouse(e).y + start[ids[i]]);
 
 		}
 	}
