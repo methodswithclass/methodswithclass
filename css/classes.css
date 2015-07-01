@@ -378,6 +378,16 @@ a.blue {
 	border:1px solid blue;	
 }
 
+.border-left {
+
+	border-left:1px solid black;
+}
+
+.border-right {
+
+	border-right:1px solid black;
+}
+
 .shadow {
 	box-shadow: 0 0 10px 0 #424242;	
 }
