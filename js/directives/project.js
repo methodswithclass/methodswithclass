@@ -9,7 +9,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			$("#blocknuplae").on('touchend', function () {=
+			$("#blocknuplae").on('touchend', function () {
 					$window.open(
 						 'http://nuplae.methodswithclass.com',
 						  '_blank' // <- This is what makes it open in a new window.
