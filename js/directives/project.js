@@ -17,7 +17,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				console.log($block[0]);
 
-				$block.on("load", function () {
+				angular.element($block).on("load", function () {
 
 					console.log("loaded");
 
