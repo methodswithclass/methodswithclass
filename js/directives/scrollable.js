@@ -140,7 +140,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		self.vel = [];
 		self.vel0 = 0;
-		start[ids[i]] = pos[ids[i]]];
+		start[ids[i]] = pos[ids[i]];
 		getTop();
 	}
 
