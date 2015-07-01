@@ -96,9 +96,14 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		bottom[ids[i]] = rect.bottom; 
 	}
 
-	var setTop = function (newTop) {
+	var setPos = function (newTop) {
 
-		//self.pos[ids[i]] = newTop;
+		self.pos[ids[i]] = newTop;
+
+		setTop(newTop);
+	}
+
+	var setTop = function (newTop) {
 
 		var el = getel();
 
@@ -153,14 +158,14 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		if (rect.atop > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
-				setTop(0);
+				setPos(0);
 				reset();
 			});
 		}
 		else if (bottom[ids[i]] < bodyBottom) {
 			console.log("above bottom");
 			el.animate({top:bottomBounce}, 100, function () {
-				setTop(bottomBounce);
+				setPos(bottomBounce);
 				reset();
 			});
 		}
