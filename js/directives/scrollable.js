@@ -24,6 +24,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 	var state = 0;
 
 	this.isDown = false;
+	this.isFirst = false;
 	this.enabled = [false, true];
 
 	var mu = -0.1;
@@ -218,10 +219,9 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		console.log("down");
 		stopIntegration();
 		self.isDown = true;
+		self.isFirst = true;
 		self.vel = null;
 		self.vel = [];
-		self.vel[0] = getVel(e);
-		self.vel0  = self.vel[0];
 		start[ids[i]] = self.pos[ids[i]];
 	}
 
@@ -231,11 +231,19 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 			//console.log("move");
 
+			if (self.isFirst) {
+				self.vel[0] = getVel(e);
+				self.vel0  = self.vel[0];
+				self.isFirst = false;
+			}
+
 			stopIntegration();
 			self.accel = 0;
 			self.vel[self.vel.length] = getVel(e);
 
-			setTop(getMouse(e).y + start[ids[i]]);
+			self.pos[ids[i]] = getMouse(e).y + start[ids[i]];
+
+			setTop(self.pos[ids[i]]);
 
 		}
 	}
