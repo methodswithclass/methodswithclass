@@ -12,9 +12,7 @@ app.directive('menu', ['events', function (events) {
 		var move = function (left) {
 
 			if (body.offset().left != left) {
-				body.animate({left:left}, speed, function () {
-					events.dispatch("menu");
-				});
+				body.animate({left:left}, speed);
 			}
 		}
 
