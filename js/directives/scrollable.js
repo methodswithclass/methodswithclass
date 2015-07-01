@@ -208,9 +208,10 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var move = function (e) {
 
-		//console.log("move");
+		if (self.isDown) {	
 
-		if (self.isDown) {
+			console.log("move");
+
 			stop();
 			getVel(e, state);
 			getAccel();
