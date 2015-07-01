@@ -48,7 +48,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		self.vel0 = self.vel[1];
 
-		i = i == 0 ? 1 : 0;
+		return i == 0 ? 1 : 0;
 	}
 
 	var getAccel = function () {
@@ -204,7 +204,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 			//console.log("move");
 
 			stop();
-			getVel(e, state);
+			state = getVel(e, state);
 			getAccel();
 			self.accel = 0;
 			integrate();
