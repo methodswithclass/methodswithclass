@@ -55,6 +55,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getAccel = function () {
 
+		self.interval = self.time[1] - self.time[0];
+
 		var accel = (self.vel[1] - self.vel[0])/self.interval;
 
 		return accel;
@@ -259,11 +261,13 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//alert(bodyTop);
 		bodyBottom = bodyTop + body.height();
 
-
-
 		//console.log(body[0]);
 
 		initPans();
+
+		motion();
+
+		start();
 
 		notifications.register("menu", function () {
 
