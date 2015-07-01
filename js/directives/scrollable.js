@@ -107,6 +107,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var setTop = function (newTop) {
 
+		self.pos1 = newTop;
+
 		var el = getel();
 
 		el.css({'top': newTop + "px"});
