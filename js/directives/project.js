@@ -65,6 +65,11 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				$space = $("#space" + info.id);
 
 				if (!open) {
+
+					$element.removeClass("text-center");
+
+					$element.html($scope.info.description);
+
 					$element.animate({height:setSep(info)}, openSpeed, function () {
 						bindResize(info);
 						console.log("opened");
@@ -74,6 +79,11 @@ app.directive('project', ['global', '$window', function (global, $window) {
 					open = true;
 				}
 				else {
+
+					$element.addClass("text-center");
+
+					$element.html("...");
+
 					$element.animate({height:100}, openSpeed, function () {
 						unbind(info);
 						console.log("closed");
