@@ -12,10 +12,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 	this.timer;
 
 
-	this.vel = [];
-	this.accel = 0;
-	this.vel0 = 0;
-	this.vel1 = 0;
+	this.vel = 0;
 	this.pos0 = 0;
 	this.pos = {};
 
@@ -54,15 +51,6 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 	var getMouse = function (e) {
 
 		return {x:e.deltaX, y:e.deltaY};
-	}
-
-	var getAccel = function (e) {
-
-		self.interval = e.deltaTime;
-
-		var accel = (self.vel[self.vel.length] - self.vel[0])/self.interval;
-
-		return accel;
 	}
 
 	var isUnderVel = function (vel) {
@@ -133,24 +121,19 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		stopIntegration();
 
-		this.vel = [];
-		this.accel = 0;
-		this.vel0 = 0;
-		this.vel1 = 0;
+		this.vel = 0;
 		this.pos0 = 0;
 		this.interval = 1;
 
-		self.vel = [];
-		self.vel0 = 0;
 		start[ids[i]] = pos[ids[i]];
 		getTop();
 	}
 
 	var friction = function () {
 
-		self.vel0 *= mu;
+		self.vel *= mu;
 
-		if (isUnderVel(self.vel0)) {
+		if (isUnderVel(self.vel)) {
 			bounce();
 		}
 	}
@@ -186,37 +169,31 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 	var integrate = function () {
 
-		console.log("integrate");
+		console.log("running");
 
-		self.vel1 = self.vel0 + self.accel*self.interval
-		self.pos[ids[i]] = self.pos0 + self.vel1*self.interval;
+		self.pos[ids[i]] = self.pos0 + self.vel*self.interval;
 
 		//console.log("pos " + self.pos1 + " vel " + self.vel1 + " time " + self.interval);
 
 		setTop(self.pos[ids[i]]);
 
 		self.pos0 = self.pos[ids[i]];
-		self.vel0 = self.vel1;
-	}
-
-	var repeat = function () {
-
-		//console.log(self.running);
-
-		if (self.running) {
-
-			integrate();
-
-			friction();
-
-			//bounce();
-
-		}
 	}
 
 	var motion = function () {
 
-		self.timer = $interval(repeat, 10);
+		self.timer = $interval(function () {
+
+			if (self.running) {
+
+				integrate();
+
+				friction();
+
+				//bounce();
+
+			}
+		}, 300);
 	}
 
 	var down = function (e) {
@@ -224,9 +201,6 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		console.log("down");
 		stopIntegration();
 		self.isDown = true;
-		self.isFirst = true;
-		self.vel = null;
-		self.vel = [];
 		start[ids[i]] = self.pos[ids[i]];
 	}
 
@@ -236,15 +210,9 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 			//console.log("move");
 
-			if (self.isFirst) {
-				self.vel[0] = getVel(e);
-				self.vel0  = self.vel[0];
-				self.isFirst = false;
-			}
-
 			stopIntegration();
 			self.accel = 0;
-			self.vel[self.vel.length] = getVel(e);
+			self.vel = getVel(e);
 			getTop();
 			self.pos[ids[i]] = getMouse(e).y + start[ids[i]];
 
@@ -258,7 +226,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		console.log("end");
 		isDown = false;
 		self.pos0 = self.pos[ids[i]];
-		self.accel = getAccel(e);
+		self.interval = e.deltaTime;
 		startIntegration();
 	}
 
