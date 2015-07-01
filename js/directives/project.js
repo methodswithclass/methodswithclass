@@ -9,23 +9,32 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			var $block = element.find("#blocknuplae");
+			var id = $scope.info.id;
 
-			console.log($block[0]);
+			if (id == "nuplae") {
 
-			if ($block[0]) {
+				var $block = element.find("#block" + id);
 
-				var press = new Hammer($block[0]);
+				console.log($block[0]);
 
-				press.get('press').set({time:1, threshold:10});
+				if ($block[0]) {
 
-				press.on('pressup', function (e) {
-						window.open(
-							 'http://nuplae.methodswithclass.com',
-							  '_blank' // <- This is what makes it open in a new window.
-						);
-				});
+					var press = new Hammer($block[0]);
 
+					press.get('press').set({time:1, threshold:10});
+
+					press.on('pressup', function (e) {
+							window.open(
+								 'http://nuplae.methodswithclass.com',
+								  '_blank' // <- This is what makes it open in a new window.
+							);
+					});
+
+				}
+
+			}
+			else {
+				console.log("no nuplae");
 			}
 
 		    $scope.getContentUrl = function() {
