@@ -28,6 +28,7 @@ app.directive('menu', ['events', function (events) {
 
 		element.bind('mouseup', action);
 		element.bind('touchend', action);
+		
 	}
 
 	return {
