@@ -100,7 +100,7 @@ app.directive('project', ['global', '$window', '$location', function (global, $w
 
 				if (info.id == "nuplae") {
 
-					$location.path("http://nuplae.methodswithclass.com");
+					$location.absUrl("http://nuplae.methodswithclass.com");
 				}
 			}
 		}
