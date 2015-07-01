@@ -36,6 +36,23 @@ app.controller('MainController', ['$scope', '$document', 'global', 'con', functi
 	angular.element($document).ready(function () {
 
 		con.register($("#consoleContainer"));
+
+		$block = $("#blocknuplae");
+
+		if ($block[0]) {
+
+			var press = new Hammer($block[0]);
+
+			press.get('press').set({time:1, threshold:10});
+
+			press.on('pressup', function () {
+					window.open(
+						 'http://nuplae.methodswithclass.com',
+						  '_blank' // <- This is what makes it open in a new window.
+					);
+			});
+
+		}
 	})
 
 }]);
