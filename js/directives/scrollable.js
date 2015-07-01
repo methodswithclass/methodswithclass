@@ -26,7 +26,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 	var mu = -0.1;
 
-	var minVel = 0.01;
+	var minVel = 0.1;
 
 	this.scroll = {};
 	var ids = [];
@@ -133,6 +133,8 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		self.vel *= mu;
 
+		console.log(self.vel);
+
 		if (isUnderVel(self.vel)) {
 			bounce();
 		}
@@ -173,8 +175,6 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		self.pos[ids[i]] = self.pos0 + self.vel*self.interval;
 
-		//console.log("pos " + self.pos1 + " vel " + self.vel1 + " time " + self.interval);
-
 		setTop(self.pos[ids[i]]);
 
 		self.pos0 = self.pos[ids[i]];
@@ -190,10 +190,8 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 				friction();
 
-				//bounce();
-
 			}
-		}, 300);
+		}, self.interval/1000);
 	}
 
 	var down = function (e) {
@@ -227,6 +225,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		isDown = false;
 		self.pos0 = self.pos[ids[i]];
 		self.interval = e.deltaTime;
+		console.log("interval " + self.interval);
 		startIntegration();
 	}
 
