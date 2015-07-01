@@ -129,6 +129,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("reset");
 
+		stopIntegration();
+
 		this.vel = [];
 		this.accel = 0;
 		this.vel0 = 0;
@@ -149,7 +151,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var bounce = function () {
 
-		stopIntegration();
+		
 
 		var el = getel();
 
@@ -194,6 +196,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var motion = function () {
 
 		self.timer = $interval(function () {
+
+			console.log(self.running);
 
 			if (self.running) {
 
