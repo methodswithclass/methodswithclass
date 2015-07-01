@@ -5,14 +5,17 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 
 	var mouse = {};
-	var vel = [];
+	self.vel = [];
 	var vel0;
-	var time = [];
+	self.time = [];
 	var offset;
 	var top = {};
 	var bottom = {};
 	var start = {};
 	this.timer;
+
+	this.accel = 0;
+	this.interval = 1;
 
 	var state = 0;
 
@@ -44,10 +47,17 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var getVel = function(e, state) {
 
-		vel[state] = -1000*e.velocityY;
-		time[state] = e.deltaTime;
+		self.vel[state] = -1000*e.velocityY;
+		self.time[state] = e.deltaTime;
 
 		state = state == 0 ? 1 : 0;
+	}
+
+	var getAccel = function () {
+
+		var accel = (self.vel[1] - self.vel[0])/self.interval;
+
+		return accel;
 	}
 
 	var isUnderVel = function (vel) {
@@ -104,9 +114,43 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		el.css({'top': newTop + "px"});
 	}
 
-	
+	var start = function () {
 
-	var integrate = function (accel, interval) {
+		self.running = true;
+	}
+
+	var stop = function () {
+
+		self.running = false;
+	}
+
+	var friction = function () {
+
+		vel0 *= mu;
+
+		if (isUnderVel(vel0)) {
+			console.log("under vel0");
+			bounce();
+		}
+		else if (isUnderVel(e)) {
+			console.log("under velocity");
+			bounce();
+		}
+	}
+
+	var motion = function () {
+
+		self.timer = $interval(function () {
+
+			if (self.running) {
+
+				integrate(self.accel, self.interval);
+
+			}
+		}, 1000);
+	}
+
+	var integrate = function () {
 
 		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(accel)*interval
 		top[ids[i]] = top[ids[i]] + vel1*interval;
@@ -129,7 +173,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var bounce = function () {
 
-		self.running = false;
+		stop();
 
 		var el = getel();
 
@@ -156,39 +200,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		}
 	}
 
-	var momentum = function (e, velDelta, interval) {
-
-		vel0 = vel[1];
-
-		self.timer = $interval(function () {
-
-			if (self.running) {
-
-				integrate(velDelta/interval,interval);
-
-				vel0 *= mu;
-
-				if (isUnderVel(vel0)) {
-					console.log("under vel0");
-					bounce();
-				}
-				else if (isUnderVel(e)) {
-					console.log("under velocity");
-					bounce();
-				}
-			}
-		}, 1000);
-
-	}
-
 	var down = function (e) {
 
 		console.log("down");
 
 		self.running = false;
-		reset();
-		getMouse(e);
-		getOffset();
 		self.isDown = true;
 	}
 
@@ -198,10 +214,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		if (self.isDown) {
 			self.running = true;
-			getMouse(e);
 			getVel(e, state);
-			getOffset();
-			setTop(offset + start[ids[i]]);
 			getTop();
 		}
 	}
@@ -210,7 +223,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("end");
 		isDown = false;
-		momentum(e, vel[1] - vel[0], time[1] - time[0]);
+		self.accel = getAccel();
 	}
 
 	var initPans = function () {
