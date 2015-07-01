@@ -140,7 +140,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		self.vel = [];
 		self.vel0 = 0;
-		start[ids[i]] = getAbsoluteRect().top;
+		start[ids[i]] = pos[ids[i]]];
 		getTop();
 	}
 
@@ -220,7 +220,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		self.vel = [];
 		self.vel[0] = getVel(e);
 		self.vel0  = self.vel[0];
-		start = self.pos[ids[i]];
+		start[ids[i]] = self.pos[ids[i]];
 	}
 
 	var move = function (e) {
