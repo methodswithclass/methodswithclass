@@ -108,7 +108,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 	var setTop = function (newTop) {
 
-		self.pos[ids[i]] = newTop;
+		//self.pos[ids[i]] = newTop;
 
 		var el = getel();
 
