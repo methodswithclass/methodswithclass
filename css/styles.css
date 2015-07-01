@@ -19,14 +19,14 @@ a.blue {
 }
 
 .paragraph {
-	margin:10px 0;
+	margin:20px 0 0 0;
 	padding:0;
 	border-bottom:1px solid black;	
 }
 
 .tabp {
 	position:relative;
-	margin:20px 0;
+	margin:20px 20px 0 20px;
 	left:0;	
 }
 
