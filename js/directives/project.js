@@ -17,6 +17,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var openSpeed = 300;
 			var open = false;
 			var $element;
+			var $description;
 			var $space;
 			var resizeHandlers = {};
 
@@ -63,12 +64,13 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				$element = $("#sep" + info.id);
 				$space = $("#space" + info.id);
+				$description = $("#desc" + info.id);
 
 				if (!open) {
 
-					$element.removeClass("text-center");
+					$description.removeClass("font-50 text-center");
 
-					$element.html($scope.info.description);
+					$description.html(info.description);
 
 					$element.animate({height:setSep(info)}, openSpeed, function () {
 						bindResize(info);
@@ -80,9 +82,9 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				}
 				else {
 
-					$element.addClass("text-center");
+					$description.addClass("font-50 text-center");
 
-					$element.html("...");
+					$description.html("...");
 
 					$element.animate({height:100}, openSpeed, function () {
 						unbind(info);
