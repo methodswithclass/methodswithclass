@@ -149,7 +149,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var bounce = function () {
 
-		stop();
+		stopIntegration();
 
 		var el = getel();
 
@@ -278,7 +278,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		motion();
 
-		start();
+		stopIntegration();
 
 		notifications.register("menu", function () {
 
