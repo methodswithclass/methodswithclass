@@ -17,20 +17,25 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				console.log($block[0]);
 
-				if ($block[0]) {
+				$block.on("load", function () {
+
+					console.log("loaded");
 
 					var press = new Hammer($block[0]);
 
 					press.get('press').set({time:1, threshold:10});
 
 					press.on('pressup', function (e) {
-							window.open(
-								 'http://nuplae.methodswithclass.com',
-								  '_blank' // <- This is what makes it open in a new window.
-							);
+
+						console.log("link pressed");
+						
+						window.open(
+							 'http://nuplae.methodswithclass.com',
+							  '_blank' // <- This is what makes it open in a new window.
+						);
 					});
 
-				}
+				});
 
 			}
 			else {
