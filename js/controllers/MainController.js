@@ -37,7 +37,7 @@ app.controller('MainController', ['$scope', '$document', 'global', 'con', functi
 
 		con.register($("#consoleContainer"));
 
-		$block = $("#blocknuplae");
+		var $block = $("#blocknuplae");
 
 		if ($block[0]) {
 
