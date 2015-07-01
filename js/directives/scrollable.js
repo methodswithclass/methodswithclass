@@ -214,7 +214,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 			stop();
 			self.accel = 0;
 			state = getVel(e, state);
-			self.vel0 = self.vel[1];
+			self.vel0 = self.vel[0];
 			getAccel(); //get interval
 			integrate();
 		}
