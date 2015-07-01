@@ -41,14 +41,14 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		return element[ids[i]];
 	}
 
-	var getVel = function(e, state) {
+	var getVel = function(e, i) {
 
-		self.vel[state] = -1000*e.velocityY;
-		self.time[state] = e.deltaTime;
+		self.vel[i] = -1000*e.velocityY;
+		self.time[i] = e.deltaTime;
 
 		self.vel0 = self.vel[1];
 
-		state = state == 0 ? 1 : 0;
+		i = i == 0 ? 1 : 0;
 	}
 
 	var getAccel = function () {
@@ -123,11 +123,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("reset");
 
-		vel[0] = 0;
-		vel[1] = 0;
-		time[0] = 0;
-		time[1] = 0;
-		vel0 = 0;
+		self.vel = [0,0];
+		self.time = [0,0];
+		self.vel0 = 0;
 		start[ids[i]] = getAbsoluteRect().top;
 		getTop();
 	}
