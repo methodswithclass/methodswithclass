@@ -5,9 +5,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 
 	var mouse = {};
-	self.vel = [];
-	var vel0;
-	self.time = [];
+	this.vel = [];
+	this.vel0 = 0;
+	this.time = [];
 	var offset;
 	var top = {};
 	var bottom = {};
@@ -41,16 +41,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		return element[ids[i]];
 	}
 
-	var getMouse = function (e, state) {
-		mouse = {x:e.deltaX, y:e.deltaY};
-	}
-
 	var getVel = function(e, state) {
 
 		self.vel[state] = -1000*e.velocityY;
 		self.time[state] = e.deltaTime;
 
-		vel0 = self.vel[1];
+		self.vel0 = self.vel[1];
 
 		state = state == 0 ? 1 : 0;
 	}
@@ -96,11 +92,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		}
 	}
 
-	var getOffset = function () {
-
-		offset = mouse.y;
-	}
-
 	var getTop = function () {
 
 		console.log("get top");
@@ -143,7 +134,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var friction = function () {
 
-		vel0 *= mu;
+		self.vel0 *= mu;
 	}
 
 	var bounce = function () {
@@ -177,9 +168,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var integrate = function () {
 
-		console.log("vel0 " + vel0 + " " + self.interval);
+		console.log("vel0 " + self.vel0 + " " + self.interval);
 
-		var vel1 = vel0 + Math.abs(vel0)/vel0*Math.abs(self.accel)*self.interval
+		var vel1 = self.vel0 + self.accel*self.interval
 		top[ids[i]] = top[ids[i]] + vel1*self.interval;
 
 		setTop(top[ids[i]]);
@@ -259,11 +250,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		body = $("#" + $scope.body);
 
 		bodyTop = body.offset().top;
-
-		//alert(bodyTop);
 		bodyBottom = bodyTop + body.height();
-
-		//console.log(body[0]);
 
 		initPans();
 
