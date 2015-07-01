@@ -12,13 +12,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	this.timer;
 
 
-	this.time = [];
 	this.vel = [];
 	this.accel = 0;
 	this.vel0 = 0;
 	this.vel1 = 0;
 	this.pos0 = 0;
-	this.pos1 = 0;
+	this.pos = {};
 
 	this.interval = 1;
 
@@ -46,19 +45,21 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		return element[ids[i]];
 	}
 
-	var getVel = function(e, i) {
+	var getVel = function (e) {
 
-		self.vel[i] = -e.velocityY;
-		self.time[i] = e.deltaTime;
-
-		return i == 0 ? 1 : 0;
+		return -e.velocityY;
 	}
 
-	var getAccel = function () {
+	var getMouse = function (e) {
 
-		self.interval = self.time[1] - self.time[0];
+		return {x:e.deltaX, y:e.deltaY};
+	}
 
-		var accel = (self.vel[1] - self.vel[0])/self.interval;
+	var getAccel = function (e) {
+
+		self.interval = e.deltaTime;
+
+		var accel = (self.vel[self.vel.length] - self.vel[0])/self.interval;
 
 		return accel;
 	}
@@ -107,7 +108,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var setTop = function (newTop) {
 
-		self.pos1 = newTop;
+		self.pos[ids[i]] = newTop;
 
 		var el = getel();
 
@@ -128,8 +129,14 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("reset");
 
-		self.vel = [0,0];
-		self.time = [0,0];
+		this.vel = [];
+		this.accel = 0;
+		this.vel0 = 0;
+		this.vel1 = 0;
+		this.pos0 = 0;
+		this.interval = 1;
+
+		self.vel = [];
 		self.vel0 = 0;
 		start[ids[i]] = getAbsoluteRect().top;
 		getTop();
@@ -153,7 +160,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		if (rect.absTop > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
-				setTop(0);
+				//setTop(0);
 				reset();
 			});
 		}
@@ -174,14 +181,14 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		//console.log("vel0 " + self.vel0 + " " + self.interval);
 
 		self.vel1 = self.vel0 + self.accel*self.interval
-		self.pos1 = self.pos0 + self.vel1*self.interval;
+		self.pos[ids[i]] = self.pos0 + self.vel1*self.interval;
 
-		console.log("pos " + self.pos1 + " vel " + self.vel1 + " time " + self.interval);
+		//console.log("pos " + self.pos1 + " vel " + self.vel1 + " time " + self.interval);
 
-		setTop(self.pos1);
+		setTop(self.pos[ids[i]]);
 
-		self.pos0 = self.pos1;
-		self.vel0 = self.vel1; 
+		self.pos0 = self.pos[ids[i]];
+		self.vel0 = self.vel1;
 	}
 
 	var motion = function () {
@@ -205,8 +212,11 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		console.log("down");
 		stop();
 		self.isDown = true;
-		// start[ids[i]] = getAbsoluteRect().top;
-		state = getVel(e, state);
+		self.vel = null;
+		self.vel = [];
+		self.vel[0] = getVel(e);
+		self.vel0  = self.vel[0];
+		start = self.pos[ids[i]];
 	}
 
 	var move = function (e) {
@@ -217,10 +227,10 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			stop();
 			self.accel = 0;
-			state = getVel(e, state);
-			self.vel0 = self.vel[0];
-			getAccel(); //get interval
-			integrate();
+			self.vel[self.vel.length] = getVel(e);
+
+			setTop(getMouse(e).y + start);
+
 		}
 	}
 
@@ -228,7 +238,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		console.log("end");
 		isDown = false;
-		self.accel = getAccel();
+		self.pos0 = self.pos[ids[i]];
+		self.accel = getAccel(e);
 		start();
 	}
 
