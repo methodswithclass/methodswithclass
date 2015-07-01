@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$window', function (global, $window) {
+app.directive('project', ['global', '$window', '$location', function (global, $window, $location) {
 
 	return {
 		restrict:'E',
@@ -93,6 +93,14 @@ app.directive('project', ['global', '$window', function (global, $window) {
 					});
 
 					open = false;
+				}
+			}
+
+			$scope.gotoNuplae = function (info) {
+
+				if (info.id == "nuplae") {
+
+					$location.path("http://nuplae.methodswithclass.com");
 				}
 			}
 		}
