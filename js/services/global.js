@@ -18,10 +18,10 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 		var percent;
 
 		if (isMobile()) {
-			percent = 0.6;
+			percent = 0.8;
 		}
 		else {
-			percent = 0.8;
+			percent = 0.6;
 		}
 
 		var windowWidth = 1600;
