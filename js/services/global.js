@@ -18,7 +18,7 @@ app.factory('global', ['$sce', '$location', function($sce, $location) {
 		var percent;
 
 		if (isMobile()) {
-			percent = 0.4;
+			percent = 0.1;
 		}
 		else {
 			percent = 0.6;
