@@ -193,22 +193,24 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		self.vel0 = self.vel1;
 	}
 
+	var repeat = function () {
+
+		//console.log(self.running);
+
+		if (self.running) {
+
+			integrate();
+
+			friction();
+
+			bounce();
+
+		}
+	}
+
 	var motion = function () {
 
-		self.timer = $interval(function () {
-
-			//console.log(self.running);
-
-			if (self.running) {
-
-				integrate();
-
-				friction();
-
-				bounce();
-
-			}
-		}, 10);
+		self.timer = $interval(repeat, 10);
 	}
 
 	var down = function (e) {
