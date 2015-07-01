@@ -265,18 +265,19 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 	var link = function ($scope, thing, attr) {
 
+		body = $("#" + $scope.body);
+
+		bodyTop = body.offset().top;
+		bodyBottom = bodyTop + body.height();
+
 		ids = attr.ids.split(" ");
 
 		for (i in ids) {
 
 			console.log(ids[i]);
 			element[ids[i]] = $("#" + ids[i]);
+			pos[ids[i]] = element[ids[i]].offset().top - bodyTop;
 		}
-		
-		body = $("#" + $scope.body);
-
-		bodyTop = body.offset().top;
-		bodyBottom = bodyTop + body.height();
 
 		initPans();
 
