@@ -10,7 +10,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		link:function ($scope, element, attr) {
 
 			$("#blocknuplae").on('touchend', function () {
-					$window.open(
+					window.open(
 						 'http://nuplae.methodswithclass.com',
 						  '_blank' // <- This is what makes it open in a new window.
 					);
