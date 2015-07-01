@@ -115,12 +115,12 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		el.css({'top': newTop + "px"});
 	}
 
-	var start = function () {
+	var startIntegration = function () {
 
 		self.running = true;
 	}
 
-	var stop = function () {
+	var stopIntegration = function () {
 
 		self.running = false;
 	}
@@ -210,7 +210,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var down = function (e) {
 
 		console.log("down");
-		stop();
+		stopIntegration();
 		self.isDown = true;
 		self.vel = null;
 		self.vel = [];
@@ -225,7 +225,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 			//console.log("move");
 
-			stop();
+			stopIntegration();
 			self.accel = 0;
 			self.vel[self.vel.length] = getVel(e);
 
@@ -240,7 +240,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		isDown = false;
 		self.pos0 = self.pos[ids[i]];
 		self.accel = getAccel(e);
-		start();
+		startIntegration();
 	}
 
 	var initPans = function () {
