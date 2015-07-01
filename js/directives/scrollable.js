@@ -176,7 +176,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		self.vel1 = self.vel0 + self.accel*self.interval
 		self.pos1 = self.pos0 + self.vel1*self.interval;
 
-		console.log("pos " + self.pos1 + " " + " vel " + " time " + self.interval);
+		console.log("pos " + self.pos1 + " vel " + self.vel1 + " time " + self.interval);
 
 		setTop(self.pos1);
 
@@ -227,9 +227,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	var up = function (e) {
 
 		console.log("end");
-		start();
 		isDown = false;
 		self.accel = getAccel();
+		start();
 	}
 
 	var initPans = function () {
