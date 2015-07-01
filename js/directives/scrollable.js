@@ -176,6 +176,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		self.vel1 = self.vel0 + self.accel*self.interval
 		self.pos1 = self.pos0 + self.vel1*self.interval;
 
+		console.log("pos " + self.pos1 + " " + " vel " + " time " + self.interval);
+
 		setTop(self.pos1);
 
 		self.pos0 = self.pos1;
