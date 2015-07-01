@@ -88,12 +88,13 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 		var el = getel();
 
 		var elTop = el.offset().top;
-		var elBottom = elTop + el.height();
+		var elHeight = el.height();
 
 		return {
-			absTop:elTop,
-			top:elTop - bodyTop,
-			bottom:elBottom
+			atop:elTop,
+			rtop:elTop - bodyTop,
+			height:elHeight,
+			bottom:elTop + elHeight
 		}
 	}
 
@@ -103,7 +104,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		var rect = getAbsoluteRect();
 
-		top[ids[i]] = rect.top;
+		top[ids[i]] = rect.rtop;
 		bottom[ids[i]] = rect.bottom; 
 	}
 
@@ -148,11 +149,15 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 	var friction = function () {
 
 		self.vel0 *= mu;
+
+		if (isUnderVel(self.vel0)) {
+			bounce();
+		}
 	}
 
 	var bounce = function () {
 
-		
+		stopIntegration();
 
 		var el = getel();
 
@@ -160,10 +165,10 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 		var bottomBounce = body.height() - el.height()
 			
-		if (rect.absTop > bodyTop) {
+		if (rect.atop > bodyTop) {
 			console.log("below top");
 			el.animate({top:0}, 100, function () {
-				//setTop(0);
+				setTop(0);
 				reset();
 			});
 		}
@@ -204,7 +209,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 
 			friction();
 
-			bounce();
+			//bounce();
 
 		}
 	}
@@ -240,7 +245,7 @@ app.directive("scrollable", ['global', '$interval', 'events', 'con', function (g
 			stopIntegration();
 			self.accel = 0;
 			self.vel[self.vel.length] = getVel(e);
-
+			getTop();
 			self.pos[ids[i]] = getMouse(e).y + start[ids[i]];
 
 			setTop(self.pos[ids[i]]);
