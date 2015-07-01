@@ -1,5 +1,5 @@
 
-app.directive("scrollable", ['global', '$interval', 'notifications', 'con', function (global, $interval, notifications, con) {
+app.directive("scrollable", ['global', '$interval', 'events', 'con', function (global, $interval, events, con) {
 
 	var self = this;
 
@@ -284,7 +284,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		stopIntegration();
 
-		notifications.register("menu", function () {
+		events.on("menu", function () {
 
 			for (var j in self.enabled) {
 				self.enabled[j] = !self.enabled[j];
@@ -301,7 +301,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		});
 
-		notifications.call("menu");
+		events.dispatch("menu");
 
 	}
 

@@ -1,5 +1,5 @@
 
-app.directive('menu', ['notifications', function (notifications) {
+app.directive('menu', ['events', function (events) {
 
 	var speed = 300;
 			
@@ -13,7 +13,7 @@ app.directive('menu', ['notifications', function (notifications) {
 
 			if (body.offset().left != left) {
 				body.animate({left:left}, speed, function () {
-					notifications.call("menu");
+					events.dispatch("menu");
 				});
 			}
 		}
