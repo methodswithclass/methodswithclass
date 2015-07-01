@@ -1,5 +1,6 @@
 
 
-<img class="relative margin-top-50 hcenter width30 height-auto border-red" ng-src="{{info.image}}"/>
 
-<div class="relative margin-top-50 width70 hcenter border-red" ng-bind-html="renderHtml(info.bio)"></div>
+<div class="absolute corner width70" ng-bind-html="renderHtml(info.bio)"></div>
+
+<img class="absolute top0 left70 width30 height-auto" ng-src="{{info.image}}"/>
