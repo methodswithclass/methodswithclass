@@ -178,7 +178,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var integrate = function () {
 
-		//console.log("vel0 " + self.vel0 + " " + self.interval);
+		console.log("integrate");
 
 		self.vel1 = self.vel0 + self.accel*self.interval
 		self.pos[ids[i]] = self.pos0 + self.vel1*self.interval;
