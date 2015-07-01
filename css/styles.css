@@ -19,7 +19,8 @@ a.blue {
 }
 
 .paragraph {
-	margin:10px;
+	margin:10px 0;
+	padding:0;
 	border-bottom:1px solid black;	
 }
 
