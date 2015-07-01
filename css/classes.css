@@ -67,6 +67,35 @@ a.blue {
 
 /* ***************  POSITIONING ***************  */
 
+.right {
+
+	float:right;
+}
+
+.left {
+
+	float:left;
+}
+
+.block {
+
+	display:block;
+}
+
+.inline {
+
+	display:inline-block;
+}
+
+.table {
+    
+    display:table;
+}
+
+.table-cell {
+    
+    display:table-cell;
+}
 
 .fixed {
 
@@ -154,6 +183,16 @@ a.blue {
 	right:0;
 }
 
+.right-20 {
+
+	right:20px;
+}
+
+.right-50 {
+
+	right:50px;
+}
+
 .right-minus-100 {
 
 	right:-100px;
@@ -172,6 +211,16 @@ a.blue {
 .left20 {
 
 	left:20%;
+}
+
+.left25 {
+
+	left:25%;
+}
+
+.left40 {
+
+	left:40%;
 }
 
 .left50 {
@@ -214,6 +263,11 @@ a.blue {
 	top:100px;
 }
 
+.top-200 {
+
+	top:200px;
+}
+
 .top-400 {
 
 	top:400px;
@@ -222,6 +276,11 @@ a.blue {
 .bottom0 {
 
 	bottom:0;
+}
+
+.bottom-20 {
+
+	bottom:20px;
 }
 
 .bottom-60 {
@@ -356,6 +415,31 @@ a.blue {
 	background-color:#333;
 }
 
+.blue-back {
+
+	background-color:#003;
+}
+
+.red-back {
+
+	background-color:#300;
+}
+
+.green-back {
+
+	background-color:#030;
+}
+
+.purple-back {
+
+	background-color:#303;
+}
+
+.orange-back {
+
+	background-color:#F90;
+}
+
 .transparent-back {
 
 	background-color:transparent;
@@ -411,15 +495,14 @@ a.blue {
     text-align:center;  
 }
 
-.table {
-    
-    display:table;
+.text-right {
+
+	text-align:right;
 }
 
-.table-cell {
-    
-    display:table-cell;
-    vertical-align:middle;
+.cell-center {
+
+	vertical-align:middle;
     text-align:center;
 }
 
@@ -569,6 +652,11 @@ a.blue {
 .height-100 {
 
 	height:100px;
+}
+
+.height-200 {
+
+	height:200px;
 }
 
 .height-300 {
