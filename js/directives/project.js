@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$window', '$location', function (global, $window, $location) {
+app.directive('project', ['global', '$window', function (global, $window) {
 
 	return {
 		restrict:'E',
@@ -9,9 +9,11 @@ app.directive('project', ['global', '$window', '$location', function (global, $w
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			$("#iconnuplae").bind('touchend', function () {
-
-				$location.absUrl() == "http://nuplae.methodswithclass.com";
+			$("#blocknuplae").on('touchend', function () {=
+					$window.open(
+						 'http://nuplae.methodswithclass.com',
+						  '_blank' // <- This is what makes it open in a new window.
+					);
 			});
 
 		    $scope.getContentUrl = function() {
