@@ -197,7 +197,7 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		self.timer = $interval(function () {
 
-			console.log(self.running);
+			//console.log(self.running);
 
 			if (self.running) {
 
