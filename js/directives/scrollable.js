@@ -5,16 +5,21 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 
 	var mouse = {};
-	this.vel = [];
-	this.vel0 = 0;
-	this.time = [];
 	var offset;
 	var top = {};
 	var bottom = {};
 	var start = {};
 	this.timer;
 
+
+	this.time = [];
+	this.vel = [];
 	this.accel = 0;
+	this.vel0 = 0;
+	this.vel1 = 0;
+	this.pos0 = 0;
+	this.pos1 = 0;
+
 	this.interval = 1;
 
 	var state = 0;
@@ -22,9 +27,9 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 	this.isDown = false;
 	this.enabled = [false, true];
 
-	var mu = -0.001;
+	var mu = -0.1;
 
-	var minVel = 0.001;
+	var minVel = 0.01;
 
 	this.scroll = {};
 	var ids = [];
@@ -45,8 +50,6 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 		self.vel[i] = -e.velocityY;
 		self.time[i] = e.deltaTime;
-
-		self.vel0 = self.vel[1];
 
 		return i == 0 ? 1 : 0;
 	}
@@ -166,12 +169,15 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 
 	var integrate = function () {
 
-		console.log("vel0 " + self.vel0 + " " + self.interval);
+		//console.log("vel0 " + self.vel0 + " " + self.interval);
 
-		var vel1 = self.vel0 + self.accel*self.interval
-		top[ids[i]] = top[ids[i]] + vel1*self.interval;
+		self.vel1 = self.vel0 + self.accel*self.interval
+		self.pos1 = self.pos0 + self.vel1*self.interval;
 
-		setTop(top[ids[i]]);
+		setTop(self.pos1);
+
+		self.pos0 = self.pos1;
+		self.vel0 = self.vel1; 
 	}
 
 	var motion = function () {
@@ -195,6 +201,8 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 		console.log("down");
 		stop();
 		self.isDown = true;
+		// start[ids[i]] = getAbsoluteRect().top;
+		state = getVel(e, state);
 	}
 
 	var move = function (e) {
@@ -204,9 +212,10 @@ app.directive("scrollable", ['global', '$interval', 'notifications', 'con', func
 			//console.log("move");
 
 			stop();
-			state = getVel(e, state);
-			getAccel();
 			self.accel = 0;
+			state = getVel(e, state);
+			self.vel0 = self.vel[1];
+			getAccel(); //get interval
 			integrate();
 		}
 	}
