@@ -1,4 +1,4 @@
-var app = angular.module("methodswithclass", ['ngRoute', 'hmTouchEvents']);
+var app = angular.module("methodswithclass", ['ngRoute']);
 
 var mobiledebug = true;
 
