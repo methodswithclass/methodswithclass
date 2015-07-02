@@ -9,7 +9,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {					
 
-			$scope.onTap = function (event) {
+			$scope.onTap = function onTap (event) {
 
 				console.log("tapped");
 
