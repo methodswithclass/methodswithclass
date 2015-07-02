@@ -21,10 +21,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 					console.log("link pressed");
 						
-						window.open(
-							 'http://nuplae.methodswithclass.com',
-							  '_blank' // <- This is what makes it open in a new window.
-						);
+						window.location = "http://nuplae.methodswithclass.com";
 
 					// console.log("loaded");
 
