@@ -20,7 +20,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 					});
 					
 
-					var $block = element.find("#block" + info.id);
+					//var $block = element.find("#block" + info.id);
 
 					//console.log($block[0]);
 
