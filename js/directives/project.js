@@ -9,34 +9,24 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			var id = $scope.info.id;
+			$scope.bindTouch = function (info) {
 
-			if (id == "nuplae") {
-
-				var $block = element.find("#block" + id);
+				var $block = element.find("#block" + info.id);
 
 				console.log($block[0]);
 
-				angular.element($block).bind('touchend', function () {
+				var press = new Hammer($block[0]);
+
+				press.get('press').set({time:1, threshold:10});
+
+				press.on('pressup', function (e) {
 
 					console.log("link pressed");
 						
-						window.location = "http://nuplae.methodswithclass.com";
+					window.location = "http://nuplae.methodswithclass.com";
 
-					// console.log("loaded");
-
-					// var press = new Hammer($block[0]);
-
-					// press.get('press').set({time:1, threshold:10});
-
-					// press.on('pressup', function (e) {
-
-						
 				});
 
-			}
-			else {
-				console.log("no nuplae");
 			}
 
 		    $scope.getContentUrl = function() {
