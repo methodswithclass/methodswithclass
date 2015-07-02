@@ -15,7 +15,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				var $block = element.find("#block" + id);
 
-				//console.log($block[0]);
+				console.log($block[0]);
 
 				angular.element($block).bind('touchend', function () {
 
