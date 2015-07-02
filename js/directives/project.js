@@ -13,7 +13,13 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				if (info.id == "nuplae") {
 
-					console.log(element.attr('class'));
+					var children = element.children();
+
+					for (i in children) {
+
+						console.log(chilren[i].attr('class'));
+					}
+					
 
 					var $block = element.find("#block" + info.id);
 
