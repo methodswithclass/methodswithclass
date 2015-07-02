@@ -15,26 +15,26 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				var $block = element.find("#block" + id);
 
-				console.log($block[0]);
+				//console.log($block[0]);
 
-				angular.element($block).on("load", function () {
+				angular.element($block).bind('touchend', function () {
 
-					console.log("loaded");
-
-					var press = new Hammer($block[0]);
-
-					press.get('press').set({time:1, threshold:10});
-
-					press.on('pressup', function (e) {
-
-						console.log("link pressed");
+					console.log("link pressed");
 						
 						window.open(
 							 'http://nuplae.methodswithclass.com',
 							  '_blank' // <- This is what makes it open in a new window.
 						);
-					});
 
+					// console.log("loaded");
+
+					// var press = new Hammer($block[0]);
+
+					// press.get('press').set({time:1, threshold:10});
+
+					// press.on('pressup', function (e) {
+
+						
 				});
 
 			}
