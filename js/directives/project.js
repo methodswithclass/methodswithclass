@@ -17,7 +17,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 					for (i in children) {
 
-						console.log(chilren[i].attr('class'));
+						console.log(children[i].attr('class'));
 					}
 					
 
