@@ -45,11 +45,11 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				angular.element($window).unbind('resize', resizeHandlers[info.id]);
 			}
 
-			$scope.onTap = function (event) {
+			$scope.onTap = function (info) {
 
 				console.log("tapped");
 
-				if ($scope.info.id == "nuplae") {
+				if (info.id == "nuplae") {
 					window.location = "http://nuplae.methodswithclass.com";
 				}
 
