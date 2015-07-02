@@ -9,16 +9,6 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {					
 
-			$scope.onTap = function onTap (event) {
-
-				console.log("tapped");
-
-				if ($scope.info.id == "nuplae") {
-					window.location = "http://nuplae.methodswithclass.com";
-				}
-
-			}
-
 		    $scope.getContentUrl = function() {
             	return 'views/' + attr.view;
             }
@@ -53,6 +43,16 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var unbind = function (info) {
 
 				angular.element($window).unbind('resize', resizeHandlers[info.id]);
+			}
+
+			$scope.onTap = function (event) {
+
+				console.log("tapped");
+
+				if ($scope.info.id == "nuplae") {
+					window.location = "http://nuplae.methodswithclass.com";
+				}
+
 			}
 
 
