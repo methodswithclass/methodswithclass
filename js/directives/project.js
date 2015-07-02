@@ -17,7 +17,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 					for (i in children) {
 
-						console.log(children[i]);
+						console.log($(children[i])[0]);
 					}
 					
 
