@@ -22,19 +22,19 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 					var $block = element.find("#block" + info.id);
 
-					console.log($block[0]);
+					//console.log($block[0]);
 
-					var press = new Hammer($block[0]);
+					// var press = new Hammer($block[0]);
 
-					press.get('press').set({time:1, threshold:10});
+					// press.get('press').set({time:1, threshold:10});
 
-					press.on('pressup', function (e) {
+					// press.on('pressup', function (e) {
 
-						console.log("link pressed");
+					// 	console.log("link pressed");
 							
-						window.location = "http://nuplae.methodswithclass.com";
+					// 	window.location = "http://nuplae.methodswithclass.com";
 
-					});
+					// });
 
 				}
 
