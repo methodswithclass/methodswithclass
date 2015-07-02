@@ -11,21 +11,25 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			$scope.bindTouch = function (info) {
 
-				var $block = element.find("#block" + info.id);
+				if (info.id == "nuplae") {
 
-				console.log($block[0]);
+					var $block = element.find("#block" + info.id);
 
-				var press = new Hammer($block[0]);
+					console.log($block[0]);
 
-				press.get('press').set({time:1, threshold:10});
+					var press = new Hammer($block[0]);
 
-				press.on('pressup', function (e) {
+					press.get('press').set({time:1, threshold:10});
 
-					console.log("link pressed");
-						
-					window.location = "http://nuplae.methodswithclass.com";
+					press.on('pressup', function (e) {
 
-				});
+						console.log("link pressed");
+							
+						window.location = "http://nuplae.methodswithclass.com";
+
+					});
+
+				}
 
 			}
 
