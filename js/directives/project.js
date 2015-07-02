@@ -11,6 +11,8 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 			$scope.onTap = function (event) {
 
+				console.log("tapped");
+
 				if ($scope.info.id == "nuplae") {
 					window.location = "http://nuplae.methodswithclass.com";
 				}
