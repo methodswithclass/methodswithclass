@@ -9,16 +9,18 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
-			$scope.bindTouch = function (info) {
+			if ($scope.info.id == "nuplae") {
 
-				if (info.id == "nuplae") {
+				$.each(element.children(), function (index, value) {
 
-					$.each(element.children(), function (index, value) {
+					console.log(value);
 
-						console.log(value);
+				});
 
-					});
+			}
 					
+
+			$scope.bindTouch = function (info) {
 
 					//var $block = element.find("#block" + info.id);
 
