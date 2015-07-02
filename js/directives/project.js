@@ -13,12 +13,11 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				if (info.id == "nuplae") {
 
-					var children = element.children();
+					$.each(element.children(), function (index, value) {
 
-					for (i in children) {
+						console.log(value);
 
-						console.log($(children[i])[0]);
-					}
+					});
 					
 
 					var $block = element.find("#block" + info.id);
