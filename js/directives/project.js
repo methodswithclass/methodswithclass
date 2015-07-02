@@ -38,8 +38,6 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 					// });
 
-				}
-
 			}
 
 		    $scope.getContentUrl = function() {
