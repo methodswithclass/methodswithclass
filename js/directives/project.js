@@ -7,36 +7,13 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			info:'='
 		},
 		template: '<div ng-include="getContentUrl()"></div>',
-		link:function ($scope, element, attr) {
+		link:function ($scope, element, attr) {					
 
-			if ($scope.info.id == "nuplae") {
+			$scope.onTap = function (event) {
 
-				$.each(element.children(), function (index, value) {
-
-					console.log(value);
-
-				});
-
-			}
-					
-
-			$scope.bindTouch = function (info) {
-
-					//var $block = element.find("#block" + info.id);
-
-					//console.log($block[0]);
-
-					// var press = new Hammer($block[0]);
-
-					// press.get('press').set({time:1, threshold:10});
-
-					// press.on('pressup', function (e) {
-
-					// 	console.log("link pressed");
-							
-					// 	window.location = "http://nuplae.methodswithclass.com";
-
-					// });
+				if ($scope.info.id == "nuplae") {
+					window.location = "http://nuplae.methodswithclass.com";
+				}
 
 			}
 
