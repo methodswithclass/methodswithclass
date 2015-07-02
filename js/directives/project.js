@@ -50,7 +50,10 @@ app.directive('project', ['global', '$window', function (global, $window) {
 				console.log("tapped");
 
 				if (info.id == "nuplae") {
-					window.location = "http://nuplae.methodswithclass.com";
+					window.open(
+						"http://nuplae.methodswithclass.com",
+						"_blank"
+					);
 				}
 
 			}
