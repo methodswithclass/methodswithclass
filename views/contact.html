@@ -6,8 +6,9 @@
 
 		<div class="relative width60 border-right border-left inline" ng-bind-html="renderHtml(info.bio)"></div>
 
-		<img class="relative left10 width30 height-auto inline noedge" ng-src="{{info.image}}"/>
-		
+		<div class="relative width30 left10 inline noedge">
+			<img class="width height-auto" ng-src="{{info.image}}"/>
+		</div>
 	</div>
 
 	<div class="relative height-100 width"></div>
