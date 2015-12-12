@@ -1,0 +1,49 @@
+
+
+    <div class="fixed width top0 height-400 gray-back white z-20">
+        <div class="relative height50 width">
+              <img class="relative width-700 height-auto center" src="/img/title2.png"/>
+        </div>
+
+        <div class="relative height50 width80 hcenter">
+              <table class="relative corner width height golden">
+
+                    <tr>
+
+                        <td><menu class="relative width height text-center font-70 pointer center" ng-attr-body="body" ng-attr-id="projectBtn"> Project </menu></td>
+                        <td class="width20"></td>
+                        <td><menu class="relative width height text-center font-70 pointer center" ng-attr-body="body" ng-attr-id="contactBtn"> Contact </menu></td>
+
+                    </tr>
+
+              </table>
+        </div>
+    </div>
+
+
+<!-- ng-attr-ids="projects contacts" body="body" -->
+
+
+    <div class="absolute top-400 left0 width bodyMobile cutoff z-10">
+
+        <div class="absolute corner height width200 z-10" id="body">
+                  
+                <div class="absolute width50 corner height scrollY touch noedge" id="projects">
+                        <div class="relative width height-300 white-back noedge">
+                          <div class="relative width height-30 vcenter">
+                            <div class="relative width text-center font-40 vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                          </div>
+                        </div>
+
+                        <div class="relative width noedge" ng-repeat="project in main.projects">
+                            <project hm-dir="project" ng-attr-view="mProject.html" ng-attr-parent="projects" info="project"></project>
+                        </div>
+
+                        <div class="relative height-200 width"></div>
+                </div>
+
+                <div class="absolute width50 left50 top0 height scrollY touch noedge" id="contacts">
+                    <contact ng-attr-view="mContact.html" info="main.contact"></contact>
+                </div>
+        </div>
+    </div>

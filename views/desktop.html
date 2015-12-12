@@ -1,0 +1,53 @@
+
+
+
+
+      <div class="fixed corner height10 width gray-back white z-100" id="toolbar">
+          <div class="absolute left10 width80 height-30 vcenter">
+
+              <table cellspacing="50" class="absolute width height vcenter">
+
+                  <tr class="relative width">
+
+                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="projectBtn"> Project </menu></td>
+                      <td class="width10"></td>
+                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="contactBtn"> Contact </menu></td>
+                      <td class="width80"></td>
+                      <td><div class="relative width height"> <img class="relative margin-h-minus-50 right0 width-300 height-auto vcenter" src="/img/title2.png"/> </div></td>
+
+                  </tr>
+              </table>
+
+          </div>
+      </div>
+
+      <div class="absolute width top10 left0 height90 cutoff">
+
+          <div class="absolute corner height width200 z-20" id="body">
+                
+              <div class="absolute width50 height corner scrollY noedge z-20" id="projectsOuter" scroll-items="main.projects" parallax>
+
+                      <div class="relative width height-100 white-back noedge z-20">
+                          <div class="absolute width height-30 vcenter">
+                              <div class="absolute width text-center vcenter">Here are some projects in various languages and platforms, enjoy </div>
+                          </div>
+                      </div>
+
+
+
+                      <div class="relative" ng-repeat="project in main.projects"> 
+                          <project ng-attr-view="project.html" ng-attr-parent="projectsOuter" info="project"></project>
+                      </div>
+
+                      <div class="relative height-200 width"></div>
+
+              </div>
+
+
+              <div class="absolute width50 height top0 left50 scrollY noedge z-20" id="contactsOuter">
+                  <contact ng-attr-view="contact.html" info="main.contact"></contact>
+              </div>
+
+          </div>
+
+      </dvi>
