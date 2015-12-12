@@ -51,7 +51,7 @@ app.directive('project', ['global', '$window', function (global, $window) {
 
 				if (info.id == "nuplae") {
 					window.open(
-						"http://game.nuplae.com",
+						"http://nuplae.methodswithclass.com",
 						"_blank"
 					);
 				}
