@@ -32,7 +32,7 @@ dataModule.factory("data.service", ['global', function (g) {
 	};
 
 	return {
-		pages:{projects:projects, contact:contact};
+		pages:{projects:projects, contact:contact}
 	}
 
 }]);

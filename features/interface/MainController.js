@@ -1,6 +1,8 @@
-uiModule.controller('MainController', ['$scope', '$document', 'global', function ($scope, $document, global) {
+uiModule.controller('MainController', ['$scope', '$document', 'global', 'data.service', function ($scope, $document, g, data) {
 
 	var self = this;
+
+	self.pages = data.pages;
 
 	$scope.getContentUrl = function() {
 			

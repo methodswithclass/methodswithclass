@@ -1,5 +1,5 @@
 
-app.directive('menu', ['events', function (events) {
+uiModule.directive('menu', ['events', function (events) {
 
 	var speed = 300;
 			

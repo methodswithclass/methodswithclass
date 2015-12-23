@@ -79,11 +79,13 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 			scrollFactor = resolveFactor(windowFactor*params.factor);
 
+			console.log((spaceOffset - params.start));
+
 			if (params.top)	{
-				value = -1*Math.abs(scrollFactor*spaceOffset/scrollHeight*spread + minimum);
+				value = -1*Math.abs(scrollFactor*(spaceOffset - params.start)/scrollHeight*spread + minimum);
 			}
 			else {
-				value = -1*Math.abs(scrollFactor*(1-(spaceOffset + spaceHeight)/scrollHeight)*spread + minimum);
+				value = -1*Math.abs(scrollFactor*(1-(spaceOffset - params.start)/scrollHeight)*spread + minimum);
 			}
 			
 			elem.css({"bottom":value});

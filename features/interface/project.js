@@ -1,5 +1,5 @@
 
-app.directive('project', ['global', '$window', function (global, $window) {
+uiModule.directive('project', ['global', '$window', function (g, $window) {
 
 	return {
 		restrict:'E',
@@ -9,8 +9,18 @@ app.directive('project', ['global', '$window', function (global, $window) {
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {					
 
-		    $scope.getContentUrl = function() {
-            	return 'views/' + attr.view;
+		    var view;
+
+			$scope.getContentUrl = function() {
+                
+				if (g.isMobile()) {
+					view = "m.project.html";
+				}
+				else {
+					view = "d.project.html";
+				}
+
+                return 'features/views/' + view;
             }
 
 			var $scrollElement = $("#" + attr.parent);
@@ -21,11 +31,11 @@ app.directive('project', ['global', '$window', function (global, $window) {
 			var $space;
 			var resizeHandlers = {};
 
-			$scope.renderHtml = global.renderHtml;
+			$scope.renderHtml = g.renderHtml;
 
 			var setSep = function (info) {
 
-				$("#sep" + info.id).css({height:global.sep(info) + "px"});
+				$("#sep" + info.id).css({height:g.sep(info) + "px"});
 			}
 
 

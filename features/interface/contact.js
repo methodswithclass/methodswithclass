@@ -1,4 +1,4 @@
-app.directive('contact', ['global', function (global) {
+uiModule.directive('contact', ['global', function (g) {
 
 	return {
 		restrict:'E',
@@ -6,13 +6,23 @@ app.directive('contact', ['global', function (global) {
 			info:'='
 		},
 		template: '<div ng-include="getContentUrl()"></div>',
-		link:function (scope, element, attr) {
+		link:function ($scope, element, attr) {
 
-			scope.getContentUrl = function() {
-                return 'views/' + attr.view;
+			var view;
+
+			$scope.getContentUrl = function() {
+                
+				if (g.isMobile()) {
+					view = "m.contact.html";
+				}
+				else {
+					view = "d.contact.html";
+				}
+
+                return 'features/views/' + view;
             }
 
-			scope.renderHtml = global.renderHtml;
+			$scope.renderHtml = g.renderHtml;
 
 		}
 	};

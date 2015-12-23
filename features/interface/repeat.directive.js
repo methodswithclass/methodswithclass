@@ -1,4 +1,4 @@
-blogModule.directive("repeat", ['$q', 'events', 'send', function ($q, events, send) {
+uiModule.directive("repeat", ['$q', 'events', 'send', function ($q, events, send) {
 
 	return function (scope, element, attr) {
 

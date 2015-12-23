@@ -1,4 +1,4 @@
-blogModule.directive("redirect", ['$location', function($location) {
+uiModule.directive("redirect", ['$location', function($location) {
 
 	return {
 

@@ -1,8 +1,8 @@
-app.directive("badges", function () {
+uiModule.directive("badges", function () {
 
 	return {
 		restrict:'E',
 		scope:false,
-		templateUrl:"views/badges.html"
+		templateUrl:"features/views/badges.html"
 	}
 })

@@ -1,4 +1,4 @@
-blogModule.directive("footer", ['global', function (g) {
+uiModule.directive("footer", ['global', function (g) {
 
 	return {
 		restrict:'E',
