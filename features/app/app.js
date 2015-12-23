@@ -1,12 +1,4 @@
-var app = angular.module('blog', ['sharedModule', 'consoleModule', 'stateModule', 'blogModule', "ngRoute", "ui.router"]);
-
-
-var checking = "/checking";
-var invalid = "/desktop";
-var valid = "/mobile";
-var credits = "/credits";
-
-
+var app = angular.module('methodswithclass', ['sharedModule', 'consoleModule', 'stateModule', 'blogModule', "ngRoute", "ui.router"]);
 
 app.config(['runtime.stateProvider', '$locationProvider', '$routeProvider', function (runtimeProvider, $locationProvider, $routeProvider) {
 

@@ -1,0 +1,1 @@
+var uiModule = angular.module("uiModule", ['sharedModule', 'dataModule', 'ngRoute', 'ui.router', 'stateModule', 'parallaxModule']);

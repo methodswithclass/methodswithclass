@@ -1,1 +1,0 @@
-var badgesModule = angular.module("badgesModule", ['sharedModule', "dataModule"]);
