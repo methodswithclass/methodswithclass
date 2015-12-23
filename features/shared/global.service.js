@@ -141,6 +141,24 @@ sharedModule.factory('global', ['$window', '$sce', '$location', 'events', functi
 		angular.element($window).unbind('resize', resizeHandlers[name]);
 	}
 
+	var sep = function (project) {
+
+		var percent;
+
+		if (isMobile()) {
+			percent = 0.3;
+		}
+		else {
+			percent = 0.6;
+		}
+
+		var windowWidth = 1600;
+		var sep = project.maxSep;
+		var factor = windowWidth/$(window).width()/percent;
+
+		return factor*sep;
+	}
+
     return {
     	c:{
 			valid:valid,
@@ -160,6 +178,7 @@ sharedModule.factory('global', ['$window', '$sce', '$location', 'events', functi
     	getOrientation:getOrientation,
     	getBase:getBase,
     	splitPath:splitPath,
+    	sep:sep,
     	renderHtml:function (htmlCode) {
 	        return $sce.trustAsHtml(htmlCode);
 	    }
