@@ -1,0 +1,56 @@
+
+<div class="relative width height-400 white-back cutoff" ng-attr-dir="blog" ng-attr-id="{{blog.meta_data.name}}" repeat>
+
+	<div class="relative width height-400" id="{{'top' + blog.meta_data.name}}">
+		
+		<table class="absolute width90 height center">
+			<tr class="height">
+				<td class="height width50">
+					<div class="cell-center {{blog.content.title.font_size}}">{{blog.content.title.text}}</div>
+				</td>
+				<td class="height width45">
+					<div class="relative center">
+						<btn></btn>
+					</div>
+				</td>
+				<td class="width5 height50">
+					<div class="cell-center">
+						<table clas="width80 height">
+							<tr>
+								<td>
+									<share type="fb" title="{{blog.share.title}}" url="{{blog.share.url}}" summary="{{blog.share.summary}}" img="{{blog.share.img}}"></share>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<share type="twitter" url="{{blog.share.url}}"></share>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+
+	<div class="relative width60 hcenter">
+
+		<div class="relative width height-100">
+
+			<div class="absolute top-10 left0 font-italic">{{blog.meta_data.by}}</div>
+			<div class="absolute top-40 left0 font-italic">{{blog.meta_data.date | date:'longDate'}}</div>
+
+		</div>
+
+		<div ng-repeat="section in sections">
+			<section ng-attr-view="d.section.html"></section>
+		</div>
+
+	</div>
+
+	<div class="relative width height-200 white-back"></div>
+
+	<div class="relative width" id="{{'bottom' + blog.meta_data.name}}"></div>
+
+</div>

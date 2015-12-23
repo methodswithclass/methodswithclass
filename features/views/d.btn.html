@@ -1,0 +1,14 @@
+<div class='absolute width height'>
+
+	<div class='absolute width70 height70 rounded20 border center pointer black-back cutoff' ng-attr-id="{{'space' + data.meta_data.name}}">
+		
+		<img class="absolute height200 width-auto hcenter" ng-attr-id="{{'parallax' + data.meta_data.name}}" ng-src="{{data.meta_data.image + '_small.jpg'}}" parallax name="{{data.meta_data.name}}" factor="0.9" bottom="0.01" top="false" scroll="body" />
+		
+		<div ng-class="data.button.classname">
+			{{data.content.title.text}}
+		</div>
+	</div>
+
+	<div class="blog-button-bottom"></div>
+
+</div>

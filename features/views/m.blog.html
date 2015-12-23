@@ -1,0 +1,55 @@
+<div class="absolute fill scrollY touch" id="blogbody">
+
+		<div class="relative width height-400 cutoff" id="{{'spaceblog' + blog.meta_data.name}}">
+
+			<img class="absolute width120 height-auto hcenter" id="{{'parallaxblog' + blog.meta_data.name}}" src="{{blog.meta_data.image + '_thumb.jpg'}}" parallax name="{{'blog' + blog.meta_data.name}}" bottom="0.3" scroll="blogbody" />
+
+			<div class="absolute width height-300 left0 bottom0">
+
+				<div class="absolute width-300 height-50 left-minus-20">
+					<back></back>
+				</div>
+
+				<div class="absolute width-500 height-100 vcenter left-minus-20 rounded10 black-back">
+					<div class="absolute width vcenter text-center right-20 white font-50">{{blog.content.title.text}}</div>
+				</div>
+
+				<div class="absolute width40 height-200 right-50 white-back rounded10 vcenter">
+				
+					<div class="absolute width60 height center">
+						<div class="absolute left0 vcenter">
+							<share type="fb" size="width-100" name="{{blog.meta_data.name}}"></share>
+						</div>
+
+						<div class="absolute right0 vcenter">
+							<share type="twitter" size="width-100" name="{{blog.meta_data.name}}"></share>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="relative width padding-top10" id="blog-content">
+
+			<div class="relative width80 hcenter height-200">
+
+				<div class="relative corner font-italic font-30">{{blog.meta_data.date | date:'longDate'}}</div>
+				<div class="relative corner top-20 font-italic font-30">{{blog.meta_data.by}}</div>
+
+			</div>
+
+			<div class="relative width">
+
+				<div ng-repeat="section in blog.content.body.sections">
+					<section></section>
+				</div>
+
+			</div>
+
+		</div>
+
+</div>

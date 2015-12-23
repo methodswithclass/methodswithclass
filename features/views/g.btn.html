@@ -1,0 +1,12 @@
+<div class='absolute'>
+
+	<div class='absolute width70 height70 border center pointer black-back cutoff {{deviceShape}}' ng-attr-id="{{'space' + data.meta_data.name}}">
+		
+		<img class="absolute height200 width-auto hcenter" ng-attr-id="{{'parallax' + data.meta_data.name}}" ng-src="{{data.meta_data.image + '_thumb.jpg'}}" parallax name="{{data.meta_data.name}}" factor="0.9" bottom="{{initial}}" top="false" scroll="body" />
+		
+		<div class="absolute center text-center white {{deviceFont}}">
+			{{data.content.title.text}}
+		</div>
+	</div>
+
+</div>
