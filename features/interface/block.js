@@ -34,7 +34,7 @@ uiModule.directive('block', ['global', 'states', function (g, states) {
             	var elemWidth = elem.width();
             	var spaceHeight = space.height()*1.2;
             	var spaceWidth = space.width()*1.2;
-            	var aspect = elem.width()/elem.height();
+            	var aspect = elemWidth/elemHeight;
 
             	if (elemHeight < spaceHeight) {
             		elem.css({height:spaceHeight, width:spaceHeight*aspect});
