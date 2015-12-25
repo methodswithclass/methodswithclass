@@ -7,6 +7,8 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
         return ['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
 
+            $scope.bio = data.bio;
+
             $scope.getContentUrl = function() {
             
                 var view;

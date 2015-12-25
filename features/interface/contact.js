@@ -4,13 +4,8 @@ uiModule.directive('contact', ['global', 'states', function (g, states) {
 		restrict:'E',
 		scope:false,
 		replace:true,
-		template: '<div class="absolute width height white-back rounded10 pointer" on-tap="clicked()"><div class="absolute font-40 center">contact</div></div>',
+		template: '<div class="relative width padding-bottom-20 border-bottom"><div class="relative width80 hcenter">{{}}</div></div>',
 		link:function ($scope, element, attr) {
-
-			$scope.clicked = function () {
-
-				states.go("contact");
-			}
 
 		}
 	};

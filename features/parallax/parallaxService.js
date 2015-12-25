@@ -47,11 +47,13 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 	var resolveFactor = function (factor) {
 
-		if (factor < 0) factor = -factor;
+		var sign = 1;
+
+		if (factor < 0) sign = -1;
 
 		//if (factor > 1) factor = 1;
 
-		if (factor < 0.75) factor = 0.75;
+		if (Math.abs(factor) < 0.75) factor = sign*0.75;
 
 		return factor;
 	}
@@ -91,17 +93,17 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 			//is not ie
 
-			windowFactor = (scrollHeight - standardHeight + 0.9)/(scrollWidth - standardWidth + 1);
+			windowFactor = spaceHeight*1.2/elemHeight;
 
-			scrollFactor = resolveFactor(params.factor);
+			scrollFactor = resolveFactor(windowFactor*params.factor);
 
 			//console.log((spaceOffset - params.start));
 
 			if (params.top)	{
-				value = params.factor*spaceOffset/scrollHeight*spread + minimum;
+				value = scrollFactor*spaceOffset/scrollHeight*spread + minimum;
 			}
 			else {
-				value = -params.factor*(1-spaceOffset/scrollHeight)*spread + minimum;
+				value = -scrollFactor*(1-spaceOffset/scrollHeight)*spread + minimum;
 			}
 
 			//console.log(value);

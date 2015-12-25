@@ -11,6 +11,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 		link:function ($scope, element, attr) {					
 
 		    var view;
+		    var aspect;
 
 			$scope.getContentUrl = function() {
                 
@@ -26,7 +27,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var info = $scope.info;
 
-            var resizeElement = function () {
+            var resizeElement = function (first) {
 
             	var elem = $("#parallax" + info.id);
             	var space = $("#space" + info.id);
@@ -34,7 +35,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
             	var elemWidth = elem.width();
             	var spaceHeight = space.height()*1.2;
             	var spaceWidth = space.width()*1.2;
-            	var aspect = elemWidth/elemHeight;
+            	if (first) aspect = elemWidth/elemHeight;
 
             	if (elemHeight < spaceHeight) {
             		elem.css({height:spaceHeight, width:spaceHeight*aspect});
@@ -46,13 +47,15 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             setTimeout(function () {
 
-            	resizeElement();
+            	resizeElement(true);
 
             	//$("#sep" + info.id).css({height:info.sep + "px"});
 
             }, 100);
 
-            $(window).resize(resizeElement);
+            $(window).resize(function () {
+            	resizeElement(false);
+            });
             
 
 			$scope.clicked = function () {
