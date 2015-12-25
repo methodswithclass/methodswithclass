@@ -26,7 +26,7 @@ uiModule.directive("footer", ['global', '$state', function (g, $state) {
 
 	        	console.log($state.current.name);
 
-	        	return $state.current.name == "contact" ? $("#text-bottom").offset().top + $("#text-bottom").height() : $("#content").height();
+	        	return g.isMobile() && $state.current.name == "contact" ? $("#text-bottom").offset().top + $("#text-bottom").height() : $("#content").height();
 	        }
 
 	        var setHeight = function () {

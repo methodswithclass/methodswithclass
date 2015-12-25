@@ -24,7 +24,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             $scope.email = function () {
 
-                window.open("mailto:chris@methodswithclass.com");
+                window.location.href = 'mailto:chris@methodswithclass.com';
             }
 
         }];
