@@ -50,7 +50,7 @@ uiModule.directive('block', ['global', 'states', function (g, states) {
 
             	$("#sep" + info.id).css({height:info.sep + "px"});
 
-            }, 500);
+            }, 100);
 
             $(window).resize(resizeElement);
             
