@@ -1,5 +1,5 @@
 
-uiModule.directive('block', ['global', 'states', function (g, states) {
+uiModule.directive('block', ['global', 'states', '$window', function (g, states, $window) {
 
 	return {
 		restrict:'E',
@@ -60,7 +60,7 @@ uiModule.directive('block', ['global', 'states', function (g, states) {
 				console.log("clicked");
 
 				if (info.id == "nuplae") {
-					window.open(
+					$window.open(
 						"http://nuplae.methodswithclass.com",
 						"_blank"
 					);
