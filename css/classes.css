@@ -250,9 +250,19 @@ a.blue {
 	padding-left: 20px;
 }
 
+.padding-left-50 {
+
+	padding-left:50px;
+}
+
 .padding-bottom-20 {
 
 	padding-bottom:20px;
+}
+
+.padding-bottom-50 {
+
+	padding-bottom:50px;
 }
 
 .padding-bottom-200 {
