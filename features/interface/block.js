@@ -48,7 +48,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             	resizeElement();
 
-            	$("#sep" + info.id).css({height:info.sep + "px"});
+            	//$("#sep" + info.id).css({height:info.sep + "px"});
 
             }, 100);
 
