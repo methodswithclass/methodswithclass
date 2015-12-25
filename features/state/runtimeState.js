@@ -22,6 +22,11 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                 return 'features/views/' + view;
             }
 
+            $scope.email = function () {
+
+                window.open("mailto:chris@methodswithclass.com");
+            }
+
         }];
     }
 
