@@ -7,7 +7,7 @@ sharedModule.factory('global', ['$window', '$sce', '$location', 'events', functi
 
 	var inbound = false;
 
-	var forceMobile = false;
+	var forceMobile = true;
 
 	var splitPath = function (path) {
 

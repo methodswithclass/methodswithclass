@@ -26,10 +26,6 @@ uiModule.directive('block', ['global', 'states', function (g, states) {
 
             var info = $scope.info;
 
-            var icon = "<div class='absolute bottom-50 left-50 width-200 height-200 border rounded20 cutoff pointer' on-tap='clicked()'><img class='absolute width height' src='img2/mesh.jpg'/></div>";
-
-            var contact = "<div class='absolute top10 left10 width-200 height-50 z-10' on-tap='clicked()'><div class='absolute width height white-back rounded10 pointer'><div class='absolute font-40 center'>contact</div></div></div>";
-
             var resizeElement = function () {
 
             	var elem = $("#parallax" + info.id);
@@ -53,10 +49,6 @@ uiModule.directive('block', ['global', 'states', function (g, states) {
             	resizeElement();
 
             	$("#sep" + info.id).css({height:info.sep + "px"});
-
-            	// if (info.id == "nuplae") $("#space" + info.id).append(icon);
-
-            	// if (info.id == "end") $("#space" + info.id).append(contact);
 
             }, 100);
 

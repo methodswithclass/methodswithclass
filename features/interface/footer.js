@@ -1,4 +1,4 @@
-uiModule.directive("footer", ['global', function (g) {
+uiModule.directive("footer", ['global', '$state', function (g, $state) {
 
 	return {
 		restrict:'E',
@@ -22,12 +22,19 @@ uiModule.directive("footer", ['global', function (g) {
 	            return 'features/views/' + view;
 	        }
 
+	        var getHeight = function () {
+
+	        	console.log($state.current.name);
+
+	        	return $state.current.name == "contact" ? $("#text-bottom").offset().top + $("#text-bottom").height() : $("#content").height();
+	        }
+
 	        var setHeight = function () {
 
 				var pageHeight = $(window).height();
 				var footerHeight = 100;
 				var fillSpace = pageHeight - footerHeight;
-				var contentHeight = $("#content").height();
+				var contentHeight = getHeight();
 
 				console.log("fill: " + fillSpace + " content: " + contentHeight);
 				console.log(element.parent());
