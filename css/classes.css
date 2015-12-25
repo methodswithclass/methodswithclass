@@ -637,15 +637,18 @@ a.blue {
 
 /* ***************  FORMATS ***************  */
 
+.rounded10 {
+	
+	border-radius:10px;	
+}
 
 .rounded20 {
 	
 	border-radius:20px;	
 }
 
-.rounded10 {
-	
-	border-radius:10px;	
+.rounded30 {
+	border-radius:30px;
 }
 
 .rounded50 {
