@@ -1,0 +1,19 @@
+
+<div class="relative width white-back cutoff noedge" id="{{'sep' + info.id}}">
+
+    <div class="relative width60 font-25 text-center center" id="{{'desc' + info.id}}"> {{info.description}} </div>
+
+</div>
+
+<div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}">
+
+	<div ng-show="info.id == 'end'" class='absolute top10 left10 width-200 height-50 z-10' on-tap='clicked()'>
+		<div class='absolute width height white-back rounded10 pointer'>
+			<div class='absolute font-40 center'>contact</div>
+		</div>
+	</div>
+
+
+    <img class="absolute width120 height-auto hcenter" id="{{'parallax' + info.id}}" ng-src= "{{info.back}}" parallax name="{{info.id}}" factor="1" top="false" bottom="{{info.bottom}}" scroll="body"/>
+
+</div>

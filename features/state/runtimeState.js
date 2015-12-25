@@ -3,6 +3,28 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
     var provider = {};
 
+    var contactController = function () {
+
+        return ['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
+
+            $scope.getContentUrl = function() {
+            
+                var view;
+
+                if (g.isMobile()) {
+
+                    view = "m.contact.html";
+                }
+                else {
+                    view = "d.contact.html";
+                }
+
+                return 'features/views/' + view;
+            }
+
+        }];
+    }
+
     var states = [
     {
         name:"Default"
@@ -47,6 +69,12 @@ stateModule.provider("runtime.state", function ($stateProvider) {
         template:"<div ng-include='getContentUrl()'></div>"
     },
     {
+        name:"contact",
+        url:"/contact",
+        template:"<div ng-include='getContentUrl()'></div>",
+        controller:contactController()
+    },
+    {
         name:"credits",
         url:"/credits",
         templateUrl:'features/views/d.credits.html'
@@ -58,70 +86,6 @@ stateModule.provider("runtime.state", function ($stateProvider) {
         console.log("add state " + state.name);
 
         $stateProvider.state(state);
-    }
-
-    var printParams = function(params) {
-
-        var string = "\n";
-
-        for (i in params) {
-
-            string += "parameter:" + i + " is:" + params[i] + "\n";
-        }
-
-        console.log(string);
-    }
-
-    var getParams = function (absurl) {
-
-        var obj = {};
-
-        var url = absurl.split("?");
-
-        if (url.length > 1) {
-
-            var pairs = url[1].split("&");
-
-            var pairArray;
-
-            for (i in pairs) {
-
-                pairArray = pairs[i].split("=");
-
-                obj[pairArray[0]] = pairArray[1];
-
-            }
-
-        }
-
-        return obj;
-
-    }
-
-    var splitStateName = function (stateName) {
-
-        var obj = {};
-
-        var nameArray = stateName.split(".");
-
-        if (nameArray.length > 0) {
-
-            obj = {
-                isChild:true,
-                device:nameArray[0],
-                state:nameArray[1]
-            }
-
-        }
-        else {
-            obj = {
-                isChild:false,
-                device:"none",
-                state:stateName
-            }
-        }
-
-        return obj;
     }
 
     provider.$get = ['send', '$location', 'data.service', 'global', '$state', function (send, $location, data, g, $state) {
@@ -138,51 +102,10 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             this.addState = addState;
 
-            this.isState = function (name) {
-
-                //var base = g.getBase();
-
-                var stateObj;
-
-                for (i in states) {
-
-                    stateObj = splitStateName(states[i].name);  
-
-                    if (name == stateObj.state) {
-                      return true;
-                    }
-                }
-
-                return false;
-            }
-
 
             this.checkInbound = function() {
 
                 console.log("check inbound");
-
-                var params = getParams($location.absUrl());
-
-                console.log(params);
-
-                var blog = "none";
-
-                if (params.b) {
-
-                    // if (data.resolveIndex(params.blog)) {
-
-                    //     blog = blogs[params.blog].meta_data.name;
-
-                    // }
-                    // else {
-                        
-
-                    blog = params.b;
-                    
-
-                }
-
-                send.setup.save({name:"inbound", data:blog});
 
                 $state.go("home");
             }

@@ -21,6 +21,8 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 	var space;
 	var elem;
 
+	var active;
+
 	var checkDom = function () {
 
 		var result = true;
@@ -54,9 +56,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 		return factor;
 	}
 
-	var set = function (params) {
-
-		//console.log(params.name);
+	var getValues = function (params) {
 
 		space = $("#space" + params.name);
 		elem = $("#parallax" + params.name);
@@ -68,8 +68,24 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 		scrollHeight = $(window).height()*1.3;
 		scrollWidth = $(window).width();
 
-		spread = 0.9*(elemHeight - spaceHeight);
 		minimum = -params.bottom*(elemHeight - spaceHeight);
+		spread = 0.9*(elemHeight - spaceHeight);
+
+		return {
+			spaceHeight:spaceHeight,
+			spaceOffset:spaceOffset,
+			scrollHeight:scrollHeight,
+			minimum:minimum,
+			spread:spread,
+			active:active
+		}
+	}
+
+	var set = function (params) {
+
+		//console.log(params.name);
+
+		getValues(params);
 
 		if (g.checkDevice() == desktop) { //check if browser is ie or not
 
@@ -77,16 +93,18 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 			windowFactor = (scrollHeight - standardHeight + 0.9)/(scrollWidth - standardWidth + 1);
 
-			scrollFactor = resolveFactor(windowFactor*params.factor);
+			scrollFactor = resolveFactor(params.factor);
 
-			console.log((spaceOffset - params.start));
+			//console.log((spaceOffset - params.start));
 
 			if (params.top)	{
-				value = -1*Math.abs(scrollFactor*(spaceOffset - params.start)/scrollHeight*spread + minimum);
+				value = params.factor*spaceOffset/scrollHeight*spread + minimum;
 			}
 			else {
-				value = -1*Math.abs(scrollFactor*(1-(spaceOffset - params.start)/scrollHeight)*spread + minimum);
+				value = -params.factor*(1-spaceOffset/scrollHeight)*spread + minimum;
 			}
+
+			//console.log(value);
 			
 			elem.css({"bottom":value});
 
@@ -103,6 +121,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 	}
 
 	return {
+		getValues:getValues,
 		set:set
 	}
 

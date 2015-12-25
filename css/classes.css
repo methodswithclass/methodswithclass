@@ -230,9 +230,29 @@ a.blue {
 	padding:10px;
 }
 
+.padding-20 {
+
+	padding:20px;
+}
+
+.padding-left-20 {
+
+	padding-left: 20px;
+}
+
+.padding-bottom-20 {
+
+	padding-bottom:20px;
+}
+
 .padding-h-50 {
 
 	padding:0 50px;
+}
+
+.padding-h-20 {
+
+	padding:0 20px;
 }
 
 .padding-top10 {
@@ -463,6 +483,10 @@ a.blue {
 	bottom:0;
 }
 
+.bottom10 {
+	bottom:10px;
+}
+
 .bottom30 {
 
 	bottom:30%;
@@ -656,6 +680,11 @@ a.blue {
 .border-right {
 
 	border-right:1px solid black;
+}
+
+.border-bottom {
+
+	border-bottom:1px solid black;
 }
 
 .shadow {
@@ -1212,6 +1241,11 @@ a.blue {
 .width-700 {
 
 	width:700px;
+}
+
+.min-width120 {
+
+	min-width:120%;
 }
 
 .min-width-900 {

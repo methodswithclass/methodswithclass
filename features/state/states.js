@@ -109,13 +109,9 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 
 	var go = function (state) {
 
-		if (data.isBlog(state)) {
-			console.log("state " + state);
-			$state.go("blog", {name:state});
-		}
-		else{
-			$state.go(state);
-		}
+		
+		$state.go(state);
+		
 	}
 	
 

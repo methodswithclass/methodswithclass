@@ -22,36 +22,28 @@ uiModule.directive("footer", ['global', function (g) {
 	            return 'features/views/' + view;
 	        }
 
-	   //      var setHeight = function () {
+	        var setHeight = function () {
 
-	   //      	var bottom = 0;
+				var pageHeight = $(window).height();
+				var footerHeight = 100;
+				var fillSpace = pageHeight - footerHeight;
+				var contentHeight = $("#content").height();
 
-	   //      	// $(".blog-button-bottom").each(function () {
+				console.log("fill: " + fillSpace + " content: " + contentHeight);
+				console.log(element.parent());
 
-	   //      	// 	var _bottom = $(this).offset().top + $(this).height();
+				element.parent().css({top:Math.max(contentHeight, fillSpace)});
 
-	   //      	// 	//console.log(_top);
+			}
 
-	   //      	// 	if (_bottom > bottom) {
-	   //      	// 		bottom = _bottom;
-	   //      	// 	}
+			setTimeout(function () {
 
-	   //      	// });
+				setHeight();				
+			}, 500);
 
-				// var bottom = $("#blog-buttons").offset().top + $("#blog-buttons").height() + 200;
+			
 
-	   //      	console.log(bottom);
-
-	   //      	$("#footer").css({top:bottom});
-
-	        	
-	   //      }
-
-	   //      setTimeout(function () {
-		  //   	setHeight();
-		  //   }, 1000);
-
-	   //      $(window).resize(setHeight);
+			$(window).resize(setHeight);
 		}
 	}
 }]);

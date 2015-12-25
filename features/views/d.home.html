@@ -1,53 +1,35 @@
 
+          
+<div class="absolute width height corner scrollY touch noedge" id="body">
 
+		<div class="relative width" id="content">
+			<div class="relative width height-600 black-back noedge cutoff" id="spacehome">
+				
+				<div class="absolute width height-1000" id="parallaxhome" parallax name="home" factor="3.5" top="true" bottom="0.5" scroll="body">
 
+					<div class="absolute width80 height40 center">
 
-      <div class="fixed corner height10 width gray-back white z-100" id="toolbar">
-          <div class="absolute left10 width80 height-30 vcenter">
+						<div class="absolute top0 right0 width40 white text-right font-70">
+							methods with class
+						</div>
 
-              <table cellspacing="50" class="absolute width height vcenter">
+						
+						<div class="absolute width white bottom0 text-right"> we make your ideas come to life with class </div>
+						
 
-                  <tr class="relative width">
+					</div>
 
-                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="projectBtn"> Project </menu></td>
-                      <td class="width10"></td>
-                      <td><menu class="relative width height font-50 pointer" ng-attr-body="body" id="contactBtn"> Contact </menu></td>
-                      <td class="width80"></td>
-                      <td><div class="relative width height"> <img class="relative margin-h-minus-50 right0 width-300 height-auto vcenter" src="/img/title2.png"/> </div></td>
+				</div>
 
-                  </tr>
-              </table>
+			</div>
 
-          </div>
-      </div>
+	        <div class="relative" ng-repeat="block in main.blocks"> 
+	            <block scroll="body" info="block"></block>
+	        </div>
 
-      <div class="absolute width top10 left0 height90 cutoff">
+        </div>
 
-          <div class="absolute corner height width200 z-20">
-                
-              <div class="absolute width50 height corner scrollY noedge z-20" id="body">
-
-                      <div class="relative width height-100 white-back noedge z-20">
-                          <div class="absolute width height-30 vcenter">
-                              <div class="absolute width text-center vcenter">Here are some projects in various languages and platforms, enjoy </div>
-                          </div>
-                      </div>
-
-
-
-                      <div class="relative" ng-repeat="project in main.pages.projects"> 
-                          <project ng-attr-parent="projectsOuter" info="project"></project>
-                      </div>
-
-                      <div class="relative height-200 width"></div>
-
-              </div>
-
-
-              <div class="absolute width50 height top0 left50 scrollY noedge z-20" id="contactsOuter">
-                  <contact info="main.pages.contact"></contact>
-              </div>
-
-          </div>
-
-      </dvi>
+        <div class="absolute width height-200 bottom0">
+			<footer></footer>
+		</div>
+</div>

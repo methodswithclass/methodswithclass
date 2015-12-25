@@ -18,11 +18,4 @@ app.config(['runtime.stateProvider', '$locationProvider', '$routeProvider', func
 }]).run(["runtime.state", "$state", "$rootScope", function (runtime, $state, $rootScope) {
 
 	runtime.checkInbound();
-
-	//console.log("go to checking");
-
-	//$state.go("checking");
-
-	$rootScope.facebookAppId = '[696572137111194]';
-
 }]);

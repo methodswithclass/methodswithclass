@@ -1,28 +1,16 @@
-uiModule.directive('contact', ['global', function (g) {
+uiModule.directive('contact', ['global', 'states', function (g, states) {
 
 	return {
 		restrict:'E',
-		scope:{
-			info:'='
-		},
-		template: '<div ng-include="getContentUrl()"></div>',
+		scope:false,
+		replace:true,
+		template: '<div class="absolute width height white-back rounded10 pointer" on-tap="clicked()"><div class="absolute font-40 center">contact</div></div>',
 		link:function ($scope, element, attr) {
 
-			var view;
+			$scope.clicked = function () {
 
-			$scope.getContentUrl = function() {
-                
-				if (g.isMobile()) {
-					view = "m.contact.html";
-				}
-				else {
-					view = "d.contact.html";
-				}
-
-                return 'features/views/' + view;
-            }
-
-			$scope.renderHtml = g.renderHtml;
+				states.go("contact");
+			}
 
 		}
 	};

@@ -2,7 +2,7 @@ uiModule.controller('MainController', ['$scope', '$document', 'global', 'data.se
 
 	var self = this;
 
-	self.pages = data.pages;
+	self.blocks = data.blocks;
 
 	$scope.getContentUrl = function() {
 			
