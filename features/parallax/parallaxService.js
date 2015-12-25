@@ -58,7 +58,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 	var getValues = function (params) {
 
-		space = $("#space" + params.name);
+		space = $("#space" + params.space);
 		elem = $("#parallax" + params.name);
 
 		elemHeight = elem.height();

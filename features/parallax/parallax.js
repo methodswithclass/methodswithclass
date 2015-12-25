@@ -9,7 +9,7 @@ parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', f
 		var active;
 
 		var scroll = function () {
-			parallax.set({name:$scope.name, factor:$scope.factor, top:$scope.top, bottom:$scope.bottom, start:start});
+			parallax.set({name:$scope.name, space:$scope.space, factor:$scope.factor, top:$scope.top, bottom:$scope.bottom, start:start});
 		}
 
 		setTimeout(function() {
@@ -27,7 +27,8 @@ parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', f
 			scroll:"@",
 			factor:"@",
 			top:"=",
-			bottom:"@"
+			bottom:"@",
+			space:"@"
 		},
 		link:link
 	};
