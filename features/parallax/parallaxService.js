@@ -106,8 +106,10 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 				value = -scrollFactor*(1-spaceOffset/scrollHeight)*spread + minimum;
 			}
 
-			//console.log(value);
-			
+			if (params.name == "nuplae"){
+				console.log(params.name + ":" + value);
+			}
+
 			elem.css({"bottom":value});
 
 		}
