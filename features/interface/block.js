@@ -39,6 +39,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
             	if (space.height() > $(window).height()*0.8) {
             		console.log("resize space");
             		space.css({height:$(window).height()*0.8});
+            		$("#spacehome").css({height:$(window).height()*0.8});
             	}
             	
             	var elemHeight = elem.height();
