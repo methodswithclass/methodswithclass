@@ -27,10 +27,15 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var info = $scope.info;
 
+            var elem = $("#parallax" + info.id);
+            var space = $("#space" + info.id);
+
             var resizeElement = function (first) {
 
-            	var elem = $("#parallax" + info.id);
-            	var space = $("#space" + info.id);
+            	if (space.height() > $(window).height()*0.8) {
+            		space.css({height:$(window).height()*0.8});
+            	}
+            	
             	var elemHeight = elem.height();
             	var elemWidth = elem.width();
             	var spaceHeight = space.height()*1.2;
