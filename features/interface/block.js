@@ -31,6 +31,14 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var resizeElement = function (first) {
 
+            	if (info.id != "nuplae") {
+            		$("#parallax2nuplae").remove();
+            	}
+
+            	if (info.id != "end") {
+            		$("#contactend").remove();
+            	}
+
             	var elem = $("#parallax" + info.id);
            		var space = $("#space" + info.id);
            		var sep = $("#sep" + info.id);
