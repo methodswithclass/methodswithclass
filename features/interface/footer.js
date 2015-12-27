@@ -46,7 +46,7 @@ uiModule.directive("footer", ['global', '$state', function (g, $state) {
 			setTimeout(function () {
 
 				setHeight();				
-			}, 500);
+			}, 1000);
 
 			
 
