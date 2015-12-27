@@ -33,13 +33,14 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             	var elem = $("#parallax" + info.id);
            		var space = $("#space" + info.id);
+           		var sep = $("#sep" + info.id);
 
            		console.log(space.height() + " " + $(window).height()*0.8);
 
             	if (space.height() > $(window).height()*0.8) {
             		console.log("resize space");
             		space.css({height:$(window).height()*0.8});
-            		elem.css({height:$(window).height()*0.6});
+            		sep.css({height:$(window).height()*0.6});
             		$("#spacehome").css({height:$(window).height()*0.8});
             	}
             	
