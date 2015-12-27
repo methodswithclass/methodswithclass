@@ -107,7 +107,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 			}
 
 			if (params.name == "nuplae"){
-				console.log(params.name + ":" + value);
+				//console.log(params.name + ":" + value);
 			}
 
 			elem.css({"bottom":value});
