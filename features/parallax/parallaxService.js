@@ -97,7 +97,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 			scrollFactor = resolveFactor(windowFactor*params.factor);
 
-			console.log(scrollFactor);
+			console.log("factor " + scrollFactor);
 
 			if (params.top)	{
 				value = scrollFactor*spaceOffset/scrollHeight*spread + minimum;
