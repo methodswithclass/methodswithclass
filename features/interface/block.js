@@ -34,6 +34,8 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
             	var elem = $("#parallax" + info.id);
            		var space = $("#space" + info.id);
 
+           		console.log(space.height() + " " + $(window).height()*0.8);
+
             	if (space.height() > $(window).height()*0.8) {
             		console.log("resize space");
             		space.css({height:$(window).height()*0.8});
