@@ -107,6 +107,11 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 		$state.go("Modal." + params.modal);
 	}
 
+	var current = function () {
+
+		return $state.current.name;
+	}
+
 	var go = function (state) {
 
 		
@@ -118,6 +123,7 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 	return {
 		define:define,
 		showModal:showModal,
+		current:current,
 		go:go
 	}
 

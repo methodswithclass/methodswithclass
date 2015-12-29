@@ -1,36 +1,32 @@
 
 
-<div class="absolute width height corner scrollY touch noedge" id="body">
+<div class="relative width min-height100 margin-bottom-200" id="content">
+    <div class="relative width height-600 black-back noedge cutoff" id="spacehome">
+        
+        <div class="absolute width height-1000 vcenter">
 
-    <div class="relative width min-height100 margin-bottom-200" id="content">
-        <div class="relative width height-600 black-back noedge cutoff" id="spacehome">
-            
-            <div class="absolute width height-1000 vcenter">
+            <div class="absolute width80 height40 center">
 
-                <div class="absolute width80 height40 center">
-
-                    <div class="absolute top0 right0 width40 white text-right font-70">
-                        methods with class
-                    </div>
-
-                    
-                    <div class="absolute width white bottom0 text-right font-40"> we make your ideas come to life with class </div>
-                    
-
+                <div class="absolute top0 right0 width40 white text-right font-70">
+                    methods with class
                 </div>
+
+                
+                <div class="absolute width white bottom0 text-right font-40"> we make your ideas come to life with class </div>
+                
 
             </div>
 
         </div>
 
-        <div class="relative" ng-repeat="block in main.blocks"> 
-            <block scroll="body" info="block"></block>
-        </div>
+    </div>
 
-        <div class="absolute width height-200 top100">
-            <footer></footer>
-        </div>
+    <div class="relative" ng-repeat="block in main.blocks"> 
+        <block scroll="body" info="block"></block>
+    </div>
 
+    <div class="absolute width height-200 top100">
+        <footer></footer>
     </div>
 
 </div>

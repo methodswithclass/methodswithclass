@@ -18,6 +18,7 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 	var value;
 
 
+	var scroll;
 	var space;
 	var elem;
 
@@ -45,33 +46,38 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 		});
 	}
 
-	var resolveFactor = function (factor) {
+	// var resolveFactor = function (factor) {
 
-		var sign = 1;
+	// 	var sign = 1;
 
-		if (factor < 0) sign = -1;
+	// 	if (factor < 0) sign = -1;
 
-		//if (factor > 1) factor = 1;
+	// 	//if (factor > 1) factor = 1;
 
-		if (Math.abs(factor) < 0.75) factor = sign*0.75;
+	// 	if (Math.abs(factor) < 0.75) factor = sign*0.75;
 
-		return factor;
-	}
+	// 	return factor;
+	// }
 
 	var getValues = function (params) {
 
+		scroll = $("#" + params.scroll);
 		space = $("#space" + params.space);
 		elem = $("#parallax" + params.name);
 
 		elemHeight = elem.height();
-		elemOffset = elem.offset().top;
+		elemOffset = elem.offset().top - scroll.offset().top;
 		spaceHeight = space.height();
-		spaceOffset = space.offset().top;
+		spaceOffset = space.offset().top - scroll.offset().top;
 		scrollHeight = $(window).height()*1.3;
 		scrollWidth = $(window).width();
 
+		//console.log(elemHeight);
+
 		minimum = -params.bottom*(elemHeight - spaceHeight);
 		spread = 0.9*(elemHeight - spaceHeight);
+
+		//console.log(minimum);
 
 		return {
 			spaceHeight:spaceHeight,
@@ -93,22 +99,18 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 
 			//is not ie
 
-			windowFactor = spaceHeight*1.2/elemHeight;
+			//scrollFactor = resolveFactor(windowFactor*params.factor);
 
-			scrollFactor = resolveFactor(windowFactor*params.factor);
-
-			console.log("factor: " + params.name + " " + scrollFactor);
+			//console.log("factor: " + params.name + " " + scrollFactor);
 
 			if (params.top)	{
-				value = scrollFactor*spaceOffset/scrollHeight*spread + minimum;
+				value = params.factor*spaceOffset/scrollHeight*spread + minimum;
 			}
 			else {
-				value = -scrollFactor*(1-spaceOffset/scrollHeight)*spread + minimum;
+				value = -params.factor*(1-spaceOffset/scrollHeight)*spread + minimum;
 			}
 
-			if (params.name == "nuplae"){
-				//console.log(params.name + ":" + value);
-			}
+			//console.log(value);
 
 			elem.css({"bottom":value});
 

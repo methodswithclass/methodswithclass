@@ -1,15 +1,13 @@
-parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', function (parallax, $window, g) {
+parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', 'states', function (parallax, $window, g, states) {
 
 	var link = function ($scope, element, attr) {
 
 		var el = $("#" + $scope.scroll);
 
-		var first;
-		var start;
-		var active;
-
 		var scroll = function () {
-			parallax.set({name:$scope.name, space:$scope.space, factor:$scope.factor, top:$scope.top, bottom:$scope.bottom, start:start});
+			if (states.current() == "home") {
+				parallax.set({name:$scope.name, space:$scope.space, scroll:$scope.scroll, factor:$scope.factor, top:$scope.top, bottom:$scope.bottom});
+			}
 		}
 
 		setTimeout(function() {

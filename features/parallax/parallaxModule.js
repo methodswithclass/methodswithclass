@@ -1,1 +1,1 @@
-var parallaxModule = angular.module("parallaxModule", ['sharedModule']);
+var parallaxModule = angular.module("parallaxModule", ['sharedModule', 'stateModule']);

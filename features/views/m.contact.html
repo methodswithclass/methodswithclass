@@ -1,61 +1,58 @@
-<div class="absolute width height corner scrollY touch noedge">
 
-	<div class="relative width min-height100 margin-bottom-200" id="contactcontent">
 
-		<div class="relative width height-300 black-back">
+<div class="relative width min-height100 margin-bottom-200" id="contactcontent">
 
-			<div class="absolute width80 height30 center font-40">
-				
-				<div class="absolute width50 white">
-					methods with class
-				</div>
+	<div class="relative width height-300 black-back">
 
-				<div class="absolute width-200 height-100 right0">
-					<back font="font-30"></back>
-				</div>
+		<div class="absolute width80 height30 center font-40">
+			
+			<div class="absolute width50 white">
+				methods with class
+			</div>
 
+			<div class="absolute width-200 height-100 right0">
+				<back font="font-30"></back>
 			</div>
 
 		</div>
 
-
-		<div class="relative width">
-
-			<div class="absolute top-100 width80 hcenter">
-
-				<div class="relative width font-40">
-
-					<div ng-repeat="paragraph in bio">
-						<div class="relative width {{paragraph.mobileClass}}">
-							<div class="relative width80 hcenter">{{paragraph.text}}</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="relative top-50 width-200 height-100 hcenter border rounded20 white-back font-40 pointer" on-tap="email()">
-					<div class="absolute center">email me</div>
-				</div>
-				
-
-				<div class="relative top-100 width50 hcenter">
-
-					<img class="relative width height-auto" src="img2/bio-photo.jpg"/>
-
-					<div class="relative width height-200" id="text-bottom"></div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="absolute width height-200 top100">
-			<footer></footer>
-		</div>
 	</div>
 
-	
 
+	<div class="relative width">
 
+		<div class="absolute top-100 width80 hcenter">
+
+			<div class="relative width font-40">
+
+				<div ng-repeat="paragraph in bio">
+					<div class="relative width {{paragraph.mobileClass}}">
+						<div class="relative width80 hcenter">{{paragraph.text}}</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="relative top-50 width-200 height-100 hcenter border rounded20 white-back font-40 pointer" on-tap="email()">
+				<div class="absolute center">email me</div>
+			</div>
+			
+
+			<div class="relative top-100 width50 hcenter">
+
+				<img class="relative width height-auto" src="img2/bio-photo.jpg"/>
+
+				<div class="relative width height-200" id="text-bottom"></div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="absolute width height-200 top100">
+		<footer></footer>
+	</div>
 </div>
+
+	
