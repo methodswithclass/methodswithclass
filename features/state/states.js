@@ -3,10 +3,6 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 	var modalTime = 1000;
 
 	var body = {};
-	var elements = {};
-	var bodyElem;
-	var elem;
-	var btn;
 
 	var prevState;
 
@@ -17,8 +13,6 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 	var blogs = data.blogs;
 
 	send.setup.receiver({name:"body", receiver:body});
-
-	send.setup.receiver({name:"blog", receiver:elements});
 
 	var setModalTime = function (_time) {
 
@@ -70,34 +64,6 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 		}
 	);
 
-	var addState = function (name) {
-
-		state = {
-
-			name:"blog." + name,
-			url:"/" + name
-
-		};
-
-		states.push(state);
-
-		runtime.addState(state);
-	}
-
-	var define = function () {
-
-		var blog = send.retrieve.get({name:"inbound"});
-
-		if (runtime.isState(blog)) {
-			//console.log("return blog is " + blog);
-			return resolve(blog);
-		}
-		else {
-			return reject(false);
-		}
-
-	}
-
 	var showModal = function (params) {
 
 		//console.log("show modal " + params.modal);
@@ -121,7 +87,6 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 	
 
 	return {
-		define:define,
 		showModal:showModal,
 		current:current,
 		go:go

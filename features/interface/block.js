@@ -10,8 +10,8 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 		template: '<div ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {					
 
-		    var view;
-		    var aspect;
+            var view;
+            var aspect;
 
 			$scope.getContentUrl = function() {
                 
@@ -27,57 +27,32 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var info = $scope.info;
 
+            var sep;
+            var space;
             
+            var initElements = function () {
 
-            var resizeElement = function (first) {
+                sep = $("#sep" + info.id);
+                space = $("#space" + info.id);
 
-            	// if (info.id != "nuplae") {
-            	// 	$("#parallax2" + info.id).remove();
-            	// }
+                //console.log(space.height() + " " + $(window).height()*0.8);
 
-            	// if (info.id != "end") {
-            	// 	$("#contact" + info.id).remove();
-            	// }
-
-            	var elem = $("#parallax" + info.id);
-           		var space = $("#space" + info.id);
-           		var sep = $("#sep" + info.id);
-
-           		console.log(space.height() + " " + $(window).height()*0.8);
-
-            	if (space.height() > $(window).height()*0.8) {
-            		console.log("resize space");
-            		space.css({height:$(window).height()*0.8});
-            		sep.css({height:$(window).height()*0.6});
-            		$("#spacehome").css({height:$(window).height()*0.8});
-            	}
-            	
-            	var elemHeight = elem.height();
-            	var elemWidth = elem.width();
-            	var spaceHeight = space.height()*1.2;
-            	var spaceWidth = space.width()*1.2;
-            	if (first) aspect = elemWidth/elemHeight;
-
-            	if (elemHeight < spaceHeight) {
-            		elem.css({height:spaceHeight, width:spaceHeight*aspect});
-            	}
-            	else if (elemWidth < spaceWidth) {
-            		elem.css({width:spaceWidth, height:spaceWidth/aspect});
-            	}
+                if (space.height() > $(window).height()*0.8) {
+                    //console.log("resize space");
+                    space.css({height:$(window).height()*0.8});
+                    sep.css({height:$(window).height()*0.6});
+                    $("#spacehome").css({height:$(window).height()*0.8});
+                }
+                
             }
 
             setTimeout(function () {
 
-            	resizeElement(true);
+            	initElements();
 
             	//$("#sep" + info.id).css({height:info.sep + "px"});
 
             }, 500);
-
-            $(window).resize(function () {
-            	resizeElement(false);
-            });
-            
 
 			$scope.clicked = function () {
 

@@ -36,8 +36,8 @@ uiModule.directive("footer", ['global', '$state', function (g, $state) {
 				var fillSpace = pageHeight - footerHeight;
 				var contentHeight = getHeight();
 
-				console.log("fill: " + fillSpace + " content: " + contentHeight);
-				console.log(element.parent());
+				//console.log("fill: " + fillSpace + " content: " + contentHeight);
+				//console.log(element.parent());
 
 				element.parent().css({top:Math.max(contentHeight, fillSpace)});
 

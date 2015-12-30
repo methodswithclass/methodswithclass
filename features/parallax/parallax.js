@@ -4,6 +4,8 @@ parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', '
 
 		var el = $("#" + $scope.scroll);
 
+		var image = new parallax.imageAdjust();
+
 		var scroll = function () {
 			if (states.current() == "home") {
 				parallax.set({name:$scope.name, space:$scope.space, scroll:$scope.scroll, factor:$scope.factor, top:$scope.top, bottom:$scope.bottom});
@@ -12,11 +14,15 @@ parallaxModule.directive('parallax', ['parallax.service', '$window', 'global', '
 
 		setTimeout(function() {
 			scroll();
-		}, 500);
+			image.fix({name:$scope.name, space:$scope.space, first:true});
+		}, 300);
 
 		el.bind('scroll', scroll);
 
-		angular.element($window).bind('resize', scroll);
+		angular.element($window).bind('resize', function () {
+			scroll();
+			image.fix({name:$scope.name, space:$scope.space, first:false});
+		});
 	}
 
 	return {
