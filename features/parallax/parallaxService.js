@@ -54,8 +54,6 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 		elemOffset = elem.offset().top - scroll.offset().top;
 		spaceHeight = space.height();
 		spaceOffset = space.offset().top - scroll.offset().top;
-		scrollHeight = $(window).height()*1.3;
-		scrollWidth = $(window).width();
 
 		minimum = -params.bottom*(elemHeight - spaceHeight);
 		spread = 0.9*(elemHeight - spaceHeight);
@@ -78,10 +76,10 @@ parallaxModule.factory("parallax.service", ['$q', 'data.service', 'global', func
 		if (g.checkDevice() == desktop) { //check if browser is ie or not
 
 			if (params.top)	{
-				value = params.factor*spaceOffset/scrollHeight*spread + minimum;
+				value = params.factor*spaceOffset/1200*spread + minimum;
 			}
 			else {
-				value = -params.factor*(1-spaceOffset/scrollHeight)*spread + minimum;
+				value = -params.factor*(1-spaceOffset/1200)*spread + minimum;
 			}
 
 			elem.css({"bottom":value});

@@ -29,7 +29,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var sep;
             var space;
-            
+
             var initElements = function () {
 
                 sep = $("#sep" + info.id);
@@ -41,7 +41,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
                     //console.log("resize space");
                     space.css({height:$(window).height()*0.8});
                     sep.css({height:$(window).height()*0.6});
-                    $("#spacehome").css({height:$(window).height()*0.8});
+                    //$("#spacehome").css({height:$(window).height()*0.8});
                 }
                 
             }
