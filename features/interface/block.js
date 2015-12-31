@@ -48,7 +48,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             setTimeout(function () {
 
-            	initElements();
+            	//initElements();
 
             	//$("#sep" + info.id).css({height:info.sep + "px"});
 
