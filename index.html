@@ -15,13 +15,14 @@
     <script src="js/libs/angular-route.min.js"></script>
     <script src="js/libs/angular.ui-router.min.js"></script>
     <script src="js/libs/jquery.hammer.js"></script>
+    <script src="js/libs/parallax.js"></script>
 
     <base href="/">
 
   </head>
   <body ng-app="methodswithclass">
-    <div class="absolute min-width-900 fill cutoff deselect" id="main" ng-controller="MainController as main">
-        <div class="absolute width height corner scrollY touch noedge" id="body">
+    <div class="absolute min-width-900 fill cutoff deselect transparent-back" id="main" ng-controller="MainController as main">
+        <div class="absolute width height corner scrollY touch noedge transparent-back" id="body">
             <div ui-view=""></div>
         </div>
         <div ui-view="modal" autoscroll="false"></div>
@@ -57,7 +58,7 @@
 
     <!-- Parallax -->
 
-    <script src="http://code.methodswithclass.com/parallax-1.js"></script>
+    <script src="http://code.methodswithclass.com/parallax-2.js"></script>
 
     <!-- Interface -->
 
