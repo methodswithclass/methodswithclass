@@ -1,4 +1,4 @@
-stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'data.service', 'send', 'events', 'global', 'parallax.service', '$location', function ($q, runtime, $state, $rootScope, data, send, events, g, parallax, $location) {
+stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'data.service', 'send', 'events', 'global', '$location', function ($q, runtime, $state, $rootScope, data, send, events, g, $location) {
 
 	var modalTime = 1000;
 
