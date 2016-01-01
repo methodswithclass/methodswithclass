@@ -35,13 +35,15 @@
 
     <!-- Shared -->
 
-    <script src="features/shared/shared.module.js"></script>
-    <script src="features/shared/on-tap.directive.js"></script>
-    <script src="features/shared/on-press.directive.js"></script>
-    <script src="features/shared/on-press-up.directive.js"></script>
-    <script src="features/shared/global.service.js"></script>
-    <script src="features/shared/events.service.js"></script>
-    <script src="features/shared/send.service.js"></script>
+    <!-- <script src="features/shared/shared.module.js"></script>
+    // <script src="features/shared/on-tap.directive.js"></script>
+    // <script src="features/shared/on-press.directive.js"></script>
+    // <script src="features/shared/on-press-up.directive.js"></script>
+    // <script src="features/shared/global.service.js"></script>
+    // <script src="features/shared/events.service.js"></script>
+    // <script src="features/shared/send.service.js"></script> -->
+
+    <script src="http://code.methodswithclass.com/shared-2.js"></script>
     
 
     <!-- Console -->
@@ -58,7 +60,8 @@
 
     <!-- Parallax -->
 
-    <script src="http://code.methodswithclass.com/parallax-2.js"></script>
+    <!--<script src="http://code.methodswithclass.com/parallax-2.1.js"></script>-->
+    <script src="js/native/parallax-2.1.js"></script>
 
     <!-- Interface -->
 
