@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <script src="js/native/whatdevice.js"></script>
+
     <script src="js/libs/jquery-1.11.3.min.js"></script>
     <script src="js/libs/jquery.scrollto.js"></script>
     <script src="js/libs/hammer.js"></script>
@@ -15,7 +15,6 @@
     <script src="js/libs/angular-route.min.js"></script>
     <script src="js/libs/angular.ui-router.min.js"></script>
     <script src="js/libs/jquery.hammer.js"></script>
-    <script src="js/libs/parallax.js"></script>
 
     <base href="/">
 
