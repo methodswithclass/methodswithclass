@@ -60,8 +60,8 @@
 
     <!-- Parallax -->
 
-    <!--<script src="http://code.methodswithclass.com/parallax-2.1.js"></script>-->
-    <script src="js/native/parallax-2.1.js"></script>
+    <script src="http://code.methodswithclass.com/parallax-2.1.js"></script>
+    <!--<script src="js/native/parallax-2.1.js"></script>-->
 
     <!-- Interface -->
 
