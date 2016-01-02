@@ -3,93 +3,53 @@ dataModule.factory("data.service", ['global', function (g) {
 	var blocks = [
 	{
 		id:'nuplae',
-		title:'nuplae',
-		icon:'/img/box_icon.png',
-		back:'/img2/gravity.jpg',
-		description:"nuplae uses gravity as the controller for a set of games. pop bubbles as they wiz around, or test your ability to balance an object in a specific spot.",
-		bottom:-0.2,
-		sep:600
+		back:'/img/gravity.jpg',
+		description:"nuplae uses gravity as the controller for a set of games. pop bubbles as they wiz around, or test your ability to balance an object in a specific spot."
 	},
 	{
 		id:'hire',
-		title:'call log',
-		icon:'/img/calllog.png',
-		back:'/img2/garfield.jpg',
-		description:"i'm a programmer for hire",
-		bottom:-0.1,
-		sep:600
+		back:'/img/garfield.jpg',
+		description:"i'm a programmer for hire"
 	},
 	{
 		id:'poetry',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/code-poetry.png',
-		description:"what I do is more than just content delivery",
-		bottom:-0.1,
-		sep:600
+		back:'/img/code-poetry.png',
+		description:"what I do is more than just content delivery"
 	},
 	{
 		id:'intense',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/intense_coding.jpg',
-		description:"cuz I actually enjoy what I do, and I do it a lot",
-		bottom:-0.1,
-		sep:600
+		back:'/img/intense_coding.jpg',
+		description:"cuz I actually enjoy what I do, and I do it a lot"
 	},
 	{
 		id:'procrastinate',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/procrastinate.png',
-		description:"so this never happens",
-		bottom:-0.1,
-		sep:600
+		back:'/img/procrastinate.png',
+		description:"so this never happens"
 	},
 	{
 		id:'sad',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/sad.jpg',
-		description:"but this always does",
-		bottom:-0.1,
-		sep:600
+		back:'/img/sad.jpg',
+		description:"but this always does"
 	},
 	{
 		id:'life',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/success-custom.jpg',
-		description:"even though sometimes life feels like this",
-		bottom:-0.1,
-		sep:600
+		back:'/img/success-custom.jpg',
+		description:"even though sometimes life feels like this"
 	},
 	{
 		id:'vader',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/vader_choke.jpg',
-		description:"which makes me want to do this",
-		bottom:-0.1,
-		sep:600
+		back:'/img/vader_choke.jpg',
+		description:"which makes me want to do this"
 	},
 	{
 		id:'html',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/html.png',
-		description:"so instead I do this",
-		bottom:-0.1,
-		sep:600
+		back:'/img/html.png',
+		description:"so instead I do this"
 	},
 	{
 		id:'end',
-		title:'gather up',
-		icon:'/img/contacts.png',
-		back:'/img2/trust.jpg',
-		description:"the end",
-		bottom:-0.1,
-		sep:600
+		back:'/img/trust.jpg',
+		description:"the end"
 	}
 	];
 
