@@ -18,4 +18,6 @@ app.config(['runtime.stateProvider', '$locationProvider', '$routeProvider', func
 }]).run(["runtime.state", "$state", "$rootScope", function (runtime, $state, $rootScope) {
 
 	runtime.checkInbound();
+
+	//forceMobile();
 }]);

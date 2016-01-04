@@ -9,6 +9,8 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             $scope.bio = data.bio;
 
+            $("#body").scrollTo(0);
+
             $scope.getContentUrl = function() {
             
                 var view;
