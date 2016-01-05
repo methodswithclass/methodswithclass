@@ -20,4 +20,6 @@ uiModule.controller('MainController', ['$scope', 'global', 'data.service', funct
         return 'features/views/' + view;
     }
 
+    $("#body").scrollTo(0);
+
 }]);
