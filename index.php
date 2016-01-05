@@ -58,10 +58,8 @@
     <!-- Interface -->
 
     <script src="features/interface/uiModule.js"></script>
-    <script src="features/interface/MainController.js"></script>
     <script src="features/interface/block.js"></script> 
     <script src="features/interface/body.js"></script>
-    <script src="features/interface/repeat.directive.js"></script>
     <script src="features/interface/footer.js"></script>
     <script src="features/interface/back.js"></script>
 
