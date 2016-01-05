@@ -14,6 +14,8 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             self.blocks = data.blocks;
 
+            $("#body").scrollTo(0);
+
             $scope.getContentUrl = function() {
                     
                 var view;
@@ -29,8 +31,6 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
                 return 'features/views/' + view;
             }
-
-            $("#body").scrollTo(0);
 
         }],
         controllerAs:'main'

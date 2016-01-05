@@ -16,5 +16,5 @@ app.config(['runtime.stateProvider', '$locationProvider', '$routeProvider', func
 
 	states.go("home");
 
-	forceMobile();
+	//forceMobile();
 });
