@@ -1,6 +1,4 @@
-stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'data.service', 'send', 'events', 'global', '$location', function ($q, runtime, $state, $rootScope, data, send, events, g, $location) {
-
-	var modalTime = 1000;
+stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'send', function ($q, runtime, $state, $rootScope, send) {
 
 	var body = {};
 
@@ -8,21 +6,7 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 
 	var states = runtime.states;
 
-	var state;
-
-	var blogs = data.blogs;
-
 	send.setup.receiver({name:"body", receiver:body});
-
-	var setModalTime = function (_time) {
-
-		modalTime = _time;
-	}
-
-	var getModalTime = function () {
-
-		return modalTime;
-	}
 
 	var splitStateName = function (state) {
 
@@ -35,24 +19,6 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 
 	}
 
-	var onEnterModal = function () {
-
-		var prevName = prevState.name;
-
-    	if (prevName == "" || splitStateName(prevName).type == "Modal") {
-    		prevName = states[0].name;
-    	}
-
-		var close = function () {
-
-			$state.go(prevName);	
-		}
-
-		var timer = setTimeout(function () {
-		  close();
-		}, getModalTime());
-	}
-
 	$rootScope.$on('$stateChangeStart', 
 		function(event, toState, toParams, fromState, fromParams) {
 
@@ -60,18 +26,9 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 
 			prevState = fromState;
 
-			console.log(toState);
+			console.log("to state", toState);
 		}
 	);
-
-	var showModal = function (params) {
-
-		//console.log("show modal " + params.modal);
-
-		setModalTime(params.time);
-
-		$state.go("Modal." + params.modal);
-	}
 
 	var current = function () {
 
@@ -79,15 +36,11 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'd
 	}
 
 	var go = function (state) {
-
-		
 		$state.go(state);
-		
 	}
 	
 
 	return {
-		showModal:showModal,
 		current:current,
 		go:go
 	}

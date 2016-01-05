@@ -3,9 +3,17 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
     var provider = {};
 
-    var contactController = function () {
-
-        return ['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
+    var states = [
+    {
+        name:"home",
+        url:"/home",
+        template:"<div class='relative width height' ng-include='getContentUrl()'></div>"
+    },
+    {
+        name:"contact",
+        url:"/contact",
+        template:"<div class='relative width height' ng-include='getContentUrl()'></div>",
+        controller:['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
 
             $scope.bio = data.bio;
 
@@ -31,62 +39,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                 window.location.href = 'mailto:chris@methodswithclass.com';
             }
 
-        }];
-    }
-
-    var states = [
-    {
-        name:"Default"
-    },
-    {
-        name:"Modal", 
-        views:{
-          "modal": {
-            templateUrl: "features/views/modal/modal.html"
-          }
-        },
-        onEnter: function() {
-            
-        onEnterModal();
-
-        },
-        onExit:function () {
-
-        console.log("close modal");
-        },
-        abstract:true
-    },
-    {
-        name:"Modal.valid",
-        views:{
-          "modal": {
-            templateUrl: "features/views/modal/valid-modal.html"
-          }
-        }
-    },
-    {
-        name:"Modal.invalid",
-        views:{
-            "modal": {
-              templateUrl:"features/views/modal/invalid-modal.html"
-            }
-        }
-    },
-    {
-        name:"home",
-        url:"/home",
-        template:"<div ng-include='getContentUrl()'></div>"
-    },
-    {
-        name:"contact",
-        url:"/contact",
-        template:"<div ng-include='getContentUrl()'></div>",
-        controller:contactController()
-    },
-    {
-        name:"credits",
-        url:"/credits",
-        templateUrl:'features/views/d.credits.html'
+        }]
     }
     ];
 
@@ -110,14 +63,6 @@ stateModule.provider("runtime.state", function ($stateProvider) {
             this.states = states;
 
             this.addState = addState;
-
-
-            this.checkInbound = function() {
-
-                console.log("check inbound");
-
-                $state.go("home");
-            }
 
 
         }

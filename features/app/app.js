@@ -12,12 +12,9 @@ app.config(['runtime.stateProvider', '$locationProvider', '$routeProvider', func
 	  runtimeProvider.addState(states[i]);
 	}
 
+}]).run(function (states) {
 
-    //$locationProvider.hashPrefix('!');
+	states.go("home");
 
-}]).run(["runtime.state", "$state", "$rootScope", function (runtime, $state, $rootScope) {
-
-	runtime.checkInbound();
-
-	//forceMobile();
-}]);
+	forceMobile();
+});

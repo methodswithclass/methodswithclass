@@ -27,33 +27,6 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
             var info = $scope.info;
 
-            // var sep;
-            // var space;
-
-            // var initElements = function () {
-
-            //     sep = $("#sep" + info.id);
-            //     space = $("#space" + info.id);
-
-            //     //console.log(space.height() + " " + $(window).height()*0.8);
-
-            //     if (space.height() > $(window).height()*0.8) {
-            //         //console.log("resize space");
-            //         space.css({height:$(window).height()*0.8});
-            //         sep.css({height:$(window).height()*0.6});
-            //         //$("#spacehome").css({height:$(window).height()*0.8});
-            //     }
-                
-            // }
-
-            // setTimeout(function () {
-
-            // 	//initElements();
-
-            // 	//$("#sep" + info.id).css({height:info.sep + "px"});
-
-            // }, 500);
-
 			$scope.clicked = function () {
 
 				console.log("clicked");

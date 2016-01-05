@@ -1,4 +1,4 @@
-uiModule.controller('MainController', ['$scope', '$document', 'global', 'data.service', function ($scope, $document, g, data) {
+uiModule.controller('MainController', ['$scope', 'global', 'data.service', function ($scope, g, data) {
 
 	var self = this;
 

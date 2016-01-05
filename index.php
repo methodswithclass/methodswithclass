@@ -20,11 +20,15 @@
 
   </head>
   <body ng-app="methodswithclass">
-    <div class="absolute min-width-900 fill cutoff deselect transparent-back" id="main" ng-controller="MainController as main">
-        <div class="absolute width height corner scrollY touch noedge transparent-back" id="body">
+    <div class="absolute min-width-900 fill cutoff deselect" id="main" ng-controller="MainController as main">
+        <div class="absolute fill scrollY touch" id="body">
             <div ui-view=""></div>
+
+            <div class="relative width height-200">
+                <footer></footer>
+            </div>
+
         </div>
-        <div ui-view="modal" autoscroll="false"></div>
     </div>
     <console ng-attr-vis="hide"><console>
 
@@ -49,13 +53,12 @@
 
     <!-- Parallax -->
 
-    <script src="http://code.methodswithclass.com/api/parallax-2.1.js"></script>
+    <script src="http://code.methodswithclass.com/api/parallax-2.2.js"></script>
 
     <!-- Interface -->
 
     <script src="features/interface/uiModule.js"></script>
     <script src="features/interface/MainController.js"></script>
-    <script src="features/interface/contact.js"></script>
     <script src="features/interface/block.js"></script> 
     <script src="features/interface/body.js"></script>
     <script src="features/interface/repeat.directive.js"></script>
