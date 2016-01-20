@@ -31,9 +31,15 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 
 				console.log("clicked");
 
-				if (info.id == "nuplae") {
+				if (info.id == "gravity") {
 					$window.open(
-						"http://nuplae.methodswithclass.com",
+						"http://gravity.methodswithclass.com",
+						"_blank"
+					);
+				}
+				else if (info.id == "evolve") {
+					$window.open(
+						"http://evolve.methodswithclass.com",
 						"_blank"
 					);
 				}
