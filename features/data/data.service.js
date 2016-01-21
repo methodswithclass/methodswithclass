@@ -12,6 +12,11 @@ dataModule.factory("data.service", ['global', function (g) {
 		description:"have you ever wanted to get a computer to work better. or have you ever wanted to command a population of machines to clean up after you? well with evolve, you can do both."
 	},
 	{
+		id:'code',
+		back:'/img/matrix2.jpg',
+		description:"I offer code to the masses, feast and be merry"
+	},
+	{
 		id:'hire',
 		back:'/img/garfield.jpg',
 		description:"i'm a programmer for hire"

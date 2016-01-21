@@ -43,6 +43,12 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 						"_blank"
 					);
 				}
+				else if (info.id == "code") {
+					$window.open(
+						"http://code.methodswithclass.com",
+						"_blank"
+					);
+				}
 				else if (info.id == "end") {
 					states.go("contact");
 				}

@@ -20,7 +20,7 @@
 
   </head>
   <body ng-app="methodswithclass">
-    <div class="absolute min-width-900 fill cutoff deselect" id="main">
+    <div class="absolute min-width-900 fill cutoff deselect museo" id="main">
         <div class="absolute fill scrollY touch" id="body">
             <div ui-view=""></div>
 

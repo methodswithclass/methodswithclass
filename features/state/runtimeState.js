@@ -65,6 +65,11 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                 window.location.href = 'mailto:chris@methodswithclass.com';
             }
 
+            $scope.resume = function () {
+
+                window.location.href = 'img/cpolito_201601b.docx';
+            }
+
         }]
     }
     ];
