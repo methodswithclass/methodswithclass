@@ -5,12 +5,12 @@
 
 </div>
 
-<div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}">
+<div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}" ng-click='clicked()'>
 
 	<div ng-show="info.id == 'gravity'" class="absolute width height blue2-back z-10">
 		
 		<div class="absolute width-800 height center">
-			<div class="absolute width40 height40 hcenter top20 border-white black-back" ng-click='clicked()'>
+			<div class="absolute width40 height40 hcenter top20 border-white black-back">
 				<div class='absolute width90 height90 border-white center cutoff pointer'>
 					<img class='absolute width height' src='img/mesh.jpg'/>
 				</div>
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div ng-show="info.id == 'end'" class='absolute top10 left10 width-200 height-100 z-10' ng-click='clicked()'>
+	<div ng-show="info.id == 'end'" class='absolute top10 left10 width-200 height-100 z-10'>
 		<div class='absolute width height white-back rounded10 pointer'>
 			<div class='absolute font-40 center'>contact</div>
 		</div>
