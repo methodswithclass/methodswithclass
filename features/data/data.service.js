@@ -63,27 +63,107 @@ dataModule.factory("data.service", ['global', function (g) {
 	}
 	];
 
-	var bio = [
-	{
-		desktopClass:"padding-bottom-20 border-bottom",
-		mobileClass:"padding-bottom-50 border-bottom",
-		text:"I am an experienced developer whose focus in the last few years has been for the web. However, everything I do is still app-centric. OOP is my manifesto."
-	},
-	{
-		desktopClass:"padding-v-20 border-bottom",
-		mobileClass:"padding-v-50 border-bottom",
-		text:"I push boundaries of what is industry-standard, convnetional, and safe. My only concern is bringing the client's interests to life or recommending how to bring their low level interests around to meet the real interests of their business, organzation, or web-presence."
-	},
-	{
-		desktopClass:"padding-v-20",
-		mobileClass:"padding-v-50",
-		text:"Let me do this for you. I develop web apps that are easily scalable when your business is ready to grow down the line, and always maintainable when your business starts up shop again tomorrow."
+	var contact = {
+		bio:[
+			"I'm a front-end JavaScript developer, I use Angular as my preferred framework. I maintain several sites, projects, and games that each have a consistent code base API pulled from a separate maintained, documented, and public URL.",
+			"This process keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for thier own projects.",
+			"I am looking for work as a JavaScript engineer, architect, or developer where I would provide solutions and recommendations to address my employer's needs and the needs of thier clients."
+		],
+		skills:{
+			title:"Skills",
+			items:[
+				"Software Development, Software Architecture, Software Abstraction",
+				"Software Automation, Software Engineering, Object Oriented Programming",
+				"Mobile Apps, Mobile Web, Responsive Design",
+				"User Experience, User Interface (UX/UI), interface design",
+				"Class Structures, Object Structures, Inheritance",
+				"Requirements Definition, Requirements Gathering, Requirements Managements",
+				"JavaScript, HTML, CSS, PHP, Objective C, Java, VBA, ActionScript, JSON, REST, MVC",
+				"iOS, Android, Unix",
+				"AngularJS, NodeJS, ExpressJS, Bootstrap, Git",
+				"Heroku, Netlify, Firebase",
+				"Write clean, Maintainable, Scalable, High-quality, High-performing code",
+				"site hosting, domain registration, DNS configuration",
+				"significant written communication and writing skills",
+				"other communication, interpersonal, leadership, mentorship",
+				"math, physics, engineering, motion dynamics, other technical skills"
+			]
+		},
+		projects:{
+			title:"Projects",
+			items:[
+			{
+				title:"Code",
+				href:"code.methodswithclass.com",
+				description:"Fully responsive, view on both desktop and mobile",
+				items:[
+					"Global CSS that can be applied to any project",
+					"Angular directive for parallax scrolling, accounts for any screen and image size",
+					"Angular service for firing events in one part of app from another part of app",
+					"Angular service for sending data from one part of app to another part of app",
+					"Angular directive for development console that prints JavaScript console entries to the screen for mobile debugging",
+					"Version system for all of the above so that I can update code but not break existing sites"
+				]
+			},
+			{
+				title:"Evolve",
+				href:"evolve.methodswithclass.com",
+				description:"Non-responsive, only viewable on desktop",
+				items:[
+					"Artificial Intelligence, evolutionary programming, genetic algorithm (GA)",
+					"Developed generic GA software that uses generations of sets of solutions to induce machine learning for any given problem",
+					"Developed GA with enough abstraction to allow a multitude of learning problems to be addressed",
+					"Designed and Developed Angular web app demonstrate the machine learning capabilities of the GA",
+					"Designed architecture of the web app to deliver the bottom level GA software where necessary and handle the multiple learning problem implementations",
+					"State based navigation, single page web app, OOP design",
+					"Modular design, reusable code, heavy attention to organization and architecture",
+					"For “cleaning robot” program, machine learning algorithm teaches the program to improve performance by 30x in only 1000 generations"
+				]
+			},
+			{
+				title:"Gravity",
+				href:"gravity.methodswithclass.com",
+				description:"Requires a device with an accelerometer, best viewed on an iPhone (updates for Android are in the works)",
+				items:[
+					"Developed algorithm to handle device accelerometer data and filter it into usable data (velocity, position) in real time",
+					"Designed and developed Angular web app to demonstrate algorithm in use as a game to move a ball around on screen by moving and tilting the physical device around",
+					"Developed checks for access by app to the device accelerometer and gives proper warnings if they fail, also give warnings when screen rotates so that it can only be played in portrait (web version)",
+					"Developed platform to handle the development of different games that all use the same interaction principle based on original algorithm",
+					"Developed games to keep track of score, time, and arcade style graphics",
+					"Developed version for iPhone and Android web browsers with JavaScript Angular single page web app",
+					"Developed version for iPhone iOS native app in Objective-C"
+				]
+			},
+			{
+				title:"Gentle Phrasing",
+				href:"www.gentlephrasing.com",
+				description:"Fully responsive, view on both desktop and mobile",
+				items:[
+					"Designed and Developed frontend blog site",
+					"Developed Angular I/O module to read .txt files that sit on server that allow population of blog text for each page",
+					"Developed technique using PHP to edit the index.php file meta data per request, this allows Facebook and other social media crawlers to automatically populate “share” objects just given a url, the result is the ability to share individual blog articles from a single page app with one index file and “one” set of meta data (found code, modified for my purposes)",
+					"Responsive design, mobile recognition, changes which view is served depending on device",
+					"AngularJS single page web app"
+				]
+			},
+			{
+				title:"Methods with Class",
+				href:"www.methodswithclass.com",
+				description:"Fully responsive, view on both desktop and mobile",
+				items:[
+					"Designed and Developed front end Angular app to be online business card",
+					"Developed parallax scrolling component in Angular that is globally available and is used here",
+					"Responsive design, mobile recognition, changes which view is served depending on device",
+					"Angular single page web app"
+				]
+			},
+			]
+		}
 	}
-	]
 
 	return {
 		blocks:blocks,
-		bio:bio	
+		contact:contact
 	}
 
 }]);

@@ -41,7 +41,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
         template:"<div class='relative width height' ng-include='getContentUrl()'></div>",
         controller:['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
 
-            $scope.bio = data.bio;
+            $scope.contact = data.contact;
 
             $("#body").scrollTo(0);
 
@@ -67,7 +67,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             $scope.resume = function () {
 
-                window.location.href = 'img/cpolito_201601b.docx';
+                window.location.href = 'img/cpolito_201610_folio.docx';
             }
 
         }]

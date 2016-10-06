@@ -23,15 +23,9 @@
 
 		<div class="absolute top-100 width80 hcenter">
 
-			<div class="relative width font-40">
-
-				<div ng-repeat="paragraph in bio">
-					<div class="relative width {{paragraph.mobileClass}}">
-						<div class="relative width80 hcenter">{{paragraph.text}}</div>
-					</div>
-				</div>
-
-			</div>			
+			<div class="relative width">
+				<resume/>
+			</div>		
 
 			<div class="relative top-100 width70 hcenter pointer" on-tap="email()">
 
@@ -44,6 +38,16 @@
 				<div class="relative width height-200" id="text-bottom"></div>
 
 			</div>
+
+			<div class="relative width height-200">
+
+					<div class="relative width-200 height-200 center">
+						<a class="relative nolink" href="https://www.linkedin.com/pub/christopher-polito/28/6b6/460" target="_blank">
+							<img class="width height-auto" src="img/linkedin.png"/>
+						</a>
+					</div>
+
+				</div>
 
 		</div>
 
