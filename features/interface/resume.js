@@ -4,7 +4,7 @@ uiModule.directive("resume", ['global', function (g) {
 		restrict:"E",
 		scope:false,
 		replace:true,
-		template: '<div ng-include="getContentUrl()"></div>',
+		template: '<div class="relative" ng-include="getContentUrl()"></div>',
 		link:function ($scope, element, attr) {
 
 			$scope.getContentUrl = function() {
