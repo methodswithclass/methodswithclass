@@ -2,12 +2,17 @@
 <html>
   <head>
 
-    <title>Mehtods with Class, LLC</title>
+    <title>Methods with Class, LLC</title>
 
   	<link rel="stylesheet" href="css/museo/museo300.css" type="text/css" charset="utf-8">
-    <link rel="stylesheet" href="http://code.methodswithclass.com/api/classes.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="http://code.methodswithclass.com/api/classes.css">
+    <link rel="stylesheet" href="../../../_code/z-api/api/parallax-3/parallax-3.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    
 
 
     <script src="libs/jquery-1.11.3.min.js"></script>
@@ -55,7 +60,7 @@
 
     <!-- Parallax -->
 
-    <script src="http://code.methodswithclass.com/api/parallax-2.2.js"></script>
+    <script src="../../../_code/z-api/api/parallax-3/parallax-3.js"></script>
 
     <!-- Interface -->
 
