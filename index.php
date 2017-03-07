@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="http://code.methodswithclass.com/api/classes.css">
-    <!-- <link rel="stylesheet" href="http://code.methodswithclass.com/api/parallax-3/parallax-3.css"> -->
-    <link rel="stylesheet" href="https://methods-dev.herokuapp.com/api/parallax-3/parallax-3.css">
+    <link rel="stylesheet" href="http://code.methodswithclass.com/api/parallax-3/parallax-3.css">
     <link rel="stylesheet" href="css/styles.css">
 
 
@@ -61,8 +60,7 @@
 
     <!-- Parallax -->
 
-    <!-- <script src="http://code.methodswithclass.com/api/parallax-3/parallax-3.js"></script> -->
-    <script src="https://methods-dev.herokuapp.com/parallax-3/parallax-3.js"></script>
+    <script src="http://code.methodswithclass.com/api/parallax-3/parallax-3.js"></script>
 
 
     <!-- Interface -->
