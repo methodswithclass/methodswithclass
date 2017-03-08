@@ -59,7 +59,7 @@
 
     <!-- Parallax -->
 
-    <script src="http://code.methodswithclass.com/api/parallax-2.2.js"></script>
+    <script src="http://code.methodswithclass.com/api/parallax-3.js"></script>
 
 
     <!-- Interface -->
