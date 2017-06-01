@@ -1,0 +1,69 @@
+<div class="relative width">
+
+	<div class="relative width90 hcenter margin-v-100 border font-30">
+
+		<div class="relative width90 hcenter">
+
+			<div class="relative width margin-bottom-50 border-bottom">
+
+				<div class="relative width padding-v-20" ng-repeat="paragraph in contact.bio">
+					<div class="relative width80 hcenter">{{paragraph}}</div>
+				</div>
+
+			</div>
+
+			<div class="relative width margin-bottom-50 border-bottom">
+
+				<div class="relative width font-50 font-bold">
+					{{contact.skills.title}}
+				</div>
+
+				<div class="relative width">
+					<ul>
+						<li ng-repeat="item in contact.skills.items">{{item}}</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="relative width margin-bottom-50 border-bottom">
+
+				<div class="relative width font-50 font-bold">
+					{{contact.projects.title}}
+				</div>
+
+				<div class="relative width" ng-repeat="project in contact.projects.items">
+
+					<div class="relative width margin-v-20">
+
+						<div class="relative width padding-v-20 font-40 font-bold">
+							{{project.title}}
+						</div>
+
+						<div class="relative width padding-v-20 font-italic">
+							{{project.description}}
+						</div>
+
+						<div class="relative width padding-v-20">
+							<a href="{{'http://' + project.href}}" target="_blank">{{project.href}}</a>
+						</div>
+
+						<div class="relative width padding-v-20">
+							<ul>
+								<li ng-repeat="item in project.items">{{item}}</li>
+							</ul>
+						</div>
+
+						<div class="relative width60 hcenter height-50 border-bottom"></div>
+					
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

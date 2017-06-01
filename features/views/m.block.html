@@ -1,0 +1,45 @@
+
+<div class="relative width height-600 white-back cutoff noedge" id="{{'sep' + info.id}}">
+
+    <div class="relative width60 font-40 text-center center" id="{{'desc' + info.id}}"> {{info.description}} </div>
+
+</div>
+
+<div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}" ng-click='clicked()'>
+
+	<div ng-show="info.id == 'gravity'" class="absolute width height blue2-back z-10">
+		
+		<div class="absolute width-800 height center">
+			<div class="absolute width40 height40 hcenter top20 border-white black-back">
+				<div class='absolute width90 height90 border-white center cutoff pointer'>
+					<img class='absolute width height' src='img/mesh.jpg'/>
+				</div>
+			</div>
+
+			<div class="absolute bottom10 hcenter white font-50"> tap me</div>
+		</div>
+	</div>
+
+	<div ng-show="info.id == 'evolve'" class="absolute width height z-10">
+		<div class="absolute width50 height-100 hcenter bottom-20 white-back rounded10 font-30">
+			<div class='absolute center'>
+				visit on a desktop computer to evolve
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="info.id == 'end'" class='absolute top10 left10 width-200 height-100 z-10'>
+		<div class='absolute width height white-back rounded10 pointer'>
+			<div class='absolute font-40 center'>contact</div>
+		</div>
+	</div>
+
+    <img class="absolute width-auto height120 center" ng-src= "{{info.back}}"/>
+
+</div>
+
+
+
+
+
+

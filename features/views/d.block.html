@@ -1,0 +1,35 @@
+
+<div class="relative width height-600 white-back cutoff noedge" id="{{'sep' + info.id}}">
+
+    <div class="relative width60 font-25 text-center center" id="{{'desc' + info.id}}"> {{info.description}} </div>
+
+</div>
+
+<div class="relative width height-800" parallax name="{{info.id}}" scroll="body" src="{{info.back}}" ng-click='clicked()'>
+
+	<div ng-show="info.id == 'gravity'" class="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
+		<div class="absolute center font-25">
+			visit on your mobile device to play
+		</div>
+	</div>
+
+	<div ng-show="info.id == 'evolve'" class="absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer">
+		<div class="absolute center font-25">
+			click here to evolve
+		</div>
+	</div>
+
+	<div ng-show="info.id == 'code'" class="absolute left-100 width-500 height-100 top60 black-back white rounded20 border-white pointer">
+		<div class="absolute center font-25">
+			click here for code
+		</div>
+	</div>
+
+	<div ng-show="info.id == 'end'" class='absolute top10 left10 width-200 height-50' id="{{'contact' + info.id}}">
+		<div class='absolute width height white-back rounded10 pointer'>
+			<div class='absolute font-40 center'>contact</div>
+		</div>
+	</div>
+
+
+</div>
