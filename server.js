@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+var refreshPages = [
+"home",
+"contacts"
+]
 
 // // If an incoming request uses
 // // a protocol other than HTTPS,
@@ -28,7 +32,7 @@ var refresh = function () {
 
 		for (var i in refreshPages) {
 			if (urlArray[1] == refreshPages[i]) {
-				return res.redirect(['https://', req.get('Host')].join(''));
+				return res.redirect(['http://', req.get('Host')].join(''));
 			}
 		}
 
@@ -36,12 +40,6 @@ var refresh = function () {
 
 	}
 }
-
-// Instruct the app
-// to use the forceSSL
-// middleware
-// app.use(forceSSL());
-// app.use(refresh());
 
 
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
@@ -54,11 +52,15 @@ app.use("/dist/assets/css/museo", express.static(path.join(__dirname, "/dist/ass
 app.use("/dist/assets/js", express.static(path.join(__dirname, "/dist/assets/js")));
 app.use("/", express.static(path.join(__dirname, "/dist")));
 
-app.get('/*', function(req, res) {
-	console.log("return dist");
-	// res.sendFile(path.join(__dirname, 'dist'));
-	res.sendFile('index.html', {root: path.join(__dirname, 'dist')});
-});
+
+app.use(refresh());
+// app.use(forceSSL());
+
+// app.get('/*', function(req, res) {
+// 	console.log("return dist");
+// 	// res.sendFile(path.join(__dirname, 'dist'));
+// 	res.sendFile('index.html', {root: path.join(__dirname, 'dist')});
+// });
 
 var listener = app.listen(process.env.PORT || 8080, function () {
 
