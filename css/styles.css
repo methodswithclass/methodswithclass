@@ -45,3 +45,11 @@ body {
 	height:2600px;
 }
 
+.parallax {
+
+	background-attachment: fixed;
+	background-repeat: none;
+	background-position: center;
+	background-size: cover;
+}
+

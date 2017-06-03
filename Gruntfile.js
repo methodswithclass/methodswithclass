@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 			options: {
 				livereload: true
 			},
-			files: ['application/**/*.js', 'application/**/*.html'] // ** any directory; * any file
+			files: ['features/**/*.js', 'features/**/*.html'] // ** any directory; * any file
 			// html:{
 			// 	files:["application/**/*.html"],
 			// 	options:{
