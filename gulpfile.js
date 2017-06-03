@@ -59,11 +59,17 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('dist/assets/js'));
 });
 
+gulp.task("vendor", function () {
+
+	return gulp.src(["bower_components/**/*.js", "bower_components/**/*.css"])
+	.pipe(gulp.dest("dist/bower_components"))
+});
+
 gulp.task("html", function () {
 
 	return gulp.src('src/assets/**/*.html')
 	.pipe(gulp.dest("dist/assets/"))
-})
+});
 
 gulp.task('images', function() {
 	return gulp.src('src/assets/img/**/*')
@@ -75,9 +81,15 @@ gulp.task('fonts', function () {
 
 	return gulp.src("src/assets/css/**/*.*")
 	.pipe(gulp.dest("dist/assets/css"))
+});
+
+gulp.task("misc", function () {
+
+	return gulp.src(["./favicon.ico"])
+	.pipe(gulp.dest("dist"));
 })
 
-gulp.task('index', ["styles", "scripts", 'html', "fonts", "images"], function () {
+gulp.task('index', ["styles", "scripts", 'vendor', 'html', "fonts", "images", "misc"], function () {
 
 	// It's not necessary to read the files (will speed up things), we're only after their paths: 
 	var sources = gulp.src(['./dist/assets/**/*.js', './dist/assets/**/*.css'], {read: false});
@@ -88,7 +100,7 @@ gulp.task('index', ["styles", "scripts", 'html', "fonts", "images"], function ()
 });
 
 gulp.task('clean', function() {
-	return del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img', "dist/index.html"]);
+	return del('dist');
 });
 
 gulp.task('build', ['clean'], function() {
