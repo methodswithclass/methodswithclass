@@ -10,7 +10,11 @@
     "start": "node server.js",
     "build": "gulp build",
     "watch": "gulp serve",
-    "postinstall": "gulp build"
+    "postinstall": "gulp build",
+    "commit-deploy-dev": "git add * && git commit -m update && git push development master",
+    "commit-deploy": "git add * && git commit -m update && git push heroku master",
+    "deploy-dev": "git push development master",
+    "deploy": "git push heroku master"
   },
   "engines": {
     "node": "6.9.2",
