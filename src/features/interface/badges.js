@@ -3,6 +3,6 @@ uiModule.directive("badges", function () {
 	return {
 		restrict:'E',
 		scope:false,
-		templateUrl:"features/views/badges.html"
+		templateUrl:"assets/views/badges.html"
 	}
 })

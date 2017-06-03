@@ -29,7 +29,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                     view = "d.home.html";
                 }
 
-                return 'features/views/' + view;
+                return 'assets/views/' + view;
             }
 
         }],
@@ -57,7 +57,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                     view = "d.contact.html";
                 }
 
-                return 'features/views/' + view;
+                return 'assets/views/' + view;
             }
 
             $scope.email = function () {

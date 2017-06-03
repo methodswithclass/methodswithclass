@@ -3,62 +3,62 @@ dataModule.factory("data.service", ['global', function (g) {
 	var blocks = [
 	{
 		id:'gravity',
-		back:'/img/gravity.jpg',
+		back:'/assets/img/gravity.jpg',
 		description:"gravity is a powerful thing. use it to pop bubbles as they wiz around your screen, or to balance an object in the right place. gravity has never been this fun."
 	},
 	{
 		id:'evolve',
-		back:'/img/evolvehuman_black.jpg',
+		back:'/assets/img/evolvehuman_black.jpg',
 		description:"have you ever wanted to get a computer to work better. or have you ever wanted to command a population of machines to clean up after you? well with evolve, you can do both."
 	},
 	{
 		id:'code',
-		back:'/img/matrix2.jpg',
+		back:'/assets/img/matrix2.jpg',
 		description:"I offer code to the masses, feast and be merry"
 	},
 	{
 		id:'hire',
-		back:'/img/garfield.jpg',
+		back:'/assets/img/garfield.jpg',
 		description:"i'm a programmer for hire"
 	},
 	{
 		id:'poetry',
-		back:'/img/code-poetry.png',
+		back:'/assets/img/code-poetry.png',
 		description:"what I do is more than just content delivery"
 	},
 	{
 		id:'intense',
-		back:'/img/intense_coding.jpg',
+		back:'/assets/img/intense_coding.jpg',
 		description:"cuz I actually enjoy what I do, and I do it a lot"
 	},
 	{
 		id:'procrastinate',
-		back:'/img/procrastinate.png',
+		back:'/assets/img/procrastinate.png',
 		description:"so this never happens"
 	},
 	{
 		id:'sad',
-		back:'/img/sad.jpg',
+		back:'/assets/img/sad.jpg',
 		description:"but this always does"
 	},
 	{
 		id:'life',
-		back:'/img/success-custom.jpg',
+		back:'/assets/img/success-custom.jpg',
 		description:"even though sometimes life feels like this"
 	},
 	{
 		id:'vader',
-		back:'/img/vader_choke.jpg',
+		back:'/assets/img/vader_choke.jpg',
 		description:"which makes me want to do this"
 	},
 	{
 		id:'html',
-		back:'/img/html.png',
+		back:'/assets/img/html.png',
 		description:"so instead I do this"
 	},
 	{
 		id:'end',
-		back:'/img/trust.jpg',
+		back:'/assets/img/trust.jpg',
 		description:"the end"
 	}
 	];

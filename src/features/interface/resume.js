@@ -16,7 +16,7 @@ uiModule.directive("resume", ['global', function (g) {
 					view = "d.resume.html";
 				}
 
-                return 'features/views/' + view;
+                return 'assets/views/' + view;
             }
 
 		}

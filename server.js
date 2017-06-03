@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express();
-
 
 
 // // If an incoming request uses
@@ -12,9 +12,7 @@ const app = express();
 const forceSSL = function() {
 	return function (req, res, next) {
 		if (req.headers['x-forwarded-proto'] !== 'https') {
-			return res.redirect(
-			                    ['https://', req.get('Host'), req.url].join('')
-			                    );
+			return res.redirect(['https://', req.get('Host'), req.url].join(''));
 		}
 		next();
 	}
@@ -44,13 +42,25 @@ var refresh = function () {
 // middleware
 // app.use(forceSSL());
 // app.use(refresh());
-app.use(express.static(__dirname + "/index.html"));
 
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname + '/index.html'));
-// });
 
-app.listen(process.env.PORT || 8080, function () {
+app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-	console.log("listening on port 3000");
+app.use('/bower_components',  express.static(path.join(__dirname, '/bower_components')));
+app.use("/dist/assets/css", express.static(path.join(__dirname, "/dist/assets/css")));
+app.use("/dist/assets/css/museo", express.static(path.join(__dirname, "/dist/assets/css/museo")));
+app.use("/dist/assets/js", express.static(path.join(__dirname, "/dist/assets/js")));
+app.use("/", express.static(path.join(__dirname, "/dist")));
+
+app.get('/*', function(req, res) {
+	console.log("return dist");
+	// res.sendFile(path.join(__dirname, 'dist'));
+	res.sendFile('index.html', {root: path.join(__dirname, 'dist')});
+});
+
+var listener = app.listen(process.env.PORT || 8080, function () {
+
+	console.log("listening on port", listener.address().port);
 });

@@ -4,7 +4,7 @@ uiModule.directive("footer", ['global', '$state', function (g, $state) {
 		restrict:'E',
 		scope:{},
 		replace:true,
-		templateUrl:"features/views/g.footer.html",
+		templateUrl:"assets/views/g.footer.html",
 		link:function ($scope, element, attr) {
 
 			$scope.font = "font-20";

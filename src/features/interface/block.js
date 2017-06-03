@@ -22,7 +22,7 @@ uiModule.directive('block', ['global', 'states', '$window', function (g, states,
 					view = "d.block.html";
 				}
 
-                return 'features/views/' + view;
+                return 'assets/views/' + view;
             }
 
             var info = $scope.info;

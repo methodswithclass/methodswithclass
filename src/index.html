@@ -4,11 +4,13 @@
 
     <title>Methods with Class, LLC</title>
 
-  	<link rel="stylesheet" href="css/museo/museo300.css" type="text/css" charset="utf-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="http://code.methodswithclass.com/api/classes.css">
-    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- inject:css -->
+  	<link rel="stylesheet" href="css/museo/museo300.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <!-- endinject -->
 
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -16,6 +18,7 @@
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
 
     <base href="/">
 
@@ -33,10 +36,6 @@
     </div>
     <console ng-attr-vis="hide"><console>
 
-    <!-- App -->
-    
-    <script src="features/app/app.js"></script>
-
     <!-- Shared -->
 
     <script src="http://code.methodswithclass.com/api/shared-2.js"></script>
@@ -46,6 +45,19 @@
 
     <script src="http://code.methodswithclass.com/api/console-1.js"></script>
 
+
+    <!-- Parallax -->
+
+    <!-- <script src="http://code.methodswithclass.com/api/parallax/2.2/parallax.js"></script> -->
+
+
+    <!-- inject:js -->
+
+    <!-- App -->
+    
+    <script src="features/app/app.js"></script>
+
+
     <!-- State -->
 
     <script src="features/state/stateModule.js"></script>
@@ -54,7 +66,6 @@
 
     <!-- Parallax -->
 
-    <!-- <script src="http://code.methodswithclass.com/api/parallax/2.2/parallax.js"></script> -->
     <script src="features/interface/parallax.js"></script>
 
     <!-- Interface -->
@@ -73,6 +84,8 @@
     <script src="features/data/dataModule.js"></script>
     <script src="features/data/data.service.js"></script>
 
+
+    <!-- endinject -->
 
   </body>
 
