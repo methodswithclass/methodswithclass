@@ -10,7 +10,7 @@
     "start": "node server.js",
     "build": "gulp build",
     "watch": "gulp serve",
-    "postinstall": "gulp build",
+    "postinstall": "bower install && gulp build",
     "commit-deploy-dev": "git add * && git commit -m update && git push development master",
     "commit-deploy": "git add * && git commit -m update && git push heroku master",
     "deploy-dev": "git push development master",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
     "del": "^2.2.2",
     "express": "^4.15.3",
     "gulp": "^3.9.1",
