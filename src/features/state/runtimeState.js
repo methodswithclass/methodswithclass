@@ -32,6 +32,8 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                 return 'assets/views/' + view;
             }
 
+            refreshBackgrounds(".parallax");
+
         }],
         controllerAs:'main'
     },

@@ -30,6 +30,15 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 's
 		}
 	);
 
+	$rootScope.$on('$stateChangeSuccess', 
+		function(event, toState, toParams, fromState, fromParams) {
+
+			console.log("state change end");	  
+
+			refreshBackgrounds(".parallax");
+		}
+	);
+
 	var current = function () {
 
 		return $state.current.name;
