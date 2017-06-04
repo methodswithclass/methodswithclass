@@ -5,9 +5,11 @@
 
 </div>
 
- <!-- parallax name="{{info.id}}" scroll="body" src="{{info.back}}" -->
+ 
 
-<div class="relative width height-800 parallax" style="background-image:url('{{info.back}}')" ng-click='clicked()'>
+<!-- style="background-image:url('{{info.back}}')" -->
+
+<div class="relative width height-800" parallax name="{{info.id}}" scroll="body" src="{{info.back}}" ng-click='clicked()'>
 
 	<div ng-show="info.id == 'gravity'" class="absolute left-100 width-500 height-100 top60 white-back rounded20 border">
 		<div class="absolute center font-25">

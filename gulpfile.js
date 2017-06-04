@@ -60,6 +60,7 @@ gulp.task('scripts', ['vendor'], function() {
 	            "src/features/data/dataModule.js",
 	            "src/features/state/stateModule.js",
 	            "src/features/interface/uiModule.js",
+	            "!src/features/interface/parallax.js",
 	            "src/features/**/*.js",
 	            "src/features/app/app.js"
 	            ])

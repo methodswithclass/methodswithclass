@@ -32,7 +32,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
                 return 'assets/views/' + view;
             }
 
-            refreshBackgrounds(".parallax");
+            // refreshBackgrounds(".parallax");
 
         }],
         controllerAs:'main'
