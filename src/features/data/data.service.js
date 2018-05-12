@@ -65,9 +65,10 @@ dataModule.factory("data.service", ['global', function (g) {
 
 	var contact = {
 		bio:[
-			"I'm a front-end JavaScript developer, I use Angular as my preferred framework. I maintain several sites, projects, and games that each have a consistent code base API pulled from a separate maintained, documented, and public URL.",
-			"This process keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for thier own projects.",
-			"I am looking for work as a JavaScript engineer, architect, or developer where I would provide solutions and recommendations to address my employer's needs and the needs of thier clients."
+			"I am a software developer mainly focused on JavaScript development using all versions of Angular on the front end. I also develop in Node and Express on the backend. I develop in Linux, automated bash scripting, and on the AWS cloud. I also have experience in Agile workflows.",
+			"I maintain several sites, projects, and games that each have a consistent code base API pulled from a separate maintained, documented, and public URL, listed on this site.",
+			"This process, preferrable to simply posting to GitHub, makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for thier own projects.",
+			"I am looking for work as a JavaScript engineer, software architect, or developer where I would provide solutions and recommendations to address my employer's needs and the needs of thier customers and clients."
 		],
 		skills:{
 			title:"Skills",

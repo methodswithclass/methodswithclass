@@ -4,8 +4,8 @@
 
     <title>Methods with Class, LLC</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://code.methodswithclass.com/api/classes.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.methodswithclass.com/api/classes.css">
 
     <!-- inject:css -->
   	<link rel="stylesheet" href="assets/css/museo/museo300.css" type="text/css" charset="utf-8">
@@ -14,12 +14,6 @@
 
     <!-- inject:head:js -->
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
-    <script src="bower_components/hammerjs/hammer.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
     <!-- endinject -->
 
     <base href="/">
@@ -27,65 +21,38 @@
   </head>
   <body ng-app="methodswithclass">
     <div class="absolute min-width-900 fill cutoff deselect museo" id="main">
-        <div class="absolute fill scrollY touch" id="body">
-            <div ui-view=""></div>
+        <div class="absolute fill scrollY scroll-vertical-dark-narrow touch cutoff" id="body">
 
-            <div class="relative width height-200">
-                <footer></footer>
+            <div class="relative width">
+                <div ui-view=""></div>
+
+                <div class="relative width height-200">
+                    <footer></footer>
+                </div>
+
             </div>
 
         </div>
     </div>
-    <console ng-attr-vis="hide"><console>
+    <!-- <console ng-attr-vis="hide"><console> -->
 
 
      <!-- Shared -->
 
-    <script src="https://code.methodswithclass.com/api/shared-2.js"></script>
+    <script type="text/javascript" src="https://code.methodswithclass.com/api/shared-2.js"></script>
     
 
     <!-- Console -->
 
-    <script src="https://code.methodswithclass.com/api/console-1.js"></script>
+    <!-- <script type="text/javascript" src="https://code.methodswithclass.com/api/console-1.js"></script> -->
 
 
     <!-- Parallax -->
 
-    <script src="https://code.methodswithclass.com/api/parallax/2.2/parallax.js"></script>
+    <script type="text/javascript" src="https://code.methodswithclass.com/api/parallax/2.2/parallax.js"></script>
 
 
     <!-- inject:js -->
-
-    <!-- App -->
-    
-    <script src="features/app/app.js"></script>
-
-
-    <!-- State -->
-
-    <script src="features/state/stateModule.js"></script>
-    <script src="features/state/states.js"></script>
-    <script src="features/state/runtimeState.js"></script>
-
-    <!-- Parallax -->
-
-    <!-- <script src="features/interface/parallax.js"></script> -->
-
-    <!-- Interface -->
-
-    <script src="features/interface/uiModule.js"></script>
-    <script src="features/interface/block.js"></script> 
-    <script src="features/interface/body.js"></script>
-    <script src="features/interface/footer.js"></script>
-    <script src="features/interface/back.js"></script>
-    <script src="features/interface/resume.js"></script>
-
-
-
-    <!-- Data -->
-
-    <script src="features/data/dataModule.js"></script>
-    <script src="features/data/data.service.js"></script>
 
 
     <!-- endinject -->
