@@ -69,7 +69,7 @@ stateModule.provider("runtime.state", function ($stateProvider) {
 
             $scope.resume = function () {
 
-                window.location.href = 'img/cpolito_201610_folio.docx';
+                window.location.href = 'assets/img/cpolito_201808.docx';
             }
 
         }]
