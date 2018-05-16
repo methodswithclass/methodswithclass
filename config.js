@@ -1,8 +1,6 @@
 
 
 
-
-
 var livereloadPort = 4220;
 
 var directory = __dirname;
