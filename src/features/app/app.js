@@ -16,5 +16,5 @@ app.config(['runtime.stateProvider', '$locationProvider', function (runtimeProvi
 
 	states.go("home");
 
-	//forceMobile();
+	forceMobile();
 });
