@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "node": "node server.js",
     "build": "gulp build",
-    "start": "npm install && bower install && gulp serve",
+    "install": "npm install && bower install",
+    "start":"gulp serve",
     "watch": "gulp serve"
   },
   "engines": {
