@@ -7,14 +7,10 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "node": "node server.js",
     "build": "gulp build",
-    "watch": "gulp serve",
-    "postinstall": "bower install && gulp build",
-    "commit-deploy-dev": "git add * && git commit -m update && git push development master",
-    "commit-deploy": "git add * && git commit -m update && git push heroku master",
-    "deploy-dev": "git push development master",
-    "deploy": "git push heroku master"
+    "start": "npm install && bower install && gulp serve",
+    "watch": "gulp serve"
   },
   "engines": {
     "node": "6.9.2",
