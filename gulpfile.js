@@ -150,9 +150,18 @@ var html = function () {
 };
 
 var images = function() {
-	return gulp.src('src/assets/img/**/*')
+
+	var story = gulp.src('src/assets/story/**/*')
 	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
 	.pipe(gulp.dest('dist/assets/img'));
+
+
+	var image = gulp.src('src/assets/img/**/*')
+	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+	.pipe(gulp.dest('dist/assets/img'));
+
+
+	return merge(story, image);
 };
 
 var fonts = function () {

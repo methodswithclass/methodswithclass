@@ -12,7 +12,7 @@
 		<div class="absolute width-800 height center">
 			<div class="absolute width40 height40 hcenter top20 border-white black-back">
 				<div class='absolute width90 height90 border-white center cutoff pointer'>
-					<img class='absolute width-auto height hcenter' src='assets/img/gravity.jpg'/>
+					<img class='absolute width-auto height hcenter' ng-src="{{info.back}}"/>
 				</div>
 			</div>
 
@@ -21,9 +21,9 @@
 	</div>
 
 	<div ng-show="info.id == 'evolve'" class="absolute width height z-10">
-		<div class="absolute width50 height-100 hcenter bottom-20 white-back rounded10 font-30">
+		<div class="absolute width50 height-100 hcenter bottom-20 white-back pointer rounded10 font-30">
 			<div class='absolute center'>
-				visit on a desktop computer to evolve
+				click here to evolve
 			</div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 
-    <img class="absolute width-auto height120 center" ng-src= "{{info.back}}"/>
+    <img class="absolute width-auto height120 center" ng-src="{{info.back}}"/>
 
 </div>
 

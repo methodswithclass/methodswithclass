@@ -23,7 +23,7 @@ dataModule.factory("data.service", ['global', function (g) {
 	},
 	{
 		id:'poetry',
-		back:'/assets/img/code-poetry.png',
+		back:'/assets/img/code-poetry.jpg',
 		description:"what I do is more than just content delivery"
 	},
 	{
@@ -33,7 +33,7 @@ dataModule.factory("data.service", ['global', function (g) {
 	},
 	{
 		id:'procrastinate',
-		back:'/assets/img/procrastinate.png',
+		back:'/assets/img/procrastinate.jpg',
 		description:"so this never happens"
 	},
 	{
@@ -49,11 +49,11 @@ dataModule.factory("data.service", ['global', function (g) {
 	{
 		id:'vader',
 		back:'/assets/img/vader_choke.jpg',
-		description:"which makes me want to do this"
+		description:"which sometimes makes you want to do this"
 	},
 	{
 		id:'html',
-		back:'/assets/img/html.png',
+		back:'/assets/img/javascript.jpg',
 		description:"so instead I do this"
 	},
 	{
