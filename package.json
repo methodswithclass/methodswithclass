@@ -14,8 +14,8 @@
     "watch": "gulp serve"
   },
   "engines": {
-    "node": "6.9.2",
-    "npm": "3.10.9"
+    "node": "9.4.0",
+    "npm": "5.8.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
