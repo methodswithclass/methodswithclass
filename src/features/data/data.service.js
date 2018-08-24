@@ -65,10 +65,10 @@ dataModule.factory("data.service", ['global', function (g) {
 
 	var contact = {
 		bio:[
-			"I am a software developer mainly focused on JavaScript development using all versions of Angular on the front end. I also develop in Node and Express on the backend. I develop in Linux, automated bash scripting, and on the AWS cloud. I also have experience in Agile workflows.",
-			"I maintain several sites, projects, and games that each have a consistent code base API pulled from a separate maintained, documented, and public URL, listed on this site.",
-			"This process, preferrable to simply posting to GitHub, makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for thier own projects.",
-			"I am looking for work as a JavaScript engineer, software architect, or developer where I would provide solutions and recommendations to address my employer's needs and the needs of thier customers and clients."
+			"I am a software developer with my main focus on software for the web at the moment, JavaScript is my choice of poison using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop on AWS, automated bash scripting, and other Linux development. I am experienced in Agile methodologies.",
+			"I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM registry and Bower and have plans to upgrade my packages to Yarn soon.",
+			"This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for their own projects. And some of my work is on Github anyway :)",
+			"I am looking for work as a JavaScript engineer, software architect, and/or developer where I would provide solutions, work product, or simply recommendations and consultations to address my employer's needs and the needs of their customers and clients."
 		],
 		skills:{
 			title:"Skills",
@@ -109,7 +109,7 @@ dataModule.factory("data.service", ['global', function (g) {
 			{
 				title:"Evolve",
 				href:"evolve.methodswithclass.com",
-				description:"Non-responsive, only viewable on desktop",
+				description:"Fully responsive, view on both desktop and mobile",
 				items:[
 					"Artificial Intelligence, evolutionary programming, genetic algorithm (GA)",
 					"Developed generic GA software that uses generations of sets of solutions to induce machine learning for any given problem",
@@ -124,7 +124,7 @@ dataModule.factory("data.service", ['global', function (g) {
 			{
 				title:"Gravity",
 				href:"gravity.methodswithclass.com",
-				description:"Requires a device with an accelerometer, best viewed on an iPhone (updates for Android are in the works)",
+				description:"Requires a device with an accelerometer like a mobile device",
 				items:[
 					"Developed algorithm to handle device accelerometer data and filter it into usable data (velocity, position) in real time",
 					"Designed and developed Angular web app to demonstrate algorithm in use as a game to move a ball around on screen by moving and tilting the physical device around",
@@ -136,8 +136,8 @@ dataModule.factory("data.service", ['global', function (g) {
 				]
 			},
 			{
-				title:"Gentle Phrasing",
-				href:"www.gentlephrasing.com",
+				title:"Unnecessary Theories",
+				href:"www.unnecessarytheories.io",
 				description:"Fully responsive, view on both desktop and mobile",
 				items:[
 					"Designed and Developed frontend blog site",
