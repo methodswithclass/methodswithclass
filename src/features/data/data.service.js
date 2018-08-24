@@ -43,7 +43,7 @@ dataModule.factory("data.service", ['global', function (g) {
 	},
 	{
 		id:'life',
-		back:'/assets/img/success-custom.jpg',
+		back:'/assets/img/lifeseems.jpg',
 		description:"even though sometimes life feels like this"
 	},
 	{
