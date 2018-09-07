@@ -2,14 +2,14 @@ dataModule.factory("data.service", ['global', function (g) {
 
 	var blocks = [
 	{
-		id:'gravity',
-		back:'/assets/img/gravity.jpg',
-		description:"gravity is a powerful thing. use it to pop bubbles as they wiz around your screen, or to balance an object in the right place. gravity has never been this fun."
-	},
-	{
 		id:'evolve',
 		back:'/assets/img/evolvehuman_black.jpg',
 		description:"have you ever wanted to get a computer to work better. or have you ever wanted to command a population of machines to clean up after you? well with evolve, you can do both."
+	},
+	{
+		id:'gravity',
+		back:'/assets/img/gravity.jpg',
+		description:"gravity is a powerful thing. use it to pop bubbles as they wiz around your screen, or to balance an object in the right place. gravity has never been this fun."
 	},
 	{
 		id:'code',

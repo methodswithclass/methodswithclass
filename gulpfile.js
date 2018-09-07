@@ -13,7 +13,12 @@ merge = require("merge-stream"),
 mainBowerFiles = require("gulp-main-bower-files"),
 nodemon = require('gulp-nodemon'),
 livereload = require('gulp-livereload');
-sass = require("gulp-sass");
+sass = require("gulp-sass"),
+
+
+babel = require("gulp-babel"),
+
+babelPresets = require("./babel.config.js");
 
 
 // var middleware = require("./middleware/middleware.js");
@@ -21,17 +26,33 @@ sass = require("gulp-sass");
 const config = require("./config.js");
 
 
-// var minify = process.env.NODE_ENV == "production";
-var minify = false;
-
-// var injectMin = process.env.NODE_ENV == "production";
-var injectMin = false;
-
+var minify = {
+	main:{
+		full:{
+			make:false,
+			inject:false
+		},
+		min:{
+			make:true,
+			inject:true
+		}
+	},
+	vendor:{
+		full:{
+			make:true,
+			inject:true
+		},
+		min:{
+			make:false,
+			inject:false
+		}
+	}
+}
 
 var injectJS = function () {
 
-	var important = gulp.src('dist/assets/js/vendor' + (minify && injectMin ? ".min" : "") + '.js', {read: false});
-	var standard = gulp.src(["dist/assets/js/main" + (minify && injectMin ? ".min" : "") + ".js", 'dist/assets/**/*.css'], {read:false});
+	var important = gulp.src('dist/assets/js/vendor' + (minify.vendor.min.make && minify.vendor.min.inject ? ".min" : "") + '.js', {read: false});
+	var standard = gulp.src(["dist/assets/js/main" + (minify.main.min.make && minify.main.min.inject ? ".min" : "") + ".js", 'dist/assets/**/*.css'], {read:false});
 
 	return gulp.src('src/index.html')
 	.pipe(inject(important, {ignorePath:"dist", starttag: '<!-- inject:head:{{ext}} -->'}))
@@ -53,48 +74,79 @@ var scripts = function() {
         "src/features/app/app.js"
     ])
 	.pipe(concat('main.js'))
+	.pipe(babel({
+        presets: ["@babel/env"]
+    }))
 
-    var main = mainSrc
-	.pipe(gulp.dest("dist/assets/js"))
+    if (minify.main.full.make) {
+    	mainSrc.pipe(gulp.dest("dist/assets/js"))
+	}
 
-	var mainMin;
+    var mainMin;
 
-	if (minify) {
+	if (minify.main.min.make) {
 		mainMin = mainSrc
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
 		.pipe(gulp.dest("dist/assets/js"))
 	}
 
-	if (minify) {
-		return merge(main, mainMin);
-	}
-	else {
-		return main;
-	}
+	
+	return minify.main.min.make ? mainMin : mainSrc;
 
 };
+
+
+var tempVendor = function () {
+
+	// var shimFile = "node_modules/angular-polyfills/dist/all.js";
+	// var shimFile = "node_modules/es6-shim/es6-shim.min.js";
+
+	var shimFile = "node_modules/@babel/polyfill/dist/polyfill.js";
+
+
+	var shim = gulp.src(shimFile)
+		.pipe(concat("shim.js"))
+		.pipe(gulp.dest("temp/vendor"));
+
+	var bowerSrc = gulp.src("bower.json")
+		.pipe(mainBowerFiles({base:"bower_components"}))
+		.pipe(filter("**/*.js"))
+		.pipe(concat("bower.js"))
+		.pipe(gulp.dest("temp/vendor"));
+
+	var npmSrc = gulp.src([
+			//npm packages for front end use
+        	"node_modules/mc-shared/shared.js"
+			])
+		.pipe(concat("npm.js"))
+		.pipe(gulp.dest("temp/vendor"))
+
+
+	return merge(shim, npmSrc, bowerSrc);
+}
 
 var vendor = function () {
 	
 
-	var vendorSrc = gulp.src("./bower.json")
-		.pipe(mainBowerFiles({base:"./bower_components"}))
-		.pipe(filter("**/*.js"))
-		.pipe(concat("vendor.js"))
+	var js = gulp.src([
+	                  "temp/vendor/shim.js",
+	                  "temp/vendor/bower.js",
+	                  "temp/vendor/**/*.js"
+	                  ])
+	.pipe(concat("vendor.js"))
 
-
-
-	var js = vendorSrc
-	.pipe(gulp.dest("dist/assets/js"));
+	if (minify.vendor.full.make) {
+		js.pipe(gulp.dest("dist/assets/js"))
+	}
 
 	var jsMin;
 
-	if (minify) {
+	if (minify.vendor.min.make) {
 		jsMin = js
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
-		.pipe(gulp.dest("dist/assets/js"));
+		.pipe(gulp.dest("dist/assets/js"))
 	}
 
 	// var css = gulp.src("./bower.json")
@@ -111,7 +163,7 @@ var vendor = function () {
 	// 	return merge(js, css);
 	// }
 
-	return minify ? jsMin : js;
+	return minify.vendor.min.make ? jsMin : js;
 
 };
 
@@ -253,7 +305,7 @@ var serveFunc = function (done) {
 
 var copy = gulp.parallel(misc, index, html, images, fonts)
 
-var compile = gulp.parallel(vendor, scripts);
+var compile = gulp.parallel(gulp.series(tempVendor, vendor), scripts);
 
 var buildTask = gulp.series(gulp.parallel(compile, gulp.series(apiSass, styles), copy), injectJS);
 

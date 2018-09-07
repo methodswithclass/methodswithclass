@@ -12,9 +12,9 @@ app.config(['runtime.stateProvider', '$locationProvider', function (runtimeProvi
 	  runtimeProvider.addState(states[i]);
 	}
 
-}]).run(function (states) {
+}]).run(["states", function (states) {
 
 	states.go("home");
 
 	// forceMobile();
-});
+}]);
