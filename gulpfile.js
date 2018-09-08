@@ -30,7 +30,7 @@ var minify = {
 	main:{
 		full:{
 			make:false,
-			inject:false
+			inject:true
 		},
 		min:{
 			make:true,
@@ -70,6 +70,7 @@ var scripts = function() {
         "src/features/state/stateModule.js",
         "src/features/interface/uiModule.js",
         "!src/features/interface/parallax.js",
+        "src/assets/js/parallax-5.0.js",
         "src/features/**/*.js",
         "src/features/app/app.js"
     ])
@@ -291,16 +292,6 @@ var serveFunc = function (done) {
 	
 }
 
-
-
-// var watcher = gulp.watch('src/assets/**/*.scss', apiSass);
-
-// watcher.on("change", function () {
-
-// 	gulp.task(apiSass);
-
-// 	// done();
-// });
 
 
 var copy = gulp.parallel(misc, index, html, images, fonts)

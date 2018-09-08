@@ -8,7 +8,14 @@ stateModule.provider("runtime.state", ["$stateProvider", function ($stateProvide
         name:"home",
         url:"/home",
         template:"<div class='relative width height' ng-include='getContentUrl()'></div>",
-        controller:['$scope', 'global', 'data.service', function ($scope, g, data) {
+        controller:['$scope', 'data.service', function ($scope, data) {
+
+            var shared = window.shared;
+            var g = shared.utility_service;
+            var send = shared.send_service;
+            var react = shared.react_service;
+            var events = shared.events_service;
+
 
             var self = this;
 
@@ -41,7 +48,15 @@ stateModule.provider("runtime.state", ["$stateProvider", function ($stateProvide
         name:"contact",
         url:"/contact",
         template:"<div class='relative width height' ng-include='getContentUrl()'></div>",
-        controller:['$scope', 'global', '$stateParams', 'data.service', function ($scope, g, $stateParams, data) {
+        controller:['$scope', '$stateParams', 'data.service', function ($scope, $stateParams, data) {
+
+
+            var shared = window.shared;
+            var g = shared.utility_service;
+            var send = shared.send_service;
+            var react = shared.react_service;
+            var events = shared.events_service;
+
 
             $scope.contact = data.contact;
 
@@ -83,7 +98,7 @@ stateModule.provider("runtime.state", ["$stateProvider", function ($stateProvide
         $stateProvider.state(state);
     }
 
-    provider.$get = ['send', '$location', 'data.service', 'global', '$state', function (send, $location, data, g, $state) {
+    provider.$get = ['data.service', function (data) {
 
       //console.log("get add state factory");
 

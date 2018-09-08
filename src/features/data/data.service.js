@@ -1,4 +1,12 @@
-dataModule.factory("data.service", ['global', function (g) {
+dataModule.factory("data.service", [function () {
+
+
+	var shared = window.shared;
+    var g = shared.utility_service;
+    var send = shared.send_service;
+    var react = shared.react_service;
+    var events = shared.events_service;
+
 
 	var blocks = [
 	{
@@ -161,6 +169,16 @@ dataModule.factory("data.service", ['global', function (g) {
 			]
 		}
 	}
+
+	var addIndexesToArray = function (array) {
+
+		array.forEach(function (value, index) {
+
+			value.index = index;
+		});
+	}
+
+	addIndexesToArray(blocks);
 
 	return {
 		blocks:blocks,

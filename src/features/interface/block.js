@@ -1,5 +1,13 @@
 
-uiModule.directive('block', ['global', 'states', '$window', function (g, states, $window) {
+uiModule.directive('block', ['states', '$window', function (states, $window) {
+
+
+	var shared = window.shared;
+    var g = shared.utility_service;
+    var send = shared.send_service;
+    var react = shared.react_service;
+    var events = shared.events_service;
+
 
 	return {
 		restrict:'E',

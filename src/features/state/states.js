@@ -1,4 +1,11 @@
-stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 'send', function ($q, runtime, $state, $rootScope, send) {
+stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', function ($q, runtime, $state, $rootScope) {
+
+	var shared = window.shared;
+    var g = shared.utility_service;
+    var send = shared.send_service;
+    var react = shared.react_service;
+    var events = shared.events_service;
+
 
 	var body = {};
 
@@ -6,7 +13,7 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 's
 
 	var states = runtime.states;
 
-	send.setup.receiver({name:"body", receiver:body});
+	send.back.setup({name:"body", receiver:body});
 
 	var splitStateName = function (state) {
 
@@ -35,7 +42,7 @@ stateModule.factory("states", ['$q', 'runtime.state', '$state', '$rootScope', 's
 
 			console.log("state change end");	  
 
-			refreshBackgrounds(".parallax");
+			// refreshBackgrounds(".parallax");
 		}
 	);
 

@@ -1,4 +1,4 @@
-var app = angular.module('methodswithclass', ['shared.module', 'stateModule', 'uiModule', "ui.router"]);
+var app = angular.module('methodswithclass', ['stateModule', 'uiModule', "ui.router"]);
 
 app.config(['runtime.stateProvider', '$locationProvider', function (runtimeProvider, $locationProvider) {
 

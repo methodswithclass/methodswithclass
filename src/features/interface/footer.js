@@ -1,4 +1,12 @@
-uiModule.directive("footer", ['global', '$state', function (g, $state) {
+uiModule.directive("footer", ['$state', function ($state) {
+
+
+	var shared = window.shared;
+    var g = shared.utility_service;
+    var send = shared.send_service;
+    var react = shared.react_service;
+    var events = shared.events_service;
+
 
 	return {
 		restrict:'E',
