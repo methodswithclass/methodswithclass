@@ -5,7 +5,8 @@
 
 </div>
 
-<div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}" ng-click='clicked()'>
+<!-- <div class="relative width height-800 black-back cutoff noedge" id="{{'space' + info.id}}" ng-click='clicked()'> -->
+<div class="relative width height-800 cutoff noedge" parallax name="{{info.id}}" scroll="body" src="{{info.back}}" img-id="parallax-img-{{info.index}}" adjustinner="true" ng-click='clicked()'>
 
 	<div ng-show="info.id == 'gravity'" class="absolute width height blue2-back z-10">
 		
@@ -34,7 +35,7 @@
 		</div>
 	</div>
 
-    <img class="absolute width-auto height120 center" ng-src="{{info.back}}"/>
+    <!-- <img class="absolute width-auto height120 center" ng-src="{{info.back}}"/> -->
 
 </div>
 
