@@ -17,6 +17,8 @@ uiModule.directive("resume", [function () {
 
 			$scope.getContentUrl = function() {
                 
+				var view;
+
 				if (g.isMobile()) {
 					view = "m.resume.html";
 				}

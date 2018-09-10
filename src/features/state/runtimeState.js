@@ -102,7 +102,7 @@ stateModule.provider("runtime.state", ["$stateProvider", function ($stateProvide
 
       //console.log("get add state factory");
 
-        var blogs = data.blogs;
+        // var blogs = data.blogs;
 
         var service = function () {
 
