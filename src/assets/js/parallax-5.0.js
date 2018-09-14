@@ -366,16 +366,6 @@ parallax.directive('parallax', ['util', function (u) {
 			if ($scope.top) {
 				eqs = {m:-0.99, b:-1*($ih-elemheight)/2}
 			}
-			else if ($ih <= bodyheight) {
-
-				eqs = u.linear({
-					x1:(-1)*xBuffer,
-					x2:bodyheight-elemheight + xBuffer,
-
-					y1:-1*(elemheight-$ih)/2 - yBuffer,
-					y2:(elemheight-$ih)/2 + yBuffer
-				});
-			}
 			else {
 				eqs = {m:-0.99, b:(innerheight-bodyheight)};
 			}
@@ -484,7 +474,15 @@ parallax.directive('parallax', ['util', function (u) {
 		//             {"adjustinner": $scope.adjustinner}
 		// ])
 
-		factor = $scope.factor ? $scope.factor : factor;
+		factor = $scope.factor ? parseFloat($scope.factor) : factor;
+		
+		if (factor < 0 || factor >= 0) {
+			// console.log("factor is", factor);
+		}
+		else {
+			console.log("factor is indeterminate for", $scope.name + ",", "set factor to 1");
+			factor = 1;
+		}
 
 		u.waitForElem({elems:["#" + $scope.scroll]}, function (options) {
 

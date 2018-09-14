@@ -18,3 +18,6 @@ app.config(['runtime.stateProvider', '$locationProvider', function (runtimeProvi
 
 	// forceMobile();
 }]);
+
+
+getAngularModules(app);

@@ -1,5 +1,5 @@
 
-uiModule.directive('block', ['states', '$window', function (states, $window) {
+uiModule.directive('block', ['states', '$window', "general", function (states, $window, general) {
 
 
 	var shared = window.shared;
@@ -62,6 +62,13 @@ uiModule.directive('block', ['states', '$window', function (states, $window) {
 				}
 
 			}
+
+			$scope.trustHtml = function (html) {
+
+                // console.log("html", general, html);
+
+                return general.renderHtml(html);
+            }
 
 		}
 

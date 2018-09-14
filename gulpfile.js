@@ -70,6 +70,7 @@ var scripts = function() {
         "src/features/state/stateModule.js",
         "src/features/interface/uiModule.js",
         "!src/features/interface/parallax.js",
+        "src/assets/js/supporting-code.js",
         "src/assets/js/parallax-5.0.js",
         "src/features/**/*.js",
         "src/features/app/app.js"
@@ -256,7 +257,7 @@ var serveFunc = function (done) {
 	var stream = nodemon({ 
 		script: path.join(__dirname, "server.js"),
 		ext:"js html css json",
-		watch:["./src", "./backend"],
+		watch:["./src"],
 		tasks:["build"]
 	});
 

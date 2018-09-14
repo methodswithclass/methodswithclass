@@ -12,32 +12,65 @@ dataModule.factory("data.service", [function () {
 	{
 		id:'evolve',
 		back:'/assets/img/evolvehuman_black.jpg',
-		description:"have you ever wanted to get a computer to work better. or have you ever wanted to command a population of machines to clean up after you? well with evolve, you can do both."
+		description:`
+		
+		have you ever wanted to teach a robot<br>to clean up after you? <br><br>
+
+		well my evolve site is for you
+
+		`
 	},
 	{
 		id:'gravity',
 		back:'/assets/img/gravity.jpg',
-		description:"gravity is a powerful thing. use it to pop bubbles as they wiz around your screen, or to balance an object in the right place. gravity has never been this fun."
+		description:`
+		
+		gravity is a powerful thing. <br><br>
+		
+		use it to pop bubbles as they wizz around your screen, or to balance an object in the right place.<br><br>
+
+		gravity has never been this fun
+		
+		`
+
 	},
 	{
 		id:'code',
 		back:'/assets/img/matrix2.jpg',
-		description:"I offer code to the masses, feast and be merry"
+		description:`
+
+		I offer code to the masses<br><br>
+
+		feast and be merry :-)
+
+		`
 	},
 	{
 		id:'hire',
 		back:'/assets/img/garfield.jpg',
-		description:"i'm a programmer for hire"
+		description:"i'm also a programmer for hire"
 	},
 	{
 		id:'poetry',
 		back:'/assets/img/code-poetry.jpg',
-		description:"what I do is more than just content delivery"
+		description:`
+
+		what I do is more than just <br><br>
+
+		source code production and client work
+
+		`
 	},
 	{
 		id:'intense',
 		back:'/assets/img/intense_coding.jpg',
-		description:"cuz I actually enjoy what I do, and I do it a lot"
+		description:`
+
+		I enjoy what I do<br><br>
+
+		and I do it a lot
+
+		`
 	},
 	{
 		id:'procrastinate',
@@ -52,12 +85,18 @@ dataModule.factory("data.service", [function () {
 	{
 		id:'life',
 		back:'/assets/img/lifeseems.jpg',
-		description:"even though sometimes life feels like this"
+		description:"even though life sometimes feels like this"
 	},
 	{
 		id:'vader',
 		back:'/assets/img/vader_choke.jpg',
-		description:"which sometimes makes you want to do this"
+		description:`
+
+		which sometimes makes you<br><br> 
+
+		want to do this
+
+		`
 	},
 	{
 		id:'html',
