@@ -1,4 +1,4 @@
-uiModule.directive("resume", [function () {
+uiModule.directive("resume", ["general", function (general) {
 
 
 	var shared = window.shared;
@@ -27,6 +27,13 @@ uiModule.directive("resume", [function () {
 				}
 
                 return 'assets/views/' + view;
+            }
+
+            $scope.trustHtml = function (html) {
+
+                // console.log("html", general, html);
+
+                return general.renderHtml(html);
             }
 
 		}

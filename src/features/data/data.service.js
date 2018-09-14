@@ -111,12 +111,25 @@ dataModule.factory("data.service", [function () {
 	];
 
 	var contact = {
-		bio:[
-			"I am a software developer with my main focus on software for the web at the moment, JavaScript is my choice of poison using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop on AWS, automated bash scripting, and other Linux development. I am experienced in Agile methodologies.",
-			"I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM registry and Bower and have plans to upgrade my packages to Yarn soon.",
-			"This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, and distribute my work to those who might want to use it for their own projects. And some of my work is on Github anyway :)",
-			"I am looking for work as a JavaScript engineer, software architect, and/or developer where I would provide solutions, work product, or simply recommendations and consultations to address my employer's needs and the needs of their customers and clients."
-		],
+		bio:`
+
+
+		I am a software developer with my main focus for the moment on fullstack software for the web.<br><br>
+
+		What I do is my passion, JavaScript is my choice of poison :) using all flavors of Angular and React on the frontend, and Node/Express on the backend. I also develop a bit in Java and Python.<br><br> 
+
+		I'm an AWS developer as well, writing automated bash scripts, and doing other Linux development. I'm experienced in Agile methodologies.<br><br>
+
+
+		I maintain several sites, projects, and games that each have a consistent code base API pulled from a remote and public server that's listed on this page. I also contribute to the NPM registry and Bower and have plans to upgrade my packages to Yarn soon.<br><br>
+
+
+		This process, preferrable to simply posting to GitHub, keeps my code in house and centralized, it makes my code actionable by anyone in real time, keeps all my projects consistent, allows me to present my source code to anyone interested, distribute my work to those who might want to use it for their own projects, and document it robustly. And some of my work is on Github anyway :)<br><br>
+
+
+		I am looking for work as a JavaScript engineer, software architect, and/or developer where I would provide solutions, work product, or simply recommendations and consultations to address my employer's needs and the needs of their customers and clients.
+
+		`,
 		skills:{
 			title:"Skills",
 			items:[

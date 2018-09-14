@@ -6,10 +6,15 @@
 
 			<div class="relative width margin-bottom-50 border-bottom">
 
-				<div class="relative width padding-v-20" ng-repeat="paragraph in contact.bio">
+				<!-- <div class="relative width padding-v-20" ng-repeat="paragraph in contact.bio">
 					<div class="relative width80 hcenter">{{paragraph}}</div>
 				</div>
+				 -->
 
+
+				<div class="relative width padding-v-20">
+					<div class="relative width80 hcenter" ng-bind-html="trustHtml(contact.bio)"></div>
+				</div>
 			</div>
 
 			<div class="relative width margin-bottom-50 border-bottom">
