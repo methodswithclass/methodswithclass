@@ -3,6 +3,23 @@ var gulp = require("gulp");
 var merge = require("merge-stream");
 var imagemin = require('gulp-imagemin');
 
+
+var watch = true;
+
+var reporters = [
+{
+	index:0,
+	name:"custom"
+},
+{
+	index:1,
+	name:"stylish"
+}
+]
+
+var whichReporter = 1;
+
+
 var htmlDest = "dist/";
 
 
@@ -100,7 +117,9 @@ module.exports = {
 		sassStyles:sassStyles,
 		cssStyles:cssStyles,
 		miscSrc:miscSrc,
-		minify:minify
+		minify:minify,
+		reporters:reporters,
+		reporter:whichReporter
 	},
 	livereloadPort:livereloadPort,
 	basedir:directory

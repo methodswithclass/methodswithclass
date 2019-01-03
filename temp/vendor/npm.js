@@ -240,7 +240,7 @@ var obj = {};
 
 	var r = function (name) {
 
-		var found = names.find((p) => {
+		var found = names.find(function (p) {
 
 			return p == name;
 		})
@@ -536,7 +536,11 @@ var obj = {};
 	// distinguish between a few popular mobile user agents, desktop agents, and IE
 	var whatDevice = function (forceMobile) {
 
-		if (mcshared._mobile) return mobile;
+		if (_mobile || forceMobile) return mobile;
+		else if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.indexOf('Edge') != -1 || navigator.userAgent.match(/rv:11/))) {
+
+			return ie;
+		}
 		else if(navigator.userAgent.match(/Android/i) ||
 	            navigator.userAgent.match(/webOS/i) ||
 	            navigator.userAgent.match(/iPhone/i) ||
@@ -544,15 +548,12 @@ var obj = {};
 	            navigator.userAgent.match(/iPad/i) ||
 	            navigator.userAgent.match(/Blackberry/i) ) {
 
-			return mcshared.mobile;
+			return mobile;
 		}
 		else if (navigator.userAgent.indexOf('Firefox') != -1 || navigator.userAgent.indexOf('Chrome') != -1 || navigator.userAgent.indexOf('Safari') != -1) {
 
-			return mcshared.desktop;
+			return desktop;
 		}
-		else
-
-			return mcshared.ie;
 
 	}
 
@@ -836,13 +837,23 @@ var obj = {};
 
 	var waitForElem = function (options, complete) {
 
+		var c = {
+			noexist:"noexist",
+			found:"found",
+			notfound:"notfound"
+		}
+
         var count = 0;
         var result = false;
         var active = []
 
         var checkElements = function (array) {
 
-        	result = false;
+        	if (array === undefined || array === null) {
+        		return c.noexist;
+        	}
+
+        	result = c.found;
         	active = [];
 
         	if (Array.isArray(array)) {
@@ -862,10 +873,10 @@ var obj = {};
 
 	        	if (active.length >= array.length) {
 
-	        		result = true;
+	        		result = c.found;
 	        	}
 	        	else {
-	        		result = false;
+	        		result = c.notfound;
 	        	}
 
         	}
@@ -875,10 +886,10 @@ var obj = {};
 
         		if ($(array)[0]) {
         			// console.log("element does not exist");
-        			result = true;
+        			result = c.found;
         		}
         		else {
-        			result = false;
+        			result = c.notfound;
         		}
 
         	}
@@ -886,14 +897,23 @@ var obj = {};
         	return result;
         }
 
+        var stopTimer = function () {
+
+        	clearInterval(waitTimer);
+            waitTimer = null;
+        }
+
         var waitTimer = setInterval(function () {
 
-            if (checkElements(options.elems) || count >= 500) {
+
+        	if (checkElements(options.elems) == c.noexist) {
+        		stopTimer();
+        	}
+			else if (checkElements(options.elems) == c.found || count >= 500) {
 
             	// console.log("clear interval");
 
-                clearInterval(waitTimer);
-                waitTimer = null;
+            	stopTimer();
 
                 if (count < 500) {
 
@@ -965,6 +985,11 @@ var obj = {};
     }
 
 	obj.utility_service = {
+		devices:{
+			mobile:mobile,
+			desktop:desktop,
+			ie:ie
+		},
 		forceMobile:forceMobile,
 		isMobile:isMobile,
 		whatDevice:whatDevice,
